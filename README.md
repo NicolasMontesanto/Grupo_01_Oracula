@@ -1,4 +1,4 @@
-# Orácula ✨
+# Orácula <img width="05%" align="centre" alt="magic" src="https://img.icons8.com/dotty/344/sparkling.png" /> 
 <img width="40%" align="right" alt="Caldero" src="https://github.com/NicolasMontesanto/Grupo_01_Oracula/blob/feature_logo/design/Logo/linealNegro.png" />
 <a href="https://github.com/NicolasMontesanto/Grupo_01_Oracula/tree/main">
   
@@ -11,7 +11,7 @@ Juntxs hacemos Orácula, pensando en lo que a nosotrxs mismxs nos gustaría enco
 
 En nuestro portal vas a poder acceder a un universo lleno de lo mejor del mundo fantástico en todas las formas que te puedas imaginar, tanto en sus versiones más populares como de culto, desde juegos, pasando por Fan Art, libros y otros objetos. Buscamos que la nuestra sea una plataforma donde puedas acceder a todo lo que buscas, donde no solo podrás comprarlo sino que podrás suscribirte para tener acceso antes que nadie a las novedades. Al mismo tiempo confiamos en poder ser conocidxs como un lugar seguro donde otrxs fans de la fantasía puedan mostrar sus obras, acercando a los fanáticxs con artistas de calidad pero aún anónimxs..
 
-### Te ofrecemos:
+### <img width="05%" align="centre" alt="magic" src="https://img.icons8.com/external-glyph-chroma-amoghdesign/452/external-fantasy-happy-new-year-glyph-chroma-amoghdesign.png" /> Vas a encontrar:  
 
 - Juegos
 - Libros
@@ -20,7 +20,7 @@ En nuestro portal vas a poder acceder a un universo lleno de lo mejor del mundo 
 - Objetos
 - Suscripción mensual
   - novedades del género
-  - caja de sorpresa
+  - caja de sorpresa    
   
   
 <img width="15%" align="left" alt="fairy" src="https://img.icons8.com/external-flat-lima-studio/344/external-fairy-monster-flat-lima-studio.png" />
