@@ -34,4 +34,7 @@ Somos un grupo de 4 [forofes](https://www.lexico.com/es/definicion/forofo) que c
 |Rocio       |                          |
 |Juan Cruz   |                          |
 |Nicolas     |                          |
-|Alicia      | aliciabpenayo@gmail.com  |                |
+|Alicia      | aliciabpenayo@gmail.com  |                
+
+* [ ] suscribite!
+
