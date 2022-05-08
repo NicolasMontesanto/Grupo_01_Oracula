@@ -7,9 +7,9 @@
 te invitamos a conocer el repositorio de nuestro eCommerce de productos del género fantástico
 
 ## Nuestra oferta
-Juntos hacemos Orácula, pensando en lo que a nosotrxs mismxs nos gustaría encontrar como fans del género, una especie de **fanfic** pero en versión ***magic Marketplace***, buscando materializar, en este embrujo de ```código```, magia digital, una puerta a otros mundos donde puedas vivir una experiencia maravillosa.
+Juntxs hacemos Orácula, pensando en lo que a nosotrxs mismxs nos gustaría encontrar como fans del género, una especie de **fanfic** pero en versión ***magic Marketplace***, buscando materializar, en este embrujo de ```código```, magia digital, una puerta a otros mundos donde puedas vivir una experiencia maravillosa.
 
-En nuestro portal vas a poder acceder a un universo lleno de lo mejor mundo fantástico en todas las formas que te puedas imaginar, tanto en sus versiones más populares como de culto, desde juegos, pasando por Fan Art, libros y otros objetos. Buscamos que la nuestra sea una plataforma donde puedas acceder a todo lo que buscas, donde no solo podrás comprarlo sino que podrás suscribirte para tener acceso antes que nadie a las novedades. Y al mismo tiempo confiamos en poder ser conocidos como un lugar seguro donde otrxs fans de la fantasía puedas mostrar sus obras, acercando a los fanáticos con artistas de calidad pero aún desconocidos..
+En nuestro portal vas a poder acceder a un universo lleno de lo mejor del mundo fantástico en todas las formas que te puedas imaginar, tanto en sus versiones más populares como de culto, desde juegos, pasando por Fan Art, libros y otros objetos. Buscamos que la nuestra sea una plataforma donde puedas acceder a todo lo que buscas, donde no solo podrás comprarlo sino que podrás suscribirte para tener acceso antes que nadie a las novedades. Al mismo tiempo confiamos en poder ser conocidos como un lugar seguro donde otrxs fans de la fantasía puedan mostrar sus obras, acercando a los fanáticxs con artistas de calidad pero aún desconocidxs..
 
 ### Te ofrecemos:
 
@@ -36,5 +36,5 @@ Somos un grupo de 4 [forofes](https://www.lexico.com/es/definicion/forofo) que c
 |Nicolas     |                          |
 |Alicia      | aliciabpenayo@gmail.com  |                
 
-* [ ] suscribite!
+* [ ] visitanos!
 
