@@ -1,4 +1,4 @@
-# Orácula <img width="05%" align="centre" alt="magic" src="https://img.icons8.com/dotty/344/sparkling.png" /> 
+# <img width="04%" align="centre" alt="magic" src="https://img.icons8.com/dotty/344/sparkling.png" />  Orácula <img width="04%" align="centre" alt="magic" src="https://img.icons8.com/dotty/344/sparkling.png" /> 
 <img width="40%" align="right" alt="Caldero" src="https://github.com/NicolasMontesanto/Grupo_01_Oracula/blob/feature_logo/design/Logo/linealNegro.png" />
 <a href="https://github.com/NicolasMontesanto/Grupo_01_Oracula/tree/main">
   
