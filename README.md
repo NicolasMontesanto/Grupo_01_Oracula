@@ -1,5 +1,5 @@
 # <img width="04%" align="centre" alt="magic" src="https://img.icons8.com/dotty/344/sparkling.png" />  Orácula <img width="04%" align="centre" alt="magic" src="https://img.icons8.com/dotty/344/sparkling.png" /> 
-<img width="40%" align="right" alt="Caldero" src="https://github.com/NicolasMontesanto/Grupo_01_Oracula/blob/feature_logo/design/Logo/blancV2ojo.png" />
+<img width="40%" align="right" alt="Caldero" src="https://github.com/NicolasMontesanto/Grupo_01_Oracula/blob/feature_logo/design/Logo/gris.png" />
 <a href="https://github.com/NicolasMontesanto/Grupo_01_Oracula/tree/main">
   
 <img align="left" alt="Oracula's Github" width="26px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/github.svg" />
