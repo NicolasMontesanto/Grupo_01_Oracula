@@ -1,0 +1,330 @@
+/*paleta de colores 
+Morado: #45293f; 
+marron claro: #B0A987
+Gris claro: #a9b2a2
+Gris iconos body(intermedio): #788a87
+Gris oscuro: #576069
+Amarillo anaranjado: #FBB954
+Naranja: #CD683D
+Terracota: #993D41
+Filtro: #171B27 - opacidad 54%
+*/
+* {
+    box-sizing: border-box;
+    margin: auto;
+    font-family: 'Playfair Display', serif;
+}
+body{
+    width: 100vw;
+    margin: 0px;
+}
+
+ul {
+    list-style: none;
+}
+
+div.fondo {
+    height: 100vh;
+}
+git header {
+    background-color: #45293f;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+}
+
+.logo {
+    width: 60px;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    color: #B0A987;
+    transition:350ms;
+}
+button :hover{
+    color: #993D41;
+    
+}
+
+div.busqueda {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+div.busqueda form {
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    padding: 5px;
+}
+
+input.searchBar {
+    box-shadow: inset 2px 3px 3px #40423f;
+    height: 28px;
+    width: 100%;
+    background-color: #576069;
+    border: #576069;
+    border-radius: 13px;
+    flex-grow: 1;
+}
+
+
+button.lupa {
+    color: #45293f;
+    z-index: 2;
+    font-size: 30px;
+    position: absolute;
+    right: 2%;
+    top: 3px;
+}
+
+#hamburguesita {
+    color: #B0A987;
+    font-size: 50px;
+    font-weight: bolder;
+    margin: 5px 5px;
+}
+
+#basket {
+    color: #B0A987;
+    font-size: 35px;
+    margin: 5px 5px;
+}
+
+
+
+#footerMobile {
+    display: flex;
+    border: 1px solid #a9b2a2;
+    width: 95vw;
+    text-align: center;
+    padding: 5px;
+    margin: 10px;
+}
+
+#footerMobile ul li a{
+    color: #a9b2a2;
+}
+
+div.logoDiv{
+    position: relative;
+}
+div.nombre{
+    color: white;
+    font-size: large;
+    text-shadow: #45293f 2px 5px;
+    position: absolute;
+    bottom: -5px;
+    left: -5px;
+}
+
+
+#barraDesktop,
+#botonesDesktop,
+#footerDesktop,
+.logoBox {
+    display: none;
+}
+
+@media (min-width: 1000px) {
+
+    .fondo {
+        background-image: url(/img/Background.jpg);
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100vw;
+    }
+    
+    .logoBox img.logo {
+        margin-left: 5px;
+        width: 7vw;
+        position: absolute;
+        bottom: 2px;
+        top: 2px;
+    }
+    .nombre2{
+        color: white;
+        font-size: xx-large;
+        text-shadow: #171B27 2px 5px;
+        position: absolute;
+        bottom: -30px;
+        top: 8px;
+        left: 40px;
+        right: 5px;
+    }
+
+    div.nombre{
+        color: white;
+        font-size: xx-large;
+        text-shadow: #45293f 2px 5px;
+        position: absolute;
+        bottom: 10px;
+        left: 25px;
+        right: 5px;
+    }
+
+    
+
+    .navs,
+    div.redes,
+    #barraDesktop,
+    .logoBox,
+    #barraDesktop ul,
+    nav#botonesDesktop,
+    #barraDesktop,
+    #barraDesktop ul,
+    .logoBox {
+        display: flex;
+    }
+
+    header {
+        flex-wrap: wrap;
+        height: 100px;
+        align-items: flex-end;
+        justify-content: space-between;
+        padding: 0px;
+    }
+
+    .logoBox {
+        position:relative;
+        margin-left: 25px;
+    }
+
+    section.navs {
+        flex-grow: 1;
+        align-self: flex-end;
+        margin: 0px;
+        margin-left: 5vw;
+
+    }
+
+    .categoriaBarraSup {
+        display: flex;
+        color: #FBB954;
+        padding: 0px 10px;
+        font-size: 35px;
+    }
+
+    #botonesDesktop ul li button {
+        font-size: 30px;
+       
+    }
+
+    #botonesDesktop ul {
+        display: flex;
+        padding: 0px;
+        justify-content: space-between;
+        margin-right: 3vw;
+     }
+     
+   .categoriaBarraSup {
+        font-size: 30px;
+        margin:  2px 3vw;
+        margin-right: 2vw;
+    
+    }
+
+    #botonesDesktop ul li button#Login {
+        position: relative;
+        color: white;
+        padding: 0;
+        font-size: 2em;
+        padding-bottom: 10px;
+        margin: 0px;
+        display: flex;
+        justify-self: right;
+        bottom:15px;
+        display: flex;
+    }
+
+    #logoEntrar1 {
+        color: #B0A987;
+        opacity: 0.8;
+        font-size: 1.5em;
+    }
+    #logoEntrar2 {
+        position: relative;
+        color: #B0A987;
+        opacity: 0.8;
+        font-size: 40px;
+        left: 11px;
+     }
+
+    #ingr {
+        color: white;
+        font-size: 22px;
+        padding-bottom: 2px;
+        margin: 0px;
+        margin-left: 10px;
+        position: absolute;
+        bottom: -8px;
+        z-index: 2;
+        
+    }
+    
+    #magicPass{
+        padding-left: 0px;
+        width: 280px ;
+        margin: 0px;
+    }
+
+    li.liBarraSup :hover{
+        background-color: rgba(23, 27, 39, 0.5);
+    }
+
+    #ingr:hover{
+        background-color: transparent;
+    }
+    #footerDesktop {
+        display: flex;
+        position: relative;
+        align-self: baseline;
+        border: solid 1px #B0A987;
+        padding: 20px;
+        margin: 15px;
+        font-size: 16px;
+        line-height: 25px;
+        width: 95vw;
+    }
+
+    #footerDesktop img.logo {
+        position: relative;
+        z-index: 2;
+        bottom: 15px;
+        left: 40px;
+        width: 100px;
+    }
+
+
+    #hamburguesita,
+    div.busqueda form,
+    #basket,
+    input.searchBar,
+    #footerMobile {
+        display: none
+    }
+
+
+    a {
+        color: #a9b2a2;
+    }
+    a:hover{
+        color:#FBB954;
+    }
+
+    .red {
+        color: #a9b2a2;
+        font-size: 25px;
+        padding: 5px;
+        margin-top: 10px;
+    }
+
+}
