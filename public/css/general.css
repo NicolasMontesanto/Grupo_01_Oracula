@@ -26,7 +26,7 @@ ul {
 div.fondo {
     height: 100vh;
 }
-git header {
+header {
     background-color: #45293f;
     display: flex;
     flex-wrap: wrap;
