@@ -56,7 +56,7 @@ color: #CD683D;
 }
 
 .Categorias button:hover{
-    font-size: 5vw;
+    font-size: 40px;
 }
 .Categorias button:hover .Categorias--nombre{
     display: block;
@@ -64,17 +64,22 @@ color: #CD683D;
 }
  
 .Scroll{
+ display: flex;
+ flex-wrap:nowrap;
+ justify-content: space-between;
 width: auto;
 border: #CD683D 1px solid;
-height: 200px;
+height: max-content;
 padding: 10px;
-white-space: nowrap;
 overflow-x: scroll;
 }
 .Scroll_product{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 width: 350px;
 height: 185px;
-margin: 0 1vw;
+margin: 3px;
 padding: 0;
 display: inline-block;
 background-size: cover;
@@ -83,22 +88,62 @@ background-size: cover;
     padding: 2px;
     font-size: 1em;
     color: antiquewhite;
-    text-shadow: 2px 2px 0px #45293f;;
+    text-shadow: 2px 2px 0px #45293f;
 }
 div.Scroll_product--descripcion{
-    background-color: rgba(69, 41, 63, 0.5);
-    margin: 2vh 5vw;
-    padding: 2vh 2vw 3.5vh;
-    color: #d4ceac;
+    background-color: rgba(69, 41, 63, 0.9);
+    text-shadow: 2px 2px 0px #CD683D;
+    margin-top: 5px;
+    padding: 2vh 2vw;
+    color: white;
     text-align: justify;
     border-top: #CD683D 1px solid;
-   
+    visibility: collapse;
+    width: max-content;
 }
+div.Scroll_product--icons{
+    display: flex;
+    width: fit-content;
+    margin: 0 auto;
+    color: #45293f;
+    background-color: #d4ceac;
+    position: relative;
+    left: 90px;
+    top: 10px;
+    font-size: 40px;
+    visibility: hidden;
+}
+
 .Scroll_product#uno{
 background-image: url(/img/productos/multimedia/strangeWorld.jpg);
 }
 .Scroll_product#dos{
     background-image: url(/img/productos/juegos/stardewvaley.png);
+}
+.Scroll_product#tres{
+    background-image: url(/img/productos/fanart/HPFans.jpg);
+}
+.Scroll_product#cuatro{
+    background-image: url(/img/productos/literatura/Audiolibros.jpg);
+}
+.Scroll_product#cinco{
+    background-image: url(/img/productos/literatura/AliciaIlustrado.jpg);
+}
+
+.Scroll_product#seis{
+    background-image: url(/img/productos/multimedia/lordOfRingsSound.jpg);
+}
+.Scroll_product#siete{
+    background-image: url(/img/productos/baratijas/mundoDisco.jpg);
+}
+
+
+
+.Scroll_product:hover div.Scroll_product--descripcion{
+     visibility: visible;
+}
+.Scroll_product:hover div.Scroll_product--icons{
+    visibility: visible;
 }
 
 /*Media query*/
@@ -111,12 +156,13 @@ background-image: url(/img/productos/multimedia/strangeWorld.jpg);
         margin: 0;
         text-align: center;
         justify-items: center;
+        flex-wrap: nowrap;
     }
     .Categorias button{
         display: flex;
         flex-direction: column;
         margin:2vw;
-        flex-grow: 1;
+        width: 15vw;
     }
 }
     

@@ -170,6 +170,7 @@ footer .Logo_imagen {
 @media (min-width: 820px) {
     div.fondo {
         background-image: url(/img/Fondos/Background.jpg);
+        background-size: cover;
     }
 
     header {
