@@ -1,4 +1,3 @@
-
 const express = require('express'); //requiero express
 const path = require('path'); //requiero path
 
@@ -9,7 +8,7 @@ let app = express();
 const publicPath = path.join(__dirname,'../public');
 app.use(express.static(publicPath));
 
-const port = process.env.PORT || 3100;
+const port = process.env.PORT || 3200;
 //defino el puerto
 app.listen(port, ()=>{
     console.log(`Escuchando por el puerto ${port}`)
