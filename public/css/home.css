@@ -1,0 +1,122 @@
+
+/*paleta de colores 
+Morado: #45293f; 
+marron claro: #B0A987
+Gris claro: #a9b2a2
+Gris iconos body(intermedio): #788a87
+Gris oscuro: #576069
+Amarillo anaranjado: #FBB954
+Naranja: #CD683D
+Terracota: #993D41
+Filtro: #171B27 - opacidad 54%
+*/
+
+*{
+    font-family: 'Playfair Display', serif;
+}
+article.Presentacion{
+    padding-top: 11vh;
+    background-color: rgba(69, 41, 63, 0.5);
+}
+.Presentacion--tituloChico{
+font-size: 1.5em;
+text-align: center;
+color: #CD683D;
+}
+.Presentacion--tituloGrande{
+    font-size: 2em;
+    text-align: center;
+    color: #CD683D;
+}
+
+.Presentacion--texto{
+    margin: 2vh 5vw;
+    padding: 2vh 2vw 3.5vh;
+    color: #d4ceac;
+    text-align: justify;
+    border-top: #CD683D 1px solid;
+}
+
+.Categorias{
+    margin: 5vh 1vw;
+    display: flex;
+    border: #CD683D 1pz solid;
+}
+
+.Categorias--nombre{
+    font-size: 3vw;
+    display: none;
+}
+.Categorias button{
+    padding: auto;
+    font-size: 4.5vh;
+}
+.Categorias_creadorxs, .Categorias_soundtracks{
+    display: none;
+}
+
+.Categorias button:hover{
+    font-size: 5vw;
+}
+.Categorias button:hover .Categorias--nombre{
+    display: block;
+    color: #CD683D;
+}
+ 
+.Scroll{
+width: auto;
+border: #CD683D 1px solid;
+height: 200px;
+padding: 10px;
+white-space: nowrap;
+overflow-x: scroll;
+}
+.Scroll_product{
+width: 350px;
+height: 185px;
+margin: 0 1vw;
+padding: 0;
+display: inline-block;
+background-size: cover;
+}
+.Scroll_product--tipo{
+    padding: 2px;
+    font-size: 1em;
+    color: antiquewhite;
+    text-shadow: 2px 2px 0px #45293f;;
+}
+div.Scroll_product--descripcion{
+    background-color: rgba(69, 41, 63, 0.5);
+    margin: 2vh 5vw;
+    padding: 2vh 2vw 3.5vh;
+    color: #d4ceac;
+    text-align: justify;
+    border-top: #CD683D 1px solid;
+   
+}
+.Scroll_product#uno{
+background-image: url(/img/productos/multimedia/strangeWorld.jpg);
+}
+.Scroll_product#dos{
+    background-image: url(/img/productos/juegos/stardewvaley.png);
+}
+
+/*Media query*/
+
+@media (min-width: 820px) {
+    .Categorias_creadorxs, .Categorias_soundtracks{
+        display: block;
+    }
+    .Categorias{
+        margin: 0;
+        text-align: center;
+        justify-items: center;
+    }
+    .Categorias button{
+        display: flex;
+        flex-direction: column;
+        margin:2vw;
+        flex-grow: 1;
+    }
+}
+    

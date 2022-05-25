@@ -1,0 +1,330 @@
+/*paleta de colores 
+Morado: #45293f; 
+marron claro: #B0A987
+Gris claro: #a9b2a2
+Gris iconos body(intermedio): #788a87
+Gris oscuro: #576069
+Amarillo anaranjado: #FBB954
+Naranja: #CD683D
+Terracota: #993D41
+Filtro: #171B27 - opacidad 54%
+*/
+
+* {
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+ul,
+li {
+    list-style: none;
+    margin-block-start: 0%;
+    margin-block-end: 0%;
+    padding-inline-start: 0%;
+    padding-inline-end: 0%;
+    margin: 0;
+}
+
+div.fondo {
+    background-image: url(/img/Fondos/BackgroundMob.png);
+    
+    background-attachment: fixed;
+    height: 200vh;
+    width: 100vw;
+    z-index: -100;
+}
+
+.Secciones,
+.Logo,
+.Logo>*,
+.botonesSuperiores,
+.links_2ndColumn,
+.Adicional_redes {
+    display: none;
+}
+
+.Burguer {
+    justify-self: left;
+    flex-grow: 0;
+    padding: 2px;
+}
+
+#Burguer_icon {
+    color: #FBB954;
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+header {
+    background-color: #45293f;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    width: 100vw;
+    position: fixed;
+    z-index: 300;
+    height: max-content;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    color: #B0A987;
+}
+
+button :hover {
+    color: #993D41;
+}
+
+a {
+    color: #a9b2a2;
+}
+
+a:hover {
+    color: #FBB954;
+}
+
+
+.Busqueda {
+    padding: 5px;
+    position: relative;
+    flex-grow: 1;
+}
+
+.Busqueda_input {
+    box-shadow: inset 2px 3px 3px #40423f;
+    height: 28px;
+    width: 100%;
+    background-color: #576069;
+    border: #576069;
+    border-radius: 13px;
+}
+
+.Busqueda_button {
+    color: #45293f;
+    z-index: 2;
+    font-size: 30px;
+    position: absolute;
+    right: 2%;
+    top: 3px;
+}
+
+.Basket button {
+    color: #FBB954;
+    font-size: 35px;
+    flex-grow: 0;
+}
+
+main {
+    height: 150vh;
+}
+
+
+footer {
+    background-color: rgba(69, 41, 63, 0.5);
+    display: flex;
+    border: 1px solid #a9b2a2;
+    width: 95vw;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+footer .links {
+    justify-self: center;
+    flex-grow: 0.7;
+}
+
+footer .links ul {
+    flex-grow: 1;
+    align-items: space-between;
+}
+
+.Adicional_Logo {
+    display: flex;
+    position: relative;
+    justify-content: space-around;
+    flex-grow: 0.3;
+    margin: 0;
+    margin-right: 10px;
+}
+
+footer .Logo_imagen {
+    display: flex;
+    width: auto;
+    height: 60px;
+    display: flex;
+}
+
+.Logo_nombre {
+    color: white;
+    font-size: large;
+    text-shadow: #45293f 2px 5px;
+    position: absolute;
+    top: 45px;
+    right: 3px;
+}
+
+@media (min-width: 820px) {
+    div.fondo {
+        background-image: url(/img/Fondos/Background.jpg);
+    }
+
+    header {
+        display: flex;
+        align-items: flex-end;
+        position: fixed;
+        height: max-content;
+    }
+    .Logo{
+        height: 10vh;
+    }
+   
+
+    .Basket,
+    .Burguer,
+    .Busqueda {
+        display: none;
+    }
+
+    .Adicional_redes,
+    .links,
+    .Secciones,
+    .Secciones>*,
+    .Logo,
+    .botonesSuperiores,
+    .botonesSuperiores ul,
+    .botonesSuperiores ul li {
+        display: flex;
+    }
+
+    .Secciones {
+
+        justify-content: space-between;
+        flex-grow: 0.6;
+    }
+
+    .Secciones ul {
+        flex-grow: 1;
+        justify-content: space-between;
+    }
+
+    .Secciones ul li button {
+        font-size: x-large;
+        padding-bottom: 5px;
+        color: #FBB954;
+        font-size: 2.5vmax;
+        flex-grow: 1;
+    }
+
+    .Secciones ul li button:hover {
+        background-color: rgba(23, 27, 39, 0.5);
+    }
+
+    nav.botonesSuperiores {
+        flex-grow: 0.2;
+        margin: 0px;
+
+        margin-right: 0.5vw;
+    }
+
+    nav.botonesSuperiores ul {
+        width: 100%;
+        justify-self: center;
+
+        flex-grow: 1;
+
+    }
+
+    .botonesSuperiores button {
+        font-size: 2v;
+        flex-grow: 1;
+    }
+
+    .botonesSuperiores li {
+        flex-grow: 1;
+    }
+
+    .botonesSuperiores_Login {
+        position: relative;
+    }
+
+    #logoEntrar2 {
+        position: relative;
+        color: #B0A987;
+        opacity: 0.8;
+        font-size: 40px;
+        left: 11px;
+    }
+
+    #logoEntrar1 {
+        color: #B0A987;
+        opacity: 0.8;
+        font-size: 1.5em;
+    }
+
+    .botonesSuperiores_Login--texto {
+        color: white;
+        font-size: 22px;
+        padding-bottom: 2px;
+        margin: 0px;
+      
+        position: absolute;
+        bottom: -8px;
+        z-index: 2;
+    }
+
+    .botonesSuperiores_Login--texto:hover {
+        background-color: transparent;
+        font-size: 25px;
+    }
+
+    .Adicional {
+        flex-direction: column;
+
+        justify-content: space-between;
+        margin-right: 15px;
+        padding: 10px;
+    }
+
+    .Adicional_Logo {
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+    footer {
+        text-align: left;
+        font-size: large;
+    }
+
+    footer .Logo_imagen {
+        height: 150px;
+    }
+
+    footer p.Logo_nombre {
+        font-size: xx-large;
+        position: absolute;
+        bottom: 0px;
+        top: 120px;
+    }
+
+    .links_2ndColumn {
+        display: block;
+    }
+
+    .links {
+        flex-grow: 0.5;
+        justify-content: center;
+    }
+
+    .links a {
+        font-size: 1.5vw;
+    }
+
+    .Adicional_redes button {
+        font-size: 30px;
+    }
+
+}
