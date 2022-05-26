@@ -19,3 +19,15 @@ const homePath = path.join(__dirname, "views/home.html")
 app.get("/",(req, res)=>{
 res.sendFile(homePath)
 })
+
+//SignUp
+const signUpPath = path.join(__dirname, "views/signup.html")
+app.get("/signUp",(req, res)=>{
+res.sendFile(signUpPath)
+})
+//SignUp
+const loginPath = path.join(__dirname, "views/login.html")
+app.get("/login",(req, res)=>{
+res.sendFile(loginPath)
+})
+
