@@ -1,0 +1,139 @@
+:root{
+    --morado: #45293f; 
+    --marron-claro: #B0A987;
+    --gris-claro: #a9b2a2;
+    --gris-iconos-body: #788a87;
+    --gris-oscuro: #576069;
+    --amarillo-anaranjado: #FBB954;
+    --naranja: #CD683D;
+    --terracota: #993D41;
+}
+
+.main{
+    width: 100%;
+    flex-direction: column;
+    display:flex;
+    margin-bottom: 40px;
+    color: var(--gris-claro);
+}
+.titulo{
+    display: flex;
+    margin: 20px 0px 20px;
+    justify-content: center;
+    color: var(--amarillo-anaranjado);
+}
+.titulo__text{
+    margin:0px;
+}
+
+.boton-google__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: fit-content;
+    margin: auto;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: var(--amarillo-anaranjado);
+}
+.boton-google{
+    margin-top: 10px;
+    height: 40px;
+    font-weight: 1000;
+    background-color: white;
+    width: 110px;
+    color: #CF4036;
+    border: 2px solid #CF4036;
+}
+
+.formulario__container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.formulario{
+    background-color: rgba(69, 41, 63, 0.5);
+    box-shadow: 10px 10px 5px 0px black;
+    width: 90%;
+    max-width: 650px;
+    margin: auto;
+    margin-bottom: 40px;
+    justify-content: center;
+    align-items: center;
+}
+.formulario__item{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.formulario__password{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.formulario__label{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    align-self: start;
+    margin-bottom: 5px;
+}
+.formulario__input{
+    height: 35px;
+    width: 100%;
+    background-color: rgb(240,240,240);
+}
+.recordar-password{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding:0px 20px;
+}
+.recordar-password__checkbox{
+    width: 15px;
+    height: 15px;
+}
+.formulario__submit{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.link-password-recover{
+    font-size: 14px;
+    margin-left: 20px;
+    margin-bottom: 5px;
+}
+.link-signup{
+    font-size: 14px;
+    margin-left: 20px;
+}
+
+.formulario__icon-submit{
+    font-size: 30px;
+    margin: 10px 20px;
+}
+@media (min-width: 820px) {
+    .link-password-recover,
+    .link-signup{
+        font-size: 16px;
+    }
+    .formulario__icon-submit{
+        font-size: 50px;
+    }
+}

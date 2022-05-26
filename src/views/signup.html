@@ -8,10 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--styles-->
     <link href="/css/general.css" rel="stylesheet" />
-    <link href="/css/home.css" rel="stylesheet" />
-
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/signup.css">
+    <!--<link rel="stylesheet" href="/css/normalize.css">-->
     <!--iconos-->
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+    <script src="https://kit.fontawesome.com/31d3834f2e.js" crossorigin="anonymous"></script>
     <title>Bienvenidxs a Oracula</title>
     <!--googleFonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,6 +23,7 @@
 
 <body>
     <div class="fondo">
+        <!--header-->
         <header>
             <div class="header">
                 <!--Logo-->
@@ -92,107 +95,53 @@
             <!--Relleno de header-->
             <div class="header__relleno"></div>
         </header>
-        <main>
-            <article class="Presentacion">
-                <h2 class="Presentacion--tituloChico"> Has llegado por fin a</h2>
-                <h1 class="Presentacion--tituloGrande"> Oracula</h1>
-                <div class="Presentacion--texto"> Tómate un descanso de tu viaje y observa este sitio maravilloso. <br>
-                    En el caldero de Orácula mezclamos todo aquello que nos llega desde universos fantásiticos. <br> ¡Y
-                    MagicPass es la herramienta que te permitirá acceder a nuestro contenido de forma ilimitada!</div>
-            </article>
-
-            <section class="Categorias">
-                <button class="Categorias_magicPass"><i class="iconify" data-icon="fa-solid:cat"></i>
-                    <div class="Categorias--nombre">MagicPass</div>
-                </button>
-                <button class="Categorias_baratijas"> <i class="iconify" data-icon="fa-solid:bone"></i>
-                    <div class="Categorias--nombre">Baratijas</div>
-                </button>
-                <button class="Categorias_mutimedia"><i class="iconify" data-icon="fa6-solid:eye"></i></i>
-                    <div class="Categorias--nombre">Multimedia</div>
-                </button>
-                <button class="Categorias_juegos"> <i class="iconify" data-icon="fa-solid:dice-d20"></i></i>
-                    <div class="Categorias--nombre">Juegos</div>
-                </button>
-                <button class="Categorias_literatura"><span class="iconify" data-icon="el:fire"></span></i>
-                    <div class="Categorias--nombre">Literatura</div>
-                </button>
-                <button class="Categorias_fans"><span class="iconify" data-icon="fa6-solid:frog"></span></i></i>
-                    <div class="Categorias--nombre">Zona de Fans</div>
-                </button>
-                <button class="Categorias_soundtracks"><span class="iconify"
-                        data-icon="mdi:music-clef-treble"></span></span></span></i></i>
-                    <div class="Categorias--nombre">Soundtracks</div>
-                </button>
-                <button class="Categorias_creadorxs"><span class="iconify"
-                        data-icon="bi:lightning-fill"></span></span></i></i>
-                    <div class="Categorias--nombre">Creadorxs</div>
-                </button>
+        <!--main-->
+        <main class="main">
+            <section class="titulo">
+                <h1 class="titulo__text">Creá Tu Cuenta</h1>
             </section>
-            <h2 class="tituloNovedades"> Lo que no te podés perder </h2>
-            <section class="Scroll">
-                <div class="Scroll_product" id="uno">
-                    <h4 class="Scroll_product--tipo">Pelicula</h4>
-                    <h3 class="Scroll_product--titulo"></h3>
-                    <div class="Scroll_product--descripcion">Strange World es la nueva aventura animada <br> de Disney.
-                        <br> Te contamos de que vá, sin Spoilers!
-                    </div>
+            <section class="formulario__box">
+                <div class="boton-google__container">
+                    <label for="google">Creá tu cuenta con</label>
+                    <button class="boton-google" type="submit" id="google" name="google">
+                        <i class="fa-brands fa-google"></i>
+                        Google
+                    </button>
                 </div>
-                <div class="Scroll_product" id="dos">
-                    <h4 class="Scroll_product--tipo">Juego</h4>
-                    <h3 class="Scroll_product--titulo"></h3>
-                    <div class="Scroll_product--descripcion">Stardew Valley es un juego de simulación <br> de granja
-                        inspirado en juegos como <br> Harvest Moon.</div>
-                    <div class="Scroll_product--icons"><i class="iconify" data-icon="mdi:basket"></i> <i class="iconify"
-                            data-icon="pepicons:bookmark-print"></i></div>
-                </div>
-
-                <div class="Scroll_product" id="tres">
-                    <h4 class="Scroll_product--tipo">Fan Art</h4>
-                    <h3 class="Scroll_product--titulo"></h3>
-                    <div class="Scroll_product--descripcion">Nunca dejamos de sorprendernos con lo que <br> crean lxs
-                        fans!</div>
-                </div>
-
-                <div class="Scroll_product" id="cuatro">
-                    <h4 class="Scroll_product--tipo">Audiolibro</h4>
-                    <h3 class="Scroll_product--titulo"></h3>
-                    <div class="Scroll_product--descripcion">¡Por fin alguien lo hizo! <br> Ahora podés escuchar la saga
-                        <i>completa</i> de <br> Harry Potter narrada por humanxs.
-                    </div>
-                    <div class="Scroll_product--icons"><i class="iconify" data-icon="mdi:basket"></i> <i class="iconify"
-                            data-icon="pepicons:bookmark-print"></i></div>
-                </div>
-
-                <div class="Scroll_product" id="cinco">
-                    <h4 class="Scroll_product--tipo">Libro</h4>
-                    <h3 class="Scroll_product--titulo"></h3>
-                    <div class="Scroll_product--descripcion">Alicia en el pais de las Maravillas <br> ilustrada <i>como
-                            nunca</i> por Benjamin <br> Lacombe</div>
-                    <div class="Scroll_product--icons"><i class="iconify" data-icon="mdi:basket"></i> <i class="iconify"
-                            data-icon="pepicons:bookmark-print"></i></div>
-                </div>
-
-                <div class="Scroll_product" id="seis">
-                    <h4 class="Scroll_product--tipo">Soundtrack</h4>
-                    <div class="Scroll_product--descripcion">Escuchá 3 horas seguidas de El Señor <br> de los Anillos y
-                        viajá a La Tierra Media <br> sin anuncios del mal.</div>
-                    <div class="Scroll_product--icons"><i class="iconify" data-icon="mdi:basket"></i> <i class="iconify"
-                            data-icon="pepicons:bookmark-print"></i></div>
-                </div>
-
-                <div class="Scroll_product" id="siete">
-                    <h4 class="Scroll_product--tipo">Baratijas</h4>
-                    <h3 class="Scroll_product--titulo"></h3>
-                    <div class="Scroll_product--descripcion">¡Maravilloso! ¡Coleccionables de Mundo Disco! <br> Por
-                        supuesto el equipaje se robó nuestros co.. <br> Esperen... ¿dónde está Nico? </div>
-                    <div class="Scroll_product--icons"><i class="iconify" data-icon="mdi:basket"></i> <i class="iconify"
-                            data-icon="pepicons:bookmark-print"></i></div>
-                </div>
-
-
+                <section class="formulario__container">
+                    <form class="formulario" action="/signup" method="post">
+                        <div class="formulario__item">
+                            <label class="formulario__label" for="email">Email:</label>
+                            <input class="formulario__input" type="email" id="email" name="email">
+                        </div>
+                        <div class="formulario__item">
+                            <label class="formulario__label" for="nombre">Nombre:</label>
+                            <input class="formulario__input" type="text" id="nombre" name="nombre">
+                        </div>
+                        <div class="formulario__item">
+                            <label class="formulario__label" for="apellido">Apellido:</label>
+                            <input class="formulario__input" type="text" id="apellido" name="apellido">
+                        </div>
+                        <div class="formulario__item">
+                            <label class="formulario__label" for="password">Contraseña:</label>
+                            <input class="formulario__input" type="password" id="password" name="password">
+                        </div>
+                        <div class="formulario__item">
+                            <label class="formulario__label" for="password-repetir">Repita su Contraseña:</label>
+                            <input class="formulario__input" type="password" id="password-repetir"
+                                name="password-repetir">
+                        </div>
+                        <div class="formulario__submit">
+                            <p class="link-login">¿Ya tenés cuenta? <a href="">Ingresá acá.</a></p>
+                            <button type="submit">
+                                <i class="fa-solid fa-circle-arrow-right formulario__icon-submit"></i>
+                            </button>
+                        </div>
+                    </form>
+                </section>
             </section>
         </main>
+        <!--footer-->
         <footer>
             <div class="footer__container">
                 <section class="links">
