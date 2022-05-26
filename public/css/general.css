@@ -9,10 +9,22 @@ Naranja: #CD683D
 Terracota: #993D41
 Filtro: #171B27 - opacidad 54%
 */
+:root {
+    --morado: #45293f;
+    --marron-claro: #B0A987;
+    --gris-claro: #a9b2a2;
+    --gris-iconos-body: #788a87;
+    --gris-oscuro: #576069;
+    --amarillo-anaranjado: #FBB954;
+    --naranja: #CD683D;
+    --terracota: #993D41;
+}
 
 * {
     box-sizing: border-box;
-    margin: 0 auto;
+    margin: 0px;
+    padding: 0px;
+    font-family: "Playfair Display", sans-serif;
 }
 
 ul,
@@ -27,19 +39,19 @@ li {
 
 div.fondo {
     background-image: url(/img/Fondos/BackgroundMob.png);
-    
     background-attachment: fixed;
-    height: 200vh;
+    background-size: cover;
+    height: 100%;
+    min-height: 100vh;
     width: 100vw;
     z-index: -100;
 }
 
-.Secciones,
-.Logo,
-.Logo>*,
+.secciones,
+.logo,
 .botonesSuperiores,
 .links_2ndColumn,
-.Adicional_redes {
+.adicional_redes {
     display: none;
 }
 
@@ -55,7 +67,7 @@ div.fondo {
     font-weight: bolder;
 }
 
-header {
+.header {
     background-color: #45293f;
     display: flex;
     flex-wrap: wrap;
@@ -65,6 +77,18 @@ header {
     position: fixed;
     z-index: 300;
     height: max-content;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.header__relleno {
+    height: 58px;
 }
 
 button {
@@ -110,141 +134,147 @@ a:hover {
     top: 3px;
 }
 
-.Basket button {
+.basket {
+    padding-right: 5px;
+}
+
+.basket button {
     color: #FBB954;
     font-size: 35px;
     flex-grow: 0;
 }
 
-main {
-    height: 150vh;
+footer {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
 }
 
-
-footer {
-    background-color: rgba(69, 41, 63, 0.5);
+.footer__container {
+    font-size: large;
     display: flex;
-    border: 1px solid #a9b2a2;
-    width: 95vw;
-    text-align: center;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
     padding: 5px;
+    bottom: 1px;
+    max-width: 1200px;
 }
 
-footer .links {
-    justify-self: center;
-    flex-grow: 0.7;
+.links {
+    display: flex;
+    width: 60%;
+    justify-content: space-evenly;
+    padding-left: 10px;
 }
 
-footer .links ul {
-    flex-grow: 1;
-    align-items: space-between;
-}
-
-.Adicional_Logo {
+.adicional_logo {
     display: flex;
     position: relative;
     justify-content: space-around;
-    flex-grow: 0.3;
-    margin: 0;
-    margin-right: 10px;
+    align-items: center;
+    width: 40%;
+    margin: 0px;
 }
 
-footer .Logo_imagen {
+.footer__logo {
     display: flex;
     width: auto;
-    height: 60px;
+    height: 80px;
     display: flex;
 }
 
-.Logo_nombre {
+.footer__logo-nombre {
     color: white;
-    font-size: large;
+    font-size: 14px;
     text-shadow: #45293f 2px 5px;
     position: absolute;
-    top: 45px;
-    right: 3px;
+    bottom: 1px;
+    right: 10px;
 }
 
 @media (min-width: 820px) {
-    div.fondo {
-        background-image: url(/img/Fondos/Background.jpg);
-    }
 
-    header {
+    .adicional_redes,
+    .adicional,
+    .secciones,
+    .logo,
+    .header__logo,
+    .botonesSuperiores,
+    .botonesSuperiores__lista,
+    .botonesSuperiores__elemento {
         display: flex;
-        align-items: flex-end;
-        position: fixed;
-        height: max-content;
     }
-    .Logo{
-        height: 10vh;
-    }
-   
 
-    .Basket,
+    .basket,
     .Burguer,
     .Busqueda {
         display: none;
     }
 
-    .Adicional_redes,
-    .links,
-    .Secciones,
-    .Secciones>*,
-    .Logo,
-    .botonesSuperiores,
-    .botonesSuperiores ul,
-    .botonesSuperiores ul li {
+    div.fondo {
+        background-image: url(/img/Fondos/Background.jpg);
+        background-size: cover;
+    }
+
+    .header {
+        position: fixed;
+        height: max-content;
+    }
+
+    .header__relleno {
+        height: 84px;
+    }
+
+    .header__logo {
+        width: 70px;
+        margin: 5px 0px 10px 20px;
+    }
+
+    .links_2ndColumn {
+        display: block;
+    }
+
+    .secciones {
+        justify-content: space-between;
+        width: 50%;
+        max-width: 550px;
+        min-width: 450px;
+    }
+
+    .secciones__lista {
+        width: 100%;
         display: flex;
-    }
-
-    .Secciones {
-
-        justify-content: space-between;
-        flex-grow: 0.6;
-    }
-
-    .Secciones ul {
-        flex-grow: 1;
         justify-content: space-between;
     }
 
-    .Secciones ul li button {
-        font-size: x-large;
-        padding-bottom: 5px;
+    .secciones__elemento {
+        font-size: 24px;
         color: #FBB954;
-        font-size: 2.5vmax;
-        flex-grow: 1;
     }
 
-    .Secciones ul li button:hover {
+    .secciones__icon {
+        color: var(--marron-claro);
+    }
+
+    .secciones button:hover {
         background-color: rgba(23, 27, 39, 0.5);
     }
 
-    nav.botonesSuperiores {
-        flex-grow: 0.2;
+    .botonesSuperiores {
+        width: 30%;
+        ;
         margin: 0px;
-
-        margin-right: 0.5vw;
+        margin-right: 10px;
+        max-width: 300px;
     }
 
-    nav.botonesSuperiores ul {
+    .botonesSuperiores__lista {
+        justify-content: space-evenly;
         width: 100%;
-        justify-self: center;
-
-        flex-grow: 1;
-
     }
 
-    .botonesSuperiores button {
-        font-size: 2v;
-        flex-grow: 1;
-    }
-
-    .botonesSuperiores li {
-        flex-grow: 1;
+    .botonesSuperiores__boton {
+        font-size: 30px;
     }
 
     .botonesSuperiores_Login {
@@ -270,7 +300,6 @@ footer .Logo_imagen {
         font-size: 22px;
         padding-bottom: 2px;
         margin: 0px;
-      
         position: absolute;
         bottom: -8px;
         z-index: 2;
@@ -281,50 +310,35 @@ footer .Logo_imagen {
         font-size: 25px;
     }
 
-    .Adicional {
+    .adicional {
         flex-direction: column;
-
         justify-content: space-between;
-        margin-right: 15px;
+        align-items: center;
         padding: 10px;
     }
 
-    .Adicional_Logo {
+    .adicional_logo {
         margin-bottom: 20px;
-        position: relative;
     }
 
-    footer {
-        text-align: left;
-        font-size: large;
+    .footer__container {
+        justify-content: space-evenly;
+        align-items: center;
     }
 
-    footer .Logo_imagen {
-        height: 150px;
+    .links__link {
+        line-height: 1.7em;
     }
 
-    footer p.Logo_nombre {
-        font-size: xx-large;
-        position: absolute;
-        bottom: 0px;
-        top: 120px;
+    .footer__logo {
+        height: 100px;
     }
 
-    .links_2ndColumn {
-        display: block;
+    .footer__logo-nombre {
+        right: 25px;
     }
 
-    .links {
-        flex-grow: 0.5;
-        justify-content: center;
+    .adicional_redes button {
+        font-size: 25px;
     }
-
-    .links a {
-        font-size: 1.5vw;
-    }
-
-    .Adicional_redes button {
-        font-size: 30px;
-    }
-
 }
