@@ -93,8 +93,9 @@
  
 .cart-btn {
   display: inline-block;
-  background-color: #7DC855;
+  background-color: #413952;
   border-radius: 6px;
+  border: solid 1px white;
   font-size: 16px;
   color: #FFFFFF;
   text-decoration: none;
@@ -102,7 +103,7 @@
   transition: all .5s;
 }
 .cart-btn:hover {
-  background-color: #64af3d;
+  background-color: rgb(69, 41, 63);
 }
 
 main section{
