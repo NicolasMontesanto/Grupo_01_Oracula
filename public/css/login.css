@@ -11,11 +11,12 @@
 }
 
 .main{
-    width: 100%;
+    width: 100vw;
     flex-direction: column;
     display:flex;
     margin-bottom: 40px;
     color: var(--gris-claro);
+    min-height: 70vh;
 }
 .titulo{
     display: flex;
