@@ -152,6 +152,7 @@ footer {
 .footer__container {
     font-size: large;
     display: flex;
+    margin: auto;
     width: 100%;
     align-items: center;
     justify-content: space-between;

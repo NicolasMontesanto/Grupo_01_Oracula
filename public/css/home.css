@@ -101,6 +101,7 @@ h2 {
     font-size: 1.5em;
 }
 
+
 .destacados h2{
     background-color: #d4ceac;
     color: #45293f;
@@ -147,6 +148,7 @@ font-size: 1.5em;
     bottom: 35%;
     right: 90%
 }
+
 
 .Scroll {
     display: flex;
@@ -305,12 +307,14 @@ div.Scroll_product--icons:hover {
     .Scroll_product--tipo {
         font-size: 20px;
     }
+
     .destacados span{
         font-size: xx-large;
     }
     .destacados span:hover{
         font-size: 2.5em;
     }
+
 
     @keyframes novedades {
         0% {
@@ -323,5 +327,4 @@ div.Scroll_product--icons:hover {
             transform: translate(0px)
         }
     }
-
 }
