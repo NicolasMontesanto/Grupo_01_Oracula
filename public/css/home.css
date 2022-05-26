@@ -11,18 +11,20 @@ Terracota: #993D41
 Filtro: #171B27 - opacidad 54%
 */
 
-*{
-    font-family: 'Playfair Display', serif;
-}
+
 article.Presentacion{
     padding-top: 11vh;
     background-color: rgba(69, 41, 63, 0.5);
+    animation-name: presentacion;
+    animation-duration: 8s;
+    animation-iteration-count: 1;
 }
 .Presentacion--tituloChico{
 font-size: 1.5em;
 text-align: center;
 color: #CD683D;
 }
+
 .Presentacion--tituloGrande{
     font-size: 2em;
     text-align: center;
@@ -37,6 +39,25 @@ color: #CD683D;
     border-top: #CD683D 1px solid;
 }
 
+@keyframes presentacion {
+    0%{
+        visibility: hidden;
+        transform: translate(0px, -300px);
+     }
+     25%{
+        opacity: 25%;
+     }
+     50%{
+        opacity: 50%;
+    }
+    75%{
+        opacity:70%
+    }
+    100%{
+        visibility: visible;
+        transform: translate(0px);
+    }
+}
 .Categorias{
     margin: 5vh 1vw;
     display: flex;
@@ -62,13 +83,18 @@ color: #CD683D;
     display: block;
     color: #CD683D;
 }
- 
+ h2{
+     text-align: center;
+     color: #FBB954;
+     font-size: 1.5em;
+ }
 .Scroll{
  display: flex;
  flex-wrap:nowrap;
  justify-content: space-between;
 width: auto;
 border: #CD683D 1px solid;
+background-color: rgba(69, 41, 63, 0.5);
 height: max-content;
 padding: 10px;
 overflow-x: scroll;
@@ -100,6 +126,7 @@ div.Scroll_product--descripcion{
     border-top: #CD683D 1px solid;
     visibility: collapse;
     width: max-content;
+    background-position-x: center;
 }
 div.Scroll_product--icons{
     display: flex;
@@ -112,6 +139,9 @@ div.Scroll_product--icons{
     top: 10px;
     font-size: 40px;
     visibility: hidden;
+}
+div.Scroll_product--icons:hover{
+    color: #CD683D;
 }
 
 .Scroll_product#uno{
@@ -149,9 +179,20 @@ background-image: url(/img/productos/multimedia/strangeWorld.jpg);
 /*Media query*/
 
 @media (min-width: 820px) {
+
+    .Presentacion--tituloChico{
+        font-size: 2em;
+    }
+    .Presentacion--tituloGrande{
+        font-size: 2.5em;
+    }
+    .Presentacion--texto{
+        font-size: 1.5em;
+    }
     .Categorias_creadorxs, .Categorias_soundtracks{
         display: block;
     }
+
     .Categorias{
         margin: 0;
         text-align: center;
@@ -163,6 +204,46 @@ background-image: url(/img/productos/multimedia/strangeWorld.jpg);
         flex-direction: column;
         margin:2vw;
         width: 15vw;
+    }
+    .Scroll_product{
+        height: 250px;
+        width: max-content;
+        animation-name: novedades;
+        animation-duration: 260s;
+        animation-direction: alternate;
+        animation-iteration-count: infinite;
+    }
+    
+    div.Scroll_product--descripcion{
+    font-size: x-large;
+    }
+    .Scroll_product--tipo{
+        font-size: 1.5em;
+    }
+    @keyframes novedades {
+        0%{
+            transform: translate(0px)
+            
+        }    
+        20% {
+            transform: translate(-505px);
+        }
+    
+        28% {
+            transform: translate(-470px);
+        }
+        43%{
+            transform: translate(-980px);
+        }
+        57%{
+            transform: translate(-1463px);
+        }
+        71%{
+            transform: translate(-1879px);
+        }
+        100%{
+            transform: translate(-2290px);
+        }
     }
 }
     
