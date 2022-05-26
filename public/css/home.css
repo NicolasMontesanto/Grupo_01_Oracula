@@ -106,6 +106,15 @@ h2 {
     background-color: #d4ceac;
     color: #45293f;
 }
+.destacados h3{
+    color: #FBB954;
+    font-size: large;
+    text-shadow: 2px 0px rgb(19, 4, 15);
+    position: absolute;
+    top: 25%
+
+}
+
 .destacados{
     background-color: rgba(69, 41, 63, 0.5);
     position: relative; 
@@ -314,7 +323,14 @@ div.Scroll_product--icons:hover {
     .destacados span:hover{
         font-size: 2.5em;
     }
-
+    .destacados h3{
+        color: #FBB954;
+        font-size: 2.5em;
+        text-shadow: 2px 0px rgb(19, 4, 15);
+        position: absolute;
+        top: 25%;
+        left: 15%;
+    }
 
     @keyframes novedades {
         0% {
