@@ -36,3 +36,8 @@ app.get("/productCart",(req, res)=>{
     res.sendFile(path.join(__dirname, 'views/productCart.html'))
     })
 
+//ProductDetail
+const productDetailPath = path.join(__dirname, "views/productDetail.html")
+app.get("/productDetail",(req, res)=>{
+res.sendFile(productDetailPath)
+})
