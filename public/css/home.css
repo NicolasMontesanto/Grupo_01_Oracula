@@ -92,7 +92,8 @@ article.Presentacion {
 
 .Categorias button:hover .Categorias--nombre {
     display: block;
-    color: #CD683D;
+    color: #a9b2a2;
+    text-shadow: 2px 0px rgb(19, 4, 15);
 }
 
 h2 {
@@ -101,7 +102,9 @@ h2 {
     font-size: 1.5em;
 }
 
-
+h2.tituloOtros{
+    display: none;
+}
 .destacados h2{
     background-color: #d4ceac;
     color: #45293f;
@@ -112,8 +115,8 @@ h2 {
     text-shadow: 2px 0px rgb(19, 4, 15);
     position: absolute;
     top: 25%
-
 }
+
 
 .destacados{
     background-color: rgba(69, 41, 63, 0.5);
@@ -143,14 +146,14 @@ h2 {
 background-color: rgba(69, 41, 63, 0.678);
 font-size: 1.5em;
 }
-#next{
+.next{
     font-size: 1.5em;
     position: absolute;
     color: white;
     bottom: 35%;
 }
 
-#back{
+.back{
     font-size: 1.5em;
     position: absolute;
     color: white;
@@ -259,7 +262,12 @@ div.Scroll_product--icons:hover {
     visibility: visible;
 }
 
+.productos{
+    display: none;
+}
+
 /*Media query*/
+
 
 @media (min-width: 820px) {
 
@@ -304,7 +312,7 @@ div.Scroll_product--icons:hover {
         height: 250px;
         width: max-content;
         animation-name: novedades;
-        animation-duration: 30s;
+        animation-duration: 60s;
         animation-direction: alternate;
         animation-iteration-count: infinite;
     }
@@ -323,17 +331,19 @@ div.Scroll_product--icons:hover {
     .destacados span:hover{
         font-size: 2.5em;
     }
-    .destacados h3{
+
+     .destacados h3{
         color: #FBB954;
         font-size: 2.5em;
         text-shadow: 2px 0px rgb(19, 4, 15);
         position: absolute;
         top: 25%;
-        left: 15%;
+        left: 18%;
+        width: 80%;
     }
 
     @keyframes novedades {
-        0% {
+        10% {
             transform: translate(0px)
         }
         50% {
@@ -342,5 +352,95 @@ div.Scroll_product--icons:hover {
         100% {
             transform: translate(0px)
         }
+    }
+    
+    .tituloNovedades{
+       font-size:  40px;
+    }
+    h2.tituloOtros{
+        display: block;
+        margin-top: 25px;
+        font-size: 40px;
+    }
+
+    .productos{
+        display:flex;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        width: 85vw;
+        margin: auto;
+        margin-top: 15px;
+        justify-content: center;
+    }
+    .productos_horizontal{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        justify-content: space-between;
+        padding: 10px 0;
+        
+
+    }
+
+    .productos_horizontal div, .productos_horizontal img{
+    display: flex;
+    flex-grow: 1;
+    max-height: 47%;
+    width: 100%;
+    margin: 0px;
+    }
+
+    .productos_horizontal div{
+        background-image: url(/img/Fondos/circulo.png);
+        background-size: cover;
+        background-position: center;
+        background-color: #4e24459a;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+    }
+       
+    .productos_imgFuera{
+        display: flex; 
+        background-color: #45293f;
+        height: auto;
+        margin: 10px;
+        width: 50%;
+    }
+    .productos__titulo{
+        font-size: 50px;
+        margin: 10px;
+        text-shadow: 2px 0px rgb(252, 243, 249);
+    }
+    .productos__descripcion{
+        font-size: 20px;
+        width: 85%;
+        font-weight: bolder;
+    }
+    .productos__icono{
+        position: absolute;
+        font-size: 80px;
+        color: #000000;
+        top: 60%;
+    }
+
+    @Media (min-width: 1000px){
+        .productos__titulo{
+            font-size: 70px;
+                       
+        }
+        .productos__descripcion{
+            font-size: 2rem;
+            width: 85%;
+            font-weight: bold;
+            text-shadow: 1px 0px rgb(252, 243, 249);
+        }
+        .productos__icono{
+            font-size: 120px;
+            color: #000000;
+            top: 60%;
+        }
+       
     }
 }
