@@ -18,4 +18,10 @@ app.listen(port, ()=>{
 const homePath = path.join(__dirname, "views/home.html")
 app.get("/",(req, res)=>{
 res.sendFile(homePath)
+});
+
+//productDetail
+const productDetailPath = path.join(__dirname, "views/productDetail.html")
+app.get("/",(req, res)=>{
+res.sendFile(productDetailPath)
 })
