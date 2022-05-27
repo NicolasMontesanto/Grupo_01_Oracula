@@ -31,3 +31,8 @@ app.get("/login",(req, res)=>{
 res.sendFile(loginPath)
 })
 
+//vista de carrito
+app.get("/productCart",(req, res)=>{
+    res.sendFile(path.join(__dirname, 'views/productCart.html'))
+    })
+
