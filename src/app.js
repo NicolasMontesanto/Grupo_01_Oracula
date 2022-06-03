@@ -15,7 +15,9 @@ app.listen(port, ()=>{
 });
 
 //defino el home vinculandolo con un html 
-const homePath = path.join(__dirname, "views/home.html")
-app.get("/",(req, res)=>{
-res.sendFile(homePath)
-})
+
+app.get("/",);
+
+//productDetail
+
+app.get("/",)
