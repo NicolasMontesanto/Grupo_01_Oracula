@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--styles-->
+    <link href="/css/general.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <!--<link rel="stylesheet" href="/css/normalize.css">-->
+    <!--iconos-->
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+    <script src="https://kit.fontawesome.com/31d3834f2e.js" crossorigin="anonymous"></script>
+    <title>Bienvenidxs a Oracula</title>
+    <!--googleFonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="fondo">
+        <!--header-->
+        <header>
+            <div class="header">
+                <!--Logo-->
+                <div class="header__container">
+                    <div class="logo">
+                        <img class="header__logo" src="/img/Logo/blancV2ojo.png" alt="Logo de Oracula">
+                    </div>
+                    <!--Hamburguesita-->
+                    <div class="Burguer">
+                        <button><i id="Burguer_icon" class="iconify" data-icon="eva:menu-fill"></i></button>
+                    </div>
+                    <!--Busqueda-->
+                    <form class="Busqueda" action="#" method="GET">
+                        <input class="Busqueda_input" type="search">
+                        <div>
+                            <button class="Busqueda_button" class="submit">
+                                <i class="iconify" data-icon="pepicons:loop"></i>
+                            </button>
+                        </div>
+                    </form>
+                    <!--Secciones categorias-->
+                    <nav class="secciones">
+                        <ul class="secciones__lista">
+                            <li class="secciones__elemento"> <button class="secciones__elemento">Magic Pass<i
+                                        class="iconify secciones__icon" data-icon="fa6-solid:explosion"></i></button>
+                            </li>
+                            <li class="secciones__elemento"> <button class="secciones__elemento">Géneros<i
+                                        class="iconify secciones__icon" data-icon="fa6-solid:hamsa"></i></button></li>
+                            <li class="secciones__elemento"> <button class="secciones__elemento">Categorías<i
+                                        class="iconify secciones__icon"
+                                        data-icon="mdi:bottle-tonic-outline"></i></button>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!--Botones-->
+                    <nav class="botonesSuperiores">
+                        <ul class="botonesSuperiores__lista">
+                            <li class="botonesSuperiores__elemento">
+                                <button class="botonesSuperiores__boton">
+                                    <i class="iconify" data-icon="fa:search"></i>
+                                </button>
+                            </li>
+                            <li class="botonesSuperiores__elemento">
+                                <button class="botonesSuperiores__boton">
+                                    <i class="iconify" data-icon="pepicons:bookmark-print"></i>
+                                </button>
+                            </li>
+                            <li class="botonesSuperiores__elemento">
+                                <button class="botonesSuperiores__boton">
+                                    <i class="iconify" data-icon="mdi:basket"></i>
+                                </button>
+                            </li>
+                            <li class="botonesSuperiores__elemento">
+                                <button class="botonesSuperiores_Login">
+                                    <div class="botonesSuperiores_Login--texto">¡Ingresá!</div>
+                                    <i id="logoEntrar2" class="iconify" data-icon="arcticons:monument-valley"></i>
+                                    <i id="logoEntrar1" class="iconify" data-icon="bi:door-open-fill"
+                                        data-flip="horizontal"></i>
+                                </button>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- Canastita Mobile-->
+                    <nav class="basket">
+                        <button><i class="iconify" data-icon="mdi:basket"></i></button>
+                    </nav>
+                </div>
+            </div>
+            <!--Relleno de header-->
+            <div class="header__relleno"></div>
+        </header>
+        <!--main-->
+        <main class="main">
+            <section class="titulo">
+                <h1 class="titulo__text">Iniciá Sesión</h1>
+            </section>
+            <section class="formulario__box">
+                <div class="boton-google__container">
+                    <label for="google">Iniciar Sesión con</label>
+                    <button class="boton-google" type="submit" id="google" name="google">
+                        <i class="fa-brands fa-google"></i>
+                        Google
+                    </button>
+                </div>
+                <section class="formulario__container">
+                    <form class="formulario" action="/signup" method="post">
+                        <div class="formulario__item">
+                            <label class="formulario__label" for="email">Email:</label>
+                            <input class="formulario__input" type="email" id="email" name="email">
+                        </div>
+                        <div class="formulario__password">
+                            <label class="formulario__label" for="password">Contraseña:</label>
+                            <input class="formulario__input" type="password" id="password" name="password">
+                        </div>
+                        <div class="recordar-password">
+                            <label for="recordarPassword">Recordame
+                                <input class="recordar-password__checkbox" type="checkbox" name="recordarPassword"
+                                    id="recordarPassword">
+                                </button>
+                            </label>
+                        </div>
+                        <div class="formulario__submit">
+                            <div>
+                                <p class="link-password-recover">¿Te olvidaste tu contraseña? <a href="">Recuperala
+                                        acá.</a></p>
+                                <p class="link-signup">¿No tenés cuenta? <a href="">Creala acá.</a></p>
+                            </div>
+                            <button type="submit">
+                                <i class="fa-solid fa-circle-arrow-right formulario__icon-submit"></i>
+                            </button>
+                        </div>
+                    </form>
+                </section>
+            </section>
+        </main>
+        <!--footer-->
+        <footer>
+            <div class="footer__container">
+            <section class="links">
+                <ul class="links_1stColumn">
+                    <li class="links__link"><a href="#">Quiénes somos</a></li>
+                    <li class="links__link"><a href="#">FAQs</a></li>
+                    <li class="links__link"><a href="#">¡Contactanos!</a></li>
+                    <li class="links__link"><a href="#">Términos y condiciones</a></li>
+                </ul>
+                <ul class="links_2ndColumn">
+                    <li class="links__link"><a href="#">Privacidad y cookies</a></li>
+                    <li class="links__link"><a href="#">Acerca de Orácula</a></li>
+                    <li class="links__link"><a href="#">Sobre nuestra app</a></li>
+                    <li class="links__link"><a href="#">¿Por qué no hay publicidad?</a></li>
+                </ul>
+            </section>
+            <section class="adicional">
+                <div class="adicional_logo">
+                    <img class="footer__logo" src="/img/Logo/blancV2ojo.png" alt="Logo de Oracula">
+                    <div class="footer__logo-nombre">Orácula</div>
+                </div>
+                <div class="adicional_redes">
+                    <button class="redes_instagram"><i class="iconify" data-icon="bi:instagram"></i></button>
+                    <button class="redes_twitter"><i class="iconify" data-icon="fe:twitter"></i></button>
+                    <button class="redes_tumblr"><i class="iconify"
+                            data-icon="simple-line-icons:social-tumblr"></i></button>
+                    <button class="redes_pinterest"><i class="iconify" data-icon="carbon:logo-pinterest"></i></button>
+                </div>
+            </section>
+        </div>
+        </footer>
+    </div>
+</body>
+
+</html>
