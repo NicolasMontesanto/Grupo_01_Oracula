@@ -42,11 +42,5 @@ const productDetailPath = path.join(__dirname, "views/productDetail.html")
 app.get("/productDetail",(req, res)=>{
 res.sendFile(productDetailPath)
 })
-=======
 
-app.get("/",);
-
-//productDetail
-
-app.get("/",)
 
