@@ -1,9 +1,16 @@
-const path = require ('path');
-const productDetailPath = path.join(__dirname, "views/productDetail.html");
+const path = require('path');
+const productDetailPath = path.join(__dirname, "../src/views/productDetail.html");
+const productCartPath = path.join(__dirname, "../src/views/productCart.html");
+
 const productsController = {
-    products: (req, res)=>{
+    //productDetail.html
+    product: (req, res) => {
         res.sendFile(productDetailPath);
-        },
-    cart:     
+    },
+
+    //productCart.html
+    cart: (req, res) => {
+        res.sendFile(productCartPath);
+    }
 };
-modules.exports = controller;
+module.exports = productsController;
