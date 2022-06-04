@@ -443,7 +443,7 @@ div.Scroll_product--icons:hover {
         ;
     }
 
-    .imgFuera--sombra :hover, .zonaFans :hover {
+    .imgFuera--sombra :hover, .zonaFans:hover {
         position: relative;
         bottom: 15px;
         left: 20px;
