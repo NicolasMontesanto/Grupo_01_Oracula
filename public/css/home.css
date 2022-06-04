@@ -238,6 +238,31 @@ div.Scroll_product--icons:hover {
 .Scroll_product#dos {
     background-image: url(/img/productos/juegos/stardewvaley.png);
 }
+.Scroll_product#tres{
+    background-image: url(/img/productos/fanart/HPFans.jpg);
+}
+.Scroll_product#cuatro{
+    background-image: url(/img/productos/literatura/Audiolibros.jpg);
+}
+.Scroll_product#cinco{
+    background-image: url(/img/productos/literatura/AliciaIlustrado.jpg);
+}
+
+.Scroll_product#seis{
+    background-image: url(/img/productos/multimedia/lordOfRingsSound.jpg);
+}
+.Scroll_product#siete{
+    background-image: url(/img/productos/baratijas/mundoDisco.jpg);
+}
+
+
+
+.Scroll_product:hover div.Scroll_product--descripcion{
+     visibility: visible;
+}
+.Scroll_product:hover div.Scroll_product--icons{
+    visibility: visible;
+}
 
 .Scroll_product#tres {
     background-image: url(/img/productos/fanart/HPFans.jpg);
