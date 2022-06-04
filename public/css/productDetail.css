@@ -71,6 +71,7 @@
   color: white;
   letter-spacing: -2px;
 }
+
 .product-description p {
   font-size: 25px;
   font-weight: 500;
@@ -102,6 +103,7 @@
   padding: 12px 30px;
   transition: all .5s;
 }
+
 .cart-btn:hover {
   background-color: rgb(69, 41, 63);
 }
@@ -125,6 +127,10 @@ main section article{
 main section article div{
     position: relative;
     display: flex;
+    flex-wrap: wrap;   
+  flex-wrap: wrap;
+    flex-wrap: wrap;   
+  flex-wrap: wrap;
     flex-wrap: wrap;   
     text-align: left;
     border-top: 1px solid #ebebeb;
@@ -235,9 +241,9 @@ main{
 }
 
 article {
-  background-color: #ebebeb;
+  background-color: rgba(69, 41, 63, 0.5);;
   padding: 15px;
-  border-top: solid 1px #ebebeb;
+  border: solid 1px black;
   margin: auto;
 
 }
@@ -282,5 +288,7 @@ main section article i {
     }
   
   }
+
+
 
  
