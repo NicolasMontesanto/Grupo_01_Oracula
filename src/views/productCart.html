@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="/css/general.css" rel="stylesheet" />
+  <link href="/css/home.css" rel="stylesheet" />
+  <link href="/css/normalize.css" rel="stylesheet" />
+  <link href="/css/cart.css" rel="stylesheet" />
+  <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+  <script src="https://kit.fontawesome.com/cc59497513.js" crossorigin="anonymous"></script>
+
+  <title>Carrito de compras</title>
+  <!--googleFonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="fondo">
+    <!--HEADER-->
+    <header>
+      <div class="header">
+        <!--Logo-->
+        <div class="header__container">
+          <div class="logo">
+            <a href="/"><img class="header__logo" src="/img/Logo/blancV2ojo.png" alt="Logo de Oracula"></a>
+          </div>
+          <!--Hamburguesita-->
+          <div class="Burguer">
+            <button><i id="Burguer_icon" class="iconify" data-icon="eva:menu-fill"></i></button>
+          </div>
+          <!--Busqueda-->
+          <form class="Busqueda" action="#" method="GET">
+            <input class="Busqueda_input" type="search">
+            <div>
+              <button class="Busqueda_button" class="submit">
+                <i class="iconify" data-icon="pepicons:loop"></i>
+              </button>
+            </div>
+          </form>
+          <!--Secciones categorias-->
+          <nav class="secciones">
+            <ul class="secciones__lista">
+              <li class="secciones__elemento"> <button class="secciones__elemento">Magic Pass<i
+                    class="iconify secciones__icon" data-icon="fa6-solid:explosion"></i></button>
+              </li>
+              <li class="secciones__elemento"> <button class="secciones__elemento">Géneros<i
+                    class="iconify secciones__icon" data-icon="fa6-solid:hamsa"></i></button></li>
+              <li class="secciones__elemento"> <button class="secciones__elemento">Categorías<i
+                    class="iconify secciones__icon" data-icon="mdi:bottle-tonic-outline"></i></button>
+              </li>
+            </ul>
+          </nav>
+          <!--Botones-->
+          <nav class="botonesSuperiores">
+            <ul class="botonesSuperiores__lista">
+              <li class="botonesSuperiores__elemento">
+                <button class="botonesSuperiores__boton">
+                  <i class="iconify" data-icon="fa:search"></i>
+                </button>
+              </li>
+              <li class="botonesSuperiores__elemento">
+                <button class="botonesSuperiores__boton">
+                  <i class="iconify" data-icon="pepicons:bookmark-print"></i>
+                </button>
+              </li>
+              <li class="botonesSuperiores__elemento">
+                <button class="botonesSuperiores__boton">
+                  <i class="iconify" data-icon="mdi:basket"></i>
+                </button>
+              </li>
+              <li class="botonesSuperiores__elemento">
+                <button class="botonesSuperiores_Login">
+                  <a href="/login"><div class="botonesSuperiores_Login--texto">¡Ingresá!</div></a>
+                  <i id="logoEntrar2" class="iconify" data-icon="arcticons:monument-valley"></i>
+                  <i id="logoEntrar1" class="iconify" data-icon="bi:door-open-fill" data-flip="horizontal"></i>
+                </button>
+              </li>
+            </ul>
+          </nav>
+          <!-- Canastita Mobile-->
+          <nav class="basket">
+            <button><i class="iconify" data-icon="mdi:basket"></i></button>
+          </nav>
+        </div>
+      </div>
+      <!--Relleno de header-->
+      <div class="header__relleno"></div>
+    </header>
+
+    <body>
+      <!--SECCION DE COMPRAS-->
+
+      <main class="container">
+        <h1 class="heading"> <i class="fa-solid fa-cart-shopping" id="i-carrito"></i>
+          Carrito de compras
+        </h1>
+
+        <div class="item-flex">
+          <section class="carrito">
+            <div class="cart-item-box">
+
+              <h2 class="section-heading">Detalle de compra</h2>
+
+              <div class="product-card">
+
+                <div class="card">
+
+                  <div class="img-box">
+                    <img src="/img/productos/juegos/Cartas.jpg" alt="Cartas" width=80% class="product-img">
+                  </div>
+
+                  <div class="detail">
+
+                    <h3 class="nombre">Star Spinner Tarot</h3>
+
+                    <div class="wrapper">
+
+                      <div class="cantidad">
+                        <button id="decrement">
+                          <i class="fa-solid fa-minus"></i>
+                        </button>
+
+                        <span id="quantity">1</span>
+
+                        <button id="increment">
+                          <i class="fa-solid fa-plus"></i>
+                        </button>
+                      </div>
+
+                      <div class="price">
+                        <span id="price"> $6.874,00</span>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                  <button class="product-close-btn">
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
+
+                </div>
+
+              </div>
+              <div class="product-card">
+
+                <div class="card">
+
+                  <div class="img-box">
+                    <img src="/img/productos/juegos/remera.jpg" alt="remera" width=95% class="product-img">
+                  </div>
+
+                  <div class="detail">
+
+                    <h3 class="nombre">Remera gato Gandalf </h3>
+
+                    <div class="wrapper">
+
+                      <div class="cantidad">
+                        <button id="decrement">
+                          <i class="fa-solid fa-minus"></i>
+                        </button>
+
+                        <span id="quantity">1</span>
+
+                        <button id="increment">
+                          <i class="fa-solid fa-plus"></i>
+                        </button>
+                      </div>
+
+                      <div class="price">
+                        <span id="price"> $2.300,00</span>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                  <button class="product-close-btn">
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
+
+                </div>
+
+              </div>
+
+
+
+            </div>
+
+            <div class="wrapper">
+
+              <div class="descuento">
+
+                <label for="descuento" class="label-default">Gift card/Código de descuento</label>
+
+                <div class="wrapper-flex">
+
+                  <input type="text" name="descuento" id="descuento" class="input-default">
+
+                  <button class="btn-outline">Aplicar</button>
+
+                </div>
+
+              </div>
+
+              <div class="costos">
+
+                <div class="subtotal">
+                  <span>Subtotal</span> <span><span id="subtotal">$9.174,00</span></span>
+                </div>
+
+                <div class="iva">
+                  <span>Iva</span> <span> <span id="iva">$0,00</span></span>
+                </div>
+
+                <div class="envio">
+                  <span>Envío</span> <span> <span id="envio">$350,00</span></span>
+                </div>
+
+                <div class="total">
+                  <span>Total</span> <span> <span id="total">$9.524,00</span></span>
+                </div>
+
+              </div>
+              <p id="comprar">
+                <button class="btn-outline" id="comprar">Continuar compra</button>
+              </p>
+            </div>
+          </section>
+        </div>
+
+  
+</main>
+
+
+  <!--FOOTER-->
+  <footer>
+    <div class="footer__container">
+      <section class="links">
+        <ul class="links_1stColumn">
+          <li class="links__link"><a href="#">Quiénes somos</a></li>
+          <li class="links__link"><a href="#">FAQs</a></li>
+          <li class="links__link"><a href="#">¡Contactanos!</a></li>
+          <li class="links__link"><a href="#">Términos y condiciones</a></li>
+        </ul>
+        <ul class="links_2ndColumn">
+          <li class="links__link"><a href="#">Privacidad y cookies</a></li>
+          <li class="links__link"><a href="#">Acerca de Orácula</a></li>
+          <li class="links__link"><a href="#">Sobre nuestra app</a></li>
+          <li class="links__link"><a href="#">¿Por qué no hay publicidad?</a></li>
+        </ul>
+      </section>
+      <section class="adicional">
+        <div class="adicional_logo">
+          <a href="/"><img class="footer__logo" src="/img/Logo/blancV2ojo.png" alt="Logo de Oracula"></a>
+          <a href="/"><div class="footer__logo-nombre">Orácula</div></a>
+        </div>
+        <div class="adicional_redes">
+          <button class="redes_instagram"><i class="iconify" data-icon="bi:instagram"></i></button>
+          <button class="redes_twitter"><i class="iconify" data-icon="fe:twitter"></i></button>
+          <button class="redes_tumblr"><i class="iconify" data-icon="simple-line-icons:social-tumblr"></i></button>
+          <button class="redes_pinterest"><i class="iconify" data-icon="carbon:logo-pinterest"></i></button>
+        </div>
+      </section>
+    </div>
+  </footer>
+  </div>
+</body>
+
+</html>
