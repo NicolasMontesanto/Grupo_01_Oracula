@@ -102,14 +102,16 @@ h2 {
     font-size: 1.5em;
 }
 
-h2.tituloOtros{
+h2.tituloOtros {
     display: none;
 }
-.destacados h2{
+
+.destacados h2 {
     background-color: #d4ceac;
     color: #45293f;
 }
-.destacados h3{
+
+.destacados h3 {
     color: #FBB954;
     font-size: large;
     text-shadow: 2px 0px rgb(19, 4, 15);
@@ -118,21 +120,23 @@ h2.tituloOtros{
 }
 
 
-.destacados{
+.destacados {
     background-color: rgba(69, 41, 63, 0.5);
-    position: relative; 
+    position: relative;
     text-align: center;
     padding: 0;
     margin: 0;
     width: 100vw;
     margin-bottom: 20px;
 }
-.destacados img{
+
+.destacados img {
     width: 80vw;
     height: auto;
     margin: 0 auto;
 }
-.destacados span{
+
+.destacados span {
     font-size: large;
     position: absolute;
     color: white;
@@ -142,18 +146,19 @@ h2.tituloOtros{
     padding: 2px;
 }
 
-.destacados span:hover{
-background-color: rgba(69, 41, 63, 0.678);
-font-size: 1.5em;
+.destacados span:hover {
+    background-color: rgba(69, 41, 63, 0.678);
+    font-size: 1.5em;
 }
-.next{
+
+.next {
     font-size: 1.5em;
     position: absolute;
     color: white;
     bottom: 35%;
 }
 
-.back{
+.back {
     font-size: 1.5em;
     position: absolute;
     color: white;
@@ -174,10 +179,12 @@ font-size: 1.5em;
     height: max-content;
     overflow-x: scroll;
 }
-.Scroll_product--titulo{
+
+.Scroll_product--titulo {
     width: 100%;
     font-size: 18px;
 }
+
 .Scroll_product {
     display: flex;
     flex-direction: column;
@@ -262,7 +269,7 @@ div.Scroll_product--icons:hover {
     visibility: visible;
 }
 
-.productos{
+.productos {
     display: none;
 }
 
@@ -294,9 +301,11 @@ div.Scroll_product--icons:hover {
         justify-items: center;
         flex-wrap: nowrap;
     }
-    .Categorias--nombre{
+
+    .Categorias--nombre {
         font-size: 24px;
     }
+
     .Categorias button {
         display: flex;
         font-size: 50px;
@@ -304,6 +313,7 @@ div.Scroll_product--icons:hover {
         margin: 2vw;
         width: 15vw;
     }
+
     .Categorias button:hover {
         font-size: 80px;
     }
@@ -325,14 +335,15 @@ div.Scroll_product--icons:hover {
         font-size: 20px;
     }
 
-    .destacados span{
+    .destacados span {
         font-size: xx-large;
     }
-    .destacados span:hover{
+
+    .destacados span:hover {
         font-size: 2.5em;
     }
 
-     .destacados h3{
+    .destacados h3 {
         color: #FBB954;
         font-size: 2.5em;
         text-shadow: 2px 0px rgb(19, 4, 15);
@@ -346,25 +357,29 @@ div.Scroll_product--icons:hover {
         10% {
             transform: translate(0px)
         }
+
         50% {
             transform: translate(-1200px)
         }
+
         100% {
             transform: translate(0px)
         }
     }
-    
-    .tituloNovedades{
-       font-size:  40px;
+
+    .tituloNovedades {
+        font-size: 40px;
     }
-    h2.tituloOtros{
+
+    h2.tituloOtros {
         display: block;
         margin-top: 25px;
         font-size: 40px;
     }
 
-    .productos{
-        display:flex;
+    .productos {
+        display: flex;
+        position: relative;
         flex-wrap: nowrap;
         justify-content: space-around;
         width: 85vw;
@@ -372,26 +387,28 @@ div.Scroll_product--icons:hover {
         margin-top: 15px;
         justify-content: center;
     }
-    .productos_horizontal{
+
+    .productos_horizontal {
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 50%;
         justify-content: space-between;
         padding: 10px 0;
-        
+
 
     }
 
-    .productos_horizontal div, .productos_horizontal img{
-    display: flex;
-    flex-grow: 1;
-    max-height: 47%;
-    width: 100%;
-    margin: 0px;
+    .productos_horizontal div {
+        display: flex;
+        flex-grow: 1;
+        max-height: 49%;
+        width: 100%;
+        margin: 0px;
+        position: relative;
     }
 
-    .productos_horizontal div{
+    .productos_horizontal div {
         background-image: url(/img/Fondos/circulo.png);
         background-size: cover;
         background-position: center;
@@ -400,47 +417,81 @@ div.Scroll_product--icons:hover {
         align-items: center;
         position: relative;
     }
-       
-    .productos_imgFuera{
-        display: flex; 
+
+
+    .productos_imgFuera {
+        display: flex;
         background-color: #45293f;
         height: auto;
         margin: 10px;
-        width: 50%;
+        width: 100%;
     }
-    .productos__titulo{
+
+    .productos_imgHorizontal {
+        display: flex;
+        background-color: #45293f;
+        height: 100%;
+        width: 100%;
+    }
+
+
+    .imgFuera--sombra {
+        display: flex;
+        height: auto;
+        width: 50%;
+        padding: 0;
+        ;
+    }
+
+    .imgFuera--sombra :hover, .zonaFans :hover {
+        position: relative;
+        bottom: 15px;
+        left: 20px;
+        z-index: 1;
+        box-shadow: 0px 0px 15px #fffdff;
+    }
+
+    
+    .productos__titulo {
         font-size: 50px;
         margin: 10px;
         text-shadow: 2px 0px rgb(252, 243, 249);
     }
-    .productos__descripcion{
+
+    .productos__descripcion {
         font-size: 20px;
         width: 85%;
         font-weight: bolder;
     }
-    .productos__icono{
-        position: absolute;
-        font-size: 80px;
-        color: #000000;
-        top: 60%;
+
+    .productos__icono {
+        font-size: 120px;
+      color: #a9b2a2;
+    }
+     
+ }
+
+@Media (min-width: 1000px) {
+
+    .Presentacion{
+        height: 50vh;
+ }
+ .Presentacion--tituloChico{
+    font-size: 2.5em;
+}
+.Presentacion--tituloGrande{
+    font-size: 3em;
+}
+
+    .productos__titulo {
+        font-size: 70px;
+    }
+  
+    .productos__descripcion {
+        font-size: 2rem;
+        width: 85%;
+        font-weight: bold;
+        text-shadow: 1px 0px rgb(252, 243, 249);
     }
 
-    @Media (min-width: 1000px){
-        .productos__titulo{
-            font-size: 70px;
-                       
-        }
-        .productos__descripcion{
-            font-size: 2rem;
-            width: 85%;
-            font-weight: bold;
-            text-shadow: 1px 0px rgb(252, 243, 249);
-        }
-        .productos__icono{
-            font-size: 120px;
-            color: #000000;
-            top: 60%;
-        }
-       
-    }
 }
