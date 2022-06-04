@@ -47,6 +47,12 @@
     color: #CF4036;
     border: 2px solid #CF4036;
 }
+.boton-google:hover{
+    position: relative;
+    height: 50px;
+    width: 120px;
+    font-size: x-large;
+}
 
 .formulario__container{
     display: flex;
@@ -114,6 +120,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    position: relative;
 }
 .link-password-recover{
     font-size: 14px;
@@ -128,7 +135,16 @@
 .formulario__icon-submit{
     font-size: 30px;
     margin: 10px 20px;
+    transition: position 100ms;
 }
+.formulario__icon-submit:hover {
+    position:relative;
+    bottom: 0;
+    top:0;
+    right: -30px;
+}
+
+
 @media (min-width: 820px) {
     .link-password-recover,
     .link-signup{
