@@ -1,8 +1,10 @@
 const path = require('path');
-const homePath = path.join(__dirname, "views/home.html");
-const controller = {
-    index: (req, res)=>{
+const homePath = path.join(__dirname, '../src/views/home.html');
+
+const mainController = {
+    //home.html
+    index: (req, res) => {
         res.sendFile(homePath);
-        }
+    }
 };
-modules.exports = controller;
+module.exports = mainController;
