@@ -78,7 +78,7 @@
                             </li>
                             <li class="botonesSuperiores__elemento">
                                 <button class="botonesSuperiores_Login">
-                                    <div class="botonesSuperiores_Login--texto">¡Ingresá!</div>
+                                    <a href="/user/login"><div class="botonesSuperiores_Login--texto">¡Ingresá!</div></a>
                                     <i id="logoEntrar2" class="iconify secciones__icon" data-icon="arcticons:monument-valley"></i>
                                     <i id="logoEntrar1" class="iconify secciones__icon" data-icon="bi:door-open-fill"
                                         data-flip="horizontal"></i>
@@ -109,7 +109,8 @@
                     </button>
                 </div>
                 <section class="formulario__container">
-                    <form class="formulario" action="/signup" method="post">
+                    <!-- PROVISIORIAMENTE EN METHOD = "GET" -->
+                    <form class="formulario" action="/" method="get">
                         <div class="formulario__item">
                             <label class="formulario__label" for="email">Email:</label>
                             <input class="formulario__input" type="email" id="email" name="email">
@@ -129,7 +130,7 @@
                             <div>
                                 <p class="link-password-recover">¿Te olvidaste tu contraseña? <a href="">Recuperala
                                         acá.</a></p>
-                                <p class="link-signup">¿No tenés cuenta? <a href="/signup">Creala acá.</a></p>
+                                <p class="link-signup">¿No tenés cuenta? <a href="/user/signup">Creala acá.</a></p>
                             </div>
                             <button type="submit">
                                 <i class="fa-solid fa-circle-arrow-right formulario__icon-submit"></i>
