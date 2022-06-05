@@ -65,24 +65,27 @@
             <ul class="botonesSuperiores__lista">
               <li class="botonesSuperiores__elemento">
                 <button class="botonesSuperiores__boton">
-                  <i class="iconify" data-icon="fa:search"></i>
+                  <i class="iconify secciones__icon" data-icon="fa:search"></i>
                 </button>
               </li>
               <li class="botonesSuperiores__elemento">
                 <button class="botonesSuperiores__boton">
-                  <i class="iconify" data-icon="pepicons:bookmark-print"></i>
+                  <i class="iconify secciones__icon" data-icon="pepicons:bookmark-print"></i>
                 </button>
               </li>
               <li class="botonesSuperiores__elemento">
                 <button class="botonesSuperiores__boton">
-                  <i class="iconify" data-icon="mdi:basket"></i>
+                  <i class="iconify secciones__icon" data-icon="mdi:basket"></i>
                 </button>
               </li>
               <li class="botonesSuperiores__elemento">
                 <button class="botonesSuperiores_Login">
-                  <a href="/user/login"><div class="botonesSuperiores_Login--texto">¡Ingresá!</div></a>
-                  <i id="logoEntrar2" class="iconify" data-icon="arcticons:monument-valley"></i>
-                  <i id="logoEntrar1" class="iconify" data-icon="bi:door-open-fill" data-flip="horizontal"></i>
+                  <a href="/user/login">
+                    <div class="botonesSuperiores_Login--texto">¡Ingresá!</div>
+                  </a>
+                  <i id="logoEntrar2" class="iconify secciones__icon" data-icon="arcticons:monument-valley"></i>
+                  <i id="logoEntrar1" class="iconify secciones__icon" data-icon="bi:door-open-fill"
+                    data-flip="horizontal"></i>
                 </button>
               </li>
             </ul>
@@ -92,144 +95,148 @@
             <button><i class="iconify" data-icon="mdi:basket"></i></button>
           </nav>
         </div>
+  </div>
+  <!--Relleno de header-->
+  <div class="header__relleno"></div>
+  </header>
+
+  <main class="container">
+
+    <!-- Left Column / Merch Image -->
+    <div class="left-column">
+
+      <img class="active" src="/img/productos/merchandising/gift-ideas.jpg" alt="">
+    </div>
+
+    <!-- Right Column -->
+    <div class="right-column">
+
+
+
+      <!-- Product Description -->
+      <div class="product-description">
+        <h2 class="product-favAndShare">
+          <div>
+            <a href="#" class="product-btn"><i class="far fa-bookmark" alt="Agregar a favoritos"></i></a>
+          </div>
+          <div>
+            <a href="#" class="product-btn"><i class="fas fa-share"></i></a>
+          </div>
+
+          <!-- Rating -->
+          <div class="rate">
+            <input type="radio" id="star5" name="rate" value="5" />
+            <label for="star5" title="text">5 stars</label>
+            <input type="radio" id="star4" name="rate" value="4" />
+            <label for="star4" title="text">4 stars</label>
+            <input type="radio" id="star3" name="rate" value="3" />
+            <label for="star3" title="text">3 stars</label>
+            <input type="radio" id="star2" name="rate" value="2" />
+            <label for="star2" title="text">2 stars</label>
+            <input type="radio" id="star1" name="rate" value="1" />
+            <label for="star1" title="text">1 star</label>
+          </div>
+        </h2>
+
+        <h1 id="name">Merchandising</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam rem atque assumenda dolor sequi ea eos
+          quibusdam qui odio, harum odit, omnis dignissimos in nostrum eius. Voluptates incidunt eveniet iusto.</p>
       </div>
-      <!--Relleno de header-->
-      <div class="header__relleno"></div>
-    </header>
 
-    <main class="container">
-
-      <!-- Left Column / Merch Image -->
-      <div class="left-column">
-
-        <img class="active" src="/img/productos/merchandising/gift-ideas.jpg" alt="">
+      <!-- Product Pricing -->
+      <div class="product-price">
+        <span>148$</span>
+        <a href=" /product/cart" class="cart-btn">Agregar al carrito</a>
       </div>
-
-      <!-- Right Column -->
-      <div class="right-column">
+    </div>
 
 
+  </main>
 
-        <!-- Product Description -->
-        <div class="product-description">
-          <h2 class="product-favAndShare">
-            <div>
-              <a href="#" class="product-btn"><i class="far fa-bookmark" alt="Agregar a favoritos"></i></a>
-            </div>
-            <div>
-              <a href="#" class="product-btn"><i class="fas fa-share"></i></a>
-            </div>
+  <main class="product-navbar">
 
-            <!-- Rating -->
-            <div class="rate">
-              <input type="radio" id="star5" name="rate" value="5" />
-              <label for="star5" title="text">5 stars</label>
-              <input type="radio" id="star4" name="rate" value="4" />
-              <label for="star4" title="text">4 stars</label>
-              <input type="radio" id="star3" name="rate" value="3" />
-              <label for="star3" title="text">3 stars</label>
-              <input type="radio" id="star2" name="rate" value="2" />
-              <label for="star2" title="text">2 stars</label>
-              <input type="radio" id="star1" name="rate" value="1" />
-              <label for="star1" title="text">1 star</label>
-            </div>
-          </h2>
+    <h2 class="suggested">
+      Productos sugeridos
+    </h2>
 
-          <h1 id="name">Merchandising</h1>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam rem atque assumenda dolor sequi ea eos
-            quibusdam qui odio, harum odit, omnis dignissimos in nostrum eius. Voluptates incidunt eveniet iusto.</p>
+    <!-- Barra de productos sugeridos -->
+    <section class="caja">
+      <article>
+        <a href="#"><img src="/img/productos/merchandising/247160lannheatchm_01g.jpg" alt="Producto 1"
+            class="Producto"></a>
+        <div>
+          <i class="fas fa-broom"></i>
+          <p class="precio"><strong>$1000</strong></p>
+          <p class="nombre">Random Merch #1</p>
         </div>
 
-        <!-- Product Pricing -->
-        <div class="product-price">
-          <span>148$</span>
-          <a href=" /product/cart" class="cart-btn">Agregar al carrito</a>
+      </article>
+
+      <article>
+        <a href="#"><img src="/img/productos/merchandising/3720000000460.jpg" alt="Producto 2" class="Producto"></a>
+        <div>
+          <i class="fas fa-broom"></i>
+          <p class="precio"><strong>$3000</strong></p>
+          <p class="nombre">Random Merch #2</p>
         </div>
-      </div>
 
+      </article>
 
-    </main>
+      <article>
+        <a href="#"><img src="/img/productos/merchandising/3720000000232.jpg" alt="Producto 3" class="Producto"></a>
+        <div>
+          <i class="fas fa-broom"></i>
+          <p class="precio"><strong>$3500</strong></p>
+          <p class="nombre">Random Merch #3</p>
+        </div>
+      </article>
 
-    <main class="product-navbar">
+      <article>
+        <a href="#"><img src="/img/productos/merchandising/1062690__1.jpg-011A4F9E-1600-1600.jpg" alt="Producto 4"
+            class="Producto"></a>
+        <div>
+          <i class="fas fa-broom"></i>
+          <p class="precio"><strong>$2000</strong></p>
+          <p class="nombre">Random Merch #4</p>
+        </div>
+      </article>
+    </section>
+  </main>
 
-      <h2 class="suggested">
-        Productos sugeridos
-      </h2>
-
-      <!-- Barra de productos sugeridos -->
-      <section class="caja">
-        <article>
-          <a href="#"><img src="/img/productos/merchandising/247160lannheatchm_01g.jpg" alt="Producto 1"
-              class="Producto"></a>
-          <div>
-            <i class="fas fa-broom"></i>
-            <p class="precio"><strong>$1000</strong></p>
-            <p class="nombre">Random Merch #1</p>
-          </div>
-
-        </article>
-
-        <article>
-          <a href="#"><img src="/img/productos/merchandising/3720000000460.jpg" alt="Producto 2" class="Producto"></a>
-          <div>
-            <i class="fas fa-broom"></i>
-            <p class="precio"><strong>$3000</strong></p>
-            <p class="nombre">Random Merch #2</p>
-          </div>
-
-        </article>
-
-        <article>
-          <a href="#"><img src="/img/productos/merchandising/3720000000232.jpg" alt="Producto 3" class="Producto"></a>
-          <div>
-            <i class="fas fa-broom"></i>
-            <p class="precio"><strong>$3500</strong></p>
-            <p class="nombre">Random Merch #3</p>
-          </div>
-        </article>
-
-        <article>
-          <a href="#"><img src="/img/productos/merchandising/1062690__1.jpg-011A4F9E-1600-1600.jpg" alt="Producto 4"
-              class="Producto"></a>
-          <div>
-            <i class="fas fa-broom"></i>
-            <p class="precio"><strong>$2000</strong></p>
-            <p class="nombre">Random Merch #4</p>
-          </div>
-        </article>
+  <footer>
+    <div class="footer__container">
+      <section class="links">
+        <ul class="links_1stColumn">
+          <li class="links__link"><a href="#">Quiénes somos</a></li>
+          <li class="links__link"><a href="#">FAQs</a></li>
+          <li class="links__link"><a href="#">¡Contactanos!</a></li>
+          <li class="links__link"><a href="#">Términos y condiciones</a></li>
+        </ul>
+        <ul class="links_2ndColumn">
+          <li class="links__link"><a href="#">Privacidad y cookies</a></li>
+          <li class="links__link"><a href="#">Acerca de Orácula</a></li>
+          <li class="links__link"><a href="#">Sobre nuestra app</a></li>
+          <li class="links__link"><a href="#">¿Por qué no hay publicidad?</a></li>
+        </ul>
       </section>
-    </main>
-
-    <footer>
-      <div class="footer__container">
-        <section class="links">
-          <ul class="links_1stColumn">
-            <li class="links__link"><a href="#">Quiénes somos</a></li>
-            <li class="links__link"><a href="#">FAQs</a></li>
-            <li class="links__link"><a href="#">¡Contactanos!</a></li>
-            <li class="links__link"><a href="#">Términos y condiciones</a></li>
-          </ul>
-          <ul class="links_2ndColumn">
-            <li class="links__link"><a href="#">Privacidad y cookies</a></li>
-            <li class="links__link"><a href="#">Acerca de Orácula</a></li>
-            <li class="links__link"><a href="#">Sobre nuestra app</a></li>
-            <li class="links__link"><a href="#">¿Por qué no hay publicidad?</a></li>
-          </ul>
-        </section>
-        <section class="adicional">
-          <div class="adicional_logo">
-            <a href="/"><img class="footer__logo" src="/img/Logo/blancV2ojo.png" alt="Logo de Oracula"></a>
-            <a href="/"><div class="footer__logo-nombre">Orácula</div></a>
-          </div>
-          <div class="adicional_redes">
-            <button class="redes_instagram"><i class="iconify" data-icon="bi:instagram"></i></button>
-            <button class="redes_twitter"><i class="iconify" data-icon="fe:twitter"></i></button>
-            <button class="redes_tumblr"><i class="iconify" data-icon="simple-line-icons:social-tumblr"></i></button>
-            <button class="redes_pinterest"><i class="iconify" data-icon="carbon:logo-pinterest"></i></button>
-          </div>
-        </section>
-      </div>
-    </footer>
+      <section class="adicional">
+        <div class="adicional_logo">
+          <a href="/"><img class="footer__logo" src="/img/Logo/blancV2ojo.png" alt="Logo de Oracula"></a>
+          <a href="/">
+            <div class="footer__logo-nombre">Orácula</div>
+          </a>
+        </div>
+        <div class="adicional_redes">
+          <button class="redes_instagram footer__icon"><i class="iconify" data-icon="bi:instagram"></i></button>
+          <button class="redes_twitter footer__icon"><i class="iconify" data-icon="fe:twitter"></i></button>
+          <button class="redes_tumblr footer__icon"><i class="iconify"
+              data-icon="simple-line-icons:social-tumblr"></i></button>
+          <button class="redes_pinterest footer__icon"><i class="iconify"
+              data-icon="carbon:logo-pinterest"></i></button>
+        </div>
+      </section>
+    </div>
+  </footer>
 
   </div>
 </body>
