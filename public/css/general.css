@@ -97,9 +97,10 @@ button {
     color: #B0A987;
 }
 
-button :hover {
+button:hover {
     color: #993D41;
 }
+
 
 a {
     color: #a9b2a2;
@@ -251,6 +252,10 @@ footer {
     .secciones__elemento {
         font-size: 24px;
         color: #FBB954;
+        padding: 10px;
+    }
+    .secciones__elemento:hover{
+        font-size: 27px;
     }
 
     .secciones__icon {
@@ -258,7 +263,8 @@ footer {
     }
 
     .secciones button:hover {
-        background-color: rgba(23, 27, 39, 0.5);
+        box-shadow: 0px 2px 5px #B0A987;
+        color: var(--amarillo-anaranjado);
     }
 
     .botonesSuperiores {
@@ -272,14 +278,25 @@ footer {
         justify-content: space-evenly;
         width: 100%;
     }
+   
 
     .botonesSuperiores__boton {
         font-size: 30px;
+    }
+    .botonesSuperiores__boton:hover{
+        font-size: 40px;
     }
 
     .botonesSuperiores_Login {
         position: relative;
     }
+    .botonesSuperiores_Login:hover #logoEntrar1{
+        font-size: 40px;
+        color: #FBB954;
+        position: relative;
+        bottom: 5px;
+    }
+    
 
     #logoEntrar2 {
         position: relative;
@@ -307,7 +324,7 @@ footer {
 
     .botonesSuperiores_Login--texto:hover {
         background-color: transparent;
-        font-size: 25px;
+        font-size: 30px;
     }
 
     .adicional {
