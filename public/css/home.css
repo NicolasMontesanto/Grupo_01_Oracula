@@ -433,7 +433,7 @@ div.Scroll_product--icons:hover {
         position: relative;
     }
 
-    .productos_horizontal div {
+    .productos_horizontal div  {
         background-image: url(/img/Fondos/circulo.png);
         background-size: cover;
         background-position: center;
