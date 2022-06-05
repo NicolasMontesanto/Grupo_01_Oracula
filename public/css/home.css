@@ -1,6 +1,3 @@
-/*paleta de colores )
-Filtro: #171B27 - opacidad 54%
-*/
 :root {
     --morado-oscuro: #2E222F;
     --morado: #45293f;
@@ -16,7 +13,8 @@ Filtro: #171B27 - opacidad 54%
     --gris-oscuro: #576069;
     --gris-turquesa: #788a87;
     --gris-claro: #a9b2a2;
-    --filtro: rgba(69, 41, 63, 0.5);
+    --filtro: #45293f80;
+    --oracula: #bddcf4;
 }
 
 .main {
@@ -27,26 +25,34 @@ Filtro: #171B27 - opacidad 54%
     padding-top: 20px;
     background-color: var(--filtro);
     animation-name: presentacion;
-    animation-duration: 5s;
+    animation-duration: 2s;
     animation-iteration-count: 1;
 }
 
 .presentacion__container {
     max-width: 1200px;
     margin: auto;
+
 }
 
 .presentacion--tituloChico {
+    font-weight: bold;
+    font-style: italic;
     font-size: 1.5em;
     text-align: center;
-    color: var(--naranja);
+    color: var(--gris-turquesa);
+    animation-name: presentacion__titulo-chico;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
 }
 
 .presentacion--tituloGrande {
     font-size: 2.5em;
     text-align: center;
-    color: var(--gris-turquesa);
+    color: var(--oracula);
+    text-shadow: 0px 0px 10px var(--oracula);
     margin: 20px 0px 20px;
+    animation: presentacion__titulo-grande 4s cubic-bezier(0.22, 0.61, 0.36, 1) none 1, presentacion__titulo-grande--glow 5s linear 6s infinite;
 }
 
 .presentacion--texto {
@@ -55,9 +61,12 @@ Filtro: #171B27 - opacidad 54%
     color: var(--gris-claro);
     text-align: justify;
     border-top: var(--naranja) 1px solid;
+    transition: all 450ms;
+    animation-name: presentacion__texto;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
 }
-
-@keyframes presentacion {
+/*@keyframes presentacion {
     0% {
         visibility: hidden;
         transform: translate(0px, -300px);
@@ -79,6 +88,84 @@ Filtro: #171B27 - opacidad 54%
         visibility: visible;
         transform: translate(0px);
     }
+}*/
+@keyframes presentacion {
+    0% {
+        visibility: hidden;
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+        visibility: visible;
+    }
+}
+@keyframes presentacion__titulo-chico {
+    0% {
+        visibility: hidden;
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+        visibility: visible;
+    }
+}
+@keyframes presentacion__titulo-grande {
+    0% {
+        visibility: hidden;
+        opacity: 0%;
+    }
+    30%{
+        opacity:0%;
+    }
+    60%{
+        opacity: 100%;
+        color: white;
+        text-shadow: 0px 0px 80px rgba(255,255,255,1), 0px 0px 100px rgba(255,255,255,1), -120px 0px 10px rgba(69, 41, 63,1), 120px 0px 10px rgba(46, 34, 47,1);
+        
+    }
+    70%{
+        color: white;
+        text-shadow: 0px 0px 80px rgba(255,255,255,1), 0px 0px 100px rgba(255,255,255,1), -120px 0px 10px rgba(69, 41, 63,1), 120px 0px 10px rgba(46, 34, 47,1);
+    }
+    90%{
+        text-shadow: 0px 0px 60px rgba(255,255,255,0.7), 0px 0px 80px rgba(255,255,255,0.7);
+    }
+
+    100% {
+        color: var(--oracula);
+        text-shadow: 0px 0px 10px var(--oracula);
+    }
+}
+@keyframes presentacion__titulo-grande--glow {
+    0%{
+        text-shadow: 0px 0px 10px var(--oracula);
+    }
+    25%{
+        text-shadow: 0px 0px 10px var(--oracula);
+    }
+    50%{
+        text-shadow: 0px 0px 10px var(--oracula), 0px 0px 20px rgb(189, 220, 244, 0.6) ;
+
+    }
+    75%{
+        text-shadow: 0px 0px 10px var(--oracula);
+    }
+    100%{
+        text-shadow: 0px 0px 10px var(--oracula);
+    }
+}
+@keyframes presentacion__texto {
+    0% {
+        visibility: hidden;
+        opacity: 0%;
+    }
+    50%{
+        opacity:0%;
+    }
+    100% {
+        opacity: 100%;
+        visibility: visible;
+    }
 }
 
 .categorias {
@@ -87,6 +174,7 @@ Filtro: #171B27 - opacidad 54%
     border: var(--naranja) 1pz solid;
 }
 .categorias__icon{
+        transition: all 200ms;
         color: var(--gris-claro);
 }
 .categorias__container {
@@ -341,11 +429,11 @@ div.novedades_product--icons:hover {
 @media (min-width: 820px) {
 
     .presentacion--tituloChico {
-        font-size: 2em;
+        font-size: 1.5em;
     }
 
     .presentacion--tituloGrande {
-        font-size: 2.5em;
+        font-size: 3.5em;
     }
 
     .presentacion--texto {
@@ -370,14 +458,14 @@ div.novedades_product--icons:hover {
 
     .categorias__icon {
         display: flex;
-        color: var(--amarillo-naranja);
+        color: var(--marron-claro);
         font-size: 50px;
         flex-direction: column;
         margin: 2vw;
     }
 
     .categorias__icon:hover {
-        font-size: 80px;
+        font-size: 60px;
         color: var(--terracota);
     }
 
@@ -546,11 +634,11 @@ div.novedades_product--icons:hover {
     }
 
     .presentacion--tituloChico {
-        font-size: 2.5em;
+        font-size: 1.5em;
     }
 
     .presentacion--tituloGrande {
-        font-size: 3em;
+        font-size: 4em;
     }
 
     .productos__titulo {
@@ -563,5 +651,8 @@ div.novedades_product--icons:hover {
         font-weight: bold;
         text-shadow: 1px 0px white;
     }
-
+    .categorias__boton:hover .categorias__icon {
+        font-size: 80px;
+        color: var(--terracota);
+    }
 }
