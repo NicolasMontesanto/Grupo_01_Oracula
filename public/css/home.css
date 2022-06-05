@@ -86,7 +86,9 @@ Filtro: #171B27 - opacidad 54%
     width: 100%;
     border: var(--naranja) 1pz solid;
 }
-
+.categorias__icon{
+        color: var(--gris-claro);
+}
 .categorias__container {
     max-width: 1200px;
     display: flex;
@@ -97,25 +99,22 @@ Filtro: #171B27 - opacidad 54%
     font-size: 16px;
     display: none;
 }
+.categorias__boton:hover .categorias__icon{
+    font-size: 9.5vw;
+}
+.categorias__boton:hover .categorias--nombre{
+    display: block;
+    color: var(--gris-claro);
+    text-shadow: 2px 0px rgb(19, 4, 15);
+}
 
-.categorias button {
-    padding: auto;
+.categorias__icon {
     font-size: 6.5vw;
 }
 
 .categorias_creadorxs,
 .categorias_soundtracks {
     display: none;
-}
-
-.categorias button:hover {
-    font-size: 9.5vw;
-}
-
-.categorias button:hover .categorias--nombre {
-    display: block;
-    color: var(--gris-claro);
-    text-shadow: 2px 0px rgb(19, 4, 15);
 }
 
 .destacados {
@@ -276,6 +275,31 @@ div.novedades_product--icons:hover {
 .novedades_product#dos {
     background-image: url(/img/productos/juegos/stardewvaley.png);
 }
+.Scroll_product#tres{
+    background-image: url(/img/productos/fanart/HPFans.jpg);
+}
+.Scroll_product#cuatro{
+    background-image: url(/img/productos/literatura/Audiolibros.jpg);
+}
+.Scroll_product#cinco{
+    background-image: url(/img/productos/literatura/AliciaIlustrado.jpg);
+}
+
+.Scroll_product#seis{
+    background-image: url(/img/productos/multimedia/lordOfRingsSound.jpg);
+}
+.Scroll_product#siete{
+    background-image: url(/img/productos/baratijas/mundoDisco.jpg);
+}
+
+
+
+.Scroll_product:hover div.Scroll_product--descripcion{
+     visibility: visible;
+}
+.Scroll_product:hover div.Scroll_product--icons{
+    visibility: visible;
+}
 
 .novedades_product#tres {
     background-image: url(/img/productos/fanart/HPFans.jpg);
@@ -344,16 +368,17 @@ div.novedades_product--icons:hover {
         font-size: 24px;
     }
 
-    .categorias button {
+    .categorias__icon {
         display: flex;
+        color: var(--amarillo-naranja);
         font-size: 50px;
         flex-direction: column;
         margin: 2vw;
-        width: 15vw;
     }
 
-    .categorias button:hover {
+    .categorias__icon:hover {
         font-size: 80px;
+        color: var(--terracota);
     }
 
     .novedades_product {

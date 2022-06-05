@@ -92,11 +92,10 @@ li {
 button {
     background-color: transparent;
     border: none;
-    color: #B0A987;
-}
 
-button :hover {
-    color: #993D41;
+}
+.secciones__icon{
+    color: #B0A987;
 }
 
 a {
