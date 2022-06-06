@@ -25,9 +25,9 @@
 /* general*/
 
 
-#decrement,
-#increment,
-.product-close-btn {
+#menos,
+#mas,
+.item__detalle--cerrar {
   border: inherit;
   color: black;
  
@@ -45,7 +45,7 @@
 
   }
 
-  label .descuento {
+  label .compra__descuento {
     color: var(--gris-claro);
     border-radius: 5px;
     margin-bottom: 10px;
@@ -61,9 +61,8 @@
     outline: 2px solid var(--azure);
   }
 
-  .container {
-    
-     border-radius: 10px;
+  .contenedor{
+    border-radius: 10px;
     max-width: 1440px;
     min-height: 100vh;
     margin-top: 0;
@@ -72,7 +71,7 @@
     flex-direction:column;
   }
 
-  .heading {
+  .tituloCarrito {
     font-size: 28px;
     font-weight: 550;
     color: whitesmoke;
@@ -83,32 +82,28 @@
     gap: 20px;
   }
 
-  .heading #i-carrito {
+  .tituloCarrito #i-carrito {
     font-size: 30px;
   }
 
-  .item-flex {
-    display: flex;
-    flex-grow: 1;
-  }
-
-  .carrito {
-
-    margin: auto;
-    background-color: rgba(69, 41, 63, 0.5);
-    color:white;
-    width: 60%;
-    display: block;
-    flex-direction: column;
-    justify-content:center;
-    padding: 0px var(--p);
+    .carrito {
+      border-radius: 12px;
+      display: flex;
+      flex-grow: 1;
+      margin: auto;
+      background-color: rgba(69, 41, 63, 0.5);
+      color:white;
+      width: 60%;
+      flex-direction: column;
+      justify-content:center;
+      padding: 0px var(--p);
   }
 
   .name {
     justify-content: space-around;
   }
 
-  .cart-item-box {
+  .item {
     display: inline-block;
     width: 100%;
     padding: 40px var(--p);
@@ -116,61 +111,58 @@
 
   }
 
-  .section-heading {
+  .item__titulo {
     color: white;
     margin-bottom: 30px;
     font-size: 24px;
     font-weight: 500;
   }
 
-  .product-card {
-
+  .tarjeta {
     align-items: center;
-     display:inline-block;
+    display:inline-block;
     margin-bottom: 30px;
-  }
-
-  .product-card .card {
     position: relative;
     display: flex;
     align-items: flex-start;
     gap: 20px;
   }
 
-  .card .product-img {
+
+  .tarjeta .tarjeta__img--img{
     border-radius: 4px;
     min-width: 60px;
     max-width: 600px;
   }
 
-  .product-img {
+  .tarjeta__img--img {
     border-radius: 4px;
 
     min-width: 60px;
     max-width: 600px;
   }
 
-  .detail {
+  .item__detalle {
     flex-direction: column;
     display:inline;
     padding: 10px 15px;
 
   }
 
-  .card , .detail, .nombre {
+  .tarjeta , .item__detalle, .item__detalle--nombre {
     font-weight: 500;
     font: size 16px; ;
     color: white;
     margin-bottom: 10px;
   }
 
-  .card, .detail , .wrapper {
+  .tarjeta, .item__detalle , .item__datos {
        display: flex;
     gap: 22px;
     margin-bottom: 10%;
   }
 
-  .cantidad {
+  .item__datos--cantidad {
     background: rgba(10, 10, 10, 0.4);
     display: flex;
     align-items: center;
@@ -178,7 +170,7 @@
     ;
   }
 
-  .cantidad button {
+  .item__datos--cantidad button {
     background: rgba(241, 235, 235, 0.7);
     width: 20px;
     height: 20px;
@@ -187,73 +179,81 @@
     align-items: center;
   }
 
-  button .btn-outline #comprar {
+  button .compra__descuento--boton .compra__comprar {
     align-items: center;
     justify-content: space-between;
     padding-bottom: 20px;
 
   }
 
-  .cantidad button:active,
-  .product-close-btn:active i {
+  .item__datos--cantidad button:active,
+  .item__detalle--cerrar:active i {
     transform: scale(0.95);
   }
 
-  .cantidad button i {
+  .item__datos--cantidad button i {
     width: 70px;
     font-size: 15px;
   }
 
-  .product-close-btn {
+  .item__detalle--cerrar {
     position: absolute;
     top: 0;
     right: 0;
   }
 
-  .product-close-btn i {
+  .item__detalle--cerrar i {
     display: flex;
     font-size: 20px;
     color: white;
   }
 
-  .product-close-btn:hover i {
+  .item__detalle--cerrar:hover i {
     color: tomato;
   }
 
-  .descuento {
+  .compra__descuento {
     padding: 40px var(--p);
 
   }
 
+  .item__datos--boton{
+    border:rgb(255, 0, 76) 1px solid;
+  }
+  
   label .label-defaul {
     size: 16px;
     padding-bottom: 15px;
     margin-bottom: 10px;
     color: antiquewhite;
   }
-  .wrapper {
-       margin-top: 15%;
+
+  /*botones cantidad mas precio*/
+    .item__datos{
+    margin-top: 15%;
     flex-direction: column;
   }
   #comprar{
     align-self: center;
     
   }
-  .wrapper-flex {
 
+  .compra__descuento--barra {
+    border: rgb(255, 0, 76) 1px solid;
     color: antiquewhite;
     display: flex;
     align-items: center;
     gap: 30px;
   }
+  
 
-  .wrapper-flex input {
+  .compra__descuento--barra input {
     padding: 12px 15px;
     font-weight: var(--fw-6);
     letter-spacing: 2px;
   }
 
-  .btn-outline {
+  .compra__descuento--boton {
     padding: 10px 25px;
 
     color: var(--morado);
@@ -263,31 +263,31 @@
     border-radius: 5px;
   }
 
-  .btn-outline:hover {
+  .compra__descuento--boton:hover {
     background: var(--morado);
     color: var(--white);
   }
 
-  div .costos {
+  div .compra__costos {
     text-align: center;
     padding: 40px var(--p);
 
   }
 
-  .envio {
+  .compra__costos--envio {
     border-bottom: #a9b2a2 1px solid;
   }
 
-  .costos > div {
+  .compra__costos > div {
     display: flex;
     justify-content: space-between;
   }
 
-  .costos > div {
+  .compra__costos > div {
     margin-bottom: 10px;
   }
 
-  .costos, .total {
+  .compra__costos, .compra__costos--total {
     font-size: 18px;
     font-weight: 550;
     color: white;
@@ -297,17 +297,17 @@
 
   /*mobile*/
   @media (max-width : 1200px) {
-    .item-flex {
+    .carrito {
       flex-direction: column-reverse;
     }
 
     
 
-    .cart .wrapper {
+    .cart .item__datos {
       margin-top: auto;
     }
 
-    .cart .cart-item-box {
+    .cart .item {
 
       margin-bottom: 0;
     }
@@ -339,7 +339,7 @@
 
   /*desktop*/
   @media (min-width : 769px) {
-    .item-flex {
+    .carrito {
       flex-direction: column-reverse;
     }
 
@@ -350,16 +350,16 @@
 
     }
 
-    .cart .wrapper {
+    .cart .item__datos {
       margin-top: 20px;
     }
 
-    .cart .cart-item-box {
+    .cart .item {
       border-right: 1px solid var(--gris-claro);
       margin-bottom: 0;
     }
 
-    .descuento {
+    .compra__descuento {
       border-top: none;
     }
   }
