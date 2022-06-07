@@ -549,7 +549,7 @@ div.novedades_product--icons:hover {
         align-items: center;
         width: 50%;
         justify-content: space-between;
-        padding: 10px 0;
+        padding: 0px 0;
 
 
     }
@@ -573,12 +573,10 @@ div.novedades_product--icons:hover {
         position: relative;
     }
 
-
     .productos_imgFuera {
         display: flex;
-        background-color: var(--morado);
-        height: auto;
         margin: 10px;
+        background-color: var(--morado);
         width: 100%;
     }
 
@@ -590,15 +588,22 @@ div.novedades_product--icons:hover {
     }
 
 
-    .imgFuera--sombra {
+    .imgVertical--sombra {
         display: flex;
         height: auto;
         width: 50%;
-        padding: 0;
+        padding: 0px;
+        justify-content: center;
+    }
+    .imgHorizontal--sombra {
+        display: flex;
+        height: 50%;
+        padding: 0px;
         ;
     }
 
-    .imgFuera--sombra :hover,
+    .imgVertical--sombra :hover,
+    .imgHorizontal--sombra :hover,
     .zonaFans:hover {
         position: relative;
         bottom: 15px;
