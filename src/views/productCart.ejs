@@ -27,7 +27,7 @@
     <!--HEADER-->
     <header>
       <div class="header">
-        <!--Logo-->
+          <!--Logo-->
         <div class="header__container">
           <div class="logo">
             <a href="/"><img class="header__logo" src="/img/Logo/blancV2ojo.png" alt="Logo de Oracula"></a>
@@ -36,6 +36,62 @@
           <div class="Burguer">
             <button><i id="Burguer_icon" class="iconify" data-icon="eva:menu-fill"></i></button>
           </div>
+              <!--Busqueda-->
+              <form class="Busqueda" action="#" method="GET">
+                  <input class="Busqueda_input" type="search">
+                  <div>
+                      <button class="Busqueda_button" class="submit">
+                          <i class="iconify" data-icon="pepicons:loop"></i>
+                      </button>
+                  </div>
+              </form>
+              <!--Secciones categorias-->
+              <nav class="secciones">
+                  <ul class="secciones__lista">
+                      <li class="secciones__elemento"> <button class="secciones__elemento">Magic Pass<i
+                                  class="iconify secciones__icon" data-icon="fa6-solid:explosion"></i></button>
+                      </li>
+                      <li class="secciones__elemento"> <button class="secciones__elemento">Géneros<i
+                                  class="iconify secciones__icon" data-icon="fa6-solid:hamsa"></i></button></li>
+                      <li class="secciones__elemento"> <button class="secciones__elemento">Categorías<i
+                                  class="iconify secciones__icon"
+                                  data-icon="mdi:bottle-tonic-outline"></i></button>
+                      </li>
+                  </ul>
+              </nav>
+              <!--Botones-->
+              <nav class="botonesSuperiores">
+                  <ul class="botonesSuperiores__lista">
+                      <li class="botonesSuperiores__elemento">
+                          <button class="botonesSuperiores__boton">
+                              <i class="iconify secciones__icon" data-icon="fa:search"></i>
+                          </button>
+                      </li>
+                      <li class="botonesSuperiores__elemento">
+                          <button class="botonesSuperiores__boton">
+                            <a href="/product/product"><i class="iconify secciones__icon" data-icon="pepicons:bookmark-print"></i></a>
+                          </button>
+                      </li>
+                      <li class="botonesSuperiores__elemento">
+                          <button class="botonesSuperiores__boton">
+                            <a href="/product/cart"><i class="iconify secciones__icon" data-icon="mdi:basket"></i></a>
+                          </button>
+                      </li>
+                      <li class="botonesSuperiores__elemento">
+                          <button class="botonesSuperiores_Login">
+                              <a href="/user/login"><div class="botonesSuperiores_Login--texto">¡Ingresá!</div></a>
+                              <i id="logoEntrar2" class="iconify secciones__icon" data-icon="arcticons:monument-valley"></i>
+                              <i id="logoEntrar1" class="iconify secciones__icon" data-icon="bi:door-open-fill"
+                                  data-flip="horizontal"></i>
+                          </button>
+                      </li>
+                  </ul>
+              </nav>
+              <!-- Canastita Mobile-->
+              <nav class="basket">
+                  <button><i class="iconify" data-icon="mdi:basket"></i></button>
+              </nav>
+       
           <!--Busqueda-->
           <form class="Busqueda" action="#" method="GET">
             <input class="Busqueda_input" type="search">
