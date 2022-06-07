@@ -5,12 +5,12 @@ const signup = path.join(__dirname, "../src/views/signup.html");
 const usersController = {
     //login.html
     login: (req, res) => {
-        res.sendFile(login);
+        res.render('login');
     },
 
     //signup.html
     signup: (req, res) => {
-        res.sendFile(signup);
+        res.render('signup');
     }
 };
 module.exports = usersController;
