@@ -13,12 +13,12 @@ const productsController = {
 
     //productCreate
     create: (req,res) => {
-        res.render('crearProducto', {titulo: "Registrar producto"});
+        res.render('productCreate', {titulo: "Registrar producto"});
     },
 
     //productEdit
     edit: (req,res) => {
-        res.render('editarProducto', {titulo: "Editar producto"});
+        res.render('productEdit', {titulo: "Editar producto"});
     }
 };
 module.exports = productsController;
