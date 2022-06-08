@@ -2,306 +2,192 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!--viewport-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--styles-->
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link href="/css/general.css" rel="stylesheet" />
-    <link href="/css/home.css" rel="stylesheet" />
-    <!--iconos-->
-    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
-    <title>Bienvenidxs a Orácula</title>
-    <!--googleFonts-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <%- include('./partials/head.ejs')%>
+        <link href="/css/home.css" rel="stylesheet" />
 </head>
 
 <body>
     <div class="fondo">
-        <header>
-            <div class="header">
-                <!--Logo-->
-                <div class="header__container">
-                    <div class="logo">
-                        <a href="/"><img class="header__logo" src="/img/Logo/blancV2ojo.png" alt="Logo de Oracula"></a>
-                    </div>
-                    <!--Hamburguesita-->
-                    <div class="Burguer">
-                        <button><i id="Burguer_icon" class="iconify" data-icon="eva:menu-fill"></i></button>
-                    </div>
-                    <!--Busqueda-->
-                    <form class="Busqueda" action="#" method="GET">
-                        <input class="Busqueda_input" type="search">
-                        <div>
-                            <button class="Busqueda_button" class="submit">
-                                <i class="iconify" data-icon="pepicons:loop"></i>
-                            </button>
-                        </div>
-                    </form>
-                    <!--Secciones categorias-->
-                    <nav class="secciones">
-                        <ul class="secciones__lista">
-                            <li class="secciones__elemento"> <button class="secciones__elemento">Magic Pass<i
-                                        class="iconify secciones__icon" data-icon="fa6-solid:explosion"></i></button>
-                            </li>
-                            <li class="secciones__elemento"> <button class="secciones__elemento">Géneros<i
-                                        class="iconify secciones__icon" data-icon="fa6-solid:hamsa"></i></button></li>
-                            <li class="secciones__elemento"> <button class="secciones__elemento">Categorías<i
-                                        class="iconify secciones__icon"
-                                        data-icon="mdi:bottle-tonic-outline"></i></button>
-                            </li>
-                        </ul>
-                    </nav>
-                    <!--Botones-->
-                    <nav class="botonesSuperiores">
-                        <ul class="botonesSuperiores__lista">
-                            <li class="botonesSuperiores__elemento">
-                                <button class="botonesSuperiores__boton">
-                                    <i class="iconify secciones__icon" data-icon="fa:search"></i>
-                                </button>
-                            </li>
-                            <li class="botonesSuperiores__elemento">
-                                <button class="botonesSuperiores__boton">
-                                    <a href="/product/product"><i class="iconify secciones__icon"
-                                            data-icon="pepicons:bookmark-print"></i></a>
-                                </button>
-                            </li>
-                            <li class="botonesSuperiores__elemento">
-                                <button class="botonesSuperiores__boton">
-                                    <a href="/product/cart"><i class="iconify secciones__icon"
-                                            data-icon="mdi:basket"></i></a>
-                                </button>
-                            </li>
-                            <li class="botonesSuperiores__elemento">
-                                <button class="botonesSuperiores_Login">
-                                    <a href="/user/login">
-                                        <div class="botonesSuperiores_Login--texto">¡Ingresá!</div>
-                                    </a>
-                                    <i id="logoEntrar2" class="iconify  secciones__icon"
-                                        data-icon="arcticons:monument-valley"></i>
-                                    <i id="logoEntrar1" class="iconify  secciones__icon" data-icon="bi:door-open-fill"
-                                        data-flip="horizontal"></i>
-                                </button>
-                            </li>
-                        </ul>
-                    </nav>
-                    <!-- Canastita Mobile-->
-                    <nav class="basket">
-                        <button><i class="iconify" data-icon="mdi:basket"></i></button>
-                    </nav>
-                </div>
-            </div>
-            <!--Relleno de header-->
-            <div class="header__relleno"></div>
-        </header>
-        <main class="main">
-            <!--presentacion-->
-            <section class="presentacion">
-                <div class="presentacion__container">
-                    <h2 class="presentacion--tituloChico"> Has llegado por fin a...</h2>
-                    <h1 class="presentacion--tituloGrande"> Orácula</h1>
-                    <div class="presentacion--texto"> Tomate un descanso de tu viaje y observa este sitio maravilloso...
+        <%- include('./partials/header.ejs')%>
+            <main class="main">
+                <!--presentacion-->
+                <section class="presentacion">
+                    <div class="presentacion__container">
+                        <h2 class="presentacion--tituloChico"> Has llegado por fin a...</h2>
+                        <h1 class="presentacion--tituloGrande"> Orácula</h1>
+                        <div class="presentacion--texto"> Tomate un descanso de tu viaje y observa este sitio
+                            maravilloso...
 
-                        En el caldero de Orácula mezclamos todo aquello que nos llega desde universos fantásiticos.
+                            En el caldero de Orácula mezclamos todo aquello que nos llega desde universos fantásiticos.
 
-                        ¡Y MagicPass es la herramienta que te permitirá acceder a nuestro contenido de forma ilimitada!
-                    </div>
-                </div>
-            </section>
-            <!--categorias-->
-            <section class="categorias">
-                <div class="categorias__container">
-                    <button class="categorias_magicPass categorias__boton"><i class="iconify categorias__icon"
-                            data-icon="fa-solid:cat"></i>
-                        <div class="categorias--nombre">MagicPass</div>
-                    </button>
-                    <button class="categorias_baratijas categorias__boton"> <i class="iconify categorias__icon"
-                            data-icon="fa-solid:bone"></i>
-                        <div class="categorias--nombre">Baratijas</div>
-                    </button>
-                    <button class="categorias_mutimedia categorias__boton"><i class="iconify categorias__icon"
-                            data-icon="fa6-solid:eye"></i></i>
-                        <div class="categorias--nombre">Multimedia</div>
-                    </button>
-                    <button class="categorias_juegos categorias__boton"> <i class="iconify categorias__icon"
-                            data-icon="fa-solid:dice-d20"></i></i>
-                        <div class="categorias--nombre">Juegos</div>
-                    </button>
-                    <button class="categorias_literatura categorias__boton"><span class="iconify categorias__icon"
-                            data-icon="el:fire"></span></i>
-                        <div class="categorias--nombre">Literatura</div>
-                    </button>
-                    <button class="categorias_fans categorias__boton"><span class="iconify categorias__icon"
-                            data-icon="fa6-solid:frog"></span></i></i>
-                        <div class="categorias--nombre">Zona de Fans</div>
-                    </button>
-                    <button class="categorias_soundtracks categorias__boton"><span class="iconify categorias__icon"
-                            data-icon="mdi:music-clef-treble"></span></span></span></i></i>
-                        <div class="categorias--nombre">Soundtracks</div>
-                    </button>
-                    <button class="categorias_creadorxs categorias__boton"><span class="iconify categorias__icon"
-                            data-icon="bi:lightning-fill"></span></span></i></i>
-                        <div class="categorias--nombre">Creadorxs</div>
-                    </button>
-                </div>
-            </section>
-
-            <!--Destacados-->
-            <section class="destacados">
-                <h2 class="destacados__titulo">Maravillas</h3>
-                    <div class="destacados__container">
-                        <h3 class="destacados_descripcion"> ¡Conseguí tu Magic Pass con 40% de descuento solo por esta
-                            semana!</h3>
-                        <img class="destacados__imagen" src="\img\productos\destacados.jpg" alt="">
-                        <span class="suscribite"> Suscribirme Ahora <span class="iconify"
-                                data-icon="fa:magic"></span></span>
-                        <span class="next" class="iconify" data-icon="ep:arrow-right-bold"></span>
-                        <span class="back" class="iconify" data-icon="ic:round-arrow-back-ios"></span>
-                    </div>
-            </section>
-
-            <!--novedades-->
-
-            <section class="novedades">
-                <h2 class="novedades__titulo"> Lo que no te podés perder </h2>
-                <div class="novedades__container">
-                    <div class="novedades_product" id="uno">
-                        <h4 class="novedades_product--tipo">Pelicula</h4>
-                        <h3 class="novedades_product--titulo"></h3>
-                        <div class="novedades_product--descripcion">Strange World es la nueva aventura animada <br> de
-                            Disney.
-                            <br> Te contamos de que vá, sin Spoilers!
+                            ¡Y MagicPass es la herramienta que te permitirá acceder a nuestro contenido de forma
+                            ilimitada!
                         </div>
                     </div>
-                    <div class="novedades_product" id="dos">
-                        <h4 class="novedades_product--tipo">Juego</h4>
-                        <h3 class="novedades_product--titulo"></h3>
-                        <div class="novedades_product--descripcion">Stardew Valley es un juego de simulación <br> de
-                            granja
-                            inspirado en juegos como <br> Harvest Moon.</div>
-                        <div class="novedades_product--icons"><i class="iconify" data-icon="mdi:basket"></i> <i
-                                class="iconify" data-icon="pepicons:bookmark-print"></i></div>
+                </section>
+                <!--categorias-->
+                <section class="categorias">
+                    <div class="categorias__container">
+                        <button class="categorias_magicPass categorias__boton"><i class="iconify categorias__icon"
+                                data-icon="fa-solid:cat"></i>
+                            <div class="categorias--nombre">MagicPass</div>
+                        </button>
+                        <button class="categorias_baratijas categorias__boton"> <i class="iconify categorias__icon"
+                                data-icon="fa-solid:bone"></i>
+                            <div class="categorias--nombre">Baratijas</div>
+                        </button>
+                        <button class="categorias_mutimedia categorias__boton"><i class="iconify categorias__icon"
+                                data-icon="fa6-solid:eye"></i></i>
+                            <div class="categorias--nombre">Multimedia</div>
+                        </button>
+                        <button class="categorias_juegos categorias__boton"> <i class="iconify categorias__icon"
+                                data-icon="fa-solid:dice-d20"></i></i>
+                            <div class="categorias--nombre">Juegos</div>
+                        </button>
+                        <button class="categorias_literatura categorias__boton"><span class="iconify categorias__icon"
+                                data-icon="el:fire"></span></i>
+                            <div class="categorias--nombre">Literatura</div>
+                        </button>
+                        <button class="categorias_fans categorias__boton"><span class="iconify categorias__icon"
+                                data-icon="fa6-solid:frog"></span></i></i>
+                            <div class="categorias--nombre">Zona de Fans</div>
+                        </button>
+                        <button class="categorias_soundtracks categorias__boton"><span class="iconify categorias__icon"
+                                data-icon="mdi:music-clef-treble"></span></span></span></i></i>
+                            <div class="categorias--nombre">Soundtracks</div>
+                        </button>
+                        <button class="categorias_creadorxs categorias__boton"><span class="iconify categorias__icon"
+                                data-icon="bi:lightning-fill"></span></span></i></i>
+                            <div class="categorias--nombre">Creadorxs</div>
+                        </button>
                     </div>
+                </section>
 
-                    <div class="novedades_product" id="tres">
-                        <h4 class="novedades_product--tipo">Fan Art</h4>
-                        <h3 class="novedades_product--titulo"></h3>
-                        <div class="novedades_product--descripcion">Nunca dejamos de sorprendernos con lo que <br> crean
-                            lxs
-                            fans!</div>
-                    </div>
-
-                    <div class="novedades_product" id="cuatro">
-                        <h4 class="novedades_product--tipo">Audiolibro</h4>
-                        <h3 class="novedades_product--titulo"></h3>
-                        <div class="novedades_product--descripcion">¡Por fin alguien lo hizo! <br> Ahora podés escuchar
-                            la saga
-                            <i>completa</i> de <br> Harry Potter narrada por humanxs.
+                <!--Destacados-->
+                <section class="destacados">
+                    <h2 class="destacados__titulo">Maravillas</h3>
+                        <div class="destacados__container">
+                            <h3 class="destacados_descripcion"> ¡Conseguí tu Magic Pass con 40% de descuento solo por
+                                esta
+                                semana!</h3>
+                            <img class="destacados__imagen" src="\img\productos\destacados.jpg" alt="">
+                            <span class="suscribite"> Suscribirme Ahora <span class="iconify"
+                                    data-icon="fa:magic"></span></span>
+                            <span class="next" class="iconify" data-icon="ep:arrow-right-bold"></span>
+                            <span class="back" class="iconify" data-icon="ic:round-arrow-back-ios"></span>
                         </div>
-                        <div class="novedades_product--icons"><i class="iconify" data-icon="mdi:basket"></i> <i
-                                class="iconify" data-icon="pepicons:bookmark-print"></i></div>
-                    </div>
+                </section>
 
-                    <div class="novedades_product" id="cinco">
-                        <h4 class="novedades_product--tipo">Libro</h4>
-                        <h3 class="novedades_product--titulo"></h3>
-                        <div class="novedades_product--descripcion">Alicia en el pais de las Maravillas <br> ilustrada
-                            <i>como
-                                nunca</i> por Benjamin <br> Lacombe
+                <!--novedades-->
+
+                <section class="novedades">
+                    <h2 class="novedades__titulo"> Lo que no te podés perder </h2>
+                    <div class="novedades__container">
+                        <div class="novedades_product" id="uno">
+                            <h4 class="novedades_product--tipo">Pelicula</h4>
+                            <h3 class="novedades_product--titulo"></h3>
+                            <div class="novedades_product--descripcion">Strange World es la nueva aventura animada <br>
+                                de
+                                Disney.
+                                <br> Te contamos de que vá, sin Spoilers!
+                            </div>
                         </div>
-                        <div class="novedades_product--icons"><i class="iconify" data-icon="mdi:basket"></i> <i
-                                class="iconify" data-icon="pepicons:bookmark-print"></i></div>
-                    </div>
-                    </div">
+                        <div class="novedades_product" id="dos">
+                            <h4 class="novedades_product--tipo">Juego</h4>
+                            <h3 class="novedades_product--titulo"></h3>
+                            <div class="novedades_product--descripcion">Stardew Valley es un juego de simulación <br> de
+                                granja
+                                inspirado en juegos como <br> Harvest Moon.</div>
+                            <div class="novedades_product--icons"><i class="iconify" data-icon="mdi:basket"></i> <i
+                                    class="iconify" data-icon="pepicons:bookmark-print"></i></div>
+                        </div>
 
-                    <div class="novedades_product" id="seis">
-                        <h4 class="novedades_product--tipo">Soundtrack</h4>
-                        <div class="novedades_product--descripcion">Escuchá 3 horas seguidas de El Señor <br> de los
-                            Anillos
-                            y
-                            viajá a La Tierra Media <br> sin anuncios del mal.</div>
-                        <div class="novedades_product--icons"><i class="iconify" data-icon="mdi:basket"></i> <i
-                                class="iconify" data-icon="pepicons:bookmark-print"></i></div>
-                    </div>
+                        <div class="novedades_product" id="tres">
+                            <h4 class="novedades_product--tipo">Fan Art</h4>
+                            <h3 class="novedades_product--titulo"></h3>
+                            <div class="novedades_product--descripcion">Nunca dejamos de sorprendernos con lo que <br>
+                                crean
+                                lxs
+                                fans!</div>
+                        </div>
 
-                    <div class="novedades_product" id="siete">
-                        <h4 class="novedades_product--tipo">Baratijas</h4>
-                        <h3 class="novedades_product--titulo"></h3>
-                        <div class="novedades_product--descripcion">¡Maravilloso! ¡Coleccionables de Mundo Disco! <br>
-                            Por
-                            supuesto el equipaje se robó nuestros co.. <br> Esperen... ¿dónde está Nico? </div>
-                        <div class="novedades_product--icons"><i class="iconify" data-icon="mdi:basket"></i> <i
-                                class="iconify" data-icon="pepicons:bookmark-print"></i></div>
-                    </div>
+                        <div class="novedades_product" id="cuatro">
+                            <h4 class="novedades_product--tipo">Audiolibro</h4>
+                            <h3 class="novedades_product--titulo"></h3>
+                            <div class="novedades_product--descripcion">¡Por fin alguien lo hizo! <br> Ahora podés
+                                escuchar
+                                la saga
+                                <i>completa</i> de <br> Harry Potter narrada por humanxs.
+                            </div>
+                            <div class="novedades_product--icons"><i class="iconify" data-icon="mdi:basket"></i> <i
+                                    class="iconify" data-icon="pepicons:bookmark-print"></i></div>
+                        </div>
+
+                        <div class="novedades_product" id="cinco">
+                            <h4 class="novedades_product--tipo">Libro</h4>
+                            <h3 class="novedades_product--titulo"></h3>
+                            <div class="novedades_product--descripcion">Alicia en el pais de las Maravillas <br>
+                                ilustrada
+                                <i>como
+                                    nunca</i> por Benjamin <br> Lacombe
+                            </div>
+                            <div class="novedades_product--icons"><i class="iconify" data-icon="mdi:basket"></i> <i
+                                    class="iconify" data-icon="pepicons:bookmark-print"></i></div>
+                        </div>
+                        </div">
+
+                        <div class="novedades_product" id="seis">
+                            <h4 class="novedades_product--tipo">Soundtrack</h4>
+                            <div class="novedades_product--descripcion">Escuchá 3 horas seguidas de El Señor <br> de los
+                                Anillos
+                                y
+                                viajá a La Tierra Media <br> sin anuncios del mal.</div>
+                            <div class="novedades_product--icons"><i class="iconify" data-icon="mdi:basket"></i> <i
+                                    class="iconify" data-icon="pepicons:bookmark-print"></i></div>
+                        </div>
+
+                        <div class="novedades_product" id="siete">
+                            <h4 class="novedades_product--tipo">Baratijas</h4>
+                            <h3 class="novedades_product--titulo"></h3>
+                            <div class="novedades_product--descripcion">¡Maravilloso! ¡Coleccionables de Mundo Disco!
+                                <br>
+                                Por
+                                supuesto el equipaje se robó nuestros co.. <br> Esperen... ¿dónde está Nico? </div>
+                            <div class="novedades_product--icons"><i class="iconify" data-icon="mdi:basket"></i> <i
+                                    class="iconify" data-icon="pepicons:bookmark-print"></i></div>
+                        </div>
 
 
-            </section>
+                </section>
 
-            <!--Productos-->
-            <h2 class="otros__titulo"> Mas productos que podés disfrutar </h2>
-            <section class="productos">
-                <a href="/product/product" class="imgVertical--sombra">
-                    <img class="productos_imgVertical" src="\img\productos\coraline.jpg" alt="">
-                </a>
-                <div class="productos_horizontal">
-                    <a href="/product/product" class="imgHorizontal--sombra">
-                        <img class="productos_imgHorizontal" src="\img\productos\undertale.png" alt="">
+                <!--Productos-->
+                <h2 class="otros__titulo"> Mas productos que podés disfrutar </h2>
+                <section class="productos">
+                    <a href="/product/product" class="imgVertical--sombra">
+                        <img class="productos_imgVertical" src="\img\productos\coraline.jpg" alt="">
                     </a>
+                    <div class="productos_horizontal">
+                        <a href="/product/product" class="imgHorizontal--sombra">
+                            <img class="productos_imgHorizontal" src="\img\productos\undertale.png" alt="">
+                        </a>
 
-                    <div class="zonaFans">
+                        <div class="zonaFans">
 
-                        <h3 class="productos__titulo"> Zona de Fans</h3>
-                        <p class="productos__descripcion">¡Vení a ver el contenido genial que suben lxs fans y sumá el
-                            tuyo!</p>
-                        <span class="iconify productos__icono" data-icon="fa-solid:otter"></span>
+                            <h3 class="productos__titulo"> Zona de Fans</h3>
+                            <p class="productos__descripcion">¡Vení a ver el contenido genial que suben lxs fans y sumá
+                                el
+                                tuyo!</p>
+                            <span class="iconify productos__icono" data-icon="fa-solid:otter"></span>
 
+                        </div>
                     </div>
-                </div>
-                <!---<img src="\img\productos\ickabog.jpg" alt="">
+                    <!---<img src="\img\productos\ickabog.jpg" alt="">
                 <img src="\img\productos\narnia.jpg" alt="">
                 <img src="\img\productos\terramar.jpg" alt="">
                 <img src="\img\productos\evaFantastica.jpg" alt="">-->
-            </section>
-        </main>
-        <footer>
-            <div class="footer__container">
-                <section class="links">
-                    <ul class="links_1stColumn">
-                        <li class="links__link"><a href="#">Quiénes somos</a></li>
-                        <li class="links__link"><a href="#">FAQs</a></li>
-                        <li class="links__link"><a href="#">¡Contactanos!</a></li>
-                        <li class="links__link"><a href="#">Términos y condiciones</a></li>
-                    </ul>
-                    <ul class="links_2ndColumn">
-                        <li class="links__link"><a href="#">Privacidad y cookies</a></li>
-                        <li class="links__link"><a href="#">Acerca de Orácula</a></li>
-                        <li class="links__link"><a href="#">Sobre nuestra app</a></li>
-                        <li class="links__link"><a href="#">¿Por qué no hay publicidad?</a></li>
-                    </ul>
                 </section>
-                <section class="adicional">
-                    <div class="adicional_logo">
-                        <a href="/"><img class="footer__logo" src="/img/Logo/blancV2ojo.png" alt="Logo de Oracula"></a>
-                        <a href="/">
-                            <div class="footer__logo-nombre">Orácula</div>
-                        </a>
-                    </div>
-                    <div class="adicional_redes">
-                        <button class="redes_instagram footer__icon"><i class="iconify"
-                                data-icon="bi:instagram"></i></button>
-                        <button class="redes_twitter footer__icon"><i class="iconify"
-                                data-icon="fe:twitter"></i></button>
-                        <button class="redes_tumblr footer__icon"><i class="iconify"
-                                data-icon="simple-line-icons:social-tumblr"></i></button>
-                        <button class="redes_pinterest footer__icon"><i class="iconify"
-                                data-icon="carbon:logo-pinterest"></i></button>
-                    </div>
-                </section>
-            </div>
-        </footer>
+            </main>
+            <%- include('./partials/footer.ejs')%>
     </div>
 </body>
 

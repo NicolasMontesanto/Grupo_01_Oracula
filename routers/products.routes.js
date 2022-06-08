@@ -6,5 +6,5 @@ const productController = require('../controllers/productsController');
 routes.get("/product", productController.product);
 routes.get("/cart", productController.cart);
 routes.get("/create", productController.create);
-routes.get("/edit", productController.create);
+routes.get("/edit", productController.edit);
 module.exports = routes;

@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <%- include('./partials/head.ejs')%>
 </head>
+
 <body>
-    <form class="formulario" action="/" method="get">
-        <%- include("./partials/crear.ejs")%>
+    <div class="fondo">
+        <!-- HEADER -->
+        <%- include('./partials/header.ejs')%>
+            <!-- MAIN -->
+            <main>
+                <form class="formulario" action="/" method="get">
+                    <%- include("./partials/crearProductoPartial.ejs")%>
+            </main>
+            <!-- FOOTER -->
+            <%- include('./partials/footer.ejs')%>
+    </div>
 </body>
+
 </html>
