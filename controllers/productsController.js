@@ -15,6 +15,11 @@ const productsController = {
     //productCreate
     create: (req,res) => {
         res.render('crearProducto');
+    },
+
+    //productEdit
+    create: (req,res) => {
+        res.render('editarProducto');
     }
 };
 module.exports = productsController;
