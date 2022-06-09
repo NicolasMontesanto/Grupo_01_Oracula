@@ -5,5 +5,6 @@ const productController = require('../controllers/productsController');
 //rutas de páginas de productos
 routes.get("/product", productController.product);
 routes.get("/cart", productController.cart);
-
+routes.get("/create", productController.create);
+routes.get("/edit", productController.create);
 module.exports = routes;
