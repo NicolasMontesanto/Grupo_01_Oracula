@@ -1,15 +1,14 @@
-
-    <div class="formulario__nombre">
-        <label class="formulario__label" for="nombre">Nombre del producto:</label>
-        <input class="formulario__input" type="text" id="nombre" name="nombre">
-    </div>
-    <div class="formulario__descripcion">
-        <label class="formulario__label" for="descripcion">Descripción:</label>
-        <textarea class="formulario__text-area" type="text" id="descripcion" name="descripcion"></textarea>
-    </div>
-    <div class="formulario__categoria">
-    <label class="formulario___label" for="categoria">Categoría a la que pertenece:</label>
-    <select class="formulario___desplegable" id="categoria">
+<div class="formulario__item">
+    <label class="formulario__label" for="nombre">Nombre del producto:</label>
+    <input class="formulario__input" type="text" id="nombre" name="nombre">
+</div>
+<div class="formulario__item">
+    <label class="formulario__label" for="descripcion">Descripción:</label>
+    <textarea class="formulario__input input--text-area" type="text" id="descripcion" name="descripcion"></textarea>
+</div>
+<div class="formulario__item">
+    <label class="formulario__label" for="categoria">Categoría a la que pertenece:</label>
+    <select class="formulario__desplegable" id="categoria">
         <optgroup class="formulario__option-group" label="Literatura">
             <option>Libro: Novela</option>
             <option>Libro: Cuentos</option>
@@ -29,27 +28,30 @@
         <optgroup class="formulario__option-group" label="Multimedia">
             <option>Película</option>
             <option>Soundtrack</option>
-        </select>
-    </div>     
+    </select>
+</div>
 
-    <div class="formulario__imagen">
-    <label class= "formulario__label" for="imagenes">Imágenes del producto:</label>
-    <input class="formulario__input" type="file" id="imagenes" name="imagenes" accept="image/png, image/jpeg" capture multiple>
-    </div>
-    <div class="formulario__precio">
-    <label class= "formulario__label" for="precio">Precio: </label>
-    <input class="formulario__input" type="number" id="precio" name="precio">
-    <label class= "formulario__label" for="moneda">Moneda: </label>
-    <select class="formulario___desplegable" id="moneda">
+<div class="formulario__item">
+    <label class="formulario__label" for="imagenes">Imágenes del producto:</label>
+    <input class="formulario__input input--file" type="file" id="imagenes" name="imagenes" accept="image/png, image/jpeg"
+        capture multiple>
+</div>
+<div class="formulario__item">
+    <label class="formulario__label" for="moneda">Moneda: </label>
+    <select class="formulario__desplegable" id="moneda">
         <option value="dolares"> Dólares</option>
         <option value="euros">Pesos</option>
         <option value="bitcoins">Bitcoins</option>
         <option value="ars">ARS</option>
         <option value="guaranies">Guaraníes</option>
     </select>
-    </div>
-    <div class="cargar">
-      <button type="submit">Cargar Producto</button>
-      
-    </div>
-</form>
+</div>
+<div class="formulario__item">
+    <label class="formulario__label" for="precio">Precio: </label>
+    <input class="formulario__input input--precio" type="number" id="precio" name="precio">
+</div>
+<div class="formulario__item last-item">
+    <button class="formulario__icon-submit" type="submit">
+        <i class="fa-solid fa-circle-arrow-right"></i>
+    </button>
+</div>
