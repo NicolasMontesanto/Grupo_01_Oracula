@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs')%>
+</head>
+
+<body>
+
+    <div class="fondo">
+        <!-- HEADER -->
+        <%- include('./partials/header.ejs')%>
+            <!-- MAIN -->
+            <main>
+                <form class="formulario" action="/" method="get">
+                    <label class="formulario__label" for="id">Id de producto: </label>
+                    <input class="formulario__input" type="" id="precio" name="precio">
+                    <%- include("./partials/productCreatePartial.ejs")%>
+            </main>
+            <!-- FOOTER -->
+            <%- include('./partials/footer.ejs')%>
+    </div>
+</body>
+</html>

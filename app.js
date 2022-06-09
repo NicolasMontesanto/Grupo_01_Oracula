@@ -3,6 +3,10 @@ const path = require('path'); //requiero path
 //express
 let app = express(); 
 
+//ejs 
+app.set("view engine", "ejs"); 
+//cambiamos la ruta x default para que contemple que views esta en src 
+app.set('views', __dirname + '/src/views')
 
 //rutas
 const routes = require("./routers/index.routes");
@@ -18,8 +22,3 @@ app.use(express.static(publicPath));
 app.listen(port, ()=>{
     console.log(`Escuchando por el puerto ${port}`)
 });
-
-//ejs 
-app.set("view engine", "ejs"); 
-//cambiamos la ruta x default para que contemple que views esta en src 
-app.set('views', __dirname + '/src/views')
