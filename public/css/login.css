@@ -1,13 +1,20 @@
-:root{
-    --morado: #45293f; 
-    --marron-claro: #B0A987;
-    --gris-claro: #a9b2a2;
-    --gris-iconos-body: #788a87;
-    --gris-oscuro: #576069;
-    --amarillo-anaranjado: #FBB954;
-    --naranja: #CD683D;
+:root {
+    --morado-oscuro: #2E222F;
+    --morado: #45293f;
+    --vino: #7A3045;
     --terracota: #993D41;
-    --filtro-background:rgba(69, 41, 63, 0.5);
+    --naranja: #CD683D;
+    --amarillo-naranja: #FBB954;
+    --amarillo: #F2EC8B;
+    --marron-claro: #B0A987;
+    --khaki: #997F73;
+    --gris-rojizo: #665964;
+    --gris--morado: #443846;
+    --gris-oscuro: #576069;
+    --gris-turquesa: #788a87;
+    --gris-claro: #a9b2a2;
+    --filtro: #45293f80;
+    --oracula: #bddcf4;
 }
 
 .main{
@@ -22,7 +29,7 @@
     display: flex;
     margin: 20px 0px 20px;
     justify-content: center;
-    color: var(--amarillo-anaranjado);
+    color: var(--amarillo-naranja);
 }
 .titulo__text{
     margin:0px;
@@ -36,7 +43,7 @@
     margin: auto;
     margin-bottom: 20px;
     font-size: 20px;
-    color: var(--amarillo-anaranjado);
+    color: var(--amarillo-naranja);
 }
 .boton-google{
     margin-top: 10px;
@@ -46,6 +53,12 @@
     width: 110px;
     color: #CF4036;
     border: 2px solid #CF4036;
+}
+.boton-google:hover{
+    position: relative;
+    height: 50px;
+    width: 120px;
+    font-size: x-large;
 }
 
 .formulario__container{
@@ -114,6 +127,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    position: relative;
 }
 .link-password-recover{
     font-size: 14px;
@@ -125,10 +139,20 @@
     margin-left: 20px;
 }
 
-.formulario__icon-submit{
-    font-size: 30px;
+.formulario__icon-submit {
+    color:var(--marron-claro);
+    font-size: 40px;
+    font-weight: bold;
     margin: 10px 20px;
+    align-self: flex-end;
+    transition: all 250ms;
 }
+
+.formulario__icon-submit:hover {
+    color: var(--oracula);
+    text-shadow: 0px 0px 50px var(--oracula);
+}
+
 @media (min-width: 820px) {
     .link-password-recover,
     .link-signup{
