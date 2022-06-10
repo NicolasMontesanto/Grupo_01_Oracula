@@ -1,23 +1,20 @@
-/*paleta de colores 
-Morado: #45293f; 
-marron claro: #B0A987
-Gris claro: #a9b2a2
-Gris iconos body(intermedio): #788a87
-Gris oscuro: #576069
-Amarillo anaranjado: #FBB954
-Naranja: #CD683D
-Terracota: #993D41
-Filtro: #171B27 - opacidad 54%
-*/
 :root {
+    --morado-oscuro: #2E222F;
     --morado: #45293f;
-    --marron-claro: #B0A987;
-    --gris-claro: #a9b2a2;
-    --gris-iconos-body: #788a87;
-    --gris-oscuro: #576069;
-    --amarillo-anaranjado: #FBB954;
-    --naranja: #CD683D;
+    --vino: #7A3045;
     --terracota: #993D41;
+    --naranja: #CD683D;
+    --amarillo-naranja: #FBB954;
+    --amarillo: #F2EC8B;
+    --marron-claro: #B0A987;
+    --khaki: #997F73;
+    --gris-rojizo: #665964;
+    --gris--morado: #443846;
+    --gris-oscuro: #576069;
+    --gris-turquesa: #788a87;
+    --gris-claro: #a9b2a2;
+    --filtro: #45293f80;
+    --oracula: #bddcf4;
 }
 
 * {
@@ -37,8 +34,8 @@ li {
     margin: 0;
 }
 
-div.fondo {
-    background-image: url(/img/Fondos/BackgroundMob.png);
+.fondo {
+    background-image: url(/img/Fondos/Background2.jpg);
     background-attachment: fixed;
     background-size: cover;
     height: 100%;
@@ -94,12 +91,13 @@ div.fondo {
 button {
     background-color: transparent;
     border: none;
+
+}
+
+.secciones__icon {
     color: #B0A987;
 }
 
-button :hover {
-    color: #993D41;
-}
 
 a {
     color: #a9b2a2;
@@ -108,7 +106,6 @@ a {
 a:hover {
     color: #FBB954;
 }
-
 
 .Busqueda {
     padding: 5px;
@@ -160,7 +157,12 @@ footer {
     bottom: 1px;
     max-width: 1200px;
 }
-
+.footer__icon{
+    color: var(--marron-claro)
+}
+.footer__icon:hover{
+    color: var(--terracota)
+}
 .links {
     display: flex;
     width: 60%;
@@ -212,8 +214,8 @@ footer {
         display: none;
     }
 
-    div.fondo {
-        background-image: url(/img/Fondos/Background.jpg);
+    .fondo {
+        background-image: url(/img/Fondos/Background2.jpg);
         background-size: cover;
     }
 
@@ -251,6 +253,11 @@ footer {
     .secciones__elemento {
         font-size: 24px;
         color: #FBB954;
+        padding: 10px;
+    }
+
+    .secciones__elemento:hover {
+        font-size: 27px;
     }
 
     .secciones__icon {
@@ -258,12 +265,13 @@ footer {
     }
 
     .secciones button:hover {
-        background-color: rgba(23, 27, 39, 0.5);
+        box-shadow: 0px 2px 5px #B0A987;
+        color: var(--amarillo-anaranjado);
     }
 
     .botonesSuperiores {
         width: 30%;
-         margin: 0px;
+        margin: 0px;
         margin-right: 10px;
         max-width: 300px;
     }
@@ -273,13 +281,26 @@ footer {
         width: 100%;
     }
 
+
     .botonesSuperiores__boton {
         font-size: 30px;
+    }
+
+    .botonesSuperiores__boton:hover {
+        font-size: 40px;
     }
 
     .botonesSuperiores_Login {
         position: relative;
     }
+
+    .botonesSuperiores_Login:hover #logoEntrar1 {
+        font-size: 40px;
+        color: #FBB954;
+        position: relative;
+        bottom: 5px;
+    }
+
 
     #logoEntrar2 {
         position: relative;
@@ -307,7 +328,7 @@ footer {
 
     .botonesSuperiores_Login--texto:hover {
         background-color: transparent;
-        font-size: 25px;
+        font-size: 30px;
     }
 
     .adicional {

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head.ejs')%>
+        <link rel="stylesheet" href="/css/productEdit.css">
+</head>
+
+<body>
+    <div class="fondo">
+        <!-- HEADER -->
+        <%- include('../partials/header.ejs')%>
+            <!-- MAIN -->
+            <main>
+                <section class="titulo">
+                    <h1 class="titulo__text">Editar producto</h1>
+                </section>
+                <form class="formulario" action="/" method="get">
+                    <div class="formulario__item">
+                        <label class="formulario__label" for="id">Id de producto: </label>
+                        <input class="formulario__input" type="" id="id" name="id">
+                    </div>
+                    <%- include("../partials/productCreatePartial.ejs")%>
+                </form>
+            </main>
+            <!-- FOOTER -->
+            <%- include('../partials/footer.ejs')%>
+    </div>
+</body>
+
+</html>
