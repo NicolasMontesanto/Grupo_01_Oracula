@@ -31,4 +31,4 @@ Este Sprint fluyó de forma sencilla, pudimos lograr todo a tiempo y sin mayores
 
 ### Dejar de hacer: 
 * Grandes cambios sin actualizar el remoto.
-* Procrastinar y concentrar todo el trabajo hacia el final del sprint. 
+* Procrastinar y concentrar todo el trabajo hacia el final del sprint.

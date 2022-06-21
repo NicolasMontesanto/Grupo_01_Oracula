@@ -18,17 +18,36 @@
                     </button>
                 </div>
             </form>
+            <!-- Canastita Mobile-->
+            <nav class="basket">
+                <button><i class="iconify" data-icon="mdi:basket"></i></button>
+            </nav>
             <!--Secciones categorias-->
             <nav class="secciones">
                 <ul class="secciones__lista">
-                    <li class="secciones__elemento"> <button class="secciones__elemento">Magic Pass<i
-                                class="iconify secciones__icon" data-icon="fa6-solid:explosion"></i></button>
+                    <li>
+                        <button class="secciones__elemento">
+                            <i class="iconify secciones__icon" data-icon="fa6-solid:explosion"></i>
+                            Magic Pass
+                        </button>
                     </li>
-                    <li class="secciones__elemento"> <button class="secciones__elemento">Géneros<i
-                                class="iconify secciones__icon" data-icon="fa6-solid:hamsa"></i></button></li>
-                    <li class="secciones__elemento"> <button class="secciones__elemento">Categorías<i
-                                class="iconify secciones__icon"
-                                data-icon="mdi:bottle-tonic-outline"></i></button>
+                    <li>
+                        <button class="secciones__elemento">
+                            <i class="iconify secciones__icon" data-icon="fa6-solid:hamsa"></i>
+                            Géneros
+                        </button>
+                    </li>
+                    <li>
+                        <button class="secciones__elemento">
+                            <i class="iconify secciones__icon" data-icon="mdi:bottle-tonic-outline"></i>
+                            Categorías
+                        </button>
+                    </li>
+                    <li>
+                        <button class="secciones__elemento">
+                            <i class="fa-solid fa-toolbox secciones__icon"></i>
+                            Admin
+                        </button>
                     </li>
                 </ul>
             </nav>
@@ -48,8 +67,7 @@
                     </li>
                     <li class="botonesSuperiores__elemento">
                         <button class="botonesSuperiores__boton">
-                            <a href="/product/cart"><i class="iconify secciones__icon"
-                                    data-icon="mdi:basket"></i></a>
+                            <a href="/product/cart"><i class="iconify secciones__icon" data-icon="mdi:basket"></i></a>
                         </button>
                     </li>
                     <li class="botonesSuperiores__elemento">
@@ -65,11 +83,43 @@
                     </li>
                 </ul>
             </nav>
-            <!-- Canastita Mobile-->
-            <nav class="basket">
-                <button><i class="iconify" data-icon="mdi:basket"></i></button>
-            </nav>
         </div>
+        <nav class="menu__container">
+            <ul class="menu menu--generos">
+                <li class="menu__item">
+                </li>
+            </ul>
+            <ul class="menu menu--categorias">
+                <li class="menu__item">
+                    <a class="menu__link" href="LINK">
+                        <img class="menu__imagen" src="/img/productos/literatura/AliciaIlustrado.jpg" alt="Imagen de Literatura">
+                        <h4>Literatura</h4>   
+                    </a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="LINK">
+                        <img class="menu__imagen" src="/img/productos/juegos/stardewValley.png" alt="">
+                        <h4>Juegos</h4>
+                    </a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="LINK">
+                        <img class="menu__imagen" src="/img/productos/baratijas/mundoDisco.jpg" alt="">
+                        <h4>Baratijas</h4>
+                    </a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="LINK">
+                        <img class="menu__imagen" src="/img/productos/multimedia/lordOfRingsSound.jpg" alt="">
+                        <h4>Audiovisuales</h4>
+                    </a>
+                </li>
+            </ul>
+            <ul class="menu menu--admin">
+                <li class="menu__item">
+                </li>
+            </ul>
+        </nav>
     </div>
     <!--Relleno de header-->
     <div class="header__relleno"></div>
