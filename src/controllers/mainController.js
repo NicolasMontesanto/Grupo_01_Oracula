@@ -1,5 +1,5 @@
 const path = require('path');
-const homePath = path.join(__dirname, '../src/views/home.html');
+const homePath = path.join(__dirname, '../views/home.html');
 
 const mainController = {
     //home.html

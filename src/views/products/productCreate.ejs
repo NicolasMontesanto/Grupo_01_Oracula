@@ -4,6 +4,7 @@
 <head>
     <%- include('../partials/head.ejs')%>
         <link rel="stylesheet" href="/css/productCreate.css">
+        <title>Registrar Producto</title>
 </head>
 
 <body>
@@ -15,7 +16,7 @@
                 <section class="titulo">
                     <h1 class="titulo__text">Registrar producto</h1>
                 </section>
-                <form class="formulario" action="/" method="get">
+                <form class="formulario" action="/product/create" method="post">
                     <%- include("../partials/productCreatePartial.ejs")%>
                 </form>
             </main>
@@ -23,5 +24,4 @@
             <%- include('../partials/footer.ejs')%>
     </div>
 </body>
-
 </html>

@@ -1,6 +1,6 @@
 const path = require('path');
-const login = path.join(__dirname, "../src/views/login.html");
-const signup = path.join(__dirname, "../src/views/signup.html");
+const login = path.join(__dirname, "../views/login.html");
+const signup = path.join(__dirname, "../views/signup.html");
 
 const usersController = {
     //login.html
