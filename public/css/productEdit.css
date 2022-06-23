@@ -17,53 +17,25 @@
     --oracula: #bddcf4;
 }
 
-.main{
+.main {
     width: 100%;
     flex-direction: column;
-    display:flex;
+    display: flex;
     margin-bottom: 40px;
-
 }
-.titulo{
+
+.titulo {
     display: flex;
     margin: 20px 0px 20px;
     justify-content: center;
     color: var(--amarillo-naranja);
 }
-.titulo__text{
-    margin:0px;
+
+.titulo__text {
+    margin: 0px;
 }
 
-.boton-google__container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: fit-content;
-    margin: auto;
-    margin-bottom: 20px;
-    font-size: 20px;
-    color: var(--amarillo-anaranjado);
-}
-.boton-google{
-    margin-top: 10px;
-    height: 40px;
-    font-weight: 1000;
-    background-color: white;
-    width: 110px;
-    color: #CF4036;
-    border: 2px solid #CF4036;
-}
-.boton-google:hover{
-    position: relative;
-    height: 50px;
-    width: 120px;
-    font-size: x-large;
-}
-.boton-google__text{
-    color: var(--gris-claro);
-}
-
-.formulario{
+.formulario {
     background-color: rgba(69, 41, 63, 0.5);
     box-shadow: 10px 10px 5px 0px black;
     width: 90%;
@@ -72,22 +44,23 @@
     margin-bottom: 40px;
     margin-top: 40px;
     padding-top: 1px;
+    padding-bottom: 1px;
     justify-content: center;
     align-items: center;
 }
-.formulario__item{
+
+.formulario__item {
     display: flex;
     width: 100%;
     flex-direction: column;
     justify-content: center;
-    align-items:center;
+    align-items: flex-start;
     margin-top: 20px;
     margin-bottom: 20px;
     padding-left: 20px;
     padding-right: 20px;
 }
-
-.formulario__label{
+.formulario__label {
     font-size: 20px;
     font-weight: bold;
     color: var(--gris-claro);
@@ -95,36 +68,40 @@
     align-self: start;
     margin-bottom: 5px;
 }
-.formulario__input{
+
+.formulario__input {
     height: 35px;
     width: 100%;
-    background-color: rgb(240,240,240);
+    background-color: rgb(240, 240, 240);
+    padding: 0px 5px;
+    font-size: 20px;
 }
-.recordar-password{
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    padding:0px 20px;
+
+.input--precio {
+    max-width: 40%;
+    min-width: 200px;
 }
-.recordar-password__checkbox{
-    width: 15px;
-    height: 15px;
+
+.input--text-area {
+    height: 70px;
+    width: 100%;
+    background-color: rgb(240, 240, 240);
 }
-.formulario__submit{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+
+.input--file {
+    height: fit-content;
+    padding: 0px;
+    width: 100%;
+    background-color: rgb(240, 240, 240);
 }
-.link-password-recover{
-    font-size: 14px;
-    margin-left: 20px;
-    margin-bottom: 5px;
-}
-.link-login{
-    color: var(--gris-claro);
-    font-size: 16px;
-    margin-left: 20px;
+
+.formulario__desplegable {
+    height: 35px;
+    width: 40%;
+    min-width: 200px;
+    background-color: rgb(240, 240, 240);
+    align-self: flex-start;
+    font-size: 18px;
 }
 
 .formulario__icon-submit {
@@ -140,12 +117,12 @@
     color: var(--oracula);
     text-shadow: 0px 0px 50px var(--oracula);
 }
+.last-item{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 @media (min-width: 820px) {
-    .link-password-recover,
-    .link-signup{
-        font-size: 16px;
-    }
-    .formulario__icon-submit{
+    .formulario__icon-submit {
         font-size: 50px;
     }
 }

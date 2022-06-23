@@ -1,0 +1,79 @@
+<div class="formulario__item">
+    <label class="formulario__label" for="nombre">Nombre del producto:</label>
+    <input class="formulario__input" type="text" id="nombre" name="nombre">
+</div>
+<div class="formulario__item">
+    <label class="formulario__label" for="descripcion">Descripción:</label>
+    <textarea class="formulario__input input--text-area" type="text" id="descripcion" name="descripcion"></textarea>
+</div>
+<div class="formulario__item">
+    <label class="formulario__label" for="categoria">Categoría a la que pertenece:</label>
+    <select class="formulario__desplegable" id="categoria" name="categoria">
+        <option value="literatura" >Literatura</option>
+        <option value="juego" >Juego</option>
+        <option value="multimedia" >Multimedia</option>
+        <option value="baratija" >Baratija</option>
+    </select>
+    <select class="formulario__desplegable" id="categoria" name="subcategoria">
+        <optgroup class="formulario__option-group" label="Literatura">
+            <option value="novela">Libro: Novela</option>
+            <option value="cuento">Libro: Cuentos</option>
+            <option value="audiolibro">Audiolibro</option>
+            <option value="manga">Manga</option>
+            <option value="historieta">Historieta</option>
+        </optgroup>
+        <optgroup class="formulario__option-group" label="Juegos">
+            <option value="videojuego">Videojuego</option>
+            <option value="juegoDeMesa">Juego de Mesa</option>
+        </optgroup>
+        <optgroup class="formulario__option-group" label="Baratijas">
+            <option value="ropa">Ropa</option>
+            <option value="accesorio">Accesorio</option>
+            <option value="coleccionable">Coleccionable</option>
+        </optgroup>
+        <optgroup class="formulario__option-group" label="Multimedia">
+            <option value="pelicula">Película</option>
+            <option value="soundtrack">Soundtrack</option>
+    </select>
+</div>
+
+<div class="formulario__item">
+    <label class="formulario__label" for="imagenes">Imágenes del producto:</label>
+    <input class="formulario__input input--file" type="file" id="imagenes" name="imagenes"
+        accept="image/png, image/jpeg" capture multiple>
+</div>
+<div class="formulario__item">
+    <label class="formulario__label" for="moneda">Moneda: </label>
+    <select class="formulario__desplegable" id="moneda">
+        <option value="dolares"> Dólares</option>
+        <option value="pesos">Pesos</option>
+        <option value="bitcoins">Bitcoins</option>
+        <option value="euros">Euros</option>
+        <option value="guaranies">Guaraníes</option>
+    </select>
+</div>
+<div class="formulario__item">
+    <label for="esNovedad" class="formulario__label">¿Es una Novedad?</label>
+    <input class="formulario__input" type="checkbox" checked="true" id="esNovedad" name="esNovedad">
+</div>
+<div class="formulario__item">
+    <label for="esDestacado" class="formulario__label">¿Es Destacado?</label>
+    <input class="formulario__input" type="checkbox" checked="true" id="esDestacado" name="esDestacado">
+</div>
+<div class="formulario__item">
+    <label for="esOferta" class="formulario__label">¿Está en oferta?</label>
+    <input class="formulario__input" type="checkbox" value=true id="esOferta" name="esOferta">
+</div>
+<div class="formulario__item">
+    <label class="formulario__label" for="precio">Precio: </label>
+    <input class="formulario__input input--precio" type="number" id="precio" name="precio">
+</div>
+<div class="formulario__item">
+    <label for="descuento" class="formulario__label">Descuento</label>
+    <input class="formulario__input" type="number" id="descuento" name="descuento">
+</div>
+<div class="formulario__item last-item">
+    <button class="formulario__icon-submit" type="submit">
+        <i class="fa-solid fa-circle-arrow-right"></i>
+    </button>
+</div>
