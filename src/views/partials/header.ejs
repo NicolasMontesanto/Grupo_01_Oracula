@@ -84,6 +84,7 @@
                 </ul>
             </nav>
         </div>
+        <!--Menú desplegable--> 
         <nav class="menu__container">
             <ul class="menu menu--generos" onmouseleave="ocultarGeneros()">
                 <li class="menu__item">
@@ -170,11 +171,13 @@
             }
         }
         setDisplayNoneMenus();
+        //Cambia el display del menu que se le pase
         function setDisplayNoneSingleMenu(menu) {
             for (let i = 0; i < menu.length; i++) {
                 menu[i].style.display = "none";
             }
         }
+        //Muestra el menu de categorias
         function mostrarCategorias() {
             setDisplayNoneSingleMenu(document.getElementsByClassName("menu--generos"));
             setDisplayNoneSingleMenu(document.getElementsByClassName("menu--admin"));
@@ -187,12 +190,14 @@
                 }
             }
         }
+        //Oculta el menu de categorias
         function ocultarCategorias() {
             let menus = document.getElementsByClassName("menu--categorias");
             for (let i = 0; i < menus.length; i++) {
                 menus[i].style.display = "none";
             }
         }
+        //Muestra el menu de generos
         function mostrarGeneros() {
             setDisplayNoneSingleMenu(document.getElementsByClassName("menu--categorias"));
             setDisplayNoneSingleMenu(document.getElementsByClassName("menu--admin"));
@@ -201,18 +206,20 @@
                 if (menu[i].style.display == "none") {
                     menu[i].style.display = "flex";
                     menu[i].style.visibility = "visible";
-
+                    
                 } else {
                     menu[i].style.display = "none"
                 }
             }
         }
+        //Oculta el menu de generos
         function ocultarGeneros() {
             let menus = document.getElementsByClassName("menu--generos");
             for (let i = 0; i < menus.length; i++) {
                 menus[i].style.display = "none";
             }
         }
+        //Muestra el menu de admin
         function mostrarAdmin() {
             setDisplayNoneSingleMenu(document.getElementsByClassName("menu--generos"));
             setDisplayNoneSingleMenu(document.getElementsByClassName("menu--categorias"));
@@ -227,6 +234,7 @@
                 }
             }
         }
+        //Oculta el menu de admin
         function ocultarAdmin() {
             let menus = document.getElementsByClassName("menu--admin");
             for (let i = 0; i < menus.length; i++) {
