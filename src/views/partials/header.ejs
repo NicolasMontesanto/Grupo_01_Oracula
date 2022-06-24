@@ -26,25 +26,25 @@
             <nav class="secciones">
                 <ul class="secciones__lista">
                     <li>
-                        <button class="secciones__elemento">
+                        <button class="secciones__elemento secciones--magicPass">
                             <i class="iconify secciones__icon" data-icon="fa6-solid:explosion"></i>
                             Magic Pass
                         </button>
                     </li>
                     <li>
-                        <button class="secciones__elemento">
+                        <button class="secciones__elemento secciones--generos" onclick="mostrarGeneros()">
                             <i class="iconify secciones__icon" data-icon="fa6-solid:hamsa"></i>
                             Géneros
                         </button>
                     </li>
                     <li>
-                        <button class="secciones__elemento">
+                        <button class="secciones__elemento secciones--categorias" onclick="mostrarCategorias()">
                             <i class="iconify secciones__icon" data-icon="mdi:bottle-tonic-outline"></i>
                             Categorías
                         </button>
                     </li>
                     <li>
-                        <button class="secciones__elemento">
+                        <button class="secciones__elemento secciones--admin" onclick="mostrarAdmin()">
                             <i class="fa-solid fa-toolbox secciones__icon"></i>
                             Admin
                         </button>
@@ -85,42 +85,149 @@
             </nav>
         </div>
         <nav class="menu__container">
-            <ul class="menu menu--generos">
+            <ul class="menu menu--generos" onmouseleave="ocultarGeneros()">
                 <li class="menu__item">
-                </li>
-            </ul>
-            <ul class="menu menu--categorias">
-                <li class="menu__item">
-                    <a class="menu__link" href="LINK">
-                        <img class="menu__imagen" src="/img/productos/literatura/AliciaIlustrado.jpg" alt="Imagen de Literatura">
-                        <h4>Literatura</h4>   
+                    <a class="menu__link link--imagen" href="LINK">
+                        <img class="menu__imagen" src="/img/productos/literatura/AliciaIlustrado.jpg"
+                            alt="Imagen de Literatura">
+                        <h4 class="menu__description">Literatura</h4>
                     </a>
                 </li>
                 <li class="menu__item">
-                    <a class="menu__link" href="LINK">
+                    <a class="menu__link link--imagen" href="LINK">
                         <img class="menu__imagen" src="/img/productos/juegos/stardewValley.png" alt="">
-                        <h4>Juegos</h4>
+                        <h4 class="menu__description">Juegos</h4>
                     </a>
                 </li>
                 <li class="menu__item">
-                    <a class="menu__link" href="LINK">
+                    <a class="menu__link link--imagen" href="LINK">
                         <img class="menu__imagen" src="/img/productos/baratijas/mundoDisco.jpg" alt="">
-                        <h4>Baratijas</h4>
-                    </a>
-                </li>
-                <li class="menu__item">
-                    <a class="menu__link" href="LINK">
-                        <img class="menu__imagen" src="/img/productos/multimedia/lordOfRingsSound.jpg" alt="">
-                        <h4>Audiovisuales</h4>
+                        <h4 class="menu__description">Baratijas</h4>
                     </a>
                 </li>
             </ul>
-            <ul class="menu menu--admin">
+            <ul class="menu menu--categorias" onmouseleave="ocultarCategorias()">
                 <li class="menu__item">
+                    <a class="menu__link link--imagen" href="LINK">
+                        <img class="menu__imagen" src="/img/productos/literatura/AliciaIlustrado.jpg"
+                            alt="Imagen de Literatura">
+                        <h4 class="menu__description">Literatura</h4>
+                    </a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link link--imagen" href="LINK">
+                        <img class="menu__imagen" src="/img/productos/juegos/stardewValley.png" alt="">
+                        <h4 class="menu__description">Juegos</h4>
+                    </a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link link--imagen" href="LINK">
+                        <img class="menu__imagen" src="/img/productos/baratijas/mundoDisco.jpg" alt="">
+                        <h4 class="menu__description">Baratijas</h4>
+                    </a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link link--imagen" href="LINK">
+                        <img class="menu__imagen" src="/img/productos/multimedia/lordOfRingsSound.jpg" alt="">
+                        <h4 class="menu__description">Audiovisuales</h4>
+                    </a>
+                </li>
+            </ul>
+            <ul class="menu menu--admin" onmouseleave="ocultarAdmin()">
+                <li class="menu__item">
+                    <a class="menu__link" href="LINK">
+                        <h4 class="menu__description">Registrar Producto</h4>
+                    </a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="LINK">
+                        <h4 class="menu__description">Ver Productos</h4>
+                    </a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="LINK">
+                        <h4 class="menu__description">Registrar Usuarix</h4>
+                    </a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="LINK">
+                        <h4 class="menu__description">Ver Usuarixs</h4>
+                    </a>
                 </li>
             </ul>
         </nav>
     </div>
     <!--Relleno de header-->
     <div class="header__relleno"></div>
+
+    <!--Script-->>
+    <script>
+        //Hace que el display de todos los menus empiece en None
+        function setDisplayNoneMenus() {
+            let menus = document.getElementsByClassName("menu");
+            for (let i = 0; i < menus.length; i++) {
+                menus[i].style.display = "none";
+            }
+        }
+        setDisplayNoneMenus();
+        function setDisplayNoneSingleMenu(menu) {
+            for (let i = 0; i < menu.length; i++) {
+                menu[i].style.display = "none";
+            }
+        }
+        function mostrarCategorias() {
+            setDisplayNoneSingleMenu(document.getElementsByClassName("menu--generos"));
+            setDisplayNoneSingleMenu(document.getElementsByClassName("menu--admin"));
+            let menu = document.getElementsByClassName("menu--categorias");
+            for (let i = 0; i < menu.length; i++) {
+                if (menu[i].style.display == "none") {
+                    menu[i].style.display = "flex";
+                } else {
+                    menu[i].style.display = "none"
+                }
+            }
+        }
+        function ocultarCategorias() {
+            let menus = document.getElementsByClassName("menu--categorias");
+            for (let i = 0; i < menus.length; i++) {
+                menus[i].style.display = "none";
+            }
+        }
+        function mostrarGeneros() {
+            setDisplayNoneSingleMenu(document.getElementsByClassName("menu--categorias"));
+            setDisplayNoneSingleMenu(document.getElementsByClassName("menu--admin"));
+            let menu = document.getElementsByClassName("menu--generos");
+            for (let i = 0; i < menu.length; i++) {
+                if (menu[i].style.display == "none") {
+                    menu[i].style.display = "flex";
+                } else {
+                    menu[i].style.display = "none"
+                }
+            }
+        }
+        function ocultarGeneros() {
+            let menus = document.getElementsByClassName("menu--generos");
+            for (let i = 0; i < menus.length; i++) {
+                menus[i].style.display = "none";
+            }
+        }
+        function mostrarAdmin() {
+            setDisplayNoneSingleMenu(document.getElementsByClassName("menu--generos"));
+            setDisplayNoneSingleMenu(document.getElementsByClassName("menu--categorias"));
+            let menu = document.getElementsByClassName("menu--admin");
+            for (let i = 0; i < menu.length; i++) {
+                if (menu[i].style.display == "none") {
+                    menu[i].style.display = "flex";
+                } else {
+                    menu[i].style.display = "none"
+                }
+            }
+        }
+        function ocultarAdmin() {
+            let menus = document.getElementsByClassName("menu--admin");
+            for (let i = 0; i < menus.length; i++) {
+                menus[i].style.display = "none";
+            }
+        }
+    </script>
 </header>

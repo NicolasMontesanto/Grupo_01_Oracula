@@ -147,6 +147,11 @@ a:hover {
 .menu__container {
     display: none;
 }
+.menu--categorias,
+.menu--generos,
+.menu--admin {
+    display: none;
+}
 
 /*---FOOTER---*/
 footer {
@@ -238,7 +243,7 @@ footer {
     }
 
     .header__relleno {
-        height: 84px;
+        height: 69px;
     }
 
     .logo {
@@ -271,17 +276,13 @@ footer {
         padding: 7px;
     }
 
-    .secciones__elemento:hover {
-        font-size: 27px;
-    }
-
     .secciones__icon {
         color: var(--marron-claro);
     }
 
     .secciones button:hover {
-        box-shadow: 0px 2px 5px #B0A987;
-        color: var(--amarillo-anaranjado);
+        border-bottom: 2px solid var(--amarillo-naranja);
+        color: var(--amarillo-naranja);
     }
 
     .botonesSuperiores {
@@ -346,6 +347,7 @@ footer {
 
     .menu__container {
         display: flex;
+        justify-content: center;
         width: 100%;
         background-color: var(--morado);
         position: relative;
@@ -361,10 +363,12 @@ footer {
         width: 100%;
     }
 
-    /*.menu--categorias,*/
+    .menu--categorias,
     .menu--generos,
     .menu--admin {
         display: none;
+        max-width: 1200px;
+
     }
 
     .menu__item {
@@ -379,14 +383,21 @@ footer {
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        height: 200px;
         overflow: hidden;
+        height: max-content;
+    }
+    .link--imagen{
+        height: 200px;
     }
 
     .menu__imagen {
-        height: calc(100% - 1.5em);
+        height: calc(100% - 2em);
     }
-
+    .menu__description{
+        font-size: 20px;
+        padding-bottom: 10px;
+    }
+   
     /*---FOOTER---*/
     .footer__container {
         justify-content: space-evenly;
