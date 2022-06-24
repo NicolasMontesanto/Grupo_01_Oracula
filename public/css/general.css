@@ -272,7 +272,7 @@ footer {
         display: flex;
         flex-wrap: nowrap;
         font-size: 24px;
-        color: #FBB954;
+        color: var(--amarillo-naranja);
         padding: 7px;
     }
 
@@ -280,9 +280,9 @@ footer {
         color: var(--marron-claro);
     }
 
-    .secciones button:hover {
-        border-bottom: 2px solid var(--amarillo-naranja);
-        color: var(--amarillo-naranja);
+    .secciones__elemento:hover {
+        color: var(--oracula);
+        text-shadow: 0px 0px 10px var(--oracula);
     }
 
     .botonesSuperiores {
@@ -349,10 +349,11 @@ footer {
         display: flex;
         justify-content: center;
         width: 100%;
-        background-color: var(--morado);
+        background-color: var(--morado-oscuro);
         position: relative;
         bottom: 0px;
         height: max-content;
+        box-shadow: 0px 5px 5px var(--filtro);
     }
 
     .menu {
@@ -361,6 +362,9 @@ footer {
         height: max-content;
         top: 0px;
         width: 100%;
+        padding: 25px 0 10px;
+        border-top: solid 2px var(--terracota);
+        border-bottom: solid 3px var(--terracota);
     }
 
     .menu--categorias,
@@ -391,7 +395,7 @@ footer {
     }
 
     .menu__imagen {
-        height: calc(100% - 2em);
+        height: 80%;
     }
     .menu__description{
         font-size: 20px;
