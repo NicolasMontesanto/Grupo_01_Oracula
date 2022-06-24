@@ -353,7 +353,7 @@ footer {
         position: relative;
         bottom: 0px;
         height: max-content;
-        box-shadow: 0px 5px 5px var(--filtro);
+        box-shadow: 0px 5px 10px var(--morado-oscuro);
     }
 
     .menu {
