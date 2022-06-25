@@ -16,7 +16,7 @@
                 <section class="titulo">
                     <h1 class="titulo__text">Editar producto</h1>
                 </section>
-                <form class="formulario" action="/product/<%=product.id%>/edit?_method=PUT" method="POST">
+                <form class="formulario" action="/product/<%=product.id%>/edit?_method=PUT" method="POST" enctype="multipart/form-data">
                     <div class="formulario__item">
                         <label class="formulario__label" for="id">Id de producto: </label>
                         <input class="formulario__input" type="" id="id" name="id" value="<%=product.id%>" readonly>

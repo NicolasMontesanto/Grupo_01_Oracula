@@ -32,6 +32,7 @@ const productsController = {
             return id += 1;
         }
         
+        let file = req.file; 
         //tomamos los datos del req.body
         let productNuevo = {
             id: siguienteID(products),
@@ -39,7 +40,7 @@ const productsController = {
             descripcion: req.body.descripcion,
             moneda: req.body.moneda,
             precio: req.body.precio,
-            imagenes: "URL",
+            imagenes: `img/productos/${file.filename}`,
             categoria: req.body.categoria,
             subcategoria: req.body.subcategoria,
             esNovedad: req.body.esNovedad,
@@ -62,6 +63,7 @@ const productsController = {
         res.render('./products/productEdit', {product});
     },
     update: (req, res) =>{
+        let file = req.file; 
         let id = req.params.id;
         products.forEach(product => {
 			if (product.id == id) {
@@ -69,7 +71,7 @@ const productsController = {
                 product.descripcion= req.body.descripcion,
                 product.moneda= req.body.moneda,
                 product.precio= req.body.precio,
-                product.imagenes= "URL",
+                product.imagenes= `img/productos/${file.filename}`,
                 product.categoria= req.body.categoria,
                 product.subcategoria= req.body.subcategoria,
                 product.esNovedad= req.body.esNovedad,
