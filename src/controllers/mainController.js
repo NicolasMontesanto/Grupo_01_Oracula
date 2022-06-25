@@ -13,9 +13,11 @@ const mainController = {
     //category
     category: (req, res) =>{
         let categoria = req.params.categoria; 
-        productosAMostrar = products.filter(item => item.categoria == categoria);
+        let productosAMostrar = products.filter(item => item.categoria == categoria);
 
-        res.render('category', {productosAMostrar});
+        let productosDestacados = products.filter(item => item.esDestacado == "on");
+
+        res.render('category', {productosAMostrar, productosDestacados});
     }
 };
 

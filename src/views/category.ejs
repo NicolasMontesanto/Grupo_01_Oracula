@@ -11,6 +11,44 @@
     <div class="fondo">
         <%- include('./partials/header.ejs')%>
             <main class="main">
+                <!-- Slider de destacados -->
+                <%if(productosAMostrar.length>0){%>
+                                       
+                <section class="destacados">
+                    <h2 class="destacados__titulo">Destacados en <%=productosAMostrar[1].categoria%></h3> 
+                        <div id="slideshow-wrap">
+
+                            <% for (let i=1; i<=5; i++){ %>
+                                <%if(i==1) {%>
+                                <input type="radio" id="button-<%=i%>" name="controls" checked="checked" />
+                                <%}else {%>
+                                    <input type="radio" id="button-<%=i%>" name="controls" />
+                                <%}%>
+                                    <label for="button-<%=i%>"></label>
+                                    <%}%>
+                        
+                                        <% for (let i=1; i<=5; i++){%>
+                                            <label for="button-<%=i%>" class="arrows" id="arrow-<%=i%>">></label>
+                                            <%}%>
+                                                <div id="slideshow-inner">
+                                                    <ul>
+                                                        <% for (let i=1; i<=5; i++){%>
+                                                            <li id="slide<%=i%>">
+                                                                <img  src="<%=productosDestacados[i].imagenes%>" />
+                                                                <div class="<%=productosDestacados[i].descripcion%>">
+                                                                    <label for="show-description-<%=i%>"
+                                                                        class="show-description-label"> <%=productosDestacados[i].subcategoria%></label>
+                                                                      
+                                                                </div>
+                                                            </li>
+                                                            <%}%>
+                                                    </ul>
+                                                </div>
+                        </div>    
+                </section>
+                <%}%>
+
+                <!-- Todos los productos de la categoría  -->
                 <section class="caja">
                     <%if(productosAMostrar.length>0) {%>
                         <h2 class="destacados__titulo">Todo lo que hay en nuestra sección
