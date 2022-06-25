@@ -24,22 +24,26 @@
     transition: all 0.3s ease-out;
     margin-top: 50px;
     margin-bottom: 20px;
-    display: block;
+    display: flex;
+    justify-content: center;
 }
 
 .contenedor-cards {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: left;
+    margin:0;
+    max-width: 1024px;
 }
 
 .contenedor-cards .contenedor-card-item {
+    box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -o-box-sizing: border-box;
-    width: 15%;
+    width: 17%;
     height: 250px;
-    margin: 1%;
+    margin: 1.5%;
     -webkit-transition: all 0.3s ease-out;
     -o-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
