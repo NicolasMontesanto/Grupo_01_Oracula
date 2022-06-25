@@ -52,6 +52,7 @@ li {
     display: none;
 }
 
+/*---HEADER---*/
 .Burguer {
     justify-self: left;
     flex-grow: 0;
@@ -96,11 +97,13 @@ button {
 
 .secciones__icon {
     color: #B0A987;
+    margin-right: 5px;
 }
 
 
 a {
     color: #a9b2a2;
+    text-decoration: none;
 }
 
 a:hover {
@@ -141,6 +144,16 @@ a:hover {
     flex-grow: 0;
 }
 
+.menu__container {
+    display: none;
+}
+.menu--categorias,
+.menu--generos,
+.menu--admin {
+    display: none;
+}
+
+/*---FOOTER---*/
 footer {
     background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
@@ -157,12 +170,15 @@ footer {
     bottom: 1px;
     max-width: 1200px;
 }
-.footer__icon{
+
+.footer__icon {
     color: var(--marron-claro)
 }
-.footer__icon:hover{
+
+.footer__icon:hover {
     color: var(--terracota)
 }
+
 .links {
     display: flex;
     width: 60%;
@@ -195,6 +211,7 @@ footer {
     right: 10px;
 }
 
+/*---MEDIA QUERIES---*/
 @media (min-width: 820px) {
 
     .adicional_redes,
@@ -219,13 +236,18 @@ footer {
         background-size: cover;
     }
 
+    /*---HEADER---*/
     .header {
         position: fixed;
         height: max-content;
     }
 
     .header__relleno {
-        height: 84px;
+        height: 69px;
+    }
+
+    .logo {
+        width: 10%;
     }
 
     .header__logo {
@@ -233,15 +255,11 @@ footer {
         margin: 5px 0px 10px 20px;
     }
 
-    .links_2ndColumn {
-        display: block;
-    }
-
     .secciones {
         justify-content: space-between;
-        width: 50%;
-        max-width: 550px;
+        width: 70%;
         min-width: 450px;
+        max-width: 630px;
     }
 
     .secciones__lista {
@@ -251,26 +269,24 @@ footer {
     }
 
     .secciones__elemento {
+        display: flex;
+        flex-wrap: nowrap;
         font-size: 24px;
-        color: #FBB954;
-        padding: 10px;
-    }
-
-    .secciones__elemento:hover {
-        font-size: 27px;
+        color: var(--amarillo-naranja);
+        padding: 7px;
     }
 
     .secciones__icon {
         color: var(--marron-claro);
     }
 
-    .secciones button:hover {
-        box-shadow: 0px 2px 5px #B0A987;
-        color: var(--amarillo-anaranjado);
+    .secciones__elemento:hover {
+        color: var(--oracula);
+        text-shadow: 0px 0px 10px var(--oracula);
     }
 
     .botonesSuperiores {
-        width: 30%;
+        width: 20%;
         margin: 0px;
         margin-right: 10px;
         max-width: 300px;
@@ -281,9 +297,8 @@ footer {
         width: 100%;
     }
 
-
     .botonesSuperiores__boton {
-        font-size: 30px;
+        font-size: 24px;
     }
 
     .botonesSuperiores__boton:hover {
@@ -301,7 +316,6 @@ footer {
         bottom: 5px;
     }
 
-
     #logoEntrar2 {
         position: relative;
         color: #B0A987;
@@ -318,7 +332,7 @@ footer {
 
     .botonesSuperiores_Login--texto {
         color: white;
-        font-size: 22px;
+        font-size: 18px;
         padding-bottom: 2px;
         margin: 0px;
         position: absolute;
@@ -331,17 +345,64 @@ footer {
         font-size: 30px;
     }
 
-    .adicional {
+    .menu__container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        background-color: var(--morado-oscuro);
+        position: relative;
+        bottom: 0px;
+        height: max-content;
+        box-shadow: 0px 5px 10px var(--morado-oscuro);
+    }
+
+    .menu {
+        display: flex;
+        justify-content: space-evenly;
+        height: max-content;
+        top: 0px;
+        width: 100%;
+        padding: 25px 0 10px;
+        border-top: solid 2px var(--terracota);
+        border-bottom: solid 3px var(--terracota);
+    }
+
+    .menu--categorias,
+    .menu--generos,
+    .menu--admin {
+        display: none;
+        max-width: 1200px;
+
+    }
+
+    .menu__item {
+        flex-grow: 1;
+        max-width: 22%;
+        height: max-content;
+    }
+
+    .menu__link {
+        display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        padding: 10px;
+        width: 100%;
+        overflow: hidden;
+        height: max-content;
+    }
+    .link--imagen{
+        height: 200px;
     }
 
-    .adicional_logo {
-        margin-bottom: 20px;
+    .menu__imagen {
+        height: 80%;
     }
-
+    .menu__description{
+        font-size: 20px;
+        padding-bottom: 10px;
+    }
+   
+    /*---FOOTER---*/
     .footer__container {
         justify-content: space-evenly;
         align-items: center;
@@ -357,6 +418,21 @@ footer {
 
     .footer__logo-nombre {
         right: 25px;
+    }
+
+    .links_2ndColumn {
+        display: block;
+    }
+
+    .adicional {
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .adicional_logo {
+        margin-bottom: 20px;
     }
 
     .adicional_redes button {

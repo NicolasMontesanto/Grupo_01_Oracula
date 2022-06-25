@@ -7,12 +7,12 @@ let products = JSON.parse(fs.readFileSync(pathJSON, "utf-8"));
 const productsController = {
     //productDetail.html
     product: (req, res) => {
-        res.render('./products/productDetail', { titulo: "Detalle de producto" });
+        res.render('./products/productDetail', {products});
     },
 
     //productCart.html
     cart: (req, res) => {
-        res.render('./products/productCart', { titulo: "Carrito de compras" });
+        res.render('./products/productCart', {products});
     },
 
     //Renderizar Vista Create
@@ -31,9 +31,9 @@ const productsController = {
             }
             return id += 1;
         }
-        
-        let file = req.file; 
-        //tomamos los datos del req.body
+         let file = req.file; 
+ 
+      //tomamos los datos del req.body
         let productNuevo = {
             id: siguienteID(products),
             nombre: req.body.nombre,
