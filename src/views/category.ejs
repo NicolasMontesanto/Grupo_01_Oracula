@@ -4,26 +4,61 @@
 <head>
     <%- include('./partials/head.ejs')%>
         <link href="/css/home.css" rel="stylesheet" />
+        <link href="/css/category.css" rel="stylesheet" />
 </head>
 
 <body>
     <div class="fondo">
         <%- include('./partials/header.ejs')%>
             <main class="main">
-             <%for (let i = 0; i<productosAMostrar; i++){%>
-                <article>
-                    <a href="#"><img src="<%=productosAMostrar.imagenes%>" alt="Producto-<%=i%>"
-                        class="Producto"></a>
-                    <div>
-                      <i class="fas fa-broom"></i>
-                      <p class="precio"><strong>$2000</strong></p>
-                      <p class="nombre">Random Merch #4</p>
-                    </div>
-                  </article>
+                <section class="caja">
+                    <%if(productosAMostrar.length>0) {%>
+                        <h2 class="destacados__titulo">Todo lo que hay en nuestra sección
+                            <%=productosAMostrar[1].categoria%></h3>
+                                <%}else{%>
+                                     <h2 class="destacados__titulo">Lo sentimos...Aún no hay nada en la
+                                        categoría que seleccionaste</h2><%}%>
 
-             <%}%>
-            </main>
-            <%- include('./partials/footer.ejs')%>
+                                        <div class="contenedor">
+
+                                            <div class="contenedor-cards">
+                                                <%for (let i=0; i<productosAMostrar.length; i++){%>
+
+                                                    <div class="contenedor-card-item">
+                                                        <div class="contenedor-card-item-wrapper">
+                                                            <img src="<%=productosAMostrar[i].imagenes%>"
+                                                                alt="Producto-<%=productosAMostrar[i].id%>">
+                                                            <div class="contenedor-info">
+                                                                <div class="info">
+                                                                    <p class="titulo">
+                                                                        <%=productosAMostrar[i].nombre%>
+                                                                    </p>
+                                                                    <span class="categoria">
+                                                                        <%=productosAMostrar[i].subcategoria%>
+                                                                    </span>
+                                                                </div>
+                                                                <!-- <div class="fondo"></div> -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <%}%>
+                                                        <!-- <article>
+                            <h2>
+                                <%=//productosAMostrar[i].nombre%>
+                            </h2>
+                            <a href="#"><img src="<%=//productosAMostrar[i].imagenes%>" alt="Producto-<%=//productosAMostrar[i].id%>"
+                                class="Producto"></a>
+                                <div>
+                                    <i class="fas fa-broom"></i>
+                                    <p class="precio"><strong>$2000</strong></p>
+                                    <p class="nombre">Random Merch #4</p>
+                                </div>
+                            </article> -->
+                                            </div>
+                                        </div>
+                </section>
+
+                <%- include('./partials/footer.ejs')%>
     </div>
 </body>
 
