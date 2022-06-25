@@ -16,7 +16,7 @@
                 <section class="titulo">
                     <h1 class="titulo__text">Registrar producto</h1>
                 </section>
-                <form class="formulario" action="/product/create" method="post">
+                <form class="formulario" action="/product/create" method="post" enctype="multipart/form-data">
                     <%- include("../partials/productCreatePartial.ejs")%>
                 </form>
             </main>
