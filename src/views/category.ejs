@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs')%>
+        <link href="/css/home.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="fondo">
+        <%- include('./partials/header.ejs')%>
+            <main class="main">
+             <%for (let i = 0; i<productosAMostrar; i++){%>
+                <article>
+                    <a href="#"><img src="<%=productosAMostrar.imagenes%>" alt="Producto-<%=i%>"
+                        class="Producto"></a>
+                    <div>
+                      <i class="fas fa-broom"></i>
+                      <p class="precio"><strong>$2000</strong></p>
+                      <p class="nombre">Random Merch #4</p>
+                    </div>
+                  </article>
+
+             <%}%>
+            </main>
+            <%- include('./partials/footer.ejs')%>
+    </div>
+</body>
+
+</html>
