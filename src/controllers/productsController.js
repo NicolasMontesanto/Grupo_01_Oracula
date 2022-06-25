@@ -50,7 +50,7 @@ const productsController = {
             fechaDeCreacion: new Date()
         }
         products.push(productNuevo);
-        let productsJSON = JSON.stringify(products);
+        let productsJSON = JSON.stringify(products, null, 4);
         fs.writeFileSync(pathJSON, productsJSON, "utf-8");
 
         res.redirect("/");
@@ -81,14 +81,23 @@ const productsController = {
                 product.fechaDeCreacion= new Date()
 			}
 		})
-        let productsJSON = JSON.stringify(products);
+        let productsJSON = JSON.stringify(products, null, 4);
         fs.writeFileSync(pathJSON, productsJSON, "utf-8");
         res.redirect("/");
     },
     delete: (req, res) =>{
         let id = req.params.id;
+        let productDelete = products.find((item)=>{item.id == id});
+
+        let productImg = path.join(__dirname, "../../public/img/productos/" + productDelete.imagenes);
+
         products = products.filter(product => product.id!=id);
-        let productsJSON = JSON.stringify(products);
+
+        if(fs.existsSync(productImg)){
+            fs.unlinkSync(productImg);
+        }
+       
+        let productsJSON = JSON.stringify(products, null, 4);
         fs.writeFileSync(pathJSON, productsJSON, "utf-8");
         res.redirect("/");
     }

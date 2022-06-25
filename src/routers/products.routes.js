@@ -4,6 +4,7 @@ const productController = require('../controllers/productsController');
 const path = require('path');
 const multer =require('multer');
 const upload = require('../middleWares/multerMid');
+const { Router } = require('express');
 
 //rutas de páginas de productos
 routes.get("/product", productController.product);
