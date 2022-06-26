@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require("fs");
-const login = path.join(__dirname, "../views/users/login.ejs");
-const signup = path.join(__dirname, "../views/users/signup.ejs");
+//const login = path.join(__dirname, "../views/users/login.ejs");
+//const signup = path.join(__dirname, "../views/users/signup.ejs");
 
 let pathJSON = path.join(__dirname, "../data/users.json");
 let users = JSON.parse(fs.readFileSync(pathJSON, "utf-8"));
@@ -29,7 +29,7 @@ const usersController = {
             }
             return id += 1;
         }
-        let file = req.file;
+        let file = req.file; 
 
         //tomamos los datos del req.body
         let userNuevo = {
@@ -41,14 +41,15 @@ const usersController = {
             fechaDeCreacion: new Date()
         }
         users.push(userNuevo);
-        let userJSON = JSON.stringify(users, null, 4);
+        let usersJSON = JSON.stringify(users, null, 4);
         fs.writeFileSync(pathJSON, usersJSON, "utf-8");
 
-        res.redirect("/");
+        res.redirect("/user/login");
     },
+
     delete: (req, res) =>{
         let id = req.params.id;
-        let userDelete = user.find((item)=>{item.id == id});
+        let userDelete = users.find((item)=>{item.id == id});
       
         users = users.filter(user => user.id!=id);
        
