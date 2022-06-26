@@ -1,19 +1,6 @@
 [
     {
         "id": 2,
-        "nombre": "Rojo",
-        "descripcion": "faad",
-        "precio": "30",
-        "imagenes": "img/productos/1656172045506-prodImg.jpg",
-        "categoria": "juegos",
-        "subcategoria": "novela",
-        "esNovedad": "on",
-        "esDestacado": "on",
-        "descuento": "",
-        "fechaDeCreacion": "2022-06-25T15:47:25.515Z"
-    },
-    {
-        "id": 2,
         "nombre": "unprod",
         "descripcion": "lalal",
         "precio": "44444444",
@@ -102,5 +89,18 @@
         "esNovedad": "on",
         "descuento": "",
         "fechaDeCreacion": "2022-06-25T19:25:34.116Z"
+    },
+    {
+        "id": 9,
+        "nombre": "Magiamagia",
+        "descripcion": "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+        "precio": "8999",
+        "imagenes": "/img/productos/1656204451197-prodImg.jpg",
+        "categoria": "juegos",
+        "subcategoria": "pelicula",
+        "esDestacado": "on",
+        "esOferta": "true",
+        "descuento": "",
+        "fechaDeCreacion": "2022-06-26T00:47:31.199Z"
     }
 ]

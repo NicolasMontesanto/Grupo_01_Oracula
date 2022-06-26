@@ -6,7 +6,9 @@ let products = JSON.parse(fs.readFileSync(pathJSON, "utf-8"));
 
 const productsController = {
     //productDetail.html
-    product: (req, res) => {
+    detail: (req, res) => {
+        let id = req.params.id;
+        let elProducto = products.find(element => element.id == id)
         res.render('./products/productDetail', {products});
     },
 
