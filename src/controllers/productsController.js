@@ -6,7 +6,9 @@ let products = JSON.parse(fs.readFileSync(pathJSON, "utf-8"));
 
 const productsController = {
     //productDetail.html
-    product: (req, res) => {
+    detail: (req, res) => {
+        let id = req.params.id;
+        let elProducto = products.find(element => element.id == id)
         res.render('./products/productDetail', {products});
     },
 
@@ -40,7 +42,7 @@ const productsController = {
             descripcion: req.body.descripcion,
             moneda: req.body.moneda,
             precio: req.body.precio,
-            imagenes: `img/productos/${file.filename}`,
+            imagenes: `/img/productos/${file.filename}`,
             categoria: req.body.categoria,
             subcategoria: req.body.subcategoria,
             esNovedad: req.body.esNovedad,
@@ -71,7 +73,7 @@ const productsController = {
                 product.descripcion= req.body.descripcion,
                 product.moneda= req.body.moneda,
                 product.precio= req.body.precio,
-                product.imagenes= `img/productos/${file.filename}`,
+                product.imagenes= `/img/productos/${file.filename}`,
                 product.categoria= req.body.categoria,
                 product.subcategoria= req.body.subcategoria,
                 product.esNovedad= req.body.esNovedad,
