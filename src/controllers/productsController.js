@@ -9,12 +9,12 @@ const productsController = {
     detail: (req, res) => {
         let id = req.params.id;
         let elProducto = products.find(element => element.id == id)
-        res.render('./products/productDetail', {products});
+        res.render('./products/productDetail', { products });
     },
 
     //productCart.html
     cart: (req, res) => {
-        res.render('./products/productCart', {products});
+        res.render('./products/productCart', { products });
     },
 
     //Renderizar Vista Create
@@ -33,9 +33,9 @@ const productsController = {
             }
             return id += 1;
         }
-         let file = req.file; 
- 
-      //tomamos los datos del req.body
+        let file = req.file;
+
+        //tomamos los datos del req.body
         let productNuevo = {
             id: siguienteID(products),
             nombre: req.body.nombre,
@@ -46,9 +46,9 @@ const productsController = {
             categoria: req.body.categoria,
             subcategoria: req.body.subcategoria,
             esNovedad: req.body.esNovedad,
-            esDestacado: req.body.esDestacado, 
+            esDestacado: req.body.esDestacado,
             esOferta: req.body.esOferta,
-            descuento: req.body.descuento,     
+            descuento: req.body.descuento,
             fechaDeCreacion: new Date()
         }
         products.push(productNuevo);
@@ -62,43 +62,48 @@ const productsController = {
     edit: (req, res) => {
         let id = req.params.id;
         let product = products.find(element => element.id == id);
-        res.render('./products/productEdit', {product});
+        if (product == undefined) {
+            res.send("Producto no encontrado");
+        } else {
+            res.render('./products/productEdit', { product });
+        }
     },
-    update: (req, res) =>{
-        let file = req.file; 
+    update: (req, res) => {
         let id = req.params.id;
-        products.forEach(product => {
-			if (product.id == id) {
-                product.nombre= req.body.nombre,
-                product.descripcion= req.body.descripcion,
-                product.moneda= req.body.moneda,
-                product.precio= req.body.precio,
-                product.imagenes= `/img/productos/${file.filename}`,
-                product.categoria= req.body.categoria,
-                product.subcategoria= req.body.subcategoria,
-                product.esNovedad= req.body.esNovedad,
-                product.esDestacado= req.body.esDestacado, 
-                product.esOferta= req.body.esOferta,
-                product.descuento= req.body.descuento,     
-                product.fechaDeCreacion= new Date()
-			}
-		})
+        let file = req.file;
+        const { nombre, descripcion, precio, categoria, subcategoria, esNovedad, esDestacado, esOferta, descuento } = req.body;
+        products.forEach(item => {
+            if (item.id == id) {
+                item.nombre = nombre;
+                item.descripcion = descripcion;
+                item.precio = precio;
+                item.categoria = categoria;
+                item.subcategoria = subcategoria;
+                item.esNovedad = esNovedad;
+                item.esDestacado = esDestacado;
+                item.esOferta = esOferta;
+                item.descuento = descuento;
+                if (file) {
+                    item.imagenes = `img/${file.filename}`;
+                }
+            }
+        });
         let productsJSON = JSON.stringify(products, null, 4);
         fs.writeFileSync(pathJSON, productsJSON, "utf-8");
         res.redirect("/");
     },
-    delete: (req, res) =>{
+    delete: (req, res) => {
         let id = req.params.id;
-        let productDelete = products.find((item)=>{item.id == id});
+        let productDelete = products.find((item) => { item.id == id });
 
         let productImg = path.join(__dirname, "../../public/img/productos/" + productDelete.imagenes);
 
-        products = products.filter(product => product.id!=id);
+        products = products.filter(product => product.id != id);
 
-        if(fs.existsSync(productImg)){
+        if (fs.existsSync(productImg)) {
             fs.unlinkSync(productImg);
         }
-       
+
         let productsJSON = JSON.stringify(products, null, 4);
         fs.writeFileSync(pathJSON, productsJSON, "utf-8");
         res.redirect("/");

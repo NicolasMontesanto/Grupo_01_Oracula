@@ -10,5 +10,6 @@ routes.get("/cart", productController.cart);
 routes.get("/create", productController.create);
 routes.post("/create", upload.single('imagenes'), productController.store);
 routes.get("/:id/edit", productController.edit);
-routes.put("/:id/edit", productController.update);
+routes.put("/:id/edit", upload.single('imagenes'), productController.update);
+routes.delete("/:id/delete", productController.delete);
 module.exports = routes;

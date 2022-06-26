@@ -76,8 +76,20 @@
     padding: 0px 5px;
     font-size: 20px;
 }
-
-.input--precio {
+.formulario--checkbox{
+    flex-direction: row;
+    justify-content: start;
+    align-items: center
+}
+.label--checkbox{
+    padding-top: 5px;
+    width: 30%;
+    margin: 0;
+}
+.input--checkbox{
+    width: 20px;
+}
+.input--small {
     max-width: 40%;
     min-width: 200px;
 }
@@ -117,12 +129,27 @@
     color: var(--oracula);
     text-shadow: 0px 0px 50px var(--oracula);
 }
+.formulario__icon-delete {
+    color:var(--naranja);
+    font-size: 40px;
+    font-weight: bold;
+    margin: 10px 20px;
+    align-self: flex-end;
+    transition: all 250ms;
+}
+.formulario__icon-delete:hover {
+    color: var(--terracota);
+    text-shadow: 0px 0px 50px var(--terracota), 0px 0px 50px var(--terracota);
+}
 .last-item{
+    flex-direction: row;
+    justify-content: flex-end;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 @media (min-width: 820px) {
-    .formulario__icon-submit {
+    .formulario__icon-submit, 
+    .formulario__icon-delete {
         font-size: 50px;
     }
 }

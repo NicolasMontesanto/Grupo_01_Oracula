@@ -16,14 +16,15 @@
                 <section class="titulo">
                     <h1 class="titulo__text">Editar producto</h1>
                 </section>
-                <form class="formulario" action="/product/<%=product.id%>/edit?_method=PUT" method="POST" enctype="multipart/form-data">
+                <form class="formulario" action="/product/<%=product.id%>/edit?_method=PUT" method="post"
+                    enctype="multipart/form-data">
                     <div class="formulario__item">
-                        <label class="formulario__label" for="id">Id de producto: </label>
-                        <input class="formulario__input" type="" id="id" name="id" value="<%=product.id%>" readonly>
+                        <label class="formulario__label" for="id">Producto <%=product.id%> </label>
                     </div>
                     <div class="formulario__item">
                         <label class="formulario__label" for="nombre">Nombre del producto:</label>
-                        <input class="formulario__input" type="text" id="nombre" name="nombre" value="<%=product.nombre%>">
+                        <input class="formulario__input" type="text" id="nombre" name="nombre"
+                            value="<%=product.nombre%>">
                     </div>
                     <div class="formulario__item">
                         <label class="formulario__label" for="descripcion">Descripción:</label>
@@ -33,72 +34,101 @@
                     <div class="formulario__item">
                         <label class="formulario__label" for="categoria">Categoría a la que pertenece:</label>
                         <select class="formulario__desplegable" id="categoria" name="categoria">
-                            <option <%if(product.categoria=="literatura"){%> selected <%}%> value="literatura">Literatura</option>
-                            <option <%if(product.categoria=="juegos"){%> selected <%}%> value="juegos">Juegos</option>
-                            <option <%if(product.categoria=="multimedia"){%> selected <%}%> value="multimedia">Multimedia</option>
-                            <option <%if(product.categoria=="baratijas"){%> selected <%}%> value="baratijas">Baratijas</option>
+                            <option <%if(product.categoria=="literatura" ){%> selected <%}%>
+                                    value="literatura">Literatura</option>
+                            <option <%if(product.categoria=="juegos" ){%> selected <%}%> value="juegos">Juegos</option>
+                            <option <%if(product.categoria=="multimedia" ){%> selected <%}%>
+                                    value="multimedia">Multimedia</option>
+                            <option <%if(product.categoria=="baratijas" ){%> selected <%}%> value="baratijas">Baratijas
+                            </option>
                         </select>
                         <select class="formulario__desplegable" id="categoria" name="subcategoria">
                             <optgroup class="formulario__option-group" label="Literatura">
-                                <option <%if(product.subcategoria=="novela"){%> selected<%}%> value="novela">Libro: Novela</option>
-                                <option <%if(product.subcategoria=="cuento"){%> selected<%}%> value="cuento">Libro: Cuentos</option>
-                                <option <%if(product.subcategoria=="audiolibro"){%> selected<%}%> value="audiolibro">Audiolibro</option>
-                                <option <%if(product.subcategoria=="manga"){%> selected<%}%> value="manga">Manga</option>
-                                <option <%if(product.subcategoria=="historieta"){%> selected<%}%> value="historieta">Historieta</option>
+                                <option <%if(product.subcategoria=="novela" ){%> selected<%}%> value="novela">Libro:
+                                        Novela</option>
+                                <option <%if(product.subcategoria=="cuento" ){%> selected<%}%> value="cuento">Libro:
+                                        Cuentos</option>
+                                <option <%if(product.subcategoria=="audiolibro" ){%> selected<%}%>
+                                        value="audiolibro">Audiolibro</option>
+                                <option <%if(product.subcategoria=="manga" ){%> selected<%}%> value="manga">Manga
+                                </option>
+                                <option <%if(product.subcategoria=="historieta" ){%> selected<%}%>
+                                        value="historieta">Historieta</option>
                             </optgroup>
                             <optgroup class="formulario__option-group" label="Juegos">
-                                <option <%if(product.subcategoria=="videojuego"){%> selected<%}%> value="videojuego">Videojuego</option>
-                                <option <%if(product.subcategoria=="juegoDeMesa"){%> selected<%}%> value="juegoDeMesa">Juego de Mesa</option>
+                                <option <%if(product.subcategoria=="videojuego" ){%> selected<%}%>
+                                        value="videojuego">Videojuego</option>
+                                <option <%if(product.subcategoria=="juegoDeMesa" ){%> selected<%}%>
+                                        value="juegoDeMesa">Juego de Mesa</option>
                             </optgroup>
                             <optgroup class="formulario__option-group" label="Baratijas">
-                                <option <%if(product.subcategoria=="ropa"){%> selected<%}%> value="ropa">Ropa</option>
-                                <option <%if(product.subcategoria=="accesorio"){%> selected<%}%> value="accesorio">Accesorio</option>
-                                <option <%if(product.subcategoria=="coleccionable"){%> selected<%}%> value="coleccionable">Coleccionable</option>
+                                <option <%if(product.subcategoria=="ropa" ){%> selected<%}%> value="ropa">Ropa</option>
+                                <option <%if(product.subcategoria=="accesorio" ){%> selected<%}%>
+                                        value="accesorio">Accesorio</option>
+                                <option <%if(product.subcategoria=="coleccionable" ){%> selected<%}%>
+                                        value="coleccionable">Coleccionable</option>
                             </optgroup>
                             <optgroup class="formulario__option-group" label="Multimedia">
-                                <option <%if(product.subcategoria=="pelicula"){%> selected<%}%> value="pelicula">Película</option>
-                                <option <%if(product.subcategoria=="soundtrack"){%> selected<%}%> value="soundtrack">Soundtrack</option>
+                                <option <%if(product.subcategoria=="pelicula" ){%> selected<%}%>
+                                        value="pelicula">Película</option>
+                                <option <%if(product.subcategoria=="soundtrack" ){%> selected<%}%>
+                                        value="soundtrack">Soundtrack</option>
                         </select>
                     </div>
                     <div class="formulario__item">
                         <label class="formulario__label" for="imagenes">Imágenes del producto:</label>
                         <input class="formulario__input input--file" type="file" id="imagenes" name="imagenes"
-                            accept="image/png, image/jpeg" capture multiple>
+                            accept="image/png, image/jpeg">
                     </div>
                     <div class="formulario__item">
                         <label class="formulario__label" for="moneda">Moneda: </label>
                         <select class="formulario__desplegable" id="moneda">
-                            <option <%if(product.moneda == "dolares"){%> selected <%}%> value="dolares"> Dólares</option>
-                            <option <%if(product.moneda == "pesos"){%> selected <%}%> value="pesos">Pesos</option>
-                            <option <%if(product.moneda == "bitcoins"){%> selected <%}%> value="bitcoins">Bitcoins</option>
-                            <option <%if(product.moneda == "euros"){%> selected <%}%> value="euros">Euros</option>
-                            <option <%if(product.moneda == "guaranies"){%> selected <%}%> value="guaranies">Guaraníes</option>
+                            <option <%if(product.moneda=="dolares" ){%> selected <%}%> value="dolares"> Dólares</option>
+                            <option <%if(product.moneda=="pesos" ){%> selected <%}%> value="pesos">Pesos</option>
+                            <option <%if(product.moneda=="bitcoins" ){%> selected <%}%> value="bitcoins">Bitcoins
+                            </option>
+                            <option <%if(product.moneda=="euros" ){%> selected <%}%> value="euros">Euros</option>
+                            <option <%if(product.moneda=="guaranies" ){%> selected <%}%> value="guaranies">Guaraníes
+                            </option>
                         </select>
                     </div>
-                    <div class="formulario__item">
-                        <label for="esNovedad" class="formulario__label">¿Es una Novedad?</label>
-                        <input class="formulario__input" type="checkbox" <%if(product.esNovedad== true){%> checked="true"<%}%> id="esNovedad" name="esNovedad" value="<%=product.esNovedad%>">
+                    <div class="formulario__item formulario--checkbox">
+                        <label for="esNovedad" class="formulario__label label--checkbox">¿Es una Novedad?</label>
+                        <input class="formulario__input input--checkbox" type="checkbox"
+                            <%if(product.esNovedad==true){%> checked="true"
+                        <%}%> id="esNovedad" name="esNovedad" value="<%=product.esNovedad%>">
                     </div>
-                    <div class="formulario__item">
-                        <label for="esDestacado" class="formulario__label">¿Es Destacado?</label>
-                        <input class="formulario__input" type="checkbox" <%if(product.esDestacado== true){%> checked="true"<%}%>  id="esDestacado"
+                    <div class="formulario__item formulario--checkbox">
+                        <label for="esDestacado" class="formulario__label label--checkbox">¿Es Destacado?</label>
+                        <input class="formulario__input input--checkbox" type="checkbox"
+                            <%if(product.esDestacado==true){%>
+                        checked="true"<%}%> id="esDestacado"
                             name="esDestacado" value="<%=product.esDestacado%>">
                     </div>
-                    <div class="formulario__item">
-                        <label for="esOferta" class="formulario__label">¿Está en oferta?</label>
-                        <input class="formulario__input" type="checkbox" <%if(product.esOferta== true){%> checked="true"<%}%> id="esOferta" name="esOferta" value="<%=product.esOferta%>">
+                    <div class="formulario__item formulario--checkbox">
+                        <label for="esOferta" class="formulario__label label--checkbox">¿Está en oferta?</label>
+                        <input class="formulario__input input--checkbox" type="checkbox" <%if(product.esOferta==true){%>
+                        checked="true"
+                        <%}%> id="esOferta" name="esOferta" value="<%=product.esOferta%>">
                     </div>
                     <div class="formulario__item">
                         <label class="formulario__label" for="precio">Precio: </label>
-                        <input class="formulario__input input--precio" type="number" id="precio" name="precio" value="<%=product.precio%>">
+                        <input class="formulario__input input--small" type="number" id="precio" name="precio"
+                            value="<%=product.precio%>">
                     </div>
                     <div class="formulario__item">
                         <label for="descuento" class="formulario__label">Descuento</label>
-                        <input class="formulario__input" type="number" id="descuento" name="descuento" value="<%=product.descuento%>">
+                        <input class="formulario__input input--small" type="number" id="descuento" name="descuento"
+                            value="<%=product.descuento%>">
                     </div>
                     <div class="formulario__item last-item">
+                        <form action="/<%= product.id%>/delete_method=DEL" method="POST">
+                            <button class="formulario__icon-delete" type="submit">
+                                <i class="fa-solid fa-circle-xmark"></i>
+                            </button>
+                        </form>
                         <button class="formulario__icon-submit" type="submit">
-                            <i class="fa-solid fa-circle-arrow-right"></i>
+                            <i class="fa-solid fa-circle-check"></i>
                         </button>
                     </div>
                 </form>
