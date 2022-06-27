@@ -6,4 +6,6 @@ const mainController = require('../controllers/mainController');
 routes.get("/", mainController.home);
 //ruta de categoria 
 routes.get("/category/:categoria", mainController.category)
+
+
 module.exports = routes;

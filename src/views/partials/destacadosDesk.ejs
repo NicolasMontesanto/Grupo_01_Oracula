@@ -1,0 +1,46 @@
+<!-- Slider de destacados desktop -->
+<%if(productosDestacados.length>=5){ %>
+    <section class="destacados">
+
+        <div id="slideshow-wrap">
+
+            <% for (let i=1; i<=5; i++){ %>
+                <%if(i==1) {%>
+                    <input type="radio" id="button-<%=i%>" name="controls" checked="checked" />
+                    <%}else {%>
+                        <input type="radio" id="button-<%=i%>" name="controls" />
+                        <%}%>
+                            <label for="button-<%=i%>"></label>
+                            <%}%>
+
+                                <% for (let i=1; i<=5; i++){%>
+                                    <label for="button-<%=i%>" class="arrows" id="arrow-<%=i%>">></label>
+                                    <%}%>
+                                        <div id="slideshow-inner">
+                                            <ul>
+                                                <% for (let i=1; i<=5; i++){%>
+                                                    <li id="slide<%=i%>">
+                                                        <img src="<%=productosDestacados[i].imagenes%>" />
+                                                        <div class="slider__descripcion">
+                                                            <h3 class="prod--titulo">
+                                                                <%=productosDestacados[i].nombre%>
+                                                            </h3> <a href="/product/detail/<%=productosDestacados[i].id%>">
+                                                                <div class="slider__boton">
+                                                                    ¡Me interesa!
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="contenedor__descripcion">
+                                                            <p class="prod--descripcion">
+                                                                <%=productosDestacados[i].descripcion%>
+                                                            </p>
+                                                        </div>
+                                                    </li>
+
+                                                    <%}%>
+                                            </ul>
+                                        </div>
+        </div>
+      
+    </section>
+<%}%>

@@ -4,6 +4,9 @@
 <head>
     <%- include('./partials/head.ejs')%>
         <link href="/css/home.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/css/partialsCss/novedadesDesk.css">
+        <link rel="stylesheet" href="/css/partialsCss/novedadesMobile.css">
+        <link rel="stylesheet" href="/css/partialsCss/destacadosDesk.css">
 </head>
 
 <body>
@@ -64,101 +67,16 @@
                 </section>
 
                 <!--Destacados-->
-                <section class="destacados">
-                    <h2 class="destacados__titulo">Maravillas</h3>
-                        <div class="destacados__container">
-                            <h3 class="destacados_descripcion"> ¡Conseguí tu Magic Pass con 40% de descuento solo por
-                                esta
-                                semana!</h3>
-                            <img class="destacados__imagen" src="\img\productos\destacados.jpg" alt="">
-                            <span class="suscribite"> Suscribirme Ahora <span class="iconify"
-                                    data-icon="fa:magic"></span></span>
-                            <span class="next" class="iconify" data-icon="ep:arrow-right-bold"></span>
-                            <span class="back" class="iconify" data-icon="ic:round-arrow-back-ios"></span>
-                        </div>
-                </section>
+            <h2 class= "destacados__titulo"> Maravillas </h2>
 
-                <!--novedades-->
+                  <!-- Slider de destacados Desktop -->
+                   <%- include('./partials/destacadosDesk.ejs')%>
 
-                <section class="novedades">
-                    <h2 class="novedades__titulo"> Lo que no te podés perder </h2>
-                    <div class="novedades__container">
-                        <div class="novedades_product" id="uno">
-                            <h4 class="novedades_product--tipo">Pelicula</h4>
-                            <h3 class="novedades_product--titulo"></h3>
-                            <div class="novedades_product--descripcion">Strange World es la nueva aventura animada <br>
-                                de
-                                Disney.
-                                <br> Te contamos de que vá, sin Spoilers!
-                            </div>
-                        </div>
-                        <div class="novedades_product" id="dos">
-                            <h4 class="novedades_product--tipo">Juego</h4>
-                            <h3 class="novedades_product--titulo"></h3>
-                            <div class="novedades_product--descripcion">Stardew Valley es un juego de simulación <br> de
-                                granja
-                                inspirado en juegos como <br> Harvest Moon.</div>
-                            <div class="novedades_product--icons"><i class="iconify" data-icon="mdi:basket"></i> <i
-                                    class="iconify" data-icon="pepicons:bookmark-print"></i></div>
-                        </div>
+                <!-- Novedades -->
 
-                        <div class="novedades_product" id="tres">
-                            <h4 class="novedades_product--tipo">Fan Art</h4>
-                            <h3 class="novedades_product--titulo"></h3>
-                            <div class="novedades_product--descripcion">Nunca dejamos de sorprendernos con lo que <br>
-                                crean
-                                lxs
-                                fans!</div>
-                        </div>
-
-                        <div class="novedades_product" id="cuatro">
-                            <h4 class="novedades_product--tipo">Audiolibro</h4>
-                            <h3 class="novedades_product--titulo"></h3>
-                            <div class="novedades_product--descripcion">¡Por fin alguien lo hizo! <br> Ahora podés
-                                escuchar
-                                la saga
-                                <i>completa</i> de <br> Harry Potter narrada por humanxs.
-                            </div>
-                            <div class="novedades_product--icons"><i class="iconify" data-icon="mdi:basket"></i> <i
-                                    class="iconify" data-icon="pepicons:bookmark-print"></i></div>
-                        </div>
-
-                        <div class="novedades_product" id="cinco">
-                            <h4 class="novedades_product--tipo">Libro</h4>
-                            <h3 class="novedades_product--titulo"></h3>
-                            <div class="novedades_product--descripcion">Alicia en el pais de las Maravillas <br>
-                                ilustrada
-                                <i>como
-                                    nunca</i> por Benjamin <br> Lacombe
-                            </div>
-                            <div class="novedades_product--icons"><i class="iconify" data-icon="mdi:basket"></i> <i
-                                    class="iconify" data-icon="pepicons:bookmark-print"></i></div>
-                        </div>
-                        </div">
-
-                        <div class="novedades_product" id="seis">
-                            <h4 class="novedades_product--tipo">Soundtrack</h4>
-                            <div class="novedades_product--descripcion">Escuchá 3 horas seguidas de El Señor <br> de los
-                                Anillos
-                                y
-                                viajá a La Tierra Media <br> sin anuncios del mal.</div>
-                            <div class="novedades_product--icons"><i class="iconify" data-icon="mdi:basket"></i> <i
-                                    class="iconify" data-icon="pepicons:bookmark-print"></i></div>
-                        </div>
-
-                        <div class="novedades_product" id="siete">
-                            <h4 class="novedades_product--tipo">Baratijas</h4>
-                            <h3 class="novedades_product--titulo"></h3>
-                            <div class="novedades_product--descripcion">¡Maravilloso! ¡Coleccionables de Mundo Disco!
-                                <br>
-                                Por
-                                supuesto el equipaje se robó nuestros co.. <br> Esperen... ¿dónde está Nico? </div>
-                            <div class="novedades_product--icons"><i class="iconify" data-icon="mdi:basket"></i> <i
-                                    class="iconify" data-icon="pepicons:bookmark-print"></i></div>
-                        </div>
-
-
-                </section>
+                <!-- novedades SliderMobile -->
+                <%- include('./partials/novedadesMobile.ejs')%>
+           
 
                 <!--Productos-->
                 <h2 class="otros__titulo"> Mas productos que podés disfrutar </h2>
@@ -181,10 +99,7 @@
 
                         </div>
                     </div>
-                    <!---<img src="\img\productos\ickabog.jpg" alt="">
-                <img src="\img\productos\narnia.jpg" alt="">
-                <img src="\img\productos\terramar.jpg" alt="">
-                <img src="\img\productos\evaFantastica.jpg" alt="">-->
+              
                 </section>
             </main>
             <%- include('./partials/footer.ejs')%>
