@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs')%>
+        <link href="/css/home.css" rel="stylesheet" />
+        <link href="/css/category.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/css/partialsCss/destacadosDesk.css">
+        <link rel="stylesheet" href="/csss/partialsCss/novedadesMobile.css">
+</head>
+<!-- La descripcion que deberia aparecer en hover sobre el slider aun no funciona 
+Si alquien quiere solucionarlo bienvenidx sea 
+El boton de me interesa funciona pero se ve mal aun -->
+
+<body>
+    <%- include('./partials/header.ejs')%>
+        <div class="fondo">
+            <main class="main">
+                <%if(productos.length>0){%>
+                    <h2 class="destacados__titulo">Destacados en <%=productos[0].categoria%>
+                            <%if(productosDestacados.length<5){%>
+                                <h3>Estamos trabajando para tener productos destacados que mostrarte en esta sección
+                                </h3>
+                                <%}%>
+                                    <!-- Slider de destacados Mobile -->
+                                    <!-- Slider de destacados Desktop -->
+                                    <%- include('./partials/destacadosDesk.ejs')%>
+                                        <!-- Todos los productos de la categoría  -->
+                                        <section class="caja">
+                                            <h2 class="destacados__titulo">
+                                                Todo lo que hay en nuestra sección <%=productos[0].categoria%>
+                                            </h2>
+                                            <div class="contenedor">
+                                                <div class="contenedor-cards">
+                                                    <%for (let i=0; i<productos.length; i++){%>
+                                                        <div class="contenedor-card-item">
+                                                            <div class="contenedor-card-item-wrapper">
+                                                                <a href="/product/detail/<%=productos[i].id%>">
+                                                                    <img src="<%=productos[i].imagenes%>"
+                                                                        alt="Producto-<%=productos[i].id%>">
+                                                                </a>
+                                                                <div class="contenedor-info">
+                                                                    <div class="info">
+                                                                        <p class="titulo">
+                                                                            <%=productos[i].nombre%>
+                                                                        </p>
+                                                                        <span class="categoria">
+                                                                            <%=productos[i].subcategoria%>
+                                                                        </span>
+                                                                    </div>
+                                                                    <!-- <div class="fondo"></div> -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <%}%>
+                                                </div>
+                                            </div>
+                                        </section>
+                                        <%}else{%>
+                                            <h2 class="destacados__titulo paginaVacia--titulo">Lo
+                                                sentimos...Aún no
+                                                hay
+                                                nada en la
+                                                categoría que seleccionaste</h2>
+                                            <div class="paginaVacia--relleno"></div>
+                                            <%}%>
+                                                <%- include('./partials/footer.ejs')%>
+        </div>
+</body>
+
+</html>

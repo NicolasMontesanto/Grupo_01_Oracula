@@ -5,10 +5,11 @@ const path = require('path');
 const upload = require('../middleWares/multerMid');
 
 //rutas de páginas de productos
-routes.get("/product", productController.product);
+routes.get("/detail/:id", productController.detail);
 routes.get("/cart", productController.cart);
 routes.get("/create", productController.create);
 routes.post("/create", upload.single('imagenes'), productController.store);
 routes.get("/:id/edit", productController.edit);
-routes.put("/:id/edit", productController.update);
+routes.put("/:id/edit", upload.single('imagenes'), productController.update);
+routes.delete("/:id/delete", productController.delete);
 module.exports = routes;

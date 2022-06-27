@@ -4,5 +4,8 @@ const mainController = require('../controllers/mainController');
 
 //ruta de main
 routes.get("/", mainController.home);
+//ruta de categoria 
+routes.get("/category/:categoria", mainController.category)
+
 
 module.exports = routes;

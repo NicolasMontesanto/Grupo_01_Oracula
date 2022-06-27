@@ -11,11 +11,11 @@ const storage = multer.diskStorage({
     },
     //nombre del archivo
     filename:  (req, file, cb) => {
-      const fileName = `${Date.now()} - prodImg${path.extname(file.originalname)}`
+      const fileName = `${Date.now()}-prodImg${path.extname(file.originalname)}`
       cb(null, fileName);
     }
   })
   
-  const upload = multer({storage })
+  const upload = multer({ storage })
 
-  module.exports = upload; 
+  module.exports = upload;
