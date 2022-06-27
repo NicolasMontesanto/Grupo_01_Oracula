@@ -18,7 +18,7 @@
         <!-- Left Column / Merch Image -->
         <div class="left-column">
 
-          <img class="active" src="/img/productos/merchandising/gift-ideas.jpg" alt="">
+          <img class="active" src=<%=elProducto.imagenes%> alt="" class="imagen__principal">
         </div>
 
         <!-- Right Column -->
@@ -51,9 +51,8 @@
               </div>
             </h2>
 
-            <h1 id="name">Merchandising</h1>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam rem atque assumenda dolor sequi ea eos
-              quibusdam qui odio, harum odit, omnis dignissimos in nostrum eius. Voluptates incidunt eveniet iusto.</p>
+            <h1 id="name"><%=elProducto.nombre%></h1>
+            <p><%=elProducto.descripcion%></p>
           </div>
 
           <!-- Product Pricing -->

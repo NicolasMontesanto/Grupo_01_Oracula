@@ -3,12 +3,15 @@
 }
 @media (min-width: 820px) { */
     /* Estilos de slider de destacados  */
+
+
 .slider__descripcion{
     position: absolute;
     color: white;
     text-shadow: 2px 1px 2px black;
     top: 0px;
 }
+
 .contenedor__descripcion{
     width: 200px;
     height: 100px;
@@ -20,6 +23,7 @@
     top: 50px;
     margin: 20px;
 }
+
 .prod--titulo{
     position: relative;
   top: 10px;

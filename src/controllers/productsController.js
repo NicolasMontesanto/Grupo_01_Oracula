@@ -1,7 +1,6 @@
 const path = require('path');
 const fs = require("fs");
 
-
 let products = require('../data/products.json');
 
 const productsController = {
@@ -9,7 +8,7 @@ const productsController = {
     detail: (req, res) => {
         let id = req.params.id;
         let elProducto = products.find(element => element.id == id)
-        res.render('./products/productDetail', { products });
+        res.render('./products/productDetail', { elProducto, products });
     },
 
     //productCart.html
