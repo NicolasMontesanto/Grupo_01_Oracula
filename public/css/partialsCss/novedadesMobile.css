@@ -1,0 +1,134 @@
+
+/* Estilos del Slider de Mobile */
+.novedades {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--filtro);
+    height: max-content;
+    padding: 10px 0px;
+}
+
+.novedades__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100vw;
+    height: 150px;
+    max-width: 1600px;
+    margin: auto;
+    padding: 10px;
+    overflow-x: scroll;
+    height: max-content;
+    margin-top: 10px;
+}
+
+ /* Estilos de las cards de el slider */
+ .contenedor {
+    position: relative;
+    width: max-content;
+    margin: 0 auto;
+    transition: all 0.3s ease-out;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100vw;
+    height: 150px;
+    max-width: 1600px;
+    margin: auto;
+    padding: 0px;
+    overflow-x: scroll;
+    height: max-content;
+}
+
+.contenedor-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    margin:0;
+}
+
+.contenedor-cards .contenedor-card-item {
+    box-sizing: border-box;
+    height: 250px;
+    margin: 1.5%;
+    transition: all 0.3s ease-out;
+    border-radius: 5px;
+    cursor: help;
+}
+.contenedor-card-item{
+    height: 250px;
+    width: 600px;
+    margin: 5px;
+}
+
+.contenedor-cards .contenedor-card-item:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    transform: translateY(-10px);
+}
+
+.contenedor-card-item-wrapper {
+    overflow: hidden;
+    position: relative !important;
+    background: #3e272300;
+    border-radius: 5px;
+    height: 100%;
+    display: block;
+    width: 300px;
+}
+
+@supports(object-fit: cover) {
+    .contenedor-card-item img {
+        max-width: 100%;
+        min-width: 100%;
+        max-height: 250px;
+        max-width: 250px;
+        position: relative;
+        top: 0;
+       
+        transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        border-radius: 5px;
+
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+
+    }
+}
+
+.contenedor-card-item .contenedor-info {
+    position: absolute;
+    width: 100%;
+    height: 70px;
+    top: 0px;
+}
+
+
+.contenedor-card-item .contenedor-info .info {
+    color: #fff;
+    position: absolute;
+    z-index: 10;
+    padding: 5px 10px;
+   
+}
+
+.contenedor-card-item .contenedor-info .info .titulo {
+    margin: 0;
+    font-size: 20px;
+    text-shadow: 2px 1px 2px black;
+}
+
+.contenedor-card-item .contenedor-info .info .categoria {
+    display: block;
+    font-size: 10px;
+}
+
+.contenedor-card-item:hover img {
+    top: -30px;  
+
+    transform: rotate(-5deg) scale(1.2);
+}
+

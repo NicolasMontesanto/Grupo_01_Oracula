@@ -34,17 +34,19 @@
 .titulo__text {
     margin: 0px;
 }
-
-.formulario {
+.formulario__container{
     background-color: rgba(69, 41, 63, 0.5);
-    box-shadow: 10px 10px 5px 0px black;
+    box-shadow: 10px 10px 20px 10px var(--morado-oscuro);
     width: 90%;
     max-width: 650px;
     margin: auto;
     margin-bottom: 40px;
     margin-top: 40px;
-    padding-top: 1px;
-    padding-bottom: 1px;
+    padding: 20px;
+    border-radius: 20px;
+}
+.formulario {
+   
     justify-content: center;
     align-items: center;
 }
@@ -55,7 +57,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    margin-top: 20px;
+    margin-top: 30px;
     margin-bottom: 20px;
     padding-left: 20px;
     padding-right: 20px;
@@ -66,7 +68,7 @@
     color: var(--gris-claro);
     text-align: left;
     align-self: start;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .formulario__input {
@@ -76,18 +78,37 @@
     padding: 0px 5px;
     font-size: 20px;
 }
-
-.input--precio {
-    max-width: 40%;
-    min-width: 200px;
+.formulario--imagen{
+    flex-direction: row;
+    justify-content: center;
+}
+.imagen-preview{
+    height: 30vh;
+    max-width: 100%;
+    object-fit: scale-down;
+}
+.formulario--checkbox{
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    margin: 3px 0;
+    padding:0;
+}
+.label--checkbox{
+    padding-top: 5px;
+    width: 30%;
+    min-width: 180px;
+    margin: 0;
+}
+.input--checkbox{
+    width: 20px;
 }
 
 .input--text-area {
-    height: 70px;
+    height: 100px;
     width: 100%;
     background-color: rgb(240, 240, 240);
 }
-
 .input--file {
     height: fit-content;
     padding: 0px;
@@ -102,13 +123,18 @@
     background-color: rgb(240, 240, 240);
     align-self: flex-start;
     font-size: 18px;
+    margin-top:5px;
 }
 
+.input--small {
+    max-width: 40%;
+    min-width: 160px;
+}
 .formulario__icon-submit {
     color:var(--marron-claro);
     font-size: 40px;
     font-weight: bold;
-    margin: 10px 20px;
+    margin: 10px 40px;
     align-self: flex-end;
     transition: all 250ms;
 }
@@ -117,12 +143,77 @@
     color: var(--oracula);
     text-shadow: 0px 0px 50px var(--oracula);
 }
+.formulario--delete{
+    height:0;
+}
+.formulario__icon-delete {
+    color:var(--terracota);
+    font-size: 40px;
+    font-weight: bold;
+    margin: 10px 20px;
+    align-self: flex-end;
+    transition: all 250ms;
+    position: relative;
+    top: -76px;
+    margin-left: 60px;
+}
+.formulario__icon-delete:hover {
+    color: var(--naranja);
+    text-shadow: 0px 0px 50px var(--naranja);
+}
 .last-item{
+    flex-direction: row;
+    justify-content: flex-end;
     margin-top: 10px;
     margin-bottom: 10px;
 }
+.input--pdm{
+    padding: 0;
+    margin: 10px 0;
+}
 @media (min-width: 820px) {
-    .formulario__icon-submit {
-        font-size: 50px;
+    .formulario__icon-submit, 
+    .formulario__icon-delete {
+        font-size: 60px;
+    }
+    .formulario__icon-submit{
+        margin-right: 80px;
+    }
+    .formulario__checkbox__container{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .formulario--checkbox{
+        justify-content: start;
+        width: auto;
+    }
+    .label--checkbox{
+        min-width: fit-content;
+        padding-right:8px;
+    }
+    .input--checkbox{
+        min-width: 20px;
+    }
+    .imagen-preview{
+        height: 400px;
+        max-width: 100%;
+        object-fit: scale-down;
+    }
+    .formulario__icon-delete{
+        margin-left: 100px;
+        top:-99px;
+    }
+    .precio-descuento-moneda{
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .input--pdm{
+        width: auto;
+    }
+    .input--small {
+        max-width: 40%;
+        min-width: 160px;
+        margin-top: 4px;
     }
 }

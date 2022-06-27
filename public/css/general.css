@@ -40,8 +40,9 @@ li {
     background-size: cover;
     height: 100%;
     min-height: 100vh;
-    width: 100vw;
+    width: 100%;
     z-index: -100;
+    padding-top: 88px;
 }
 
 .secciones,
@@ -64,16 +65,18 @@ li {
     font-size: 50px;
     font-weight: bolder;
 }
-
+header{
+    overflow-x: hidden;
+}
 .header {
     background-color: #45293f;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
-    width: 100vw;
+    width: 100%;
     position: fixed;
-    z-index: 300;
+    z-index: 1000;
     height: max-content;
 }
 
@@ -84,8 +87,7 @@ li {
     width: 100%;
     max-width: 1200px;
 }
-
-.header__relleno {
+.header__relleno{
     height: 58px;
 }
 
@@ -241,11 +243,9 @@ footer {
         position: fixed;
         height: max-content;
     }
-
-    .header__relleno {
-        height: 69px;
+    .header__relleno{
+        padding-bottom: 88px;
     }
-
     .logo {
         width: 10%;
     }
@@ -274,6 +274,8 @@ footer {
         font-size: 24px;
         color: var(--amarillo-naranja);
         padding: 7px;
+        border-bottom: 2px solid transparent;
+        transition: all 200ms;
     }
 
     .secciones__icon {
@@ -283,12 +285,13 @@ footer {
     .secciones__elemento:hover {
         color: var(--oracula);
         text-shadow: 0px 0px 10px var(--oracula);
+        border-bottom: 2px solid var(--amarillo-naranja);
+
     }
 
     .botonesSuperiores {
         width: 20%;
         margin: 0px;
-        margin-right: 10px;
         max-width: 300px;
     }
 
@@ -353,7 +356,6 @@ footer {
         position: relative;
         bottom: 0px;
         height: max-content;
-        box-shadow: 0px 5px 10px var(--morado-oscuro);
     }
 
     .menu {
@@ -365,6 +367,7 @@ footer {
         padding: 25px 0 10px;
         border-top: solid 2px var(--terracota);
         border-bottom: solid 3px var(--terracota);
+        z-index: 1000;
     }
 
     .menu--categorias,
@@ -372,7 +375,7 @@ footer {
     .menu--admin {
         display: none;
         max-width: 1200px;
-
+        z-index: 1000;
     }
 
     .menu__item {

@@ -201,22 +201,42 @@ main{
   }
   
   /* Columns */
+  
   .left-column {
-    width: 65%;
-    
+    width: 50%;
+    margin-right: 30px;
+    height: 80%;
   }
+
+  @supports(object-fit: cover) {
+    .left-column img {
+      max-width: 100%;
+      min-width: 100%;
+      max-height: 100%;
+      position: relative;
+      top: 0;
+     
+      
+      border-radius: 5px;
+
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+
+  }
+}
    
+
+
+}
   .right-column {
     width: 35%;
     margin-top: 110px;
+  
   }
   
   /* Left Column */
-  .left-column img {
-    width: 100%;
-    position: absolute;
 
-  }
    
   .left-column img.active {
     opacity: 1;
@@ -226,7 +246,7 @@ main{
     max-width: fit-content;
     max-height: 500px;
     margin-top: 70px;
-}}
+}
 
 /* Productos sugeridos */
 .suggested{
@@ -245,6 +265,9 @@ article {
   padding: 15px;
   border: solid 1px black;
   margin: auto;
+}
+
+.imagen__principal{
 
 }
 
@@ -253,6 +276,7 @@ article {
   width: 100%;
   background-color: white;
   padding: 10px;
+  
 }
 
 .precio {
