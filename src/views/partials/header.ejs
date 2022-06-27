@@ -136,7 +136,7 @@
             </ul>
             <ul class="menu menu--admin" onmouseleave="ocultarMenu('menu--admin')">
                 <li class="menu__item">
-                    <a class="menu__link" href="LINK">
+                    <a class="menu__link" href="/product/create">
                         <h4 class="menu__description">Registrar Producto</h4>
                     </a>
                 </li>
@@ -146,7 +146,7 @@
                     </a>
                 </li>
                 <li class="menu__item">
-                    <a class="menu__link" href="LINK">
+                    <a class="menu__link" href="/user/signup">
                         <h4 class="menu__description">Registrar Usuarix</h4>
                     </a>
                 </li>
@@ -177,10 +177,10 @@
         }
         
         //Muestra un menú: recibe el menú a mostrar, y los dos menús a ocultar.
-        function mostrarMenu(menuName, menu1, menu2) {
-            setDisplayNoneSingleMenu(document.getElementsByClassName(menu1));
-            setDisplayNoneSingleMenu(document.getElementsByClassName(menu2));
-            let menu = document.getElementsByClassName(menuName);
+        function mostrarMenu(menuSeleccionado, menuOcultar1, menuOcultar2) {
+            setDisplayNoneSingleMenu(document.getElementsByClassName(menuOcultar1));
+            setDisplayNoneSingleMenu(document.getElementsByClassName(menuOcultar2));
+            let menu = document.getElementsByClassName(menuSeleccionado);
             for (let i = 0; i < menu.length; i++) {
                 if (menu[i].style.display == "none") {
                     menu[i].style.display = "flex";
