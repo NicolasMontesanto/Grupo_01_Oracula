@@ -8,4 +8,5 @@ const path = require('path');
 routes.get("/login", userController.login);
 routes.get("/signup", userController.signup);
 routes.post("/signup", userController.store);
+
 module.exports = routes;

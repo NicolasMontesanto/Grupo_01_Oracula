@@ -29,7 +29,7 @@ const usersController = {
             }
             return id += 1;
         }
-        let file = req.file; 
+       
 
         //tomamos los datos del req.body
         let userNuevo = {
@@ -38,8 +38,9 @@ const usersController = {
             nombre: req.body.nombre,
             apellido: req.body.apellido,
             contraseña: req.body.contraseña,
-            fechaDeCreacion: new Date()
+            fechaDeCreacion: new Date() 
         }
+        
         users.push(userNuevo);
         let usersJSON = JSON.stringify(users, null, 4);
         fs.writeFileSync(pathJSON, usersJSON, "utf-8");
