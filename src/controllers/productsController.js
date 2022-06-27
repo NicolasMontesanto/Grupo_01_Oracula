@@ -35,6 +35,22 @@ const productsController = {
         let file = req.file;
 
         //tomamos los datos del req.body
+        let esDestacado, esNovedad, esOferta;
+        if(req.body.esDestacado){
+            esDestacado = true;
+        }else{
+            esDestacado = false;
+        }
+        if(req.body.esNovedad){
+            esNovedad = true;
+        }else{
+            esNovedad = false;
+        }
+        if(req.body.esOferta){
+            esOferta = true;
+        }else{
+            esOferta = false;
+        }
         let productNuevo = {
             id: siguienteID(products),
             nombre: req.body.nombre,
@@ -44,9 +60,9 @@ const productsController = {
             imagenes: `/img/productos/${file.filename}`,
             categoria: req.body.categoria,
             subcategoria: req.body.subcategoria,
-            esNovedad: req.body.esNovedad,
-            esDestacado: req.body.esDestacado,
-            esOferta: req.body.esOferta,
+            esNovedad: esNovedad,
+            esDestacado: esDestacado,
+            esOferta: esOferta,
             descuento: req.body.descuento,
             fechaDeCreacion: new Date()
         }
@@ -70,7 +86,22 @@ const productsController = {
     update: (req, res) => {
         let id = req.params.id;
         let file = req.file;
-        const { nombre, descripcion, precio, categoria, subcategoria, esNovedad, esDestacado, esOferta, descuento } = req.body;
+        let { nombre, descripcion, precio, categoria, subcategoria, esNovedad, esDestacado, esOferta, descuento } = req.body;
+        if(req.body.esDestacado){
+            esDestacado = true;
+        }else{
+            esDestacado = false;
+        }
+        if(req.body.esNovedad){
+            esNovedad = true;
+        }else{
+            esNovedad = false;
+        }
+        if(req.body.esOferta){
+            esOferta = true;
+        }else{
+            esOferta = false;
+        }
         products.forEach(item => {
             if (item.id == id) {
                 item.nombre = nombre;
@@ -93,9 +124,9 @@ const productsController = {
     },
     delete: (req, res) => {
         let id = req.params.id;
-        let productDelete = products.find((item) => { item.id == id });
+        let productToDelete = products.find(item => item.id == id );
 
-        let productImg = path.join(__dirname, "../../public/img/productos/" + productDelete.imagenes);
+        let productImg = path.join(__dirname, "../../public/img/productos" + productToDelete.imagenes);
 
         products = products.filter(product => product.id != id);
 

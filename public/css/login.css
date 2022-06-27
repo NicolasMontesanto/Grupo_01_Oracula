@@ -18,7 +18,7 @@
 }
 
 .main{
-    width: 100vw;
+    width: 100%;
     flex-direction: column;
     display:flex;
     margin-bottom: 40px;

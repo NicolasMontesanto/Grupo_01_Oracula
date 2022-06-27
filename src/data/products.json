@@ -79,22 +79,25 @@
         "fechaDeCreacion": "2022-06-25T19:04:41.101Z"
     },
     {
-        "id": 8,
-        "nombre": "Juego no destacado ",
-        "descripcion": "lalalala",
-        "precio": "5",
-        "imagenes": "/img/productos/1656185134114-prodImg.jpg",
-        "categoria": "juegos",
-        "subcategoria": "novela",
-        "descuento": "",
-        "fechaDeCreacion": "2022-06-25T19:25:34.116Z"
-    },
-    {
         "id": 9,
         "nombre": "Magiamagia",
         "descripcion": "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-        "precio": "8999",
+        "precio": "1500",
         "imagenes": "/img/productos/1656204451197-prodImg.jpg",
+        "categoria": "literatura",
+        "subcategoria": "novela",
+        "descuento": "10",
+        "fechaDeCreacion": "2022-06-26T00:47:31.199Z",
+        "esNovedad": "",
+        "esDestacado": "",
+        "esOferta": ""
+    },
+    {
+        "id": 10,
+        "nombre": "PruebaCheckbox",
+        "descripcion": "una prueba",
+        "precio": "100",
+        "imagenes": "/img/productos/1656300757341-prodImg.JPEG",
         "categoria": "juegos",
         "subcategoria": "pelicula",
         "esDestacado": "on",

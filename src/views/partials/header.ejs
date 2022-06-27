@@ -32,19 +32,19 @@
                         </button>
                     </li>
                     <li>
-                        <button class="secciones__elemento secciones--generos" onclick="mostrarGeneros()">
+                        <button class="secciones__elemento secciones--generos" onclick="mostrarMenu('menu--generos', 'menu--categorias', 'menu--admin')">
                             <i class="iconify secciones__icon" data-icon="fa6-solid:hamsa"></i>
                             Géneros
                         </button>
                     </li>
                     <li>
-                        <button class="secciones__elemento secciones--categorias" onclick="mostrarCategorias()">
+                        <button class="secciones__elemento secciones--categorias" onclick="mostrarMenu('menu--categorias', 'menu--generos', 'menu--admin')">
                             <i class="iconify secciones__icon" data-icon="mdi:bottle-tonic-outline"></i>
                             Categorías
                         </button>
                     </li>
                     <li>
-                        <button class="secciones__elemento secciones--admin" onclick="mostrarAdmin()">
+                        <button class="secciones__elemento secciones--admin" onclick="mostrarMenu('menu--admin','menu--generos','menu--categorias')">
                             <i class="fa-solid fa-toolbox secciones__icon"></i>
                             Admin
                         </button>
@@ -85,29 +85,29 @@
             </nav>
         </div>
         <!--Menú desplegable--> 
-        <nav class="menu__container">
-            <ul class="menu menu--generos" onmouseleave="ocultarGeneros()">
+        <nav class="menu__container" id="menu__container">
+            <ul class="menu menu--generos" onmouseleave="ocultarMenu('menu--generos')">
                 <li class="menu__item">
-                    <a class="menu__link link--imagen" href="/category/literatura">
+                    <a class="menu__link link--imagen" href="/">
                         <img class="menu__imagen" src="/img/productos/literatura/AliciaIlustrado.jpg"
                             alt="Imagen de Literatura">
                         <h4 class="menu__description">Literatura</h4>
                     </a>
                 </li>
                 <li class="menu__item">
-                    <a class="menu__link link--imagen" href="/category/juegos">
+                    <a class="menu__link link--imagen" href="/">
                         <img class="menu__imagen" src="/img/productos/juegos/stardewValley.png" alt="">
                         <h4 class="menu__description">Juegos</h4>
                     </a>
                 </li>
                 <li class="menu__item">
-                    <a class="menu__link link--imagen" href="/category/baratijas">
+                    <a class="menu__link link--imagen" href="/">
                         <img class="menu__imagen" src="/img/productos/baratijas/mundoDisco.jpg" alt="">
                         <h4 class="menu__description">Baratijas</h4>
                     </a>
                 </li>
             </ul>
-            <ul class="menu menu--categorias" onmouseleave="ocultarCategorias()">
+            <ul class="menu menu--categorias" onmouseleave="ocultarMenu('menu--categorias')">
                 <li class="menu__item">
                     <a class="menu__link link--imagen" href="/category/literatura">
                         <img class="menu__imagen" src="/img/productos/literatura/AliciaIlustrado.jpg"
@@ -130,23 +130,23 @@
                 <li class="menu__item">
                     <a class="menu__link link--imagen" href="/category/multimedia">
                         <img class="menu__imagen" src="/img/productos/multimedia/lordOfRingsSound.jpg" alt="">
-                        <h4 class="menu__description">Multimedia</h4>
+                        <h4 class="menu__description">Audiovisuales</h4>
                     </a>
                 </li>
             </ul>
-            <ul class="menu menu--admin" onmouseleave="ocultarAdmin()">
+            <ul class="menu menu--admin" onmouseleave="ocultarMenu('menu--admin')">
                 <li class="menu__item">
-                    <a class="menu__link" href="/product/create">
+                    <a class="menu__link" href="LINK">
                         <h4 class="menu__description">Registrar Producto</h4>
                     </a>
                 </li>
                 <li class="menu__item">
-                    <a class="menu__link" href="#">
+                    <a class="menu__link" href="LINK">
                         <h4 class="menu__description">Ver Productos</h4>
                     </a>
                 </li>
                 <li class="menu__item">
-                    <a class="menu__link" href="/user/signup">
+                    <a class="menu__link" href="LINK">
                         <h4 class="menu__description">Registrar Usuarix</h4>
                     </a>
                 </li>
@@ -158,10 +158,7 @@
             </ul>
         </nav>
     </div>
-    <!--Relleno de header-->
-    <div class="header__relleno"></div>
-
-    <!--Script-->>
+    <!--Script-->
     <script>
         //Hace que el display de todos los menus empiece en None
         function setDisplayNoneMenus() {
@@ -171,75 +168,38 @@
             }
         }
         setDisplayNoneMenus();
+        
         //Cambia el display del menu que se le pase
         function setDisplayNoneSingleMenu(menu) {
             for (let i = 0; i < menu.length; i++) {
                 menu[i].style.display = "none";
             }
         }
-        //Muestra el menu de categorias
-        function mostrarCategorias() {
-            setDisplayNoneSingleMenu(document.getElementsByClassName("menu--generos"));
-            setDisplayNoneSingleMenu(document.getElementsByClassName("menu--admin"));
-            let menu = document.getElementsByClassName("menu--categorias");
+        
+        //Muestra un menú: recibe el menú a mostrar, y los dos menús a ocultar.
+        function mostrarMenu(menuName, menu1, menu2) {
+            setDisplayNoneSingleMenu(document.getElementsByClassName(menu1));
+            setDisplayNoneSingleMenu(document.getElementsByClassName(menu2));
+            let menu = document.getElementsByClassName(menuName);
             for (let i = 0; i < menu.length; i++) {
                 if (menu[i].style.display == "none") {
                     menu[i].style.display = "flex";
+                    document.getElementById("menu__container").style.boxShadow = "0 1050px 10px 1000px rgba(0,0,0,0.6)";
                 } else {
                     menu[i].style.display = "none"
-                }
-            }
-        }
-        //Oculta el menu de categorias
-        function ocultarCategorias() {
-            let menus = document.getElementsByClassName("menu--categorias");
-            for (let i = 0; i < menus.length; i++) {
-                menus[i].style.display = "none";
-            }
-        }
-        //Muestra el menu de generos
-        function mostrarGeneros() {
-            setDisplayNoneSingleMenu(document.getElementsByClassName("menu--categorias"));
-            setDisplayNoneSingleMenu(document.getElementsByClassName("menu--admin"));
-            let menu = document.getElementsByClassName("menu--generos");
-            for (let i = 0; i < menu.length; i++) {
-                if (menu[i].style.display == "none") {
-                    menu[i].style.display = "flex";
-                    menu[i].style.visibility = "visible";
-                    
-                } else {
-                    menu[i].style.display = "none"
-                }
-            }
-        }
-        //Oculta el menu de generos
-        function ocultarGeneros() {
-            let menus = document.getElementsByClassName("menu--generos");
-            for (let i = 0; i < menus.length; i++) {
-                menus[i].style.display = "none";
-            }
-        }
-        //Muestra el menu de admin
-        function mostrarAdmin() {
-            setDisplayNoneSingleMenu(document.getElementsByClassName("menu--generos"));
-            setDisplayNoneSingleMenu(document.getElementsByClassName("menu--categorias"));
-            let menu = document.getElementsByClassName("menu--admin");
-            for (let i = 0; i < menu.length; i++) {
-                if (menu[i].style.display == "none") {
-                    menu[i].style.display = "flex";
-                    menu[i].style.visibility = "visible";
+                    document.getElementById("menu__container").style.boxShadow = "";
 
-                } else {
-                    menu[i].style.display = "none"
                 }
             }
         }
-        //Oculta el menu de admin
-        function ocultarAdmin() {
-            let menus = document.getElementsByClassName("menu--admin");
+        
+        //Oculta un menú
+        function ocultarMenu(menuName) {
+            let menus = document.getElementsByClassName(menuName);
             for (let i = 0; i < menus.length; i++) {
                 menus[i].style.display = "none";
-            }
+                document.getElementById("menu__container").style.boxShadow = "";
+            }Menu
         }
     </script>
 </header>
