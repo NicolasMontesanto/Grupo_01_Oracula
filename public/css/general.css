@@ -371,6 +371,7 @@ footer {
         padding: 25px 0 10px;
         border-top: solid 2px var(--terracota);
         border-bottom: solid 3px var(--terracota);
+        z-index: 5000;
     }
 
     .menu--categorias,
@@ -378,6 +379,7 @@ footer {
     .menu--admin {
         display: none;
         max-width: 1200px;
+        z-index: 5000;
 
     }
 

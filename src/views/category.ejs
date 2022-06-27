@@ -5,6 +5,8 @@
     <%- include('./partials/head.ejs')%>
         <link href="/css/home.css" rel="stylesheet" />
         <link href="/css/category.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/css/partialsCss/destacadosDesk.css">
+        <link rel="stylesheet" href="/csss/partialsCss/novedadesMobile.css">
 </head>
 <!-- La descripcion que deberia aparecer en hover sobre el slider aun no funciona 
 Si alquien quiere solucionarlo bienvenidx sea 
@@ -14,116 +16,55 @@ El boton de me interesa funciona pero se ve mal aun -->
     <%- include('./partials/header.ejs')%>
         <div class="fondo">
             <main class="main">
-                <!-- Slider de destacados -->
-                <%if(productosAMostrar.length>0){%>
-
-                    <section class="destacados">
-                        <h2 class="destacados__titulo">Destacados en <%=productosAMostrar[1].categoria%>
+                <%if(productos.length>0){%>
+                    <h2 class="destacados__titulo">Destacados en <%=productos[0].categoria%>
+                            <%if(productosDestacados.length<5){%>
+                                <h3>Estamos trabajando para tener productos destacados que mostrarte en esta sección
                                 </h3>
-                                <div id="slideshow-wrap">
-
-                                    <% for (let i=1; i<=5; i++){ %>
-                                        <%if(i==1) {%>
-                                            <input type="radio" id="button-<%=i%>" name="controls" checked="checked" />
-                                            <%}else {%>
-                                                <input type="radio" id="button-<%=i%>" name="controls" />
-                                                <%}%>
-                                                    <label for="button-<%=i%>"></label>
-                                                    <%}%>
-
-                                                        <% for (let i=1; i<=5; i++){%>
-                                                            <label for="button-<%=i%>" class="arrows"
-                                                                id="arrow-<%=i%>">></label>
-                                                            <%}%>
-                                                                <div id="slideshow-inner">
-                                                                    <ul>
-                                                                        <% for (let i=1; i<=5; i++){%>
-                                                                            <li id="slide<%=i%>">
-                                                                                <img
-                                                                                    src="<%=productosDestacados[i].imagenes%>" />
-                                                                                <div class="slider__descripcion">
-                                                                                    <h3 class="prod--titulo">
-                                                                                        <%=productosDestacados[i].nombre%>
-                                                                                    </h3>
-                                                                                    <div
-                                                                                        class="contenedor__descripcion">
-                                                                                        <p class="prod--descripcion">
-                                                                                            <%=productosDestacados[i].descripcion%>
-                                                                                        </p>
-                                                                                    </div>
-                                                                                    <a
-                                                                                        href="/product/detail/<%=productosAMostrar[i].id%>">
-                                                                                        <div class="slider__boton">
-                                                                                            ¡Me interesa!
-                                                                                        </div>
-                                                                                    </a>
-
-                                                                                </div>
-                                                                            </li>
-                                                                            <%}%>
-                                                                    </ul>
+                                <%}%>
+                                    <!-- Slider de destacados Mobile -->
+                                    <!-- Slider de destacados Desktop -->
+                                    <%- include('./partials/destacadosDesk.ejs')%>
+                                        <!-- Todos los productos de la categoría  -->
+                                        <section class="caja">
+                                            <h2 class="destacados__titulo">
+                                                Todo lo que hay en nuestra sección <%=productos[0].categoria%>
+                                            </h2>
+                                            <div class="contenedor">
+                                                <div class="contenedor-cards">
+                                                    <%for (let i=0; i<productos.length; i++){%>
+                                                        <div class="contenedor-card-item">
+                                                            <div class="contenedor-card-item-wrapper">
+                                                                <a href="/product/detail/<%=productos[i].id%>">
+                                                                    <img src="<%=productos[i].imagenes%>"
+                                                                        alt="Producto-<%=productos[i].id%>">
+                                                                </a>
+                                                                <div class="contenedor-info">
+                                                                    <div class="info">
+                                                                        <p class="titulo">
+                                                                            <%=productos[i].nombre%>
+                                                                        </p>
+                                                                        <span class="categoria">
+                                                                            <%=productos[i].subcategoria%>
+                                                                        </span>
+                                                                    </div>
+                                                                    <!-- <div class="fondo"></div> -->
                                                                 </div>
-                                </div>
-                    </section>
-                    <%}%>
-
-                        <!-- Todos los productos de la categoría  -->
-                        <section class="caja">
-                            <%if(productosAMostrar.length>0) {%>
-                                <h2 class="destacados__titulo">Todo lo que hay en nuestra sección
-                                    <%=productosAMostrar[1].categoria%>
-                                        </h3>
+                                                            </div>
+                                                        </div>
+                                                        <%}%>
+                                                </div>
+                                            </div>
+                                        </section>
                                         <%}else{%>
-                                            <h2 class="destacados__titulo paginaVacia--titulo">Lo sentimos...Aún no hay
+                                            <h2 class="destacados__titulo paginaVacia--titulo">Lo
+                                                sentimos...Aún no
+                                                hay
                                                 nada en la
                                                 categoría que seleccionaste</h2>
                                             <div class="paginaVacia--relleno"></div>
                                             <%}%>
-
-                                                <div class="contenedor">
-
-                                                    <div class="contenedor-cards">
-                                                        <%for (let i=0; i<productosAMostrar.length; i++){%>
-
-                                                            <div class="contenedor-card-item">
-                                                                <div class="contenedor-card-item-wrapper">
-                                                                    <a
-                                                                        href="/product/detail/<%=productosAMostrar[i].id%>">
-                                                                        <img src="<%=productosAMostrar[i].imagenes%>"
-                                                                            alt="Producto-<%=productosAMostrar[i].id%>">
-                                                                    </a>
-                                                                    <div class="contenedor-info">
-                                                                        <div class="info">
-                                                                            <p class="titulo">
-                                                                                <%=productosAMostrar[i].nombre%>
-                                                                            </p>
-                                                                            <span class="categoria">
-                                                                                <%=productosAMostrar[i].subcategoria%>
-                                                                            </span>
-                                                                        </div>
-                                                                        <!-- <div class="fondo"></div> -->
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <%}%>
-                                                                <!-- <article>
-                            <h2>
-                                <%=//productosAMostrar[i].nombre%>
-                            </h2>
-                            <a href="#"><img src="<%=//productosAMostrar[i].imagenes%>" alt="Producto-<%=//productosAMostrar[i].id%>"
-                                class="Producto"></a>
-                                <div>
-                                    <i class="fas fa-broom"></i>
-                                    <p class="precio"><strong>$2000</strong></p>
-                                    <p class="nombre">Random Merch #4</p>
-                                </div>
-                            </article> -->
-                                                    </div>
-                                                </div>
-                        </section>
-
-                        <%- include('./partials/footer.ejs')%>
+                                                <%- include('./partials/footer.ejs')%>
         </div>
 </body>
 

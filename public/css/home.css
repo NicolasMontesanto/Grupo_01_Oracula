@@ -66,29 +66,7 @@
     animation-duration: 5s;
     animation-iteration-count: 1;
 }
-/*@keyframes presentacion {
-    0% {
-        visibility: hidden;
-        transform: translate(0px, -300px);
-    }
 
-    25% {
-        opacity: 25%;
-    }
-
-    50% {
-        opacity: 50%;
-    }
-
-    75% {
-        opacity: 70%
-    }
-
-    100% {
-        visibility: visible;
-        transform: translate(0px);
-    }
-}*/
 @keyframes presentacion {
     0% {
         visibility: hidden;
@@ -214,6 +192,7 @@
     width: 100%;
     padding: 10px 0px;
     margin-bottom: 20px;
+    
 }
 
 .destacados__container {
@@ -281,142 +260,6 @@
     color: white;
     bottom: 35%;
     right: 90%
-}
-
-
-.novedades {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--filtro);
-    height: max-content;
-    padding: 10px 0px;
-}
-
-.novedades__container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    width: 95vw;
-    max-width: 1600px;
-    margin: auto;
-    padding: 10px;
-    overflow-x: scroll;
-    height: max-content;
-}
-
-.novedades_product--titulo {
-    width: 100%;
-    font-size: 18px;
-}
-
-.novedades_product {
-    display: flex;
-    flex-direction: column;
-    width: fit-content;
-    height: 185px;
-    display: inline-block;
-    background-size: cover;
-    background-position: center;
-}
-
-.novedades_product--tipo {
-    width: 100%;
-    font-size: 18px;
-    color: var(--gris-claro);
-    text-shadow: 2px 2px 0px var(--morado);
-}
-
-div.novedades_product--descripcion {
-    background-color: var(--filtro);
-    text-shadow: 2px 2px 0px var(--naranja);
-    width: 100%;
-    color: white;
-    text-align: justify;
-    border-top: var(--naranja) 1px solid;
-    visibility: collapse;
-    width: 400px;
-    background-position-x: center;
-}
-
-div.novedades_product--icons {
-    display: flex;
-    width: fit-content;
-    margin: 0 auto;
-    color: var(--morado);
-    background-color: var(--gris-claro);
-    position: relative;
-    left: 90px;
-    top: 10px;
-    font-size: 40px;
-    visibility: hidden;
-}
-
-div.novedades_product--icons:hover {
-    color: var(--naranja);
-}
-
-.novedades_product#uno {
-    background-image: url(/img/productos/multimedia/strangeWorld.jpg);
-}
-
-.novedades_product#dos {
-    background-image: url(/img/productos/juegos/stardewvaley.png);
-}
-.Scroll_product#tres{
-    background-image: url(/img/productos/fanart/HPFans.jpg);
-}
-.Scroll_product#cuatro{
-    background-image: url(/img/productos/literatura/Audiolibros.jpg);
-}
-.Scroll_product#cinco{
-    background-image: url(/img/productos/literatura/AliciaIlustrado.jpg);
-}
-
-.Scroll_product#seis{
-    background-image: url(/img/productos/multimedia/lordOfRingsSound.jpg);
-}
-.Scroll_product#siete{
-    background-image: url(/img/productos/baratijas/mundoDisco.jpg);
-}
-
-
-
-.Scroll_product:hover div.Scroll_product--descripcion{
-     visibility: visible;
-}
-.Scroll_product:hover div.Scroll_product--icons{
-    visibility: visible;
-}
-
-.novedades_product#tres {
-    background-image: url(/img/productos/fanart/HPFans.jpg);
-}
-
-.novedades_product#cuatro {
-    background-image: url(/img/productos/literatura/Audiolibros.jpg);
-}
-
-.novedades_product#cinco {
-    background-image: url(/img/productos/literatura/AliciaIlustrado.jpg);
-}
-
-.novedades_product#seis {
-    background-image: url(/img/productos/multimedia/lordOfRingsSound.jpg);
-}
-
-.novedades_product#siete {
-    background-image: url(/img/productos/baratijas/mundoDisco.jpg);
-}
-
-
-
-.novedades_product:hover div.novedades_product--descripcion {
-    visibility: visible;
-}
-
-.novedades_product:hover div.novedades_product--icons {
-    visibility: visible;
 }
 
 .productos {
@@ -505,19 +348,7 @@ div.novedades_product--icons:hover {
         position: absolute;
     }
 
-    @keyframes novedades {
-        10% {
-            transform: translate(0px)
-        }
-
-        50% {
-            transform: translate(-1200px)
-        }
-
-        100% {
-            transform: translate(0px)
-        }
-    }
+    
 
     .novedades__titulo,
     .destacados__titulo,
