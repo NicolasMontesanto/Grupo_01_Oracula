@@ -76,9 +76,8 @@ header{
     justify-content: space-around;
     width: 100%;
     position: fixed;
-    z-index: 300;
+    z-index: 1000;
     height: max-content;
-    overflow-x: hidden;
 }
 
 .header__container {
@@ -87,11 +86,9 @@ header{
     align-items: center;
     width: 100%;
     max-width: 1200px;
-    overflow-x: hidden;
 }
 .header__relleno{
     height: 58px;
-    overflow-x: hidden;
 }
 
 button {
@@ -359,7 +356,6 @@ footer {
         position: relative;
         bottom: 0px;
         height: max-content;
-        box-shadow: 0px 100px 100px rgba(0,0,0, 0.7),0px 300px 100px rgba(0,0,0, 0.7),0px 500px 100px rgba(0,0,0, 0.7), 0px 700px 100px rgba(0,0,0, 0.7);
     }
 
     .menu {
@@ -371,7 +367,7 @@ footer {
         padding: 25px 0 10px;
         border-top: solid 2px var(--terracota);
         border-bottom: solid 3px var(--terracota);
-        z-index: 5000;
+        z-index: 1000;
     }
 
     .menu--categorias,
@@ -379,8 +375,7 @@ footer {
     .menu--admin {
         display: none;
         max-width: 1200px;
-        z-index: 5000;
-
+        z-index: 1000;
     }
 
     .menu__item {
