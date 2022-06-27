@@ -9,9 +9,10 @@
 <!-- La descripcion que deberia aparecer en hover sobre el slider aun no funciona 
 Si alquien quiere solucionarlo bienvenidx sea 
 El boton de me interesa funciona pero se ve mal aun -->
+
 <body>
-    <div class="fondo">
-        <%- include('./partials/header.ejs')%>
+    <%- include('./partials/header.ejs')%>
+        <div class="fondo">
             <main class="main">
                 <!-- Slider de destacados -->
                 <%if(productosAMostrar.length>0){%>
@@ -44,21 +45,22 @@ El boton de me interesa funciona pero se ve mal aun -->
                                                                                     <h3 class="prod--titulo">
                                                                                         <%=productosDestacados[i].nombre%>
                                                                                     </h3>
-                                                                                    <div 
+                                                                                    <div
                                                                                         class="contenedor__descripcion">
                                                                                         <p class="prod--descripcion">
                                                                                             <%=productosDestacados[i].descripcion%>
                                                                                         </p>
                                                                                     </div>
-                                                                                    <a href="/product/detail/<%=productosAMostrar[i].id%>" >
-                                                                                    <div class="slider__boton">
-                                                                                      ¡Me interesa!
-                                                                                    </div>
-                                                                                </a>
+                                                                                    <a
+                                                                                        href="/product/detail/<%=productosAMostrar[i].id%>">
+                                                                                        <div class="slider__boton">
+                                                                                            ¡Me interesa!
+                                                                                        </div>
+                                                                                    </a>
 
                                                                                 </div>
                                                                             </li>
-                                                                        <%}%>
+                                                                            <%}%>
                                                                     </ul>
                                                                 </div>
                                 </div>
@@ -85,7 +87,8 @@ El boton de me interesa funciona pero se ve mal aun -->
 
                                                             <div class="contenedor-card-item">
                                                                 <div class="contenedor-card-item-wrapper">
-                                                                    <a href="/product/detail/<%=productosAMostrar[i].id%>">
+                                                                    <a
+                                                                        href="/product/detail/<%=productosAMostrar[i].id%>">
                                                                         <img src="<%=productosAMostrar[i].imagenes%>"
                                                                             alt="Producto-<%=productosAMostrar[i].id%>">
                                                                     </a>
@@ -121,7 +124,7 @@ El boton de me interesa funciona pero se ve mal aun -->
                         </section>
 
                         <%- include('./partials/footer.ejs')%>
-    </div>
+        </div>
 </body>
 
 </html>
