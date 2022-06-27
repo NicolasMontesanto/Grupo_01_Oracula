@@ -1,8 +1,8 @@
 const path = require('path');
 const fs = require("fs");
 
-let pathJSON = path.join(__dirname, "../data/products.json");
-let products = JSON.parse(fs.readFileSync(pathJSON, "utf-8"));
+
+let products = require('../data/products.json');
 
 const productsController = {
     //productDetail.html
