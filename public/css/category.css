@@ -27,6 +27,7 @@
 }
 /* Destacados mobile */
 
+
 .destacados-titulo{
     text-align: center;
     color: var(--amarillo-naranja);
@@ -109,9 +110,14 @@
     }
 }
 
+.content__categoria{
+    overflow-wrap: break-word;
+}
+
+
 .contenedor-card-item .contenedor-info {
     position: absolute;
-    width: 600px;;
+    width: 100%;
     height: 70px;
     bottom: -70px;
    
@@ -145,11 +151,11 @@
 
 .contenedor-card-item .contenedor-info .info .categoria {
     display: block;
-    font-size: 10px;
+    font-size: 20px;
 }
 
 .contenedor-card-item:hover .contenedor-info {
-    bottom: 8px;
+    bottom: 50px;
 }
 
 .contenedor-card-item:hover img {
@@ -208,3 +214,13 @@
     }
 }
 
+.content__titulo{
+    overflow-wrap: break-word;
+    font-size: 40px;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    margin-bottom: 20px;
+    overflow-wrap: break-word;
+    white-space: wrap;
+}

@@ -2,7 +2,7 @@
 .sliderDestacados{
 width: auto;
 padding: 10px;
-white-space: nowrap;
+/* white-space: nowrap; */
 overflow-y: hidden; 
 overflow-x: auto;
 display: flex;
