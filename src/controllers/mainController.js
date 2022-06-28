@@ -41,7 +41,7 @@ const mainController = {
         let productosDestacados = sortear(productosDestacadosEnOrden);
 
             //hacemos lo mismo con las novedades
-            let NovedadesEnOrden = productos.filter(item => item.esNovedad == "on");
+            let novedadesEnOrden = productos.filter(item => item.esNovedad == "on");
        
             let novedades = sortear(novedadesEnOrden);
             
