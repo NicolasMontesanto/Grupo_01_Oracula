@@ -422,5 +422,41 @@
         "esOferta": true,
         "descuento": "50",
         "fechaDeCreacion": "2022-06-28T17:36:15.906Z"
+    },
+    {
+        "id": 33,
+        "nombre": "Cuentos de Beedle el Bardo",
+        "descripcion": "Autoría: J.R Rowling \r\n\r\nSerie de cuentos escritos por la figura legendaria de Beedle el bardo, traducidos de su lenguaje rúnico original por Hermione Granger, y anotados por Albus Dumbledore",
+        "precio": "3000",
+        "imagenes": "/img/productos/1656441680695-prodImg.jpg",
+        "categoria": "literatura",
+        "subcategoria": "cuento",
+        "generos": [
+            "urbana",
+            "juvenil"
+        ],
+        "esNovedad": true,
+        "esDestacado": false,
+        "esOferta": false,
+        "descuento": "",
+        "fechaDeCreacion": "2022-06-28T18:41:20.703Z"
+    },
+    {
+        "id": 34,
+        "nombre": "Cuentos de Beedle el Bardo ",
+        "descripcion": "Autoría: J.K. Rowling \r\n \r\nSerie de cuentos escritos por la figura legendaria de Beedle el bardo, traducidos de su lenguaje rúnico original por Hermione Granger, y anotados por Albus Dumbledore",
+        "precio": "3000",
+        "imagenes": "/img/productos/1656442026955-prodImg.jpg",
+        "categoria": "literatura",
+        "subcategoria": "cuento",
+        "generos": [
+            "urbana",
+            "juvenil"
+        ],
+        "esNovedad": true,
+        "esDestacado": false,
+        "esOferta": false,
+        "descuento": "",
+        "fechaDeCreacion": "2022-06-28T18:47:06.960Z"
     }
 ]

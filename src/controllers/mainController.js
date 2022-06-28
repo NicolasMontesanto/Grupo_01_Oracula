@@ -6,7 +6,8 @@ const fs = require("fs");
 let products = require('../data/products.json');
 
 let sortear = function(productosASortear){
-    productosASortear.sort(() => Math.random() - 0.5)
+    let sorteados = productosASortear.sort(() => Math.random() - 0.5)
+    return sorteados;
 }
 
 const mainController = {
