@@ -21,7 +21,7 @@ const usersController = {
     store: (req, res) => {
         //función que busca el mayor ID y devuelve el siguiente
         function siguienteID(users) {
-            let id = 1;
+           let id = 1;
             for (let i = 1; i < users.length; i++) {
                 if (users[i].id > id) {
                     id = users[i].id;
@@ -48,10 +48,40 @@ const usersController = {
         res.redirect("/user/login");
     },
 
+    //Renderizar la vista de Edit
+    edit: (req, res) => {
+        let id = req.params.id;
+        let user = user.find(element => element.id == id);
+        if (user == undefined) {
+            res.send("El usuario no existe");
+        } else {
+            res.render('./user/userEdit', { user });
+        }
+    },
+
+    update: (req, res) => {
+        let id = req.params.id;
+       //let file = req.file;
+        let { email, nombre, apellido, contraseña } = req.body;
+       
+        users.forEach(item => {
+            if (item.id == id) {
+                item.email = email;
+                item.nombre = nombre;
+                item.apellido = apellido;
+                item.precio = precio;
+                item.contraseña = contraseña;
+             }
+        });
+        let usersJSON = JSON.stringify(users, null, 4);
+        fs.writeFileSync(pathJSON, usersJSON, "utf-8");
+        res.redirect("/");
+    },
+
     delete: (req, res) =>{
         let id = req.params.id;
         let userDelete = users.find((item)=>{item.id == id});
-      
+             
         users = users.filter(user => user.id!=id);
        
         let usersJSON = JSON.stringify(users, null, 4);
