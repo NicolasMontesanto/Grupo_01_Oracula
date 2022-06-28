@@ -63,15 +63,18 @@
     color: var(--gris-claro);
 }
 
-.formulario{
+.formulario__container{
     background-color: rgba(69, 41, 63, 0.5);
-    box-shadow: 10px 10px 5px 0px black;
+    box-shadow: 10px 10px 20px 10px var(--morado-oscuro);
     width: 90%;
     max-width: 650px;
     margin: auto;
     margin-bottom: 40px;
     margin-top: 40px;
-    padding-top: 1px;
+    padding: 20px;
+    border-radius: 20px;
+}
+.formulario{
     justify-content: center;
     align-items: center;
 }

@@ -22,36 +22,38 @@
                         Google
                     </button>
                 </div>
-                    <!-- YA CON METHOD = "POST"-->
-                    <form class="formulario" action="/user/signup" method="post" >
-                        <div class="formulario__item">
-                            <label class="formulario__label" for="email">Email:</label>
-                            <input class="formulario__input" type="email" id="email" name="email">
-                        </div>
-                        <div class="formulario__item">
-                            <label class="formulario__label" for="nombre">Nombre:</label>
-                            <input class="formulario__input" type="text" id="nombre" name="nombre">
-                        </div>
-                        <div class="formulario__item">
-                            <label class="formulario__label" for="apellido">Apellido:</label>
-                            <input class="formulario__input" type="text" id="apellido" name="apellido">
-                        </div>
-                        <div class="formulario__item">
-                            <label class="formulario__label" for="password">Contraseña:</label>
-                            <input class="formulario__input" type="password" id="password" name="password">
-                        </div>
-                        <div class="formulario__item">
-                            <label class="formulario__label" for="password-repetir">Repita su Contraseña:</label>
-                            <input class="formulario__input" type="password" id="password-repetir"
-                                name="password-repetir">
-                        </div>
-                        <div class="formulario__submit">
-                            <p class="link-login">¿Ya tenés cuenta? <a href="/user/login">Ingresá acá.</a></p>
-                            <button type="submit">
-                                <i class="fa-solid fa-circle-arrow-right formulario__icon-submit"></i>
-                            </button>
-                        </div>
-                    </form>
+                    <section class="formulario__container">
+                        <!-- YA CON METHOD = "POST"-->
+                        <form class="formulario" action="/user/signup" method="post" >
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="email">Email:</label>
+                                <input class="formulario__input" type="email" id="email" name="email">
+                            </div>
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="nombre">Nombre:</label>
+                                <input class="formulario__input" type="text" id="nombre" name="nombre">
+                            </div>
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="apellido">Apellido:</label>
+                                <input class="formulario__input" type="text" id="apellido" name="apellido">
+                            </div>
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="password">Contraseña:</label>
+                                <input class="formulario__input" type="password" id="password" name="password">
+                            </div>
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="password-repetir">Repita su Contraseña:</label>
+                                <input class="formulario__input" type="password" id="password-repetir"
+                                    name="password-repetir">
+                            </div>
+                            <div class="formulario__submit">
+                                <p class="link-login">¿Ya tenés cuenta? <a href="/user/login">Ingresá acá.</a></p>
+                                <button type="submit">
+                                    <i class="fa-solid fa-circle-arrow-right formulario__icon-submit"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </section>
             </section>
         </main>
         <!--footer-->
