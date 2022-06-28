@@ -20,7 +20,7 @@
     {
         "id": 2,
         "nombre": "Antología de la literatura fantástica",
-        "descripcion": "Autoría: Adolfo Bioy Casares, Silvina Ocampo, Jorge Luis Borges.\r\n\r\n",
+        "descripcion": "Autoría: Adolfo Bioy Casares, Silvina Ocampo, Jorge Luis Borges. \r\nBorges, Bioy Casares y Silvina Ocampo nos ofrecen en esta Antologia de la literatura fantastica lo mejor de un genero literario que siempre ha ejercido un atractivo irresistible en el publico lector. Es el genero representado por las irrupciones de la fantasía creadora y la intuición artística en lo desconocido, lo inexplicable, lo misterioso, lo sobrenatural.\r\n\r\n",
         "precio": "2300",
         "imagenes": "/img/productos/1656443192626-prodImg.jpg",
         "categoria": "literatura",
@@ -302,5 +302,128 @@
         "esOferta": false,
         "descuento": "",
         "fechaDeCreacion": "2022-06-28T19:45:10.649Z"
+    },
+    {
+        "id": 18,
+        "nombre": "Historias Extraordinarias",
+        "descripcion": "Autoría: Edgar Allan Poe\r\n\r\nEn los 13 relatos que estás por escuchar Poe explora la locura, la muerte, el dolor, la crueldad, el instinto asesino, la desintegración física y moral, la soledad, el aislamiento y la duplicidad de la naturaleza humana.\r\n",
+        "precio": "1000",
+        "imagenes": "/img/productos/1656449162057-prodImg.jpg",
+        "categoria": "literatura",
+        "subcategoria": "novela",
+        "generos": [
+            "clasica",
+            "oscura"
+        ],
+        "esNovedad": true,
+        "esDestacado": false,
+        "esOferta": true,
+        "descuento": "50",
+        "fechaDeCreacion": "2022-06-28T20:46:02.066Z"
+    },
+    {
+        "id": 19,
+        "nombre": "It's my Life",
+        "descripcion": "Astra L. Doomsday es el ex capitán de la guardia real y finalmente logró su mayor deseo, reunir el dinero suficiente para retirarse y comprar una acogedora casa, lo que no sabe es que sus tan soñados días de paz terminarán muy rápido con la llegada de una pequeña aprendiz de bruja, quien lo confundirá con el Dios Maligno que fue derrotado y encerrado cientos de años atrás por una de sus ancestros. Astra ahora tendrá que cuidar de esta pequeña bruja, después de aclarar el malentendido, puesto que ya no tiene un hogar al cual regresar.\r\n\r\n",
+        "precio": "700",
+        "imagenes": "/img/productos/1656449702875-prodImg.png",
+        "categoria": "literatura",
+        "subcategoria": "manga",
+        "generos": [
+            "urbana",
+            "juvenil"
+        ],
+        "esNovedad": true,
+        "esDestacado": false,
+        "esOferta": false,
+        "descuento": "",
+        "fechaDeCreacion": "2022-06-28T20:55:02.883Z"
+    },
+    {
+        "id": 20,
+        "nombre": "Pandora Hearts",
+        "descripcion": "Autoría: Jun Mochizuki\r\n\r\nEl protagonista, Oz Vessalius, heredero de la familia Vessalius, nunca creyó en la existencia del Abismo hasta su ceremonia de madurez donde es condenado a ir luego de ser culpado por un crimen que no cometió. En un intento de escapar, Oz forma un contrato con una Chain de nombre Alice y con la vista puesta en el regreso a casa, viajarán por un mundo de misterio, tragedia y desesperación.",
+        "precio": "700",
+        "imagenes": "/img/productos/1656450205721-prodImg.jpg",
+        "categoria": "literatura",
+        "subcategoria": "manga",
+        "generos": [
+            "oscura",
+            "juvenil"
+        ],
+        "esNovedad": false,
+        "esDestacado": false,
+        "esOferta": true,
+        "descuento": "25",
+        "fechaDeCreacion": "2022-06-28T21:03:25.725Z"
+    },
+    {
+        "id": 21,
+        "nombre": "El bazar de los malos sueños ",
+        "descripcion": "Autoría: Stephen King \r\n\r\nDirecto desde la mente de Stephen King, El bazar de los malos sueños es una colección 20 relatos magníficos, inquietantes, absorbentes... Un preciado regalo del autor a sus lectores.«Escribí estos relatos especialmente para ti. Adelante, léelos, pero ten mucho cuidado. Los mejores tienen dientes.»\r\nStephen KingStephen King nos presenta en El bazar de los malos sueños una excepcional selección de relatos, algunos nuevos y otros revisados en profundidad. Cada uno viene precedido de su propia introducción, donde habla sobre sus orígenes y sobre los motivos que lo llevaron a escribirlo. Trata temas como la moralidad, la vida después de la muerte, la culpa y lo que corregiríamos del pasado si pudiéramos ver el futuro.",
+        "precio": "10",
+        "imagenes": "/img/productos/1656450381444-prodImg.jpg",
+        "categoria": "literatura",
+        "subcategoria": "cuento",
+        "generos": [
+            "oscura"
+        ],
+        "esNovedad": false,
+        "esDestacado": false,
+        "esOferta": true,
+        "descuento": "5",
+        "fechaDeCreacion": "2022-06-28T21:06:21.449Z"
+    },
+    {
+        "id": 22,
+        "nombre": "El retrato de Dorian Gray",
+        "descripcion": "Autoría: Oscar Wilde \r\n\r\nDorian Gray sigue siendo, más de cien años después de la muerte de su autor, una piedra angular en los debates entre la ética y la estética, en las relaciones que mantienen el bien y el mal, el alma y el cuerpo, el arte y la vida. Presidida por la ley de la fatalidad, Dorian Gray no deja de alcanzar el objetivo que el propio Wilde quería para su libro: «Venenoso si ustedes quieren, pero no podrán negar que también es perfecto, y la perfección es la meta a la que apuntamos nosotros los artistas».",
+        "precio": "980",
+        "imagenes": "/img/productos/1656450987514-prodImg.jpg",
+        "categoria": "literatura",
+        "subcategoria": "novela",
+        "generos": [
+            "clasica"
+        ],
+        "esNovedad": false,
+        "esDestacado": false,
+        "esOferta": true,
+        "descuento": "40",
+        "fechaDeCreacion": "2022-06-28T21:16:27.519Z"
+    },
+    {
+        "id": 23,
+        "nombre": "El señor de los anillos: El retorno del rey",
+        "descripcion": "Autoría: J. R. R. Tolkien\r\n\r\nEl viaje de La Comunidad del Anillo está llegando a su fin. Las fuerzas de Sauron han atacado Minas Tirith, la capital de Gondor, en su asedio definitivo contra la humanidad. El antaño gran reino, ahora gobernado por un anciano senescal, nunca ha necesitado más desesperadamente la figura de un Rey.",
+        "precio": "910",
+        "imagenes": "/img/productos/1656451096084-prodImg.jpg",
+        "categoria": "literatura",
+        "subcategoria": "novela",
+        "generos": [
+            "medieval",
+            "clasica"
+        ],
+        "esNovedad": false,
+        "esDestacado": true,
+        "esOferta": false,
+        "descuento": "",
+        "fechaDeCreacion": "2022-06-28T21:18:16.088Z"
+    },
+    {
+        "id": 24,
+        "nombre": "One Piece",
+        "descripcion": "One Piece es un manga escrito y dibujado por Eiichiro Oda, que ilustra las aventuras de los protagonistas piratas, en concreto la tripulación pirata formada por Monkey D. Luffy, quienes están en la búsqueda de un tesoro llamado One Piece. Fue publicado por primera vez el 19 de julio de 1997 en la revista Shonen Jump.",
+        "precio": "680",
+        "imagenes": "/img/productos/1656451181812-prodImg.jpg",
+        "categoria": "literatura",
+        "subcategoria": "manga",
+        "generos": [
+            "clasica"
+        ],
+        "esNovedad": false,
+        "esDestacado": false,
+        "esOferta": true,
+        "descuento": "50",
+        "fechaDeCreacion": "2022-06-28T21:19:41.819Z"
     }
 ]

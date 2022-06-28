@@ -368,21 +368,23 @@
 
 .contenedor-card-item2 .contenedor-info .info .titulo {
     margin: 0;
-    font-size: 20px;
+    font-size: 30px;
     text-shadow: 2px 1px 2px black;
 }
 
-.contenedor-card-item2 .contenedor-info .info .categoria {
-    display: block;
-    font-size: 10px;
-}
 
 .contenedor-card-item2:hover img {
     top: -30px;  
 
     transform: rotate(-5deg) scale(1.2);
 }
-
+.categoria{
+    font-size: 20px;
+    color: #FBB954;
+}
+.oferta{
+    font-size: 35px;
+}
 
 
 @media (min-width: 820px) {

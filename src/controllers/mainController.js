@@ -15,16 +15,16 @@ const mainController = {
     home: (req, res) => {
       
         //traemos todos los productos destacados
-        let productosDestacadosEnOrden = products.filter(item => item.esDestacado == "on");
+        let productosDestacadosEnOrden = products.filter(item => item.esDestacado == true);
         //desordenamos los productos destacados para que la vista nos muestre al azar cada vez     
         let productosDestacados = sortear(productosDestacadosEnOrden);
 
         //hacemos lo mismo con las novedades
-        let novedadesEnOrden = products.filter(item => item.esNovedad == "on");
+        let novedadesEnOrden = products.filter(item => item.esNovedad == true);
         let novedades = sortear(novedadesEnOrden);
 
          //hacemos lo mismo con las ofertas
-         let ofertasEnOrden = products.filter(item => item.esOferta == "true");
+         let ofertasEnOrden = products.filter(item => item.esOferta == true);
          let ofertas = sortear(ofertasEnOrden);
 
         res.render('home', {products, productosDestacados, novedades, ofertas});
@@ -35,13 +35,13 @@ const mainController = {
         let categoria = req.params.categoria;
         let productos = products.filter(item => item.categoria == categoria);
 
-        let productosDestacadosEnOrden = productos.filter(item => item.esDestacado == "on");
+        let productosDestacadosEnOrden = productos.filter(item => item.esDestacado == true);
 
         //desordenamos los productos destacados para que la vista de categoria nos muestre 5 al azar cada vez     
         let productosDestacados = sortear(productosDestacadosEnOrden);
 
             //hacemos lo mismo con las novedades
-            let novedadesEnOrden = productos.filter(item => item.esNovedad == "on");
+            let novedadesEnOrden = productos.filter(item => item.esNovedad == true);
        
             let novedades = sortear(novedadesEnOrden);
             
