@@ -425,5 +425,177 @@
         "esOferta": true,
         "descuento": "50",
         "fechaDeCreacion": "2022-06-28T21:19:41.819Z"
+    },
+    {
+        "id": 25,
+        "nombre": "The hobbit soundtrack",
+        "descripcion": "Soudtrack de la trilogía \"The Hobbit\" ",
+        "precio": "200",
+        "imagenes": "/img/productos/1656452229163-prodImg.jfif",
+        "categoria": "multimedia",
+        "subcategoria": "soundtrack",
+        "generos": [
+            "medieval"
+        ],
+        "esNovedad": false,
+        "esDestacado": false,
+        "esOferta": false,
+        "descuento": "",
+        "fechaDeCreacion": "2022-06-28T21:37:09.173Z"
+    },
+    {
+        "id": 26,
+        "nombre": " Fantasy Music by Adrian von Ziegler",
+        "descripcion": "2 horas dela mejor música de fantasía por Adrian von Ziegler ",
+        "precio": "350",
+        "imagenes": "/img/productos/1656452353679-prodImg.PNG",
+        "categoria": "multimedia",
+        "subcategoria": "soundtrack",
+        "generos": [
+            "juvenil"
+        ],
+        "esNovedad": false,
+        "esDestacado": true,
+        "esOferta": false,
+        "descuento": "",
+        "fechaDeCreacion": "2022-06-28T21:39:13.707Z"
+    },
+    {
+        "id": 27,
+        "nombre": "Final Fantasy Soundtrack original",
+        "descripcion": "Soundtrack original compuesto por Yoko Shimomura.  2016",
+        "precio": "280",
+        "imagenes": "/img/productos/1656452471675-prodImg.jpg",
+        "categoria": "multimedia",
+        "subcategoria": "soundtrack",
+        "generos": [
+            "clasica",
+            "juvenil"
+        ],
+        "esNovedad": false,
+        "esDestacado": true,
+        "esOferta": false,
+        "descuento": "",
+        "fechaDeCreacion": "2022-06-28T21:41:11.694Z"
+    },
+    {
+        "id": 28,
+        "nombre": "Las crónicas de Narnia Soundtrack",
+        "descripcion": "Ejecutado por Global Stage Orchestra",
+        "precio": "120",
+        "imagenes": "/img/productos/1656452538595-prodImg.jpg",
+        "categoria": "multimedia",
+        "subcategoria": "soundtrack",
+        "generos": [
+            "clasica"
+        ],
+        "esNovedad": false,
+        "esDestacado": false,
+        "esOferta": false,
+        "descuento": "",
+        "fechaDeCreacion": "2022-06-28T21:42:18.603Z"
+    },
+    {
+        "id": 29,
+        "nombre": "KINGDOM Majestic Fantasy Orchestral Music ",
+        "descripcion": "Fantasy  & Adventure Fantasy Music.\r\nEsta mezcla presenta pistas aventureras, asombrosas, dramáticas y heroicas, que aportan energía y vida a cualquier narrativa de búsqueda y descubrimiento.",
+        "precio": "159",
+        "imagenes": "/img/productos/1656452761763-prodImg.PNG",
+        "categoria": "multimedia",
+        "subcategoria": "soundtrack",
+        "generos": [
+            "medieval"
+        ],
+        "esNovedad": false,
+        "esDestacado": true,
+        "esOferta": true,
+        "descuento": "",
+        "fechaDeCreacion": "2022-06-28T21:46:01.785Z"
+    },
+    {
+        "id": 30,
+        "nombre": "Willy Wonka & the Chocolate Factory ",
+        "descripcion": "Clásico del cine. Willy Wonka, un famoso fabricante de dulces ofrece suministrar dulces de por vida a los cinco ganadores que encuentren el tesoro. 1971",
+        "precio": "1200",
+        "imagenes": "/img/productos/1656453041923-prodImg.jpg",
+        "categoria": "multimedia",
+        "subcategoria": "pelicula",
+        "generos": [
+            "clasica",
+            "juvenil"
+        ],
+        "esNovedad": false,
+        "esDestacado": false,
+        "esOferta": false,
+        "descuento": "60",
+        "fechaDeCreacion": "2022-06-28T21:50:41.952Z"
+    },
+    {
+        "id": 31,
+        "nombre": "Hocus Pocus 2",
+        "descripcion": "Sarah Jessica Parker, Bette Midler y Kathy Najimy regresan en la segunda entrega de 'El retorno de las brujas'. Disney, 2022\r\nDirigida por Anne Fletcher, la secuela contará también con el regreso de Doug Jones como Billy Butcherson, el hombre muerto que las hermanas Sanderson resucitaron en la primera entrega. Aunque, en un principio su propósito era atacar a los jóvenes protagonistas, finalmente se une a ellos en su intento por evitar los planes de las brujas.",
+        "precio": "1740",
+        "imagenes": "/img/productos/1656453088837-prodImg.jpg",
+        "categoria": "multimedia",
+        "subcategoria": "pelicula",
+        "generos": [
+            "juvenil"
+        ],
+        "esNovedad": true,
+        "esDestacado": true,
+        "esOferta": false,
+        "descuento": "",
+        "fechaDeCreacion": "2022-06-28T21:51:28.847Z"
+    },
+    {
+        "id": 32,
+        "nombre": " The Dark Crystal: Age of Resistance",
+        "descripcion": "Hace mil años, el cristal encantado fue partido, iniciando una era de caos, dominada por una raza maligna. El huérfano Jen, creado por hechiceros pacíficos, va en busca del pedazo perdido del cristal para restaurar el equilibrio del universo. ",
+        "precio": "1800",
+        "imagenes": "/img/productos/1656453207011-prodImg.jpg",
+        "categoria": "multimedia",
+        "subcategoria": "pelicula",
+        "generos": [
+            "juvenil"
+        ],
+        "esNovedad": true,
+        "esDestacado": true,
+        "esOferta": false,
+        "descuento": "",
+        "fechaDeCreacion": "2022-06-28T21:53:27.064Z"
+    },
+    {
+        "id": 33,
+        "nombre": "Spellbound",
+        "descripcion": "Spellbound es una próxima película de fantasía musical animada por computadora dirigida por Vicky Jenson. Su música fue compuesta por Alan Menken. La película fue producida por Skydance Animation y Skydance Animation Madrid. 2022",
+        "precio": "1200",
+        "imagenes": "/img/productos/1656453300750-prodImg.jpg",
+        "categoria": "multimedia",
+        "subcategoria": "pelicula",
+        "generos": [
+            "juvenil"
+        ],
+        "esNovedad": false,
+        "esDestacado": true,
+        "esOferta": false,
+        "descuento": "150",
+        "fechaDeCreacion": "2022-06-28T21:55:00.759Z"
+    },
+    {
+        "id": 34,
+        "nombre": "A Fairy Tale After All",
+        "descripcion": "A Fairy Tale After All es una película de fantasía musical estadounidense de 2022 producida, escrita y dirigida por Erik Peter Carlson. La película está protagonizada por Emily Shenaut, Brian Hull, Gabriel Burrafato, Bridget Winder, Timothy N. Kopacz y Anna Brisbin.",
+        "precio": "1100",
+        "imagenes": "/img/productos/1656453406967-prodImg.png",
+        "categoria": "multimedia",
+        "subcategoria": "pelicula",
+        "generos": [
+            "juvenil"
+        ],
+        "esNovedad": false,
+        "esDestacado": true,
+        "esOferta": false,
+        "descuento": "",
+        "fechaDeCreacion": "2022-06-28T21:56:46.976Z"
     }
 ]
