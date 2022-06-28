@@ -51,11 +51,11 @@ const usersController = {
     //Renderizar la vista de Edit
     edit: (req, res) => {
         let id = req.params.id;
-        let user = user.find(element => element.id == id);
+        let user = users.find( element => element.id == id);
         if (user == undefined) {
             res.send("El usuario no existe");
         } else {
-            res.render('./user/userEdit', { user });
+            res.render('./users/userEdit', { user });
         }
     },
 
@@ -69,7 +69,6 @@ const usersController = {
                 item.email = email;
                 item.nombre = nombre;
                 item.apellido = apellido;
-                item.precio = precio;
                 item.contraseña = contraseña;
              }
         });
