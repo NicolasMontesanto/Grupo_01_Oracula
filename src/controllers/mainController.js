@@ -11,16 +11,18 @@ const mainController = {
       
         //traemos todos los productos destacados
         let productosDestacadosEnOrden = products.filter(item => item.esDestacado == "on");
-
         //desordenamos los productos destacados para que la vista nos muestre al azar cada vez     
         let productosDestacados = productosDestacadosEnOrden.sort(() => Math.random() - 0.5);
 
         //hacemos lo mismo con las novedades
         let NovedadesEnOrden = products.filter(item => item.esNovedad == "on");
-       
         let novedades = NovedadesEnOrden.sort(() => Math.random() - 0.5);
 
-        res.render('home', {products, productosDestacados, novedades});
+         //hacemos lo mismo con las ofertas
+         let ofertasEnOrden = products.filter(item => item.esOferta == "true");
+         let ofertas = ofertasEnOrden.sort(() => Math.random() - 0.5);
+
+        res.render('home', {products, productosDestacados, novedades, ofertas});
     },
 
     //category

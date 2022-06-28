@@ -81,6 +81,7 @@
                 <!--Productos-->
                 <h2 class="otros__titulo"> Mas productos que podés disfrutar </h2>
                 <section class="productos">
+                    
                     <a href="/product/product" class="imgVertical--sombra">
                         <img class="productos_imgVertical" src="\img\productos\coraline.jpg" alt="">
                     </a>
@@ -99,7 +100,35 @@
 
                         </div>
                     </div>
-              
+                  
+                </section>
+                <section class="ofertasCards">
+                    <h2 class="ofertas__titulo"> Mirá estas ofertas </h2>
+                    <div class="contenedor2">
+                        <div class="contenedor-cards2">
+                            <%for (let i=0; i<ofertas.length; i++){%>
+                                <div class="contenedor-card-item2">
+                                    <div class="contenedor-card-item-wrapper2">
+                                        <a href="/product/detail/<%=ofertas[i].id%>">
+                                            <img src="<%=ofertas[i].imagenes%>"
+                                                alt="Producto-<%=ofertas[i].id%>">
+                                        </a>
+                                        <div class="contenedor-info">
+                                            <div class="info">
+                                                <p class="titulo">
+                                                    <%=ofertas[i].nombre%>
+                                                </p>
+                                                <span class="categoria">
+                                                    <%=ofertas[i].descuento%>
+                                                </span>
+                                            </div>
+                                            <!-- <div class="fondo"></div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <%}%>
+                        </div>
+                    </div>
                 </section>
             </main>
             <%- include('./partials/footer.ejs')%>
