@@ -10,8 +10,8 @@
 <body>
     <!-- HEADER -->
     <%- include('../partials/header.ejs')%>
-    <!-- MAIN -->
-    <div class="fondo">
+        <!-- MAIN -->
+        <div class="fondo">
             <main>
                 <section class="titulo">
                     <h1 class="titulo__text">Editar producto</h1>
@@ -77,6 +77,33 @@
                                     <option <%if(product.subcategoria=="soundtrack" ){%> selected<%}%>
                                             value="soundtrack">Soundtrack</option>
                             </select>
+                        </div>
+                        <div class="formulario__item formulario__checkbox__container">
+                            <div class="formulario__item formulario--checkbox">
+                                <label class="formulario__label label--checkbox" for="esGeneroMedieval">Medieval</label>
+                                <input class="formulario__input input--checkbox" type="checkbox" <% if(product.generos.find(item=>item=="medieval")){%> checked <%}%> name="esGeneroMedieval"
+                                    id="esGeneroMedieval" value="true">
+                            </div>
+                            <div class="formulario__item formulario--checkbox">
+                                <label class="formulario__label label--checkbox" for="esGeneroUrbana">Urbana</label>
+                                <input class="formulario__input input--checkbox" type="checkbox" <% if(product.generos.find(item=>item=="urbana")){%> checked <%}%> name="esGeneroUrbana"
+                                    id="esGeneroUrbana" value="true">
+                            </div>
+                            <div class="formulario__item formulario--checkbox">
+                                <label class="formulario__label label--checkbox" for="esGeneroClasica">Clásicos</label>
+                                <input class="formulario__input input--checkbox" type="checkbox" <% if(product.generos.find(item=>item=="clasica")){%> checked <%}%> name="esGeneroClasica"
+                                    id="esGeneroClasica" value="true">
+                            </div>
+                            <div class="formulario__item formulario--checkbox">
+                                <label class="formulario__label label--checkbox" for="esGeneroOscura">Oscura</label>
+                                <input class="formulario__input input--checkbox" type="checkbox" <% if(product.generos.find(item=>item=="oscura")){%> checked <%}%> name="esGeneroOscura"
+                                    id="esGeneroOscura" value="true">
+                            </div>
+                            <div class="formulario__item formulario--checkbox">
+                                <label class="formulario__label label--checkbox" for="esGeneroJuvenil">Juvenil</label>
+                                <input class="formulario__input input--checkbox" type="checkbox" <% if(product.generos.find(item=>item=="juvenil")){%> checked <%}%> name="esGeneroJuvenil"
+                                    id="esGeneroJuvenil" value="true">
+                            </div>
                         </div>
                         <div class="formulario__item">
                             <label class="formulario__label" for="imagenes">Imágenes del producto:</label>
@@ -156,7 +183,7 @@
             </main>
             <!-- FOOTER -->
             <%- include('../partials/footer.ejs')%>
-    </div>
+        </div>
 </body>
 
 </html>
