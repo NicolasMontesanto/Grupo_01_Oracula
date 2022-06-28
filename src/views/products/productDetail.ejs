@@ -11,111 +11,112 @@
 
   <!-- HEADER -->
   <%- include('../partials/header.ejs')%>
-  <!--MAIN-  -->
-  <div class="fondo">
-      <main class="container">
-
-        <!-- Left Column / Merch Image -->
-        <div class="left-column">
-
-          <img class="active" src=<%=elProducto.imagenes%> alt="" class="imagen__principal">
-        </div>
-
-        <!-- Right Column -->
-        <div class="right-column">
-
-
-
-          <!-- Product Description -->
-          <div class="product-description">
-            <h2 class="product-favAndShare">
-              <div>
-                <a href="#" class="product-btn"><i class="far fa-bookmark" alt="Agregar a favoritos"></i></a>
-              </div>
-              <div>
-                <a href="#" class="product-btn"><i class="fas fa-share"></i></a>
-              </div>
-
-              <!-- Rating -->
-              <div class="rate">
-                <input type="radio" id="star5" name="rate" value="5" />
-                <label for="star5" title="text">5 stars</label>
-                <input type="radio" id="star4" name="rate" value="4" />
-                <label for="star4" title="text">4 stars</label>
-                <input type="radio" id="star3" name="rate" value="3" />
-                <label for="star3" title="text">3 stars</label>
-                <input type="radio" id="star2" name="rate" value="2" />
-                <label for="star2" title="text">2 stars</label>
-                <input type="radio" id="star1" name="rate" value="1" />
-                <label for="star1" title="text">1 star</label>
-              </div>
-            </h2>
-
-            <h1 id="name"><%=elProducto.nombre%></h1>
-            <p><%=elProducto.descripcion%></p>
+    <!--MAIN-  -->
+    <div class="fondo">
+      <main>
+        <h1 id="name">
+          <%=elProducto.nombre%>
+        </h1>
+        <section class="product__container">
+          <!-- Left Column / Merch Image -->
+          <div class="left-column">
+            <img class="product__image" src=<%=elProducto.imagenes%> alt="" class="imagen__principal">
           </div>
 
-          <!-- Product Pricing -->
-          <div class="product-price">
-            <span>148$</span>
-            <a href=" /product/cart" class="cart-btn">Agregar al carrito</a>
+          <!-- Right Column -->
+          <div class="right-column">
+            <!-- Product Description -->
+            <div class="product-description">
+              <h2 class="product-favAndShare">
+                <div>
+                  <a href="#" class="product-btn"><i class="far fa-bookmark" alt="Agregar a favoritos"></i></a>
+                </div>
+                <div>
+                  <a href="#" class="product-btn"><i class="fas fa-share"></i></a>
+                </div>
+                <div>
+                  <a href="/product/<%=elProducto.id%>/edit" class="product-btn"><i
+                      class="fa-solid fa-pen-to-square"></i></a>
+                </div>
+
+                <!-- Rating -->
+                <div class="rate">
+                  <input type="radio" id="star5" name="rate" value="5" />
+                  <label for="star5" title="text">5 stars</label>
+                  <input type="radio" id="star4" name="rate" value="4" />
+                  <label for="star4" title="text">4 stars</label>
+                  <input type="radio" id="star3" name="rate" value="3" />
+                  <label for="star3" title="text">3 stars</label>
+                  <input type="radio" id="star2" name="rate" value="2" />
+                  <label for="star2" title="text">2 stars</label>
+                  <input type="radio" id="star1" name="rate" value="1" />
+                  <label for="star1" title="text">1 star</label>
+                </div>
+              </h2>
+              <p class="product__text">
+                <%=elProducto.descripcion%>
+              </p>
+            </div>
+
+            <!-- Product Pricing -->
+            <div class="product__price">
+              <span class="product__price--number">148$</span>
+              <a href=" /product/cart" class="cart-btn">Agregar al carrito</a>
+            </div>
           </div>
-        </div>
+        </section>
+        <section class="suggested__container">
+          <h2 class="suggested__title">
+            Productos sugeridos
+          </h2>
+          <!-- Barra de productos sugeridos -->
+          <div class="caja">
+            <article class="suggested__article">
+              <a href="#"><img src="/img/productos/merchandising/247160lannheatchm_01g.jpg" alt="Producto 1"
+                  class="suggested__product"></a>
+              <div class="suggested__description">
+                <i class="fas fa-broom suggested__icon"></i>
+                <p class="precio"><strong>$1000</strong></p>
+                <p class="nombre">Random Merch #1</p>
+              </div>
+            </article>
 
+            <article class="suggested__article">
+              <a href="#"><img src="/img/productos/merchandising/3720000000460.jpg" alt="Producto 2"
+                  class="suggested__product"></a>
+              <div class="suggested__description">
+                <i class="fas fa-broom suggested__icon"></i>
+                <p class="precio"><strong>$3000</strong></p>
+                <p class="nombre">Random Merch #2</p>
+              </div>
 
-      </main>
-      <main class="product-navbar">
+            </article>
 
-        <h2 class="suggested">
-          Productos sugeridos
-        </h2>
+            <article class="suggested__article">
+              <a href="#"><img src="/img/productos/merchandising/3720000000232.jpg" alt="Producto 3"
+                  class="suggested__product"></a>
+              <div class="suggested__description">
+                <i class="fas fa-broom suggested__icon"></i>
+                <p class="precio"><strong>$3500</strong></p>
+                <p class="nombre">Random Merch #3</p>
+              </div>
+            </article>
 
-        <!-- Barra de productos sugeridos -->
-        <section class="caja">
-          <article>
-            <a href="#"><img src="/img/productos/merchandising/247160lannheatchm_01g.jpg" alt="Producto 1"
-                class="Producto"></a>
-            <div>
-              <i class="fas fa-broom"></i>
-              <p class="precio"><strong>$1000</strong></p>
-              <p class="nombre">Random Merch #1</p>
-            </div>
-
-          </article>
-
-          <article>
-            <a href="#"><img src="/img/productos/merchandising/3720000000460.jpg" alt="Producto 2" class="Producto"></a>
-            <div>
-              <i class="fas fa-broom"></i>
-              <p class="precio"><strong>$3000</strong></p>
-              <p class="nombre">Random Merch #2</p>
-            </div>
-
-          </article>
-
-          <article>
-            <a href="#"><img src="/img/productos/merchandising/3720000000232.jpg" alt="Producto 3" class="Producto"></a>
-            <div>
-              <i class="fas fa-broom"></i>
-              <p class="precio"><strong>$3500</strong></p>
-              <p class="nombre">Random Merch #3</p>
-            </div>
-          </article>
-
-          <article>
-            <a href="#"><img src="/img/productos/merchandising/1062690__1.jpg-011A4F9E-1600-1600.jpg" alt="Producto 4"
-                class="Producto"></a>
-            <div>
-              <i class="fas fa-broom"></i>
-              <p class="precio"><strong>$2000</strong></p>
-              <p class="nombre">Random Merch #4</p>
-            </div>
-          </article>
+            <article class="suggested__article">
+              <a href="#"><img src="/img/productos/merchandising/1062690__1.jpg-011A4F9E-1600-1600.jpg" alt="Producto 4"
+                  class="suggested__product"></a>
+              <div class="suggested__description">
+                <i class="fas fa-broom suggested__icon"></i>
+                <p class="precio"><strong>$2000</strong></p>
+                <p class="nombre">Random Merch #4</p>
+              </div>
+            </article>
+          </div>
         </section>
       </main>
       <!-- FOOTER -->
       <%- include('../partials/footer.ejs')%>
-  </div>
+    </div>
 </body>
 
 </html>

@@ -368,5 +368,59 @@
         "esDestacado": "on",
         "descuento": "",
         "fechaDeCreacion": "2022-06-27T02:38:37.703Z"
+    },
+    {
+        "id": 30,
+        "nombre": "ProductoConGénero",
+        "descripcion": "Un producto que tiene géneros",
+        "precio": "1000",
+        "imagenes": "/img/productos/1656437614168-prodImg.JPEG",
+        "categoria": "multimedia",
+        "subcategoria": "pelicula",
+        "generos": [
+            "urbana",
+            "juvenil"
+        ],
+        "esNovedad": true,
+        "esDestacado": false,
+        "esOferta": false,
+        "descuento": "10",
+        "fechaDeCreacion": "2022-06-28T17:33:34.180Z"
+    },
+    {
+        "id": 31,
+        "nombre": "OtroProductoConGeneros",
+        "descripcion": "OtroProductoConGeneros",
+        "precio": "1000",
+        "imagenes": "/img/productos/1656437744213-prodImg.JPEG",
+        "categoria": "literatura",
+        "subcategoria": "cuento",
+        "generos": [
+            "medieval",
+            "urbana",
+            "clasica",
+            "oscura",
+            "juvenil"
+        ],
+        "esNovedad": false,
+        "esDestacado": false,
+        "esOferta": true,
+        "descuento": "50",
+        "fechaDeCreacion": "2022-06-28T17:35:44.240Z"
+    },
+    {
+        "id": 32,
+        "nombre": "UnProductoSinGeneros",
+        "descripcion": "UnProductoSinGeneros",
+        "precio": "1000",
+        "imagenes": "/img/productos/1656437775903-prodImg.JPEG",
+        "categoria": "juegos",
+        "subcategoria": "videojuego",
+        "generos": [],
+        "esNovedad": true,
+        "esDestacado": false,
+        "esOferta": true,
+        "descuento": "50",
+        "fechaDeCreacion": "2022-06-28T17:36:15.906Z"
     }
 ]
