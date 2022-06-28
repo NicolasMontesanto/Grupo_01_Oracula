@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require("fs");
-
-let products = require('../data/products.json');
+const pathJSON = path.join(__dirname, '../data/products.json');
+let products = require(pathJSON);
 
 const productsController = {
     //productDetail.html
@@ -35,22 +35,42 @@ const productsController = {
         let file = req.file;
 
         //tomamos los datos del req.body
+        //Valores de esDestacado, esNovedad, esOferta
         let esDestacado, esNovedad, esOferta;
-        if(req.body.esDestacado){
+        if (req.body.esDestacado) {
             esDestacado = true;
-        }else{
+        } else {
             esDestacado = false;
         }
-        if(req.body.esNovedad){
+        if (req.body.esNovedad) {
             esNovedad = true;
-        }else{
+        } else {
             esNovedad = false;
         }
-        if(req.body.esOferta){
+        if (req.body.esOferta) {
             esOferta = true;
-        }else{
+        } else {
             esOferta = false;
         }
+
+        //Array de Objetos Género
+        let generos = [];
+        if (req.body.esGeneroMedieval) {
+            generos.push("medieval");
+        }
+        if (req.body.esGeneroUrbana) {
+            generos.push("urbana");
+        }
+        if (req.body.esGeneroClasica) {
+            generos.push("clasica");
+        }
+        if (req.body.esGeneroOscura) {
+            generos.push("oscura");
+        }
+        if (req.body.esGeneroJuvenil) {
+            generos.push("juvenil");
+        }
+
         let productNuevo = {
             id: siguienteID(products),
             nombre: req.body.nombre,
@@ -60,6 +80,7 @@ const productsController = {
             imagenes: `/img/productos/${file.filename}`,
             categoria: req.body.categoria,
             subcategoria: req.body.subcategoria,
+            generos: generos,
             esNovedad: esNovedad,
             esDestacado: esDestacado,
             esOferta: esOferta,
@@ -86,22 +107,44 @@ const productsController = {
     update: (req, res) => {
         let id = req.params.id;
         let file = req.file;
-        let { nombre, descripcion, precio, categoria, subcategoria, esNovedad, esDestacado, esOferta, descuento } = req.body;
-        if(req.body.esDestacado){
+
+        //Valores de esDestacado, esNovedad, esOferta
+        let esNovedad, esDestacado, esOferta;
+        if (req.body.esDestacado) {
             esDestacado = true;
-        }else{
+        } else {
             esDestacado = false;
         }
-        if(req.body.esNovedad){
+        if (req.body.esNovedad) {
             esNovedad = true;
-        }else{
+        } else {
             esNovedad = false;
         }
-        if(req.body.esOferta){
+        if (req.body.esOferta) {
             esOferta = true;
-        }else{
+        } else {
             esOferta = false;
         }
+
+        //Array de Objetos Género
+        let generos = [];
+        if (req.body.esGeneroMedieval) {
+            generos.push("medieval");
+        }
+        if (req.body.esGeneroUrbana) {
+            generos.push("urbana");
+        }
+        if (req.body.esGeneroClasica) {
+            generos.push("clasica");
+        }
+        if (req.body.esGeneroOscura) {
+            generos.push("oscura");
+        }
+        if (req.body.esGeneroJuvenil) {
+            generos.push("juvenil");
+        }
+
+        let { nombre, descripcion, precio, categoria, subcategoria, descuento } = req.body;
         products.forEach(item => {
             if (item.id == id) {
                 item.nombre = nombre;
@@ -109,6 +152,7 @@ const productsController = {
                 item.precio = precio;
                 item.categoria = categoria;
                 item.subcategoria = subcategoria;
+                item.generos = generos;
                 item.esNovedad = esNovedad;
                 item.esDestacado = esDestacado;
                 item.esOferta = esOferta;
@@ -124,7 +168,7 @@ const productsController = {
     },
     delete: (req, res) => {
         let id = req.params.id;
-        let productToDelete = products.find(item => item.id == id );
+        let productToDelete = products.find(item => item.id == id);
 
         let productImg = path.join(__dirname, "../../public/img/productos" + productToDelete.imagenes);
 
