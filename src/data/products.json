@@ -597,5 +597,206 @@
         "esOferta": false,
         "descuento": "",
         "fechaDeCreacion": "2022-06-28T21:56:46.976Z"
+    },
+    {
+        "id": 35,
+        "nombre": "Bastion",
+        "descripcion": "Bastion es un videojuego de rol de acción (o ARPG) elaborado por el desarrollador independiente Supergiant Games. En este juego, el jugador controla al protagonista, nombrado \"the Kid\", mientras se mueve entre plataformas flotantes a través de un mundo fantasioso al tiempo que combate varios tipos de enemigos que se interponen en su camino.",
+        "precio": "200",
+        "imagenes": "/img/productos/1656456279212-prodImg.jpg",
+        "categoria": "juegos",
+        "subcategoria": "videojuego",
+        "generos": [
+            "clasica",
+            "juvenil"
+        ],
+        "esNovedad": false,
+        "esDestacado": false,
+        "esOferta": true,
+        "descuento": "50",
+        "fechaDeCreacion": "2022-06-28T22:44:39.214Z"
+    },
+    {
+        "id": 36,
+        "nombre": "Endless Legend",
+        "descripcion": "Endless Legend es un juego de estrategia y fantasía 4x basado en turnos de los creadores de Endless Space y Dungeon of the Endless. Controla cada aspecto de tu civilización en tu pugna por salvar tu hogar, Auriga. ¡Crea tu propia leyenda!",
+        "precio": "330",
+        "imagenes": "/img/productos/1656456344949-prodImg.jpg",
+        "categoria": "juegos",
+        "subcategoria": "videojuego",
+        "generos": [
+            "medieval",
+            "clasica"
+        ],
+        "esNovedad": true,
+        "esDestacado": true,
+        "esOferta": true,
+        "descuento": "40",
+        "fechaDeCreacion": "2022-06-28T22:45:44.954Z"
+    },
+    {
+        "id": 37,
+        "nombre": "Hades",
+        "descripcion": "Hades es un juego de rol de acción roguelike desarrollado y publicado por Supergiant Games. Los jugadores controlan a Zagreus, el hijo de Hades, mientras intenta escapar del Inframundo para llegar al Monte Olimpo, en ocasiones con la ayuda de los obsequios que le otorgan los otros olímpicos. Cada carrera desafía al jugador a través de una serie aleatoria de habitaciones pobladas de enemigos y recompensas. ",
+        "precio": "270",
+        "imagenes": "/img/productos/1656456410469-prodImg.png",
+        "categoria": "juegos",
+        "subcategoria": "videojuego",
+        "generos": [
+            "clasica",
+            "oscura"
+        ],
+        "esNovedad": true,
+        "esDestacado": true,
+        "esOferta": false,
+        "descuento": "0",
+        "fechaDeCreacion": "2022-06-28T22:46:50.471Z"
+    },
+    {
+        "id": 38,
+        "nombre": "Stardew Valley",
+        "descripcion": "Stardew Valley es un videojuego indie de simulación de granja desarrollado por Eric \"ConcernedApe\" Barone. En Stardew Valley, el jugador toma el rol de un personaje que se encuentra atrapado en un trabajo de oficina, para escapar de él se va a vivir a la granja de su abuelo, la cual se encuentra en ruinas. La granja se encuentra ubicada en un lugar llamado Pueblo Pelícano. El jugador controla las acciones del personaje, utilizando energía al realizar acciones como regar los cultivos o minar, entre muchos otros. El tiempo y la energía utilizada para realizar las acciones dependiendo del nivel que el personaje cuente en dichas actividades, las cuales aumentan con el tiempo al repetir la tarea una y otra vez.",
+        "precio": "150",
+        "imagenes": "/img/productos/1656456496210-prodImg.jpg",
+        "categoria": "juegos",
+        "subcategoria": "videojuego",
+        "generos": [
+            "urbana",
+            "juvenil"
+        ],
+        "esNovedad": true,
+        "esDestacado": true,
+        "esOferta": false,
+        "descuento": "10",
+        "fechaDeCreacion": "2022-06-28T22:48:16.225Z"
+    },
+    {
+        "id": 39,
+        "nombre": "The Elder Scrolls V: Skyrim",
+        "descripcion": "The Elder Scrolls V: Skyrim es un ARPG del tipo mundo abierto desarrollado por Bethesda Game Studios. Skyrim es la quinta entrega de la serie The Elder Scrolls de videojuegos de acción y fantasía, y es posterior a The Elder Scrolls IV: Oblivion.",
+        "precio": "600",
+        "imagenes": "/img/productos/1656456569762-prodImg.jpg",
+        "categoria": "juegos",
+        "subcategoria": "videojuego",
+        "generos": [
+            "medieval",
+            "clasica",
+            "oscura"
+        ],
+        "esNovedad": false,
+        "esDestacado": true,
+        "esOferta": true,
+        "descuento": "30",
+        "fechaDeCreacion": "2022-06-28T22:49:29.764Z"
+    },
+    {
+        "id": 40,
+        "nombre": "Alquimistas",
+        "descripcion": "¿Qué pasará si mezclamos pluma de cuervo con sapo? ¿Y si mezclamos raíz de mandrágora con escorpión? A lo largo de seis rondas, los jugadores, convertidos en alquimistas, intentarán ganar prestigio descubriendo las propiedades mágicas de sus ingredientes. Alquimistas, además, incorpora una gran novedad, una app para el móvil que da a los jugadores el resultado de sus combinaciones de ingredientes.",
+        "precio": "11000",
+        "imagenes": "/img/productos/1656456616950-prodImg.jpg",
+        "categoria": "juegos",
+        "subcategoria": "juegoDeMesa",
+        "generos": [
+            "medieval",
+            "clasica"
+        ],
+        "esNovedad": true,
+        "esDestacado": true,
+        "esOferta": false,
+        "descuento": "0",
+        "fechaDeCreacion": "2022-06-28T22:50:16.976Z"
+    },
+    {
+        "id": 41,
+        "nombre": "Pyre",
+        "descripcion": "Pyre es un RPG por equipos de los creadores de Bastion y Transistor, Supergiant Games. Conduce a la libertad a una banda de exiliados en una serie de competiciones místicas en el modo campaña o desafía a un amigo a un frenético combate ritual en el modo enfrentamiento.",
+        "precio": "150",
+        "imagenes": "/img/productos/1656456671241-prodImg.jpg",
+        "categoria": "juegos",
+        "subcategoria": "videojuego",
+        "generos": [
+            "clasica"
+        ],
+        "esNovedad": false,
+        "esDestacado": true,
+        "esOferta": true,
+        "descuento": "25",
+        "fechaDeCreacion": "2022-06-28T22:51:11.254Z"
+    },
+    {
+        "id": 42,
+        "nombre": "The Witcher 3: Wild Hunt",
+        "descripcion": "The Witcher 3: Wild Hunt es un videojuego de rol desarrollado y publicado por la compañía polaca CD Projekt RED. El juego es la tercera parte de la saga, precedido por The Witcher y The Witcher 2: Assassins of Kings, las cuales están basadas en la saga literaria de Geralt de Rivia escrita por Andrzej Sapkowski. Es un juego de perspectiva en tercera persona, el jugador controla al protagonista Geralt de Rivia, un cazador de monstruos conocido como Lobo Blanco, es un brujo, el cual emprende un largo viaje a través de Los reinos del norte. Ellx jugadorx lucha contra el peligroso mundo mediante magia y espadas, mientras interactúa con los NPC y completa tanto misiones secundarias como la misión principal de la historia, La cual es encontrar a la hija adoptiva de Geralt, Ciri, y detener la profecía del invierno blanco.",
+        "precio": "1000",
+        "imagenes": "/img/productos/1656456913782-prodImg.jpeg",
+        "categoria": "juegos",
+        "subcategoria": "videojuego",
+        "generos": [
+            "medieval",
+            "clasica",
+            "oscura"
+        ],
+        "esNovedad": true,
+        "esDestacado": true,
+        "esOferta": true,
+        "descuento": "30",
+        "fechaDeCreacion": "2022-06-28T22:55:13.786Z"
+    },
+    {
+        "id": 43,
+        "nombre": "Minecraft",
+        "descripcion": "Minecraft es un videojuego de construcción de tipo «mundo abierto» o sandbox creado originalmente por el sueco Markus Persson.El juego se centra en la colocación y destrucción de bloques, siendo que este se compone de objetos tridimensionales cúbicos, colocados sobre un patrón de rejilla fija. Estos cubos o bloques representan principalmente distintos elementos de la naturaleza, como tierra, piedra, minerales, troncos, entre otros.",
+        "precio": "1500",
+        "imagenes": "/img/productos/1656456962797-prodImg.jpeg",
+        "categoria": "juegos",
+        "subcategoria": "videojuego",
+        "generos": [
+            "clasica",
+            "juvenil"
+        ],
+        "esNovedad": false,
+        "esDestacado": true,
+        "esOferta": true,
+        "descuento": "30",
+        "fechaDeCreacion": "2022-06-28T22:56:02.801Z"
+    },
+    {
+        "id": 44,
+        "nombre": "Munchkin",
+        "descripcion": "Munchkin es un juego de cartas de rol diseñado por Steve Jackson e ilustrado por John Kovalic para Steve Jackson Games. El lema que resume el objetivo del juego es Mata a los monstruos, roba el tesoro, apuñala a tus amigos.",
+        "precio": "3000",
+        "imagenes": "/img/productos/1656457045469-prodImg.jpg",
+        "categoria": "juegos",
+        "subcategoria": "juegoDeMesa",
+        "generos": [
+            "medieval",
+            "urbana",
+            "juvenil"
+        ],
+        "esNovedad": true,
+        "esDestacado": false,
+        "esOferta": true,
+        "descuento": "25",
+        "fechaDeCreacion": "2022-06-28T22:57:25.477Z"
+    },
+    {
+        "id": 45,
+        "nombre": "Dungeons & Dragons: Wrath of Ashardalon",
+        "descripcion": "Las tierras alrededor del Pico Fuegotormentoso se han vuelto peligrosas. Los pocos pueblos cerca del volcán han sido acosados por bandas merodeadoras de orcos y kóbold, y horrores más peligrosos acechan en las sombras. Lo peor de todo, un nuevo villano tiene su hogar en la montaña - el terrible dragón rojo Ashardalon ha convertido el volcán en su guarida.",
+        "precio": "20000",
+        "imagenes": "/img/productos/1656457101125-prodImg.jpeg",
+        "categoria": "juegos",
+        "subcategoria": "juegoDeMesa",
+        "generos": [
+            "medieval",
+            "clasica",
+            "oscura"
+        ],
+        "esNovedad": false,
+        "esDestacado": true,
+        "esOferta": true,
+        "descuento": "40",
+        "fechaDeCreacion": "2022-06-28T22:58:21.147Z"
     }
 ]
