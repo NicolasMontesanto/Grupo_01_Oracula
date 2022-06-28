@@ -27,7 +27,12 @@
 }
 /* Destacados mobile */
 
-
+.destacados-titulo{
+    text-align: center;
+    color: var(--amarillo-naranja);
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
 
 
 /* Estilos de cards de productos */
