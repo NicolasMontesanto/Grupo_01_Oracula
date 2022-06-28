@@ -23,8 +23,6 @@ const productsController = {
 
     //Renderizar vista de todos los productos
     list: (req, res) => {
-        console.log("Estos son los productos");
-        console.log(products);
         res.render('./products/productList', { products });
     },
     

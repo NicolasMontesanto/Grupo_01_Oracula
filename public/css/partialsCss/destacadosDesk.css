@@ -259,10 +259,13 @@ input[type=radio]#button-5:checked~.arrows#arrow-4 { left: -73px }
  }
  .content h1{
     margin-bottom: 30px;
+    font-size: 45px;
  }
  .content p{
     margin-bottom: 60px;
- }
+    font-size: 25px;
+    position: relative;
+    top: 20px; }
 
 
 
