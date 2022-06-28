@@ -1,57 +1,61 @@
-/* #slideshow-wrap{
+
+.sliderDestacados{
+width: auto;
+padding: 10px;
+white-space: nowrap;
+overflow-y: hidden; 
+overflow-x: auto;
+display: flex;
+
+justify-content: space-between;
+}
+
+.sliderDestacados__elemento{
+width: 95vw;
+height: 350px;
+margin-right: 25px;
+padding: 0;
+display: flex;
+position: relative;
+border-radius: 15px;
+}
+.content {
+    position: absolute; 
+    bottom: 0; 
+    background: rgb(0, 0, 0); 
+    background: rgba(0, 0, 0, 0.5); 
+    color: #f1f1f1; 
+    width: 100%; 
+    padding: 20px; 
+ }
+ .content h1{
+    margin-bottom: 30px;
+ }
+ .content p{
+    margin-bottom: 60px;
+ }
+
+
+
+
+@supports (object-fit: cover){
+.sliderDestacados__elemento img {
+    min-width: 95vw;
+    max-width: 90vw;
+    position: relative;
+    top: 0;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+}}
+
+
+#slideshow-wrap{
     display: none;
 }
-@media (min-width: 820px) { */
-    /* Estilos de slider de destacados  */
 
-
-.slider__descripcion{
-    position: absolute;
-    color: white;
-    text-shadow: 2px 1px 2px black;
-    top: 0px;
-}
-
-.contenedor__descripcion{
-    width: 200px;
-    height: 100px;
-    padding: 5px;
-    border-radius: 5px;
-    background-color: #faf6f9c1;
-    position: absolute;
-    z-index: 2;
-    top: 50px;
-    margin: 20px;
-}
-
-.prod--titulo{
-    position: relative;
-  top: 10px;
-  left: 1px;
-    margin: 20px;
-}
-.slider__boton{
-    width: max-content;
-    height: 60px;
-    padding: 5px;
-    text-align: center;
-    font-size: 50px;
-    border-radius: 5px;
-    background-color: #a9b2a2;
-    color: white;
-    z-index: 20;
-    position: absolute;
-    top: 300px;
-    right:  0px;
-    left: 550px;
-    top: 400px;
-}
-.slider__boton a{
-    margin: 0;
-    margin-bottom: 0;
-    align-self: baseline;
-}
-
+@media (min-width: 820px) { 
 
 #slideshow-wrap {
     display: block;
@@ -244,9 +248,30 @@ input[type=radio]#button-5:checked~.arrows#arrow-4 { left: -73px }
     z-index: 2;
     color: rgb(20,20,20);
 }
+.content {
+    position: absolute; 
+    bottom: 0; 
+    background: rgb(0, 0, 0); 
+    background: rgba(0, 0, 0, 0.5); 
+    color: #f1f1f1; 
+    width: 100%; 
+    padding: 20px; 
+ }
+ .content h1{
+    margin-bottom: 30px;
+ }
+ .content p{
+    margin-bottom: 60px;
+ }
 
 
 
 #slideshow-inner>ul>li:hover .description label { opacity: 1 }
+
+
+
+.sliderDestacados{
+    display: none;
+}
     
-/* } */
+}

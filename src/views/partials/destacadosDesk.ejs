@@ -1,6 +1,23 @@
-<!-- Slider de destacados desktop -->
+<!-- Slider de destacados-->
+<section class="destacados">
+<div class="sliderDestacados">
+    <%for(let i = 0; i < productosDestacados.length; i++){%>
+        <div class="sliderDestacados__elemento">
+            <a href="/product/detail/<%=productosDestacados[i].id%>">
+            <img src="<%=productosDestacados[i].imagenes%>" class="sliderDestacados__img">
+            </a>
+            <div class="content">
+                <h1><%=productosDestacados[i].nombre%></h1>
+                <p><%=productosDestacados[i].subcategoria%></p>
+              </div>
+            </a>
+        </div>
+    <%}%>
+</div>
+
+
 <%if(productosDestacados.length>=5){ %>
-    <section class="destacados">
+  
 
         <div id="slideshow-wrap">
 
@@ -21,26 +38,22 @@
                                                 <% for (let i=1; i<=5; i++){%>
                                                     <li id="slide<%=i%>">
                                                         <img src="<%=productosDestacados[i].imagenes%>" />
-                                                        <div class="slider__descripcion">
-                                                            <h3 class="prod--titulo">
-                                                                <%=productosDestacados[i].nombre%>
-                                                            </h3> <a href="/product/detail/<%=productosDestacados[i].id%>">
-                                                                <div class="slider__boton">
-                                                                    ¡Me interesa!
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="contenedor__descripcion">
-                                                            <p class="prod--descripcion">
-                                                                <%=productosDestacados[i].descripcion%>
-                                                            </p>
-                                                        </div>
+                                                        <a href="/product/detail/<%=productosDestacados[i].id%>">
+                                                              
+                                                       
+                                                        <div class="content">
+                                                            <h1><%=productosDestacados[i].nombre%></h1>
+                                                            <p><%=productosDestacados[i].subcategoria%></p>
+                                                          </div>
+                                                        </a>
                                                     </li>
 
                                                     <%}%>
                                             </ul>
                                         </div>
         </div>
-      
-    </section>
+    
 <%}%>
+
+  
+</section>

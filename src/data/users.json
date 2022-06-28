@@ -1,0 +1,51 @@
+[
+    {
+        "id": 1,
+        "email": "amalia@gmail.com",
+        "nombre": "Amalia",
+        "apellido": "Rodriguez",
+        "contraseña": "2020",
+        "fechaDeCreacion": "2022-06-22T00:28:56.854Z"
+    },
+    {
+        "id": 2,
+        "email": "jose120@gmail.com",
+        "nombre": "Josefina",
+        "apellido": "Perez",
+        "contraseña": "22ddfg",
+        "fechaDeCreacion": "2022-06-22T00:28:56.854Z"
+    },
+    {
+        "id": 3,
+        "email": "nestormendes@gmail.com",
+        "nombre": "Nestor Roberto",
+        "apellido": "Mendes",
+        "contraseña": "2023frf",
+        "fechaDeCreacion": "2022-06-22T00:28:56.854Z"
+    },
+    {
+        "id": 4,
+        "email": "grl@gmail.com",
+        "nombre": "Germán",
+        "apellido": "Lopez",
+        "contraseña": "2hjklsl0",
+        "fechaDeCreacion": "2022-06-22T00:28:56.854Z"
+    },
+    {
+        "id": 5,
+        "email": "raulit@gmail.com",
+        "nombre": "Raul",
+        "apellido": "Torres",
+        "contraseña": "foxiii",
+        "fechaDeCreacion": "2022-06-22T00:28:56.854Z"
+    },
+    {
+        "id": 6,
+        "email": "2020lore@gmail.com",
+        "nombre": "Lorena",
+        "apellido": "Moniec",
+        "contraseña": "monalisa1",
+        "fechaDeCreacion": "2022-06-22T00:28:56.854Z"
+    }
+    
+]
