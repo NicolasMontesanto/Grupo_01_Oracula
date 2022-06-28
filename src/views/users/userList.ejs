@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head.ejs')%>
+        <link href="/css/home.css" rel="stylesheet" />
+        <link href="/css/category.css" rel="stylesheet" />
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Todos lxs usuarixs</title>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <%- include('../partials/header.ejs')%>
+        <div class="fondo">
+            <main>
+                <h2 class="destacados__titulo">Todos lxs usuarixs</h2>
+                <div class="contenedor">
+                    <div class="contenedor-cards">
+                        <%for (let i=0; i < users.length; i++){%>
+                            <div class="contenedor-card-item">
+                                <div class="contenedor-card-item-wrapper">
+                                    <div class="contenedor-info">
+                                        <div class="info">
+                                            <p class="titulo">
+                                                <%=users[i].nombre%> <%= users[i].apellido%>
+                                            </p>
+                                            <span class="categoria">
+                                                <%=users[i].email%>
+                                            </span>
+                                        </div>
+                                        <!-- <div class="fondo"></div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        <%}%>
+                    </div>
+                </div>
+            </main>
+            <!-- FOOTER -->
+            <%- include('../partials/footer.ejs')%>
+        </div>
+
+</body>
+
+</html>

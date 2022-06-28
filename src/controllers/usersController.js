@@ -16,7 +16,10 @@ const usersController = {
     signup: (req, res) => {
         res.render('./users/signup', { titulo: "Crear cuenta" });
     },
-
+    list: (req, res) => {
+        res.render('./users/userList', { users });
+        console.log(users);
+    },    
     //Guardar usuario nuevo
     store: (req, res) => {
         //función que busca el mayor ID y devuelve el siguiente

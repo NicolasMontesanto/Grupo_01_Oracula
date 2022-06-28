@@ -8,6 +8,7 @@ const path = require('path');
 routes.get("/login", userController.login);
 routes.get("/signup", userController.signup);
 routes.post("/signup", userController.store);
+routes.get("/list", userController.list);
 routes.get("/:id/edit", userController.edit);
 routes.put("/:id/edit", userController.update);
 routes.delete("/:id/delete", userController.delete);
