@@ -4,24 +4,137 @@
 <head>
     <%- include('../partials/head.ejs')%>
         <link rel="stylesheet" href="/css/productCreate.css">
+        <title>Registrar Producto</title>
 </head>
 
 <body>
-    <div class="fondo">
-        <!-- HEADER -->
-        <%- include('../partials/header.ejs')%>
-            <!-- MAIN -->
+    <!-- HEADER -->
+    <%- include('../partials/header.ejs')%>
+        <!-- MAIN -->
+        <div class="fondo">
             <main>
                 <section class="titulo">
                     <h1 class="titulo__text">Registrar producto</h1>
                 </section>
-                <form class="formulario" action="/" method="get">
-                    <%- include("../partials/productCreatePartial.ejs")%>
-                </form>
+                <div class="formulario__container">
+                    <form class="formulario" action="/product/create" method="post" enctype="multipart/form-data">
+                        <div class="formulario__item">
+                            <label class="formulario__label" for="nombre">Nombre del producto:</label>
+                            <input class="formulario__input" type="text" id="nombre" name="nombre">
+                        </div>
+                        <div class="formulario__item">
+                            <label class="formulario__label" for="descripcion">Descripción:</label>
+                            <textarea class="formulario__input input--text-area" type="text" id="descripcion"
+                                name="descripcion"></textarea>
+                        </div>
+                        <div class="formulario__item">
+                            <label class="formulario__label" for="categoria">Categoría a la que pertenece:</label>
+                            <select class="formulario__desplegable" id="categoria" name="categoria">
+                                <option value="literatura">Literatura</option>
+                                <option value="juegos">Juegos</option>
+                                <option value="multimedia">Multimedia</option>
+                                <option value="baratijas">Baratijas</option>
+                            </select>
+                            <select class="formulario__desplegable" id="categoria" name="subcategoria">
+                                <optgroup class="formulario__option-group" label="Literatura">
+                                    <option value="novela">Libro: Novela</option>
+                                    <option value="cuento">Libro: Cuentos</option>
+                                    <option value="audiolibro">Audiolibro</option>
+                                    <option value="manga">Manga</option>
+                                    <option value="historieta">Historieta</option>
+                                </optgroup>
+                                <optgroup class="formulario__option-group" label="Juegos">
+                                    <option value="videojuego">Videojuego</option>
+                                    <option value="juego de mesa">Juego de Mesa</option>
+                                </optgroup>
+                                <optgroup class="formulario__option-group" label="Baratijas">
+                                    <option value="ropa">Ropa</option>
+                                    <option value="accesorio">Accesorio</option>
+                                    <option value="coleccionable">Coleccionable</option>
+                                </optgroup>
+                                <optgroup class="formulario__option-group" label="Multimedia">
+                                    <option value="pelicula">Película</option>
+                                    <option value="soundtrack">Soundtrack</option>
+                            </select>
+                        </div>
+                        <div class="formulario__item formulario__checkbox__container">
+                            <div class="formulario__item formulario--checkbox">
+                                <label class="formulario__label label--checkbox" for="esGeneroMedieval">Medieval</label>
+                                <input class="formulario__input input--checkbox" type="checkbox" name="esGeneroMedieval" id="esGeneroMedieval" value="true">
+                            </div>
+                            <div class="formulario__item formulario--checkbox">
+                                <label class="formulario__label label--checkbox" for="esGeneroUrbana">Urbana</label>
+                                <input class="formulario__input input--checkbox" type="checkbox" name="esGeneroUrbana" id="esGeneroUrbana" value="true">
+                            </div>
+                            <div class="formulario__item formulario--checkbox">
+                                <label class="formulario__label label--checkbox" for="esGeneroClasica">Clásicos</label>
+                                <input class="formulario__input input--checkbox" type="checkbox" name="esGeneroClasica" id="esGeneroClasica" value="true">
+                            </div>
+                            <div class="formulario__item formulario--checkbox">
+                                <label class="formulario__label label--checkbox" for="esGeneroOscura">Oscura</label>
+                                <input class="formulario__input input--checkbox" type="checkbox" name="esGeneroOscura"  id="esGeneroOscura" value="true">
+                            </div>
+                           <div class="formulario__item formulario--checkbox">
+                             <label class="formulario__label label--checkbox" for="esGeneroJuvenil">Juvenil</label>
+                             <input class="formulario__input input--checkbox" type="checkbox" name="esGeneroJuvenil" id="esGeneroJuvenil" value="true">
+                           </div>
+                         </div>
+                        <div class="formulario__item">
+                            <label class="formulario__label" for="imagenes">Imágenes del producto:</label>
+                            <input class="formulario__input input--file" type="file" id="imagenes" name="imagenes" required
+                                accept="image/png, image/jpeg">
+                        </div>
+                        <div class="formulario__item formulario__checkbox__container">
+                            <div class="formulario__item formulario--checkbox">
+                                <label for="esNovedad" class="formulario__label label--checkbox">¿Es una
+                                    novedad?</label>
+                                <input class="formulario__input input--checkbox" type="checkbox" id="esNovedad"
+                                    name="esNovedad" value="true">
+                            </div>
+                            <div class="formulario__item formulario--checkbox">
+                                <label for="esDestacado" class="formulario__label label--checkbox">¿Es
+                                    destacado?</label>
+                                <input class="formulario__input input--checkbox" type="checkbox" id="esDestacado"
+                                    name="esDestacado" value="true">
+                            </div>
+                            <div class="formulario__item formulario--checkbox">
+                                <label for="esOferta" class="formulario__label label--checkbox">¿Está en oferta?</label>
+                                <input class="formulario__input input--checkbox" type="checkbox" id="esOferta"
+                                    name="esOferta" value="true">
+                            </div>
+                        </div>
+                        <div class="formulario__item precio-descuento-moneda">
+                            <div class="formulario__item input--pdm">
+                                <label class="formulario__label" for="precio">Precio: </label>
+                                <input class="formulario__input input--small" type="number" id="precio" name="precio">
+                            </div>
+                            <div class="formulario__item input--pdm">
+                                <label for="descuento" class="formulario__label">Descuento</label>
+                                <input class="formulario__input input--small" type="number" id="descuento"
+                                    name="descuento">
+                            </div>
+                            <div class="formulario__item input--pdm">
+                                <label class="formulario__label" for="moneda">Moneda: </label>
+                                <select class="formulario__desplegable input--small" id="moneda">
+                                    <option value="pesos">Pesos</option>
+                                    <option value="dolares">Dólares</option>
+                                    <option value="bitcoins">Bitcoins</option>
+                                    <option value="euros">Euros</option>
+                                    <option value="guaranies">Guaraníes</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="formulario__item last-item">
+                            <button class="formulario__icon-submit" type="submit">
+                                <i class="fa-solid fa-circle-arrow-right"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </main>
             <!-- FOOTER -->
             <%- include('../partials/footer.ejs')%>
-    </div>
+        </div>
 </body>
 
 </html>
