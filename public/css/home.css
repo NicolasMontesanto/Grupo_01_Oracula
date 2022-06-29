@@ -279,7 +279,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
-    width: 100vw;
+    width: 100%;
     height: 150px;
     max-width: 1600px;
     margin: auto;
@@ -292,8 +292,8 @@
 .contenedor-cards2 {
     display: flex;
     flex-wrap: wrap;
-    justify-content: left;
-    margin:0;
+    justify-content: center;
+    margin: auto;
 }
 
 .contenedor-cards2 .contenedor-card-item2 {
@@ -381,11 +381,14 @@
 .categoria{
     font-size: 20px;
     color: #FBB954;
+    text-shadow: 0px 0px 2px white;
 }
 .oferta{
     font-size: 35px;
+    text-shadow: 0px 0px 1.5px black;
+    -webkit-text-stroke: 1px var(--amarillo-naranja);
+    font-weight: 300;
 }
-
 
 @media (min-width: 820px) {
 
