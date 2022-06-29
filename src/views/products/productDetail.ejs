@@ -63,7 +63,13 @@
 
             <!-- Product Pricing -->
             <div class="product__price">
-              <span class="product__price--number">148$</span>
+              <%if(elProducto.descuento==0){%>
+              <span class="product__price--number">$<%=elProducto.precio%></span>
+            <%}%>
+            <%if(elProducto.descuento>0){%>
+              <span class="product__price--discount">$<%=elProducto.precio%></span>
+              <span class="product__price--number">$<%= (elProducto.precio)-(elProducto.precio*(elProducto.descuento/100))%></span>
+              <%}%>
               <a href=" /product/cart" class="cart-btn">Agregar al carrito</a>
             </div>
           </div>
@@ -74,46 +80,16 @@
           </h2>
           <!-- Barra de productos sugeridos -->
           <div class="caja">
-            <article class="suggested__article">
-              <a href="#"><img src="/img/productos/merchandising/247160lannheatchm_01g.jpg" alt="Producto 1"
-                  class="suggested__product"></a>
-              <div class="suggested__description">
-                <i class="fas fa-broom suggested__icon"></i>
-                <p class="precio"><strong>$1000</strong></p>
-                <p class="nombre">Random Merch #1</p>
-              </div>
-            </article>
-
-            <article class="suggested__article">
-              <a href="#"><img src="/img/productos/merchandising/3720000000460.jpg" alt="Producto 2"
-                  class="suggested__product"></a>
-              <div class="suggested__description">
-                <i class="fas fa-broom suggested__icon"></i>
-                <p class="precio"><strong>$3000</strong></p>
-                <p class="nombre">Random Merch #2</p>
-              </div>
-
-            </article>
-
-            <article class="suggested__article">
-              <a href="#"><img src="/img/productos/merchandising/3720000000232.jpg" alt="Producto 3"
-                  class="suggested__product"></a>
-              <div class="suggested__description">
-                <i class="fas fa-broom suggested__icon"></i>
-                <p class="precio"><strong>$3500</strong></p>
-                <p class="nombre">Random Merch #3</p>
-              </div>
-            </article>
-
-            <article class="suggested__article">
-              <a href="#"><img src="/img/productos/merchandising/1062690__1.jpg-011A4F9E-1600-1600.jpg" alt="Producto 4"
-                  class="suggested__product"></a>
-              <div class="suggested__description">
-                <i class="fas fa-broom suggested__icon"></i>
-                <p class="precio"><strong>$2000</strong></p>
-                <p class="nombre">Random Merch #4</p>
-              </div>
-            </article>
+            <%for (let i=0; i<4 && i<productosDesordenados.length; i++){%>
+              <article class="suggested__article">
+                <a href="/product/detail/<%=productosDesordenados[i].id%>"><img src=<%=productosDesordenados[i].imagenes%> alt="Imagen de <%=productosDesordenados[i].nombre%>" class="suggested__product"></a>
+                <div class="suggested__description">
+                  <i class="fas fa-broom suggested__icon"></i>
+                  <p class="precio"><strong>$<%=productosDesordenados[i].precio%></strong></p>
+                  <p class="nombre"><%= productosDesordenados[i].nombre%></p>
+                </div>
+              </article>
+            <%}%>
           </div>
         </section>
       </main>
