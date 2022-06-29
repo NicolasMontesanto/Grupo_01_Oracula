@@ -21,7 +21,7 @@
 
         <div id="slideshow-wrap">
 
-            <% for (let i=0; i<=5; i++){ %>
+            <% for (let i=0; i<5; i++){ %>
                 <%if(i==1) {%>
                     <input type="radio" id="button-<%=i%>" name="controls" checked="checked" />
                     <%}else {%>
@@ -30,12 +30,12 @@
                             <label for="button-<%=i%>"></label>
                             <%}%>
 
-                                <% for (let i=1; i<=5; i++){%>
+                                <% for (let i=1; i<5; i++){%>
                                     <label for="button-<%=i%>" class="arrows" id="arrow-<%=i%>">></label>
                                     <%}%>
                                         <div id="slideshow-inner">
                                             <ul>
-                                                <% for (let i=1; i<=5; i++){%>
+                                                <% for (let i=1; i<5; i++){%>
                                                     <li id="slide<%=i%>">
                                                         <img src="<%=productosDestacados[i].imagenes%>" />
                                                         <a href="/product/detail/<%=productosDestacados[i].id%>">
