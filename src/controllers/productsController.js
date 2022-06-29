@@ -3,12 +3,20 @@ const fs = require("fs");
 const pathJSON = path.join(__dirname, '../data/products.json');
 let products = require(pathJSON);
 
+let sortear = function(productosASortear){
+    let sorteados = productosASortear.sort(() => Math.random() - 0.5)
+    return sorteados;
+}
+
 const productsController = {
     //productDetail.html
     detail: (req, res) => {
         let id = req.params.id;
         let elProducto = products.find(element => element.id == id)
-        res.render('./products/productDetail', { elProducto, products });
+        let productosDeCategoria = products.filter(item => item.categoria == elProducto.categoria && item!=elProducto);
+        let productosDesordenados = sortear(productosDeCategoria);
+
+        res.render('./products/productDetail', { elProducto, productosDesordenados });
     },
 
     //productCart.html

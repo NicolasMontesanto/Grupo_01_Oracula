@@ -89,6 +89,7 @@ main {
   justify-content: flex-end;
   min-width: 300px;
   max-width: 35vw;
+  padding-left: 20px;
   height: 100%;
 }
 
@@ -153,15 +154,24 @@ margin-bottom: 10px;
 /* Product Price */
 .product__price {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
 }
 
 .product__price--number {
   font-size: 26px;
   font-weight: 300;
-  color: whitesmoke;
+  color: var(--oracula);
   margin-right: 20px;
+  align-self: flex-start;
+}
+.product__price--discount{
+  font-size: 26px;
+  font-weight: 300;
+  color: var(--gris-claro);
+  margin-right: 20px;
+  text-decoration: line-through;
+  align-self: flex-start;
 }
 
 .cart-btn {
@@ -174,6 +184,7 @@ margin-bottom: 10px;
   text-decoration: none;
   padding: 12px 30px;
   transition: all .5s;
+  margin-left: auto;
 }
 
 .cart-btn:hover {
@@ -201,10 +212,12 @@ margin-bottom: 10px;
 
 .suggested__article {
   display: flex;
+  flex-direction: column;
   text-align: left;
   width: 300px;
   max-width: 300px;
-  flex-direction: column;
+  height: fit-content;
+  min-height: 420px;
   background-color: rgba(69, 41, 63, 0.5);
   padding:10px;
   border: solid 1px black;
@@ -212,11 +225,9 @@ margin-bottom: 10px;
 }
 
 .suggested__product {
-  display: flex;
-  width: 100%;
-  background-color: white;
-  padding: 10px;
-
+  height: 300px;
+  width: 278px;
+  object-fit:cover;
 }
 
 .precio {
