@@ -798,5 +798,186 @@
         "esOferta": true,
         "descuento": "40",
         "fechaDeCreacion": "2022-06-28T22:58:21.147Z"
+    },
+    {
+        "id": 46,
+        "nombre": "LLAVERO PLASTICO TOTORO",
+        "descripcion": "Llavero plástico de alta calidad con diseño de Totoro. No te lo pierdas!",
+        "precio": "300",
+        "imagenes": "/img/productos/1656458796584-prodImg.jpg",
+        "categoria": "baratijas",
+        "subcategoria": "accesorio",
+        "generos": [
+            "urbana",
+            "juvenil"
+        ],
+        "esNovedad": true,
+        "esDestacado": false,
+        "esOferta": false,
+        "descuento": "0",
+        "fechaDeCreacion": "2022-06-28T23:26:36.587Z"
+    },
+    {
+        "id": 47,
+        "nombre": "FIGURA THE WITCHER",
+        "descripcion": "Figura de 7 pulgadas coleccionable con accesorios y base. En esta oportunidad, traemos para ti a Wild Hunt. No te la pierdas!",
+        "precio": "10000",
+        "imagenes": "/img/productos/1656458939909-prodImg.jpg",
+        "categoria": "baratijas",
+        "subcategoria": "coleccionable",
+        "generos": [
+            "medieval",
+            "oscura",
+            "juvenil"
+        ],
+        "esNovedad": true,
+        "esDestacado": true,
+        "esOferta": false,
+        "descuento": "",
+        "fechaDeCreacion": "2022-06-28T23:28:59.914Z"
+    },
+    {
+        "id": 48,
+        "nombre": "LLAVERO PLASTICO WOW ALIANZA",
+        "descripcion": "Llavero plastico de alta calidad con diseño de Alianza, perteneciente al popular videojuego World of Warcraft. No te lo pierdas!",
+        "precio": "300",
+        "imagenes": "/img/productos/1656458977582-prodImg.jpg",
+        "categoria": "baratijas",
+        "subcategoria": "accesorio",
+        "generos": [
+            "urbana",
+            "juvenil"
+        ],
+        "esNovedad": false,
+        "esDestacado": false,
+        "esOferta": false,
+        "descuento": "",
+        "fechaDeCreacion": "2022-06-28T23:29:37.587Z"
+    },
+    {
+        "id": 49,
+        "nombre": "LLAVERO PLASTICO GOT STARK",
+        "descripcion": "Llavero plastico de alta calidad con diseño a todo color del Escudo de Armas de la Casa Stark, perteneciente a la Popular Serie Game of Thrones. No te lo pierdas!",
+        "precio": "300",
+        "imagenes": "/img/productos/1656459010445-prodImg.jpg",
+        "categoria": "baratijas",
+        "subcategoria": "accesorio",
+        "generos": [
+            "medieval",
+            "clasica",
+            "oscura"
+        ],
+        "esNovedad": false,
+        "esDestacado": false,
+        "esOferta": false,
+        "descuento": "",
+        "fechaDeCreacion": "2022-06-28T23:30:10.449Z"
+    },
+    {
+        "id": 50,
+        "nombre": "MEDIAS HARRY POTTER GRYFFINDOR",
+        "descripcion": "Medias tematicas de Gryffindor",
+        "precio": "750",
+        "imagenes": "/img/productos/1656459052016-prodImg.jpg",
+        "categoria": "baratijas",
+        "subcategoria": "ropa",
+        "generos": [
+            "clasica",
+            "juvenil"
+        ],
+        "esNovedad": true,
+        "esDestacado": false,
+        "esOferta": false,
+        "descuento": "",
+        "fechaDeCreacion": "2022-06-28T23:30:52.023Z"
+    },
+    {
+        "id": 51,
+        "nombre": " MONTAÑAS DE LA LOCURA",
+        "descripcion": "Montañas de la Locura es un juego cooperativo de estrategia inspirado en la obra de H.P. Lovecraft (La llamada de Cthulhu, La sombra sobre Innsmouth, entre otras), diseñado por Rob Daviau (Pandemic: Legacy, Betrayal at the House on the Hill, etc.) y nominado a un premio Origins, con mucha estrategia y algo de humor. Cada jugador se pone en la piel de un científico en búsqueda de las reliquias de una ciudad antigua. Solo el trabajo en equipo los salvará de no caer en ¡la locura!",
+        "precio": "10000",
+        "imagenes": "/img/productos/1656460181912-prodImg.jpg",
+        "categoria": "baratijas",
+        "subcategoria": "accesorio",
+        "generos": [
+            "clasica",
+            "oscura"
+        ],
+        "esNovedad": false,
+        "esDestacado": false,
+        "esOferta": false,
+        "descuento": "",
+        "fechaDeCreacion": "2022-06-28T23:49:41.916Z"
+    },
+    {
+        "id": 52,
+        "nombre": "ANILLO HARRY POTTER ALWAYS ",
+        "descripcion": "Anillo de Harry Potter con la palabra \"ALWAYS\" y el simbolo de las reliquias de la muerte.",
+        "precio": "800",
+        "imagenes": "/img/productos/1656460464366-prodImg.jpg",
+        "categoria": "baratijas",
+        "subcategoria": "accesorio",
+        "generos": [
+            "urbana",
+            "juvenil"
+        ],
+        "esNovedad": false,
+        "esDestacado": false,
+        "esOferta": false,
+        "descuento": "",
+        "fechaDeCreacion": "2022-06-28T23:54:24.371Z"
+    },
+    {
+        "id": 53,
+        "nombre": "FUNKO EIVOR ASSASSINS CREED VALHALLA",
+        "descripcion": "Figura Original Funko Pop Games de la Coleccion Assassin's Creed Valhalla Numero 776 Eivor, tal como se lo puede apreciar en el popular Videojuego. No te lo pierdas!",
+        "precio": "5000",
+        "imagenes": "/img/productos/1656460913482-prodImg.jpg",
+        "categoria": "baratijas",
+        "subcategoria": "coleccionable",
+        "generos": [
+            "urbana",
+            "juvenil"
+        ],
+        "esNovedad": false,
+        "esDestacado": false,
+        "esOferta": false,
+        "descuento": "",
+        "fechaDeCreacion": "2022-06-29T00:01:53.494Z"
+    },
+    {
+        "id": 54,
+        "nombre": "FUNKO POP GAMES POKEMON",
+        "descripcion": "Figura Original Funko Pop Games de la Coleccion Pokemon, Numero 455 Charmander. No te la pierdas!",
+        "precio": "5000",
+        "imagenes": "/img/productos/1656460945893-prodImg.jpg",
+        "categoria": "baratijas",
+        "subcategoria": "coleccionable",
+        "generos": [
+            "urbana",
+            "juvenil"
+        ],
+        "esNovedad": false,
+        "esDestacado": false,
+        "esOferta": false,
+        "descuento": "",
+        "fechaDeCreacion": "2022-06-29T00:02:25.899Z"
+    },
+    {
+        "id": 55,
+        "nombre": "FUNKO MOVIES HARRY POTTER - MAD-EYE MOODY ",
+        "descripcion": "De la película Harry Potter and the Goblet of Fire llega la figura funko original coleccionable numero 38 Mad-Eye Moody.",
+        "precio": "5000",
+        "imagenes": "/img/productos/1656460994223-prodImg.jpg",
+        "categoria": "baratijas",
+        "subcategoria": "coleccionable",
+        "generos": [
+            "clasica"
+        ],
+        "esNovedad": true,
+        "esDestacado": true,
+        "esOferta": false,
+        "descuento": "",
+        "fechaDeCreacion": "2022-06-29T00:03:14.229Z"
     }
 ]
