@@ -1,0 +1,281 @@
+
+.sliderDestacados{
+width: auto;
+padding: 10px;
+/* white-space: nowrap; */
+overflow-y: hidden; 
+overflow-x: auto;
+display: flex;
+
+justify-content: space-between;
+}
+
+.sliderDestacados__elemento{
+width: 95vw;
+height: 350px;
+margin-right: 25px;
+padding: 0;
+display: flex;
+position: relative;
+border-radius: 15px;
+}
+.content {
+    position: absolute; 
+    bottom: 0; 
+    background: rgb(0, 0, 0); 
+    background: rgba(0, 0, 0, 0.5); 
+    color: #f1f1f1; 
+    width: 100%; 
+    padding: 20px; 
+ }
+ .content h1{
+    margin-bottom: 30px;
+    font-size: 32px;
+ }
+ .content p{
+    margin-bottom: 60px;
+ }
+
+
+
+
+@supports (object-fit: cover){
+.sliderDestacados__elemento img {
+    min-width: 95vw;
+    max-width: 90vw;
+    position: relative;
+    top: 0;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+}}
+
+
+#slideshow-wrap{
+    display: none;
+}
+
+@media (min-width: 820px) { 
+
+#slideshow-wrap {
+    display: block;
+    width: 70vw;
+    height: 500px;
+    max-width: 1000px;
+    margin: auto;
+    margin-bottom: 25px;
+    border: 4px var(--morado) solid;
+  
+    -moz-box-shadow: 0px 0px 5px rgba(0,0,0,.8);
+    box-shadow: 0px 0px 5px rgba(0,0,0,.8);
+    margin-top: 25px;
+    position: relative;
+    
+    
+}
+
+#slideshow-inner {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0,0,0);
+    overflow: hidden;
+    position: relative;
+    
+}
+
+#slideshow-inner>ul {
+    list-style: none;
+    height: 100%;
+    width: 500%;
+    overflow: hidden;
+    position: relative;
+    left: 0px;
+  
+    -moz-transition: left .8s cubic-bezier(0.77, 0, 0.175, 1);
+    -o-transition: left .8s cubic-bezier(0.77, 0, 0.175, 1);
+    transition: left .8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+
+#slideshow-inner>ul>li {
+    height: 100%;
+    width: 20%;
+    float: left;
+    position: relative;
+}
+
+#slideshow-inner>ul>li>img {
+        min-height: 100%;
+        min-height: 100%;
+        width: auto;
+        min-width: 100%;
+        max-width: 100%;
+        display: block;
+     
+       
+}
+
+#slideshow-wrap input[type=radio] {
+    position: absolute;
+    left: 50%;
+    bottom: 15px;
+    z-index: 100;
+    visibility: hidden;
+}
+
+#slideshow-wrap label:not(.arrows):not(.show-description-label) {
+    position: absolute;
+    left: 50%;
+    bottom: -45px;
+    z-index: 100;
+    width: 12px;
+    height: 12px;
+    background-color: rgba(200,200,200,1);
+    
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    cursor: pointer;
+   
+    -moz-box-shadow: 0px 0px 3px rgba(0,0,0,.8);
+    box-shadow: 0px 0px 3px rgba(0,0,0,.8);
+    
+    -moz-transition: background-color .2s;
+    -o-transition: background-color .2s;
+    transition: background-color .2s;
+}
+
+
+
+
+#slideshow-wrap input[type=radio]#button-1:checked~label[for=button-1] { background-color: rgba(100,100,100,1) }
+
+#slideshow-wrap input[type=radio]#button-2:checked~label[for=button-2] { background-color: rgba(100,100,100,1) }
+
+#slideshow-wrap input[type=radio]#button-3:checked~label[for=button-3] { background-color: rgba(100,100,100,1) }
+
+#slideshow-wrap input[type=radio]#button-4:checked~label[for=button-4] { background-color: rgba(100,100,100,1) }
+
+#slideshow-wrap input[type=radio]#button-5:checked~label[for=button-5] { background-color: rgba(100,100,100,1) }
+
+#slideshow-wrap label[for=button-1] { margin-left: -36px }
+
+#slideshow-wrap label[for=button-2] { margin-left: -18px }
+
+#slideshow-wrap label[for=button-4] { margin-left: 18px }
+
+#slideshow-wrap label[for=button-5] { margin-left: 36px }
+
+#slideshow-wrap input[type=radio]#button-1:checked~#slideshow-inner>ul { left: 0 }
+
+#slideshow-wrap input[type=radio]#button-2:checked~#slideshow-inner>ul { left: -100% }
+
+#slideshow-wrap input[type=radio]#button-3:checked~#slideshow-inner>ul { left: -200% }
+
+#slideshow-wrap input[type=radio]#button-4:checked~#slideshow-inner>ul { left: -300% }
+
+#slideshow-wrap input[type=radio]#button-5:checked~#slideshow-inner>ul { left: -400% }
+
+label.arrows {
+    font-size: 40px;
+    font-weight: bolder;
+    color: #bddcf4;
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    display: none;
+    opacity: 0.7;
+    cursor: pointer;
+    z-index: 200;
+    background-color: transparent;
+
+    -moz-transition: opacity .2s;
+    -o-transition: opacity .2s;
+    transition: opacity .2s;
+    text-shadow: 0px 0px 3px rgba(0,0,0,.8);
+}
+
+label.arrows:hover { opacity: 1 }
+
+label.arrows:active { margin-top: -23px }
+
+input[type=radio]#button-1:checked~.arrows#arrow-2, input[type=radio]#button-2:checked~.arrows#arrow-3, input[type=radio]#button-3:checked~.arrows#arrow-4, input[type=radio]#button-4:checked~.arrows#arrow-5 {
+    right: -55px;
+    display: block;
+}
+
+input[type=radio]#button-2:checked~.arrows#arrow-1, input[type=radio]#button-3:checked~.arrows#arrow-2, input[type=radio]#button-4:checked~.arrows#arrow-3, input[type=radio]#button-5:checked~.arrows#arrow-4 {
+    left: -55px;
+    display: block;
+    -moz-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+input[type=radio]#button-2:checked~.arrows#arrow-1 { left: -19px }
+
+input[type=radio]#button-3:checked~.arrows#arrow-2 { left: -37px }
+
+input[type=radio]#button-5:checked~.arrows#arrow-4 { left: -73px }
+
+.description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 260px;
+    z-index: 2;
+}
+
+
+
+.description label {
+    background-color: var(--gris-claro);
+    box-shadow: 0 0 10px var(--gris-claro);
+    position: relative;
+    left: 0px;
+    width: fit-content;
+    height: 45px;
+    display: inline-block;
+    text-align: center;
+    font-size: 40px;
+    padding: 15px 5px;
+    border-bottom-right-radius: 15px;
+     opacity: 0;
+  
+    -moz-transition: opacity .2s;
+    -o-transition: opacity .2s;
+    transition: opacity .2s;
+    z-index: 2;
+    color: rgb(20,20,20);
+}
+.content {
+    position: absolute; 
+    bottom: 0; 
+    background: rgb(0, 0, 0); 
+    background: rgba(0, 0, 0, 0.5); 
+    color: #f1f1f1; 
+    width: 100%; 
+    padding: 20px; 
+ }
+ .content h1{
+    margin-bottom: 30px;
+  
+ }
+ .content p{
+    margin-bottom: 60px;
+    font-size: 25px;
+    position: relative;
+    top: 20px; }
+
+
+
+#slideshow-inner>ul>li:hover .description label { opacity: 1 }
+
+
+
+.sliderDestacados{
+    display: none;
+}
+    
+}
