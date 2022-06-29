@@ -32,3 +32,23 @@ Este Sprint fluyó de forma sencilla, pudimos lograr todo a tiempo y sin mayores
 ### Dejar de hacer: 
 * Grandes cambios sin actualizar el remoto.
 * Procrastinar y concentrar todo el trabajo hacia el final del sprint.
+
+##Revision del sprint 3
+
+###Comenzar a hacer
+* Dailies
+* Estimar la dificultad de las tareas
+
+###Hacer más
+* Comentar el código
+* Tener el PlayGround al día
+
+###Continuar haciendo
+* Seguir separando las tareas
+* Actualizar el Trello
+
+###Hacer menos
+* Quedarse trabadxs en una tarea
+
+###Dejar de hacer
+* No dar reportes por varios días 
