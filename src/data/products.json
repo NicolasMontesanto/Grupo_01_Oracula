@@ -940,7 +940,7 @@
             "juvenil"
         ],
         "esNovedad": false,
-        "esDestacado": false,
+        "esDestacado": true,
         "esOferta": false,
         "descuento": "",
         "fechaDeCreacion": "2022-06-29T00:01:53.494Z"
@@ -958,7 +958,7 @@
             "juvenil"
         ],
         "esNovedad": false,
-        "esDestacado": false,
+        "esDestacado": true,
         "esOferta": false,
         "descuento": "",
         "fechaDeCreacion": "2022-06-29T00:02:25.899Z"
@@ -979,5 +979,59 @@
         "esOferta": false,
         "descuento": "",
         "fechaDeCreacion": "2022-06-29T00:03:14.229Z"
+    },
+    {
+        "id": 56,
+        "nombre": "Llaves espada de Kingdom Hearts",
+        "descripcion": "Set completo de colgantes y keychain de las llaves espada de Kingdom Hearts Birth by Sleep que podrá tener en su posesión ya sea como complemento o como colección.bDisfruta coleccionando o llevando como complemento este maravilloso set de colgantes de llaves espada de la saga de videojuegos Kingdom Hearts.",
+        "precio": "2000",
+        "imagenes": "/img/productos/1656462834716-prodImg.jpg",
+        "categoria": "baratijas",
+        "subcategoria": "accesorio",
+        "generos": [
+            "urbana",
+            "clasica"
+        ],
+        "esNovedad": false,
+        "esDestacado": true,
+        "esOferta": false,
+        "descuento": "",
+        "fechaDeCreacion": "2022-06-29T00:33:54.724Z"
+    },
+    {
+        "id": 57,
+        "nombre": "Pulsera Cloud Strife",
+        "descripcion": "Pulsera negra con el simbolo de Cloud Strife de Final Fantasy VII",
+        "precio": "",
+        "imagenes": "/img/productos/1656462928021-prodImg.jpg",
+        "categoria": "baratijas",
+        "subcategoria": "accesorio",
+        "generos": [
+            "clasica",
+            "oscura"
+        ],
+        "esNovedad": false,
+        "esDestacado": true,
+        "esOferta": false,
+        "descuento": "",
+        "fechaDeCreacion": "2022-06-29T00:35:28.026Z"
+    },
+    {
+        "id": 58,
+        "nombre": "Peluche Chimuelo",
+        "descripcion": "Peluche de Chimuelo, de Como Entrenar a tu Dragon",
+        "precio": "5000",
+        "imagenes": "/img/productos/1656463365597-prodImg.jpg",
+        "categoria": "baratijas",
+        "subcategoria": "coleccionable",
+        "generos": [
+            "clasica",
+            "juvenil"
+        ],
+        "esNovedad": false,
+        "esDestacado": true,
+        "esOferta": false,
+        "descuento": "",
+        "fechaDeCreacion": "2022-06-29T00:42:45.602Z"
     }
 ]
