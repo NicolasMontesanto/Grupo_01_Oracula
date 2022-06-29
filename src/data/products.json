@@ -18,23 +18,6 @@
         "fechaDeCreacion": "2022-06-28T19:04:07.398Z"
     },
     {
-        "id": 2,
-        "nombre": "Antología de la literatura fantástica",
-        "descripcion": "Autoría: Adolfo Bioy Casares, Silvina Ocampo, Jorge Luis Borges. \r\nBorges, Bioy Casares y Silvina Ocampo nos ofrecen en esta Antologia de la literatura fantastica lo mejor de un genero literario que siempre ha ejercido un atractivo irresistible en el publico lector. Es el genero representado por las irrupciones de la fantasía creadora y la intuición artística en lo desconocido, lo inexplicable, lo misterioso, lo sobrenatural.\r\n\r\n",
-        "precio": "2300",
-        "imagenes": "/img/productos/1656443192626-prodImg.jpg",
-        "categoria": "literatura",
-        "subcategoria": "cuento",
-        "generos": [
-            "clasica"
-        ],
-        "esNovedad": false,
-        "esDestacado": false,
-        "esOferta": true,
-        "descuento": "20",
-        "fechaDeCreacion": "2022-06-28T19:06:32.633Z"
-    },
-    {
         "id": 3,
         "nombre": "Coraline",
         "descripcion": "Autoría: Neil Gaiman\r\n\r\nAl día siguiente de mudarse de casa, Coraline explora las catorce puertas de su nuevo hogar. Trece se pueden abrir con normalidad, pero la decimocuarta está cerrada y tapiada. Cuando por fin consigue abrirla, Coraline se encuentra con un pasadizo secreto que la conduce a otra casa tan parecida a la suya que resulta escalofriante.\r\n\r\nSin embargo, hay ciertas diferencias que llaman su atención: la comida es más rica, los juguetes son tan desconocidos como maravillosos y, sobre todo, hay otra madre y otro padre que quieren que Coraline se quede con ellos, se convierta en su hija y no se marche nunca. Pronto Coraline se da cuenta de que, tras los espejos, hay otros niños que han caído en la trampa. Son como almas perdidas, y ahora ella es su única esperanza de salvación. Pero para rescatarlos tendrá también que recuperar a sus verdaderos padres, y cumplir así el desafío que le permitirá volver a su vida anterior.",
