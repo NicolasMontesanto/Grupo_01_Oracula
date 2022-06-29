@@ -509,7 +509,7 @@
         "esNovedad": false,
         "esDestacado": true,
         "esOferta": true,
-        "descuento": "",
+        "descuento": "10",
         "fechaDeCreacion": "2022-06-28T21:46:01.785Z"
     },
     {
@@ -567,7 +567,7 @@
     {
         "id": 33,
         "nombre": "Spellbound",
-        "descripcion": "Spellbound es una próxima película de fantasía musical animada por computadora dirigida por Vicky Jenson. Su música fue compuesta por Alan Menken. La película fue producida por Skydance Animation y Skydance Animation Madrid. 2022",
+        "descripcion": "Spellbound es una película de fantasía musical animada por computadora dirigida por Vicky Jenson. Su música fue compuesta por Alan Menken. La película fue producida por Skydance Animation y Skydance Animation Madrid. 2022",
         "precio": "1200",
         "imagenes": "/img/productos/1656453300750-prodImg.jpg",
         "categoria": "multimedia",
@@ -578,7 +578,7 @@
         "esNovedad": false,
         "esDestacado": true,
         "esOferta": false,
-        "descuento": "150",
+        "descuento": "50",
         "fechaDeCreacion": "2022-06-28T21:55:00.759Z"
     },
     {
@@ -666,7 +666,7 @@
         ],
         "esNovedad": true,
         "esDestacado": true,
-        "esOferta": false,
+        "esOferta": true,
         "descuento": "10",
         "fechaDeCreacion": "2022-06-28T22:48:16.225Z"
     },
@@ -696,7 +696,7 @@
         "precio": "11000",
         "imagenes": "/img/productos/1656456616950-prodImg.jpg",
         "categoria": "juegos",
-        "subcategoria": "juegoDeMesa",
+        "subcategoria": "novela",
         "generos": [
             "medieval",
             "clasica"
@@ -704,7 +704,7 @@
         "esNovedad": true,
         "esDestacado": true,
         "esOferta": false,
-        "descuento": "0",
+        "descuento": "",
         "fechaDeCreacion": "2022-06-28T22:50:16.976Z"
     },
     {
@@ -768,7 +768,7 @@
         "precio": "3000",
         "imagenes": "/img/productos/1656457045469-prodImg.jpg",
         "categoria": "juegos",
-        "subcategoria": "juegoDeMesa",
+        "subcategoria": "novela",
         "generos": [
             "medieval",
             "urbana",
@@ -787,7 +787,7 @@
         "precio": "20000",
         "imagenes": "/img/productos/1656457101125-prodImg.jpeg",
         "categoria": "juegos",
-        "subcategoria": "juegoDeMesa",
+        "subcategoria": "novela",
         "generos": [
             "medieval",
             "clasica",
@@ -886,7 +886,7 @@
             "juvenil"
         ],
         "esNovedad": true,
-        "esDestacado": false,
+        "esDestacado": true,
         "esOferta": false,
         "descuento": "",
         "fechaDeCreacion": "2022-06-28T23:30:52.023Z"
@@ -904,7 +904,7 @@
             "oscura"
         ],
         "esNovedad": false,
-        "esDestacado": false,
+        "esDestacado": true,
         "esOferta": false,
         "descuento": "",
         "fechaDeCreacion": "2022-06-28T23:49:41.916Z"
@@ -975,7 +975,7 @@
             "clasica"
         ],
         "esNovedad": true,
-        "esDestacado": true,
+        "esDestacado": false,
         "esOferta": false,
         "descuento": "",
         "fechaDeCreacion": "2022-06-29T00:03:14.229Z"
@@ -993,7 +993,7 @@
             "clasica"
         ],
         "esNovedad": false,
-        "esDestacado": true,
+        "esDestacado": false,
         "esOferta": false,
         "descuento": "",
         "fechaDeCreacion": "2022-06-29T00:33:54.724Z"
@@ -1030,8 +1030,8 @@
         ],
         "esNovedad": false,
         "esDestacado": true,
-        "esOferta": false,
-        "descuento": "",
+        "esOferta": true,
+        "descuento": "30",
         "fechaDeCreacion": "2022-06-29T00:42:45.602Z"
     }
 ]

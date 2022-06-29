@@ -15,9 +15,9 @@ El boton de me interesa funciona pero se ve mal aun -->
 <body>
     <%- include('./partials/header.ejs')%>
         <div class="fondo">
-            <main class="main">
+            <main>
                 <%if(productos.length>0){%>
-                    <h2 class="destacados__titulo">Destacados en <%=productos[0].categoria%>
+                    <h2 class="destacados__titulo">Destacados en <%=productos[0].categoria%></h2>
                             <%if(productosDestacados.length<5){%>
                                 <h3>Estamos trabajando para tener productos destacados que mostrarte en esta sección
                                 </h3>
