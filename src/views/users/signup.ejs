@@ -24,7 +24,7 @@
                 </div>
                     <section class="formulario__container">
                         <!-- YA CON METHOD = "POST"-->
-                        <form class="formulario" action="/user/signup" method="post" >
+                        <form class="formulario" action="/user/signup" method="post" enctype="multipart/form-data">
                             <div class="formulario__item">
                                 <label class="formulario__label" for="email">Email:</label>
                                 <input class="formulario__input" type="email" id="email" name="email">
@@ -45,6 +45,11 @@
                                 <label class="formulario__label" for="password-repetir">Repita su Contraseña:</label>
                                 <input class="formulario__input" type="password" id="password-repetir"
                                     name="password-repetir">
+                            </div>
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="profile-picture">Imágen de perfil:</label>
+                                <input class="formulario__input input--file" type="file" id="profile-picture" name="profile-picture" required
+                                    accept="image/png, image/jpeg">
                             </div>
                             <div class="formulario__submit">
                                 <p class="link-login">¿Ya tenés cuenta? <a href="/user/login">Ingresá acá.</a></p>
