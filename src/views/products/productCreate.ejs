@@ -20,23 +20,44 @@
                     <form class="formulario" action="/product/create" method="post" enctype="multipart/form-data">
                         <div class="formulario__item">
                             <label class="formulario__label" for="nombre">Nombre del producto:</label>
-                            <input class="formulario__input" type="text" id="nombre" name="nombre">
+                            <input class="formulario__input  <%= locals.errors && errors.nombre ? 'invalid' : null %>" type="text" id="nombre" name="nombre">
+                            <% if (locals.errors && errors.nombre) { %>
+                                <div class="text-danger">
+                                 <p><%=errors.nombre.msg%></p>
+                                </div>
+                                                                 
+                                <% } %>
                         </div>
                         <div class="formulario__item">
                             <label class="formulario__label" for="descripcion">Descripción:</label>
-                            <textarea class="formulario__input input--text-area" type="text" id="descripcion"
+                            <textarea class="formulario__input input--text-area <%= locals.errors && errors.descripcion ? 'invalid' : null %>  invalid" type="text" id="descripcion"
                                 name="descripcion"></textarea>
+                                <% if (locals.errors && errors.descripcion) { %>
+                                    <div class="text-danger">
+                                     <p><%=errors.descripcion.msg%></p>
+                                    </div>
+                                                                     
+                                    <% } %>
                         </div>
                         <div class="formulario__item">
                             <label class="formulario__label" for="categoria">Categoría a la que pertenece:</label>
-                            <select class="formulario__desplegable" id="categoria" name="categoria">
+                            <select class="formulario__desplegable <%= locals.errors && errors.categoria ? 'invalid' : null %>" id="categoria" name="categoria">
+                                <option  value = "" selected> Elegí una categoría </optionvalue></option>
                                 <option value="literatura">Literatura</option>
                                 <option value="juegos">Juegos</option>
                                 <option value="multimedia">Multimedia</option>
                                 <option value="baratijas">Baratijas</option>
                             </select>
-                            <select class="formulario__desplegable" id="categoria" name="subcategoria">
-                                <optgroup class="formulario__option-group" label="Literatura">
+                            <% if (locals.errors && errors.categoria) { %>
+                            <div class="text-danger">
+                             <p><%=errors.categoria.msg%></p>
+                            </div>
+                                                             
+                            <% } %>
+                           
+                            <select class="formulario__desplegable <%= locals.errors && errors.subcategoria ? 'invalid' : null %>" id="categoria" name="subcategoria">
+                                <optgroup class="formulario__option-group " label="Literatura">
+                                    <option value = "" selected> Elegí una subcategoría </optionvalue></option>
                                     <option value="novela">Libro: Novela</option>
                                     <option value="cuento">Libro: Cuentos</option>
                                     <option value="audiolibro">Audiolibro</option>
@@ -56,6 +77,12 @@
                                     <option value="pelicula">Película</option>
                                     <option value="soundtrack">Soundtrack</option>
                             </select>
+                            <% if (locals.errors && errors.subcategoria) { %>
+                                <div class="text-danger">
+                                 <p><%=errors.subcategoria.msg%></p>
+                                </div>
+                                                                 
+                                <% } %>
                         </div>
                         <div class="formulario__item formulario__checkbox__container">
                             <div class="formulario__item formulario--checkbox">
@@ -106,7 +133,12 @@
                         <div class="formulario__item precio-descuento-moneda">
                             <div class="formulario__item input--pdm">
                                 <label class="formulario__label" for="precio">Precio: </label>
-                                <input class="formulario__input input--small" type="number" id="precio" name="precio">
+                                <input class="formulario__input input--small <%= locals.errors && errors.precio ? 'invalid' : null %>" type="number" id="precio" name="precio">
+                                <% if (locals.errors && errors.precio) { %>
+                                    <div class="text-danger">
+                                     <p><%=errors.precio.msg%></p>
+                                    </div>                                                                     
+                                    <% } %>
                             </div>
                             <div class="formulario__item input--pdm">
                                 <label for="descuento" class="formulario__label">Descuento</label>
