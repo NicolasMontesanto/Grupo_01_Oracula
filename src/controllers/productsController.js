@@ -44,33 +44,39 @@ const productsController = {
        const validationsResult =  validationResult(req);
 
         //si hay errores se renderiza de nuevo el formulario de creación
-       if(validationsResult.errors.length > 0) res.render('./products/productCreate', {errors : validationsResult.mapped()});
-
-        //función que busca el mayor ID y devuelve el siguiente
-        function siguienteID(products) {
-            let id = 1;
-            for (let i = 1; i < products.length; i++) {
-                if (products[i].id > id) {
-                    id = products[i].id;
+       if(validationsResult.errors.length > 0) {
+        res.render('./products/productCreate', {
+            errors : validationsResult.mapped(),
+            oldData : req.body
+        })}
+        else{           
+            
+            //función que busca el mayor ID y devuelve el siguiente
+            function siguienteID(products) {
+                let id = 1;
+                for (let i = 1; i < products.length; i++) {
+                    if (products[i].id > id) {
+                        id = products[i].id;
+                    }
                 }
+                return id += 1;
             }
-            return id += 1;
-        }
-        let file = req.file;
-
-        //tomamos los datos del req.body
-        //Valores de esDestacado, esNovedad, esOferta
-        let esDestacado, esNovedad, esOferta;
-       
-        esDestacado = req.body.esDestacado?true:false;
-        esNovedad = req.body.esNovedad?true:false;
-        esOferta = req.body.esOferta?true:false;
-
-        //Array de Objetos Género
-        let generos = [];
-        if (req.body.esGeneroMedieval) {
-            generos.push("medieval");
-        }
+            
+            let file = req.file;
+            
+            //tomamos los datos del req.body
+            //Valores de esDestacado, esNovedad, esOferta
+            let esDestacado, esNovedad, esOferta;
+            
+            esDestacado = req.body.esDestacado?true:false;
+            esNovedad = req.body.esNovedad?true:false;
+            esOferta = req.body.esOferta?true:false;
+            
+            //Array de Objetos Género
+            let generos = [];
+            if (req.body.esGeneroMedieval) {
+                generos.push("medieval");
+            }
         if (req.body.esGeneroUrbana) {
             generos.push("urbana");
         }
@@ -83,7 +89,7 @@ const productsController = {
         if (req.body.esGeneroJuvenil) {
             generos.push("juvenil");
         }
-
+        
         let productNuevo = {
             id: siguienteID(products),
             nombre: req.body.nombre,
@@ -103,8 +109,9 @@ const productsController = {
         products.push(productNuevo);
         let productsJSON = JSON.stringify(products, null, 4);
         fs.writeFileSync(pathJSON, productsJSON, "utf-8");
-
+        
         res.redirect("/");
+    }
     },
 
     //Renderizamos la vista de Edit
