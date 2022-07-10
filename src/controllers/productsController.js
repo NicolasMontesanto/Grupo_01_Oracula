@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require("fs");
-const pathJSON = path.join(__dirname, '../data/products.json');
-let products = require(pathJSON);
+let products = require('../data/products.json');
+//express validator
 const { validationResult } = require('express-validator');
 
 let sortear = function(productosASortear){
@@ -108,7 +108,7 @@ const productsController = {
         }
         products.push(productNuevo);
         let productsJSON = JSON.stringify(products, null, 4);
-        fs.writeFileSync(pathJSON, productsJSON, "utf-8");
+        fs.writeFileSync(path.join(__dirname, "../data/products.json"), productsJSON, "utf-8");
         
         res.redirect("/");
     }
@@ -172,7 +172,7 @@ const productsController = {
             }
         });
         let productsJSON = JSON.stringify(products, null, 4);
-        fs.writeFileSync(pathJSON, productsJSON, "utf-8");
+        fs.writeFileSync(path.join(__dirname, "../data/products.json"), productsJSON, "utf-8");
         res.redirect("/");
     },
     delete: (req, res) => {
@@ -188,7 +188,7 @@ const productsController = {
         }
 
         let productsJSON = JSON.stringify(products, null, 4);
-        fs.writeFileSync(pathJSON, productsJSON, "utf-8");
+        fs.writeFileSync(path.join(__dirname, "../data/products.json"), productsJSON, "utf-8");
         res.redirect("/");
     }
 };

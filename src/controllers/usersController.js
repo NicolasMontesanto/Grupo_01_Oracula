@@ -1,10 +1,8 @@
 const path = require('path');
 const fs = require("fs");
-//const login = path.join(__dirname, "../views/users/login.ejs");
-//const signup = path.join(__dirname, "../views/users/signup.ejs");
-
-let pathJSON = path.join(__dirname, "../data/users.json");
-let users = JSON.parse(fs.readFileSync(pathJSON, "utf-8"));
+let users = require('../data/users.json');
+//express validator
+const { validationResult } = require('express-validator');
 
 const usersController = {
     //login.html
@@ -19,6 +17,15 @@ const usersController = {
 
     //Guardar usuario nuevo
     store: (req, res) => {
+        const validationsResult =  validationResult(req);
+
+        //si hay errores se renderiza de nuevo el formulario de register
+       if(validationsResult.errors.length > 0) {
+            res.render('./users/signup', {
+            errors : validationsResult.mapped(),
+            oldData : req.body
+        })}
+        else{ 
         //función que busca el mayor ID y devuelve el siguiente
         function siguienteID(users) {
            let id = 1;
@@ -30,7 +37,6 @@ const usersController = {
             return id += 1;
         }
        
-
         //tomamos los datos del req.body
         let userNuevo = {
             id: siguienteID(users),
@@ -43,9 +49,10 @@ const usersController = {
         
         users.push(userNuevo);
         let usersJSON = JSON.stringify(users, null, 4);
-        fs.writeFileSync(pathJSON, usersJSON, "utf-8");
+        fs.writeFileSync(path.join(__dirname, "../data/users.json"), usersJSON, "utf-8");
 
         res.redirect("/user/login");
+    }
     },
 
     //Renderizar la vista de Edit
@@ -73,7 +80,7 @@ const usersController = {
              }
         });
         let usersJSON = JSON.stringify(users, null, 4);
-        fs.writeFileSync(pathJSON, usersJSON, "utf-8");
+        fs.writeFileSync(path.join(__dirname, "../data/users.json"), usersJSON, "utf-8");
         res.redirect("/");
     },
 
@@ -84,7 +91,7 @@ const usersController = {
         users = users.filter(user => user.id!=id);
        
         let usersJSON = JSON.stringify(users, null, 4);
-        fs.writeFileSync(pathJSON, usersJSON, "utf-8");
+        fs.writeFileSync(path.join(__dirname, "../data/users.json"), usersJSON, "utf-8");
         res.redirect("/");
     }
 };
