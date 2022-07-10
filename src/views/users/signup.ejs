@@ -27,29 +27,65 @@
                         <form class="formulario" action="/user/signup" method="post" enctype="multipart/form-data">
                             <div class="formulario__item">
                                 <label class="formulario__label" for="email">Email:</label>
-                                <input class="formulario__input" type="email" id="email" name="email">
+                                <input class="formulario__input <%= locals.errors && errors.email ? 'invalid' : null %>" type="email" id="email" name="email" value="<%= locals.oldData ? oldData.email : null %>">
+                                <% if (locals.errors && errors.email) { %>
+                                    <div class="text-danger">
+                                     <p><%=errors.email.msg%></p>
+                                    </div>
+                                                                     
+                                    <% } %>
                             </div>
                             <div class="formulario__item">
                                 <label class="formulario__label" for="nombre">Nombre:</label>
-                                <input class="formulario__input" type="text" id="nombre" name="nombre">
+                                <input class="formulario__input <%= locals.errors && errors.nombre ? 'invalid' : null %>" type="text" id="nombre" name="nombre" value="<%= locals.oldData ? oldData.nombre : null %>">
+                                <% if (locals.errors && errors.nombre) { %>
+                                    <div class="text-danger">
+                                     <p><%=errors.nombre.msg%></p>
+                                    </div>
+                                                                     
+                                    <% } %>
                             </div>
                             <div class="formulario__item">
                                 <label class="formulario__label" for="apellido">Apellido:</label>
-                                <input class="formulario__input" type="text" id="apellido" name="apellido">
+                                <input class="formulario__input <%= locals.errors && errors.apellido ? 'invalid' : null %>" type="text" id="apellido" name="apellido" value="<%= locals.oldData ? oldData.apellido : null %>">
+                                <% if (locals.errors && errors.apellido) { %>
+                                    <div class="text-danger">
+                                     <p><%=errors.apellido.msg%></p>
+                                    </div>
+                                                                     
+                                    <% } %>
                             </div>
                             <div class="formulario__item">
                                 <label class="formulario__label" for="password">Contraseña:</label>
-                                <input class="formulario__input" type="password" id="password" name="password">
+                                <input class="formulario__input <%= locals.errors && errors.password ? 'invalid' : null %>" type="password" id="password" name="password">
+                                <% if (locals.errors && errors.password) { %>
+                                    <div class="text-danger">
+                                     <p><%=errors.password.msg%></p>
+                                    </div>
+                                                                     
+                                    <% } %>
                             </div>
                             <div class="formulario__item">
-                                <label class="formulario__label" for="password-repetir">Repita su Contraseña:</label>
-                                <input class="formulario__input" type="password" id="password-repetir"
-                                    name="password-repetir">
-                            </div>
+                                <label class="formulario__label" for="passwordRepetir">Repita su Contraseña:</label>
+                                <input class="formulario__input <%= locals.errors && errors.passwordRepetir ? 'invalid' : null %>" type="password" id="password-repetir"
+                                    name="passwordRepetir">
+                                    <% if (locals.errors && errors.passwordRepetir) { %>
+                                        <div class="text-danger">
+                                         <p><%=errors.passwordRepetir.msg%></p>
+                                        </div>
+                                                                         
+                                        <% } %>
+                                </div>
                             <div class="formulario__item">
                                 <label class="formulario__label" for="profile-picture">Imágen de perfil:</label>
-                                <input class="formulario__input input--file" type="file" id="profile-picture" name="profile-picture" required
+                                <input class="formulario__input input--file" type="file" id="profile-picture" name="profilePicture" required
                                     accept="image/png, image/jpeg">
+                                    <% if (locals.errors && errors.profilePicture) { %>
+                                        <div class="text-danger">
+                                         <p><%=errors.profilePicture.msg%></p>
+                                        </div>
+                                                                         
+                                        <% } %>
                             </div>
                             <div class="formulario__submit">
                                 <p class="link-login">¿Ya tenés cuenta? <a href="/user/login">Ingresá acá.</a></p>

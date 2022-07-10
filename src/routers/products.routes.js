@@ -19,7 +19,7 @@ const validations = [
     if(!file){
         throw new Error('Seleccioná una imagen para tu producto');
     }else{   
-        if(!extensionesPermitidas.includes(fileExtension)){
+        if(!extensionesPermitidas.includes(fileExtension.toLowerCase())){
             throw new Error (`Las extensiones de archivo permitidas son ${extensionesPermitidas.join(", ")}`)
         }
     }
@@ -35,7 +35,7 @@ routes.get("/cart", productController.cart);
 routes.get("/list", productController.list);
 //crear el producto
 routes.get("/create", productController.create);
-routes.post("/create", upload.single('imagenes'), validations, productController.store);
+routes.post("/create",  upload.single('imagenes'), validations, productController.store);
 //editar un producto
 routes.get("/:id/edit", productController.edit);
 routes.put("/:id/edit", upload.single('imagenes'), productController.update);
