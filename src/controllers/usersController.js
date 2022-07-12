@@ -44,7 +44,8 @@ const usersController = {
             nombre: req.body.nombre,
             apellido: req.body.apellido,
             contraseña: req.body.contraseña,
-            fechaDeCreacion: new Date() 
+            fechaDeCreacion: new Date(),
+            imagenPerfil: req.body.profile-picture 
         }
         
         users.push(userNuevo);
