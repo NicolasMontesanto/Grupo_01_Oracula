@@ -1,7 +1,8 @@
 const path = require('path');
 const fs = require("fs");
-const pathJSON = path.join(__dirname, '../data/products.json');
-let products = require(pathJSON);
+let products = require('../data/products.json');
+//express validator
+const { validationResult } = require('express-validator');
 
 let sortear = function(productosASortear){
     let sorteados = productosASortear.sort(() => Math.random() - 0.5)
@@ -23,55 +24,59 @@ const productsController = {
     cart: (req, res) => {
         res.render('./products/productCart', { products });
     },
+    
+    //Renderizar vista de todos los productos
+    list: (req, res) => {
+        res.render('./products/productList', { products });
+    },
+
 
     //Renderizar Vista Create
     create: (req, res) => {
         res.render('./products/productCreate');
     },
 
-    //Renderizar vista de todos los productos
-    list: (req, res) => {
-        res.render('./products/productList', { products });
-    },
+    
     
     //Guardar producto nuevo
     store: (req, res) => {
-        //función que busca el mayor ID y devuelve el siguiente
-        function siguienteID(products) {
-            let id = 1;
-            for (let i = 1; i < products.length; i++) {
-                if (products[i].id > id) {
-                    id = products[i].id;
+
+       const validationsResult =  validationResult(req);
+
+        //si hay errores se renderiza de nuevo el formulario de creación
+       if(validationsResult.errors.length > 0) {
+        res.render('./products/productCreate', {
+            errors : validationsResult.mapped(),
+            oldData : req.body
+        })}
+        else{           
+            
+            //función que busca el mayor ID y devuelve el siguiente
+            function siguienteID(products) {
+                let id = 1;
+                for (let i = 1; i < products.length; i++) {
+                    if (products[i].id > id) {
+                        id = products[i].id;
+                    }
                 }
+                return id += 1;
             }
-            return id += 1;
-        }
-        let file = req.file;
-
-        //tomamos los datos del req.body
-        //Valores de esDestacado, esNovedad, esOferta
-        let esDestacado, esNovedad, esOferta;
-        if (req.body.esDestacado) {
-            esDestacado = true;
-        } else {
-            esDestacado = false;
-        }
-        if (req.body.esNovedad) {
-            esNovedad = true;
-        } else {
-            esNovedad = false;
-        }
-        if (req.body.esOferta) {
-            esOferta = true;
-        } else {
-            esOferta = false;
-        }
-
-        //Array de Objetos Género
-        let generos = [];
-        if (req.body.esGeneroMedieval) {
-            generos.push("medieval");
-        }
+            
+            let file = req.file;
+            
+            //tomamos los datos del req.body
+            //Valores de esDestacado, esNovedad, esOferta
+            let esDestacado, esNovedad, esOferta;
+            
+            esDestacado = req.body.esDestacado?true:false;
+            esNovedad = req.body.esNovedad?true:false;
+            esOferta = req.body.esOferta?true:false;
+            
+            //Array de Objetos Género
+            let generos = [];
+            if (req.body.esGeneroMedieval) {
+                generos.push("medieval");
+            }
         if (req.body.esGeneroUrbana) {
             generos.push("urbana");
         }
@@ -84,7 +89,7 @@ const productsController = {
         if (req.body.esGeneroJuvenil) {
             generos.push("juvenil");
         }
-
+        
         let productNuevo = {
             id: siguienteID(products),
             nombre: req.body.nombre,
@@ -103,9 +108,10 @@ const productsController = {
         }
         products.push(productNuevo);
         let productsJSON = JSON.stringify(products, null, 4);
-        fs.writeFileSync(pathJSON, productsJSON, "utf-8");
-
+        fs.writeFileSync(path.join(__dirname, "../data/products.json"), productsJSON, "utf-8");
+        
         res.redirect("/");
+    }
     },
 
     //Renderizamos la vista de Edit
@@ -124,21 +130,10 @@ const productsController = {
 
         //Valores de esDestacado, esNovedad, esOferta
         let esNovedad, esDestacado, esOferta;
-        if (req.body.esDestacado) {
-            esDestacado = true;
-        } else {
-            esDestacado = false;
-        }
-        if (req.body.esNovedad) {
-            esNovedad = true;
-        } else {
-            esNovedad = false;
-        }
-        if (req.body.esOferta) {
-            esOferta = true;
-        } else {
-            esOferta = false;
-        }
+        
+        esDestacado = req.body.esDestacado?true:false;
+        esNovedad = req.body.esNovedad?true:false;
+        esOferta = req.body.esOferta?true:false;
 
         //Array de Objetos Género
         let generos = [];
@@ -177,7 +172,7 @@ const productsController = {
             }
         });
         let productsJSON = JSON.stringify(products, null, 4);
-        fs.writeFileSync(pathJSON, productsJSON, "utf-8");
+        fs.writeFileSync(path.join(__dirname, "../data/products.json"), productsJSON, "utf-8");
         res.redirect("/");
     },
     delete: (req, res) => {
@@ -193,7 +188,7 @@ const productsController = {
         }
 
         let productsJSON = JSON.stringify(products, null, 4);
-        fs.writeFileSync(pathJSON, productsJSON, "utf-8");
+        fs.writeFileSync(path.join(__dirname, "../data/products.json"), productsJSON, "utf-8");
         res.redirect("/");
     }
 };
