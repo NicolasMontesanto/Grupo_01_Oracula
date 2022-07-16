@@ -14,6 +14,7 @@ const usersController = {
     login: (req, res) => {
         res.render("./users/login", { titulo: "Ingresar" });
     },
+
     processLogin: (req, res) => {
         const validationsResult = validationResult(req);
         //Control de errores en el login
@@ -47,7 +48,7 @@ const usersController = {
             let userInDB = User.findFirstByField('email', req.body.email);
             
             if(userInDB){
-                return res.render("./users/login", {
+                return res.render("./users/signup", {
                     errors: {
                         email: {
                             msg: "Este email ya esta registrado",
@@ -67,7 +68,8 @@ const usersController = {
                 esAdmin: req.body.esAdmin?true:false
             };
             
-            User.create(userToCreate);
+            let userCreated = User.create(userToCreate);
+
             res.redirect("/user/login");
         }
     },
