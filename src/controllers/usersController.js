@@ -3,6 +3,11 @@ const fs = require("fs");
 let users = require("../data/users.json");
 //express validator
 const { validationResult } = require("express-validator");
+//hash
+const bcrypt = require('bcryptjs');
+
+//funciones para usuarios
+const User = require('../models/User')
 
 const usersController = {
     //login.html
@@ -19,40 +24,42 @@ const usersController = {
     store: (req, res) => {
         const validationsResult = validationResult(req);
 
-        //si hay errores se renderiza de nuevo el formulario de register
+           //si hay errores se renderiza de nuevo el formulario de register
         if (validationsResult.errors.length > 0) {
             //si se cargó una imagen, se borra
-            if (req.file.filename) {
-                fs.unlinkSync(
-                    path.join(__dirname, "../../public/img/Profile-pictures/", req.file.filename));
-            }
-            res.render("./users/signup", { errors: validationsResult.mapped(), oldData: req.body, });
-        } else {
+            if(req.file.filename) fs.unlinkSync(path.join(__dirname, "../../public/img/Profile-pictures/", req.file.filename));
             
-            //función que busca el mayor ID y devuelve el siguiente
-            function siguienteID(users) {
-                let id = 1;
-                for (let i = 1; i < users.length; i++) {
-                    if (users[i].id > id) {
-                        id = users[i].id;
-                    }
-                }
-                return (id += 1);
-            }
+           return res.render("./users/signup", {
+             errors: validationsResult.mapped(),
+              oldData: req.body,
+            });
 
+        }else {                              
+            //busco si existe usuarie con el mismo mail
+            let userInDB = User.findFirstByField('email', req.body.email);
+            
+            if(userInDB){
+                return res.render("./users/login", {
+                    errors: {
+                        email: {
+                            msg: "Este email ya esta registrado",
+                        }
+                    },
+                    oldData: req.body,
+                   });
+            }
+            
             //tomamos los datos del req.body
-            let userNuevo = {
-                id: siguienteID(users),
+            let userToCreate = {
                 email: req.body.email,
                 nombre: req.body.nombre,
                 apellido: req.body.apellido,
-                contraseña: req.body.contraseña,
+                password: bcrypt.hashSync(req.body.password, 10),
                 fechaDeCreacion: new Date(),
+                esAdmin: req.body.esAdmin?true:false
             };
-
-            users.push(userNuevo);
-            let usersJSON = JSON.stringify(users, null, 4);
-            fs.writeFileSync(path.join(__dirname, "../data/users.json"), usersJSON, "utf-8");
+            
+            User.create(userToCreate);
             res.redirect("/user/login");
         }
     },
@@ -60,27 +67,25 @@ const usersController = {
     //Renderizar la vista de Edit
     edit: (req, res) => {
         let id = req.params.id;
-        let user = users.find((element) => element.id == id);
-        if (user == undefined) {
-            res.send("El usuario no existe");
-        } else {
-            res.render("./users/userEdit", { user });
-        }
+        let user = User.findByPK(id);
+        !user?res.send("El usuario no existe"):res.render("./users/userEdit", { user });
     },
 
     update: (req, res) => {
+        
         let id = req.params.id;
         //let file = req.file;
-        let { email, nombre, apellido, contraseña } = req.body;
+        let { email, nombre, apellido, password } = req.body;
 
         users.forEach((item) => {
             if (item.id == id) {
                 item.email = email;
                 item.nombre = nombre;
                 item.apellido = apellido;
-                item.contraseña = contraseña;
+                item.password = password;
             }
         });
+
         let usersJSON = JSON.stringify(users, null, 4);
         fs.writeFileSync(path.join(__dirname, "../data/users.json"), usersJSON, "utf-8");
         res.redirect("/");
@@ -88,14 +93,7 @@ const usersController = {
 
     delete: (req, res) => {
         let id = req.params.id;
-        let userDelete = users.find((item) => {
-            item.id == id;
-        });
-
-        users = users.filter((user) => user.id != id);
-
-        let usersJSON = JSON.stringify(users, null, 4);
-        fs.writeFileSync(path.join(__dirname, "../data/users.json"), usersJSON, "utf-8");
+        User.delete(id);
         res.redirect("/");
     },
 };
