@@ -14,7 +14,15 @@ const usersController = {
     login: (req, res) => {
         res.render("./users/login", { titulo: "Ingresar" });
     },
-
+    processLogin: (req, res) => {
+        const validationsResult = validationResult(req);
+        //Control de errores en el login
+        if (validationsResult.errors.length > 0){
+            res.render("./users/login", { errors: validationsResult.mapped(), oldData: req.body});
+        } else {
+            //Hacer el login    
+        }
+    },
     //signup.html
     signup: (req, res) => {
         res.render("./users/signup", { titulo: "Crear cuenta" });
