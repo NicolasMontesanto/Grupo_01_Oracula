@@ -2,64 +2,68 @@
 <html lang="en">
 
 <head>
-    <%- include('../partials/head.ejs')%>
-        <link rel="stylesheet" href="/css/login.css">
+  <%- include('../partials/head.ejs')%>
+  <link rel="stylesheet" href="/css/login.css">
 </head>
 
 <body>
-    <!--header-->
-    <%- include('../partials/header.ejs')%>
+  <!--header-->
+  <%- include('../partials/header.ejs')%>
 
-        <!--main-->
-        <div class="fondo">
-            <main class="main">
-                <section class="titulo">
-                    <h1 class="titulo__text">Iniciá Sesión</h1>
-                </section>
-                <section class="formulario__box">
-                    <div class="boton-google__container">
-                        <label for="google">Iniciar Sesión con</label>
-                        <button class="boton-google" type="submit" id="google" name="google">
-                            <i class="fa-brands fa-google"></i>
-                            Google
-                        </button>
-                    </div>
-                    <section class="formulario__container">
-                        <!-- PROVISIORIAMENTE EN METHOD = "GET" -->
-                        <form class="formulario" action="/" method="get">
-                            <div class="formulario__item">
-                                <label class="formulario__label" for="email">Email:</label>
-                                <input class="formulario__input" type="email" id="email" name="email">
-                            </div>
-                            <div class="formulario__password">
-                                <label class="formulario__label" for="password">Contraseña:</label>
-                                <input class="formulario__input" type="password" id="password" name="password">
-                            </div>
-                            <div class="recordar-password">
-                                <label for="recordarPassword">Recordame
-                                    <input class="recordar-password__checkbox" type="checkbox" name="recordarPassword"
-                                        id="recordarPassword">
-                                    </button>
-                                </label>
-                            </div>
-                            <div class="formulario__submit">
-                                <div>
-                                    <p class="link-password-recover">¿Te olvidaste tu contraseña? <a href="">Recuperala
-                                            acá.</a></p>
-                                    <p class="link-signup">¿No tenés cuenta? <a href="/user/signup">Creala acá.</a></p>
-                                </div>
-                                <button type="submit">
-                                    <i class="fa-solid fa-circle-arrow-right formulario__icon-submit"></i>
-                                </button>
-                            </div>
-                        </form>
-                    </section>
-                </section>
-            </main>
-            <!--footer-->
-            <%- include('../partials/footer.ejs')%>
-
+  <!--main-->
+  <div class="fondo">
+    <main class="main">
+      <section class="titulo">
+        <h1 class="titulo__text">Iniciá Sesión</h1>
+      </section>
+      <section class="formulario__box">
+        <div class="boton-google__container">
+          <label for="google">Iniciar Sesión con</label>
+          <button class="boton-google" type="submit" id="google" name="google">
+            <i class="fa-brands fa-google"></i>
+            Google
+          </button>
         </div>
+        <section class="formulario__container">
+          <!-- PROVISIORIAMENTE EN METHOD = "GET" -->
+          <form class="formulario" action="/user/login" method="post">
+            <div class="formulario__item">
+              <label class="formulario__label" for="email">Email:</label>
+              <input class="formulario__input <%= locals.errors && errors.email ? 'invalid' : null %>" type="text" id="email" name="email" value="<%= locals.oldData? oldData.email : null %>">
+              <% if (locals.errors && errors.email) { %>
+              <div class="text-danger">
+                <p><%=errors.email.msg%></p>
+              </div>
+              <% } %>
+            </div>
+            <div class="formulario__password">
+              <label class="formulario__label" for="password">Contraseña:</label>
+              <input class="formulario__input" type="password" id="password" name="password">
+            </div>
+            <div class="recordar-password">
+              <label for="recordarPassword">Recordame
+                <input class="recordar-password__checkbox" type="checkbox" name="recordarPassword" id="recordarPassword">
+                </button>
+              </label>
+            </div>
+            <div class="formulario__submit">
+              <div>
+                <p class="link-password-recover">¿Te olvidaste tu contraseña? <a href="">Recuperala
+                    acá.</a></p>
+                <p class="link-signup">¿No tenés cuenta? <a href="/user/signup">Creala acá.</a></p>
+              </div>
+              <button type="submit">
+                <i class="fa-solid fa-circle-arrow-right formulario__icon-submit"></i>
+              </button>
+            </div>
+          </form>
+        </section>
+      </section>
+    </main>
+    <!--footer-->
+    <%- include('../partials/footer.ejs')%>
+
+  </div>
 </body>
 
 </html>
