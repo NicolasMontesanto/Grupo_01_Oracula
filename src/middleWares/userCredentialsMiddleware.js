@@ -1,16 +1,14 @@
 //Middleware que verifica si existe un user registradx, si es admin, etc.
-function userCredentialsMiddleware(req, res, next){
+function userCredentialsMiddleware(req, res, next) {
     const userLogged = req.session.userLogged
     if (userLogged) {
-        if (userLogged) {
-            res.locals.loggedIn = true;
-            res.locals.userLogged = userLogged;
-        }
-        if (userLogged.isAdmin) {
-            res.locals.isAdmin = true;
-        }
+        res.locals.loggedIn = true;
+        res.locals.userLogged = userLogged;
     }
-    next();
+    if (userLogged.isAdmin) {
+        res.locals.isAdmin = true;
+    }
 }
+next();
 
 module.exports = userCredentialsMiddleware;

@@ -18,7 +18,6 @@ const usersController = {
     //procesar pedido de login
     processLogin: (req, res) => {
         const validationsResult = validationResult(req);
-        
         //Control de errores en el login
         if (validationsResult.errors.length > 0){
             res.render("./users/login", { errors: validationsResult.mapped(), oldData: req.body});
