@@ -7,22 +7,27 @@ const { validationResult } = require("express-validator");
 const bcrypt = require('bcryptjs');
 
 //funciones para usuarios
-const User = require('../models/User')
+const User = require('../models/User');
+const { log } = require("console");
 
 const usersController = {
     //login.html
     login: (req, res) => {
         res.render("./users/login", { titulo: "Ingresar" });
     },
-
+    //procesar pedido de login
     processLogin: (req, res) => {
         const validationsResult = validationResult(req);
+        
         //Control de errores en el login
         if (validationsResult.errors.length > 0){
             res.render("./users/login", { errors: validationsResult.mapped(), oldData: req.body});
         } else {
-            let userToLogin = User.findFirstByField('email', req.body.email);
-            
+            //buscamos los datos delle usuarix por el mail
+            let userSearch = User.findFirstByField('email', req.body.email);
+            //clonamos elle usuarix encontradx
+            let userToLogin = Object.assign({}, userSearch);
+
             if(userToLogin){
               //verifico la contraseña
              let passOK = bcrypt.compareSync(req.body.password, userToLogin.password)
@@ -31,30 +36,35 @@ const usersController = {
                 delete userToLogin.password;
                 //guardo el usuario loggeado en session
                 req.session.userLogged = userToLogin;
-
                 // ! ESTO EN REALIDAD DEBERIA REDIRIGIR AL PERFIL cuando la vista de perfil esté hecha 
                 return res.redirect('/')
              }else {
+                // si no se verificó la contraaseña
                 return res.render("./users/login", {
                     errors: {
                         password: {
-                            msg: 'La contraseña es incorrecta. Inténtalo nuevamente.'
+                            msg: 'Contraseña o email incorrectos.'
                         },
                     } ,  
                     oldData: req.body,            
                 });
              }
-            } 
+            }
+            // si no se verificó el mail 
             return res.render("./users/login", {
                 errors: {
                     email: {
-                        msg: 'El email ingresado no pertenece a una cuenta de Orácula'
+                        msg: 'Contraseña o email incorrectos.'
                     },
-                } ,  
+                },  
                 oldData: req.body,            
             });
-
         }
+    },
+    // hacer logout
+    logout: (req, res) => {
+        req.session.destroy();        
+        res.redirect("/");
     },
     //signup.html
     signup: (req, res) => {
@@ -100,7 +110,7 @@ const usersController = {
                 profilePicture: req.body.profilePicture,
                 password: bcrypt.hashSync(req.body.password, 10),
                 fechaDeCreacion: new Date(),
-                esAdmin: req.body.esAdmin?true:false
+                isAdmin: req.body.isAdmin?true:false
             };
             
             let userCreated = User.create(userToCreate);

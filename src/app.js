@@ -2,6 +2,9 @@ const express = require('express'); //requiero express
 const path = require('path'); //requiero path
 const session = require('express-session'); //requiero session
 const methodOverride = require("method-override");
+const userCredentialsMiddleware = require("./middleWares/userCredentialsMiddleware");
+const cookies = require("cookie-parser");
+
 //express
 let app = express(); 
 
@@ -17,6 +20,10 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
 }));
+//cookies
+app.use(cookies());
+// credenciales de usuarix
+app.use(userCredentialsMiddleware);
 
 //configuración de method-override
 app.use(methodOverride("_method"));
