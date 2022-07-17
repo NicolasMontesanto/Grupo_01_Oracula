@@ -92,9 +92,12 @@ const usersController = {
             
             //tomamos los datos del req.body
             let userToCreate = {
-                email: req.body.email,
                 nombre: req.body.nombre,
                 apellido: req.body.apellido,
+                email: req.body.email,
+                direccion:req.body.direccion,
+                telefono:req.body.telefono,
+                profilePicture: req.body.profilePicture,
                 password: bcrypt.hashSync(req.body.password, 10),
                 fechaDeCreacion: new Date(),
                 esAdmin: req.body.esAdmin?true:false
