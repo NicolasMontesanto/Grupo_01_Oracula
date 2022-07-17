@@ -47,9 +47,10 @@
     {
         "id": 7,
         "email": "arano.rocio.b@gmail.com",
-        "nombre": "Rocío ",
+        "nombre": "Rocío",
         "apellido": "Arano",
-        "fechaDeCreacion": "2022-07-16T20:11:08.961Z",
+        "password": "$2a$10$YiNMTcpJG1DphCHP5P0go.PrALPj0HSl3/vjLX/JvDHzuZh2RbB02",
+        "fechaDeCreacion": "2022-07-16T23:12:47.812Z",
         "esAdmin": false
     }
 ]

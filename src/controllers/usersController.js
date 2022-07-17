@@ -32,7 +32,7 @@ const usersController = {
                 //guardo el usuario loggeado en session
                 req.session.userLogged = userToLogin;
 
-                // ! esto en realidad va a redirigir al perfil, cuando la vista de perfil esté hecha 
+                // ! ESTO EN REALIDAD DEBERIA REDIRIGIR AL PERFIL cuando la vista de perfil esté hecha 
                 return res.redirect('/')
              }else {
                 return res.render("./users/login", {
@@ -138,5 +138,7 @@ const usersController = {
         User.delete(id);
         res.redirect("/");
     },
+
+    // ! FALTA IMPLEMENTAR EL METODO PROFILE: que renderiza la vista por get, incorporando a usuarix loggeadx 
 };
 module.exports = usersController;

@@ -2,20 +2,29 @@ const express = require('express');
 const routes = express.Router();
 const userController = require('../controllers/usersController');
 const path = require('path');
-upload = require('../middleWares/multerUsers');
-const validations = require("../middleWares/usersValidations");
+//middleware para visitantes - que impide que usuarixs logueadxs entren a login y registro 
+const guestMiddleware = require('../middleWares/guestMiddelware');
+//middleware para usuarixs logeadxs - que impide que usuarixs NO logueadxs entren a perfil y carrito 
+// ! FALTA IMPLEMENTAR EN LA RUTA DE PERFIL  cuando esté lista  
+const loggedMiddleware = require('../middleWares/loggedMiddleware');
+
+const upload = require('../middleWares/multerUsers');
+// validacion de productos 
+const validations = require('../middleWares/usersValidations');
 
 //rutas de páginas de usuarios
 //login
-routes.get("/login", userController.login);
-routes.post("/login",validations.validationsLogin, userController.processLogin);
+routes.get("/login", guestMiddleware, userController.login);
+routes.post("/login",  validations.validationsLogin, userController.processLogin);
 //registro
-routes.get("/signup", userController.signup);
+routes.get("/signup", guestMiddleware, userController.signup);
 routes.post("/signup", upload.single('profilePicture'), validations.validationsSignup, userController.store);
 //edicion
 routes.get("/:id/edit", userController.edit);
 routes.put("/:id/edit", upload.single('profilePicture'), userController.update);
 //borrado
 routes.delete("/:id/delete", userController.delete);
+
+// ! FALTA LA RUTA DE PROFILE (get) - que tiene que usar el loggedMidleware 
 
 module.exports = routes;
