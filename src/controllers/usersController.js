@@ -120,13 +120,16 @@ const usersController = {
         
         let id = req.params.id;
         //let file = req.file;
-        let { email, nombre, apellido, password } = req.body;
+        let { nombre, apellido, email, direccion, telefono, profilePicture, password } = req.body;
 
         users.forEach((item) => {
             if (item.id == id) {
-                item.email = email;
                 item.nombre = nombre;
                 item.apellido = apellido;
+                item.email = email;
+                item.direccion = direccion;
+                item.telefono = telefono;
+                item.profilePicture = profilePicture;
                 item.password = password;
             }
         });

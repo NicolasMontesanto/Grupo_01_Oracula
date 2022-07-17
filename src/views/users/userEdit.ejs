@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -22,11 +23,6 @@
                             <label class="formulario__label" for="id"> <%=user.nombre%> <%=user.apellido%> </label>
                         </div>
                         <div class="formulario__item">
-                            <label class="formulario__label" for="email">Email:</label>
-                            <input class="formulario__input" type="email" id="email" name="email"
-                                value="<%=user.email%>">
-                        </div>
-                        <div class="formulario__item">
                             <label class="formulario__label" for="nombre">Nombre:</label>
                             <textarea class="formulario__input input--text-area" type="text" id="nombre"
                                 name="nombre"><%=user.nombre%></textarea>
@@ -35,6 +31,26 @@
                             <label class="formulario__label" for="apellido">Apellido:</label>
                             <textarea class="formulario__input input--text-area" type="text" id="apellido"
                             name="apellido"><%=user.apellido%></textarea>
+                         </div>
+                         <div class="formulario__item">
+                            <label class="formulario__label" for="email">Email:</label>
+                            <input class="formulario__input" type="email" id="email" name="email"
+                                value="<%=user.email%>">
+                        </div>
+                         <div class="formulario__item">
+                            <label class="formulario__label" for="direccion">Dirección:</label>
+                            <textarea class="formulario__input input--text-area" type="text" id="direccion"
+                            name="direccion"><%=user.direccion%></textarea>
+                         </div>
+                         <div class="formulario__item">
+                            <label class="formulario__label" for="telefono">Teléfono:</label>
+                            <textarea class="formulario__input input--text-area" type="number" id="telefono"
+                            name="telefono"><%=user.telefono%></textarea>
+                         </div>
+                         <div class="formulario__item">
+                            <label class="formulario__label" for="profile-picture">Imagen de perfil:</label>
+                            <input class="formulario__input input--file" type="file" id="profilePicture" name="profilePicture" required
+                                accept="image/png, image/jpeg">
                          </div>
                          <div class="formulario__item">
                             <label class="formulario__label" for="password">Cambiar contraseña:</label>
