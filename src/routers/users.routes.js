@@ -26,7 +26,7 @@ routes.get("/:id/edit", userController.edit);
 routes.put("/:id/edit", upload.single('profilePicture'), userController.update);
 //borrado
 routes.delete("/:id/delete", userController.delete);
-
-// ! FALTA LA RUTA DE PROFILE (get) - que tiene que usar el loggedMidleware 
+//profile
+routes.get("/profile", loggedMiddleware.noLogged, userController.profile);
 
 module.exports = routes;
