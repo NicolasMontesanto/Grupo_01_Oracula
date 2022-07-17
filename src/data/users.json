@@ -52,5 +52,17 @@
         "password": "$2a$10$YiNMTcpJG1DphCHP5P0go.PrALPj0HSl3/vjLX/JvDHzuZh2RbB02",
         "fechaDeCreacion": "2022-07-16T23:12:47.812Z",
         "esAdmin": false
+    },
+    {
+        "id": 8,
+        "nombre": "Juan",
+        "apellido": "Cabrera",
+        "email": "juancrcabrera@gmail.com",
+        "direccion": "Neuquen 2484 Depto \"K\"",
+        "telefono": "03764735682",
+        "profilePicture": "/img/Profile-pictures/1658082742099-profileImg.jpg",
+        "password": "$2a$10$MNMqBUk.FFN7Ns.Lfdbdn.uQVqzriP5lylr6kPggLUq4du28rzGue",
+        "fechaDeCreacion": "2022-07-17T18:32:22.225Z",
+        "esAdmin": false
     }
 ]
