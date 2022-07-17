@@ -16,7 +16,7 @@ const User = {
 
     findByPK: function (id) {
         let allUsers = this.getData(); 
-        let userFound  = allUsers.find(unUsuario => unUsuario.id === id); 
+        let userFound  = allUsers.find(unUsuario => unUsuario.id == id); 
         return userFound; 
     },
 
