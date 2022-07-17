@@ -65,9 +65,11 @@ li {
     font-size: 50px;
     font-weight: bolder;
 }
-header{
+
+header {
     overflow-x: hidden;
 }
+
 .header {
     background-color: #45293f;
     display: flex;
@@ -87,7 +89,8 @@ header{
     width: 100%;
     max-width: 1200px;
 }
-.header__relleno{
+
+.header__relleno {
     height: 58px;
 }
 
@@ -102,14 +105,9 @@ button {
     margin-right: 5px;
 }
 
-
 a {
-    color: #a9b2a2;
+    color: inherit;
     text-decoration: none;
-}
-
-a:hover {
-    color: #FBB954;
 }
 
 .Busqueda {
@@ -149,6 +147,7 @@ a:hover {
 .menu__container {
     display: none;
 }
+
 .menu--categorias,
 .menu--generos,
 .menu--admin {
@@ -243,9 +242,11 @@ footer {
         position: fixed;
         height: max-content;
     }
-    .header__relleno{
+
+    .header__relleno {
         padding-bottom: 88px;
     }
+
     .logo {
         width: 10%;
     }
@@ -257,7 +258,7 @@ footer {
 
     .secciones {
         justify-content: space-between;
-        width: 70%;
+        width: 60%;
         min-width: 450px;
         max-width: 630px;
     }
@@ -265,7 +266,7 @@ footer {
     .secciones__lista {
         width: 100%;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
     }
 
     .secciones__elemento {
@@ -290,7 +291,7 @@ footer {
     }
 
     .botonesSuperiores {
-        width: 20%;
+        width: 30%;
         margin: 0px;
         max-width: 300px;
     }
@@ -302,10 +303,12 @@ footer {
 
     .botonesSuperiores__boton {
         font-size: 24px;
+        color: var(--marron-claro);
     }
 
     .botonesSuperiores__boton:hover {
-        font-size: 40px;
+        color: var(--oracula);
+        text-shadow: 0px 0px 10px var(--oracula);
     }
 
     .botonesSuperiores_Login {
@@ -348,6 +351,27 @@ footer {
         font-size: 30px;
     }
 
+    .dropdown__contenido {
+        display: none;
+        position: absolute;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1001;
+    }
+    .icon--dropdown{
+        font-size: 20px;
+    }
+    .dropdown__links{
+        color: var(--gris-claro);
+        background-color: var(--morado-oscuro);
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    .botonesSuperiores__dropdown:hover .dropdown__contenido {
+        display: block;
+      }
+
     .menu__container {
         display: flex;
         justify-content: center;
@@ -385,6 +409,7 @@ footer {
     }
 
     .menu__link {
+        color: var(--amarillo-naranja);
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -393,18 +418,21 @@ footer {
         overflow: hidden;
         height: max-content;
     }
-    .link--imagen{
+
+    .link--imagen {
         height: 200px;
     }
 
     .menu__imagen {
         height: 80%;
     }
-    .menu__description{
+
+    .menu__description {
         font-size: 20px;
+        font-weight: 100;
         padding-bottom: 10px;
     }
-   
+
     /*---FOOTER---*/
     .footer__container {
         justify-content: space-evenly;
@@ -413,6 +441,11 @@ footer {
 
     .links__link {
         line-height: 1.7em;
+        color: #a9b2a2;
+        text-decoration: none;
+    }
+    .links__link:hover{
+        color: #FBB954;
     }
 
     .footer__logo {
