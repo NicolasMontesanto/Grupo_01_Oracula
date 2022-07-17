@@ -7,85 +7,95 @@ const { validationResult } = require("express-validator");
 const bcrypt = require('bcryptjs');
 
 //funciones para usuarios
-const User = require('../models/User')
+const User = require('../models/User');
+const { log } = require("console");
 
 const usersController = {
     //login.html
     login: (req, res) => {
-        res.render("./users/login", { titulo: "Ingresar" });
+        res.render("./users/login");
     },
 
     //profile.html
     profile: (req, res) => {
-        res.render("./users/profile", { titulo: "Mi Perfil", user: req.session.userLogged }, ) 
+        res.render("./users/profile", {user: req.session.userLogged },)
     },
-
+    //procesar pedido de login
     processLogin: (req, res) => {
         const validationsResult = validationResult(req);
         //Control de errores en el login
-        if (validationsResult.errors.length > 0){
-            res.render("./users/login", { errors: validationsResult.mapped(), oldData: req.body});
+        if (validationsResult.errors.length > 0) {
+            res.render("./users/login", { errors: validationsResult.mapped(), oldData: req.body });
         } else {
-            let userToLogin = User.findFirstByField('email', req.body.email);
-            
-            if(userToLogin){
-              //verifico la contraseña
-             let passOK = bcrypt.compareSync(req.body.password, userToLogin.password)
-             if (passOK){
-                //borro la pass para que no quede en session
-                delete userToLogin.password;
-                //guardo el usuario loggeado en session
-                req.session.userLogged = userToLogin;
+            //buscamos los datos delle usuarix por el mail
+            let userSearch = User.findFirstByField('email', req.body.email);
+            //clonamos elle usuarix encontradx
+            let userToLogin = Object.assign({}, userSearch);
+
+            if (userToLogin) {
+                //verifico la contraseña
+                let passOK = bcrypt.compareSync(req.body.password, userToLogin.password)
+                if (passOK) {
+                    //borro la pass para que no quede en session
+                    delete userToLogin.password;
+                    //guardo el usuario loggeado en session
+                    req.session.userLogged = userToLogin;
 
                 return res.redirect('/user/profile' )
-             }else {
-                return res.render("./users/login", {
-                    errors: {
-                        password: {
-                            msg: 'La contraseña es incorrecta. Inténtalo nuevamente.'
+                } else {
+                    // si no se verificó la contraaseña
+                    return res.render("./users/login", {
+                        errors: {
+                            password: {
+                                msg: 'Contraseña o email incorrectos.'
+                            },
                         },
-                    } ,  
-                    oldData: req.body,            
-                });
-             }
-            } 
+                        oldData: req.body,
+                    });
+                }
+            }
+            // si no se verificó el mail 
             return res.render("./users/login", {
                 errors: {
                     email: {
-                        msg: 'El email ingresado no pertenece a una cuenta de Orácula'
+                        msg: 'Contraseña o email incorrectos.'
                     },
-                } ,  
-                oldData: req.body,            
+                },
+                oldData: req.body,
             });
-
         }
+    },
+    // hacer logout
+    logout: (req, res) => {
+        req.session.destroy();
+        res.redirect("/");
     },
     //signup.html
     signup: (req, res) => {
         res.render("./users/signup", { titulo: "Crear cuenta" });
     },
 
-    
+
 
     //Guardar usuario nuevo
     store: (req, res) => {
         const validationsResult = validationResult(req);
 
-           //si hay errores se renderiza de nuevo el formulario de register
+        //si hay errores se renderiza de nuevo el formulario de register
         if (validationsResult.errors.length > 0) {
             //si se cargó una imagen, se borra
-            if(req.file.filename) fs.unlinkSync(path.join(__dirname, "../../public/img/Profile-pictures/", req.file.filename));
-            
-           return res.render("./users/signup", {
-             errors: validationsResult.mapped(),
-              oldData: req.body,
+            if (req.file.filename) fs.unlinkSync(path.join(__dirname, "../../public/img/Profile-pictures/", req.file.filename));
+
+            return res.render("./users/signup", {
+                errors: validationsResult.mapped(),
+                oldData: req.body,
             });
 
-        }else {                              
+        } else {
             //busco si existe usuarie con el mismo mail
             let userInDB = User.findFirstByField('email', req.body.email);
-            
-            if(userInDB){
+
+            if (userInDB) {
                 return res.render("./users/signup", {
                     errors: {
                         email: {
@@ -93,23 +103,23 @@ const usersController = {
                         }
                     },
                     oldData: req.body,
-                   });
+                });
             }
-            
+
             //tomamos los datos del req.body
             let file = req.file;
             let userToCreate = {
                 nombre: req.body.nombre,
                 apellido: req.body.apellido,
                 email: req.body.email,
-                direccion:req.body.direccion,
-                telefono:req.body.telefono,
+                direccion: req.body.direccion,
+                telefono: req.body.telefono,
                 profilePicture: `/img/Profile-pictures/${file.filename}`,
                 password: bcrypt.hashSync(req.body.password, 10),
                 fechaDeCreacion: new Date(),
-                esAdmin: req.body.esAdmin?true:false
+                isAdmin: req.body.isAdmin ? true : false
             };
-            
+
             let userCreated = User.create(userToCreate);
 
             res.redirect("/user/login");
@@ -120,11 +130,11 @@ const usersController = {
     edit: (req, res) => {
         let id = req.params.id;
         let user = User.findByPK(id);
-        !user?res.send("El usuario no existe"):res.render("./users/userEdit", { user });
+        !user ? res.send("El usuario no existe") : res.render("./users/userEdit", { user });
     },
 
     update: (req, res) => {
-        
+
         let id = req.params.id;
         //let file = req.file;
         let { nombre, apellido, email, direccion, telefono, profilePicture, password } = req.body;

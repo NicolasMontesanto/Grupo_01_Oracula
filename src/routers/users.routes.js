@@ -16,6 +16,8 @@ const validations = require('../middleWares/usersValidations');
 //login
 routes.get("/login", guestMiddleware, userController.login);
 routes.post("/login",  validations.validationsLogin, userController.processLogin);
+//logout
+routes.get("/logout", userController.logout);
 //registro
 routes.get("/signup", guestMiddleware, userController.signup);
 routes.post("/signup", upload.single('profilePicture'), validations.validationsSignup, userController.store);

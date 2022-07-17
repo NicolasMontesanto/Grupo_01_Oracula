@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <%- include('../partials/head.ejs')%>
-    <title>Document</title>
+    <title><%= user.nombre + " " + user.apellido%> </title>
 </head>
 <body>
     <!--header-->
@@ -16,6 +16,5 @@
     <!--footer-->
     <%- include('../partials/footer.ejs')%>
     </div>
-    
 </body>
 </html>
