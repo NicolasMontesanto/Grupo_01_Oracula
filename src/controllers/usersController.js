@@ -129,8 +129,10 @@ const usersController = {
                 item.email = email;
                 item.direccion = direccion;
                 item.telefono = telefono;
-                item.profilePicture = profilePicture;
                 item.password = password;
+                if (file) {
+                    item.imagenes = `img/${file.filename}`;
+                }
             }
         });
 
