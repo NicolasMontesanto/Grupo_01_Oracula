@@ -25,11 +25,11 @@
           </button>
         </div>
         <section class="formulario__container">
-          <!-- PROVISIORIAMENTE EN METHOD = "GET" -->
-          <form class="formulario" action="/user/login" method="post">
+        
+          <form class="formulario" action="/user/login" method="POST">
             <div class="formulario__item">
               <label class="formulario__label" for="email">Email:</label>
-              <input class="formulario__input <%= locals.errors && errors.email ? 'invalid' : null %>" type="text" id="email" name="email" value="<%= locals.oldData? oldData.email : null %>">
+              <input class="formulario__input <%= locals.errors && errors.email ? 'invalid' : null %>" type="text" id="email" name="email" value="<%= locals.oldData ? oldData.email : null %>">
               <% if (locals.errors && errors.email) { %>
               <div class="text-danger">
                 <p><%=errors.email.msg%></p>
@@ -38,7 +38,12 @@
             </div>
             <div class="formulario__password">
               <label class="formulario__label" for="password">Contraseña:</label>
-              <input class="formulario__input" type="password" id="password" name="password">
+              <input class="formulario__input <%= locals.errors && errors.password ? 'invalid' : null %>" type="password" id="password" name="password">
+              <% if (locals.errors && errors.password) { %>
+                <div class="text-danger">
+                  <p><%=errors.password.msg%></p>
+                </div>
+                <% } %>
             </div>
             <div class="recordar-password">
               <label for="recordarPassword">Recordame

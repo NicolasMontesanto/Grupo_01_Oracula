@@ -1,5 +1,6 @@
 const express = require('express'); //requiero express
 const path = require('path'); //requiero path
+const session = require('express-session'); //requiero session
 const methodOverride = require("method-override");
 //express
 let app = express(); 
@@ -10,6 +11,12 @@ app.set("view engine", "ejs");
 app.set('views', __dirname + '/views')
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+//session
+app.use(session({
+    secret: 'Oracula secrets',
+    resave: false,
+    saveUninitialized: false,
+}));
 
 //configuración de method-override
 app.use(methodOverride("_method"));

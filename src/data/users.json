@@ -4,39 +4,53 @@
         "email": "amalia@gmail.com",
         "nombre": "Amalia",
         "apellido": "Rodriguez",
-        "contraseña": "2020",
-        "fechaDeCreacion": "2022-06-22T00:28:56.854Z"
+        "password": "2020",
+        "fechaDeCreacion": "2022-06-22T00:28:56.854Z",
+        "esAdmin": false
     },
     {
         "id": 3,
         "email": "nestormendes@gmail.com",
         "nombre": "Nestor Roberto",
         "apellido": "Mendes",
-        "contraseña": "2023frf",
-        "fechaDeCreacion": "2022-06-22T00:28:56.854Z"
+        "password": "2023frf",
+        "fechaDeCreacion": "2022-06-22T00:28:56.854Z",
+        "esAdmin": false
     },
     {
         "id": 4,
         "email": "grl@gmail.com",
         "nombre": "Germán",
         "apellido": "Lopez",
-        "contraseña": "2hjklsl0",
-        "fechaDeCreacion": "2022-06-22T00:28:56.854Z"
+        "password": "2hjklsl0",
+        "fechaDeCreacion": "2022-06-22T00:28:56.854Z",
+        "esAdmin": false
     },
     {
         "id": 5,
         "email": "raulit@gmail.com",
         "nombre": "Raul",
         "apellido": "Torres",
-        "contraseña": "foxiii",
-        "fechaDeCreacion": "2022-06-22T00:28:56.854Z"
+        "password": "foxiii",
+        "fechaDeCreacion": "2022-06-22T00:28:56.854Z",
+        "esAdmin": false
     },
     {
         "id": 6,
         "email": "2020lore@gmail.com",
         "nombre": "Lorena",
         "apellido": "Moniec",
-        "contraseña": "monalisa1",
-        "fechaDeCreacion": "2022-06-22T00:28:56.854Z"
+        "password": "monalisa1",
+        "fechaDeCreacion": "2022-06-22T00:28:56.854Z",
+        "esAdmin": false
+    },
+    {
+        "id": 7,
+        "email": "arano.rocio.b@gmail.com",
+        "nombre": "Rocío",
+        "apellido": "Arano",
+        "password": "$2a$10$YiNMTcpJG1DphCHP5P0go.PrALPj0HSl3/vjLX/JvDHzuZh2RbB02",
+        "fechaDeCreacion": "2022-07-16T23:12:47.812Z",
+        "esAdmin": false
     }
 ]
