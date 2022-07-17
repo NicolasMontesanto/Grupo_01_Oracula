@@ -15,6 +15,11 @@ const usersController = {
         res.render("./users/login", { titulo: "Ingresar" });
     },
 
+    //profile.html
+    profile: (req, res) => {
+        res.render("./users/profile", { titulo: "Mi Perfil", user: req.session.userLogged }, ) 
+    },
+
     processLogin: (req, res) => {
         const validationsResult = validationResult(req);
         //Control de errores en el login
@@ -32,8 +37,7 @@ const usersController = {
                 //guardo el usuario loggeado en session
                 req.session.userLogged = userToLogin;
 
-                // ! ESTO EN REALIDAD DEBERIA REDIRIGIR AL PERFIL cuando la vista de perfil esté hecha 
-                return res.redirect('/')
+                return res.redirect('/user/profile' )
              }else {
                 return res.render("./users/login", {
                     errors: {
@@ -60,6 +64,8 @@ const usersController = {
     signup: (req, res) => {
         res.render("./users/signup", { titulo: "Crear cuenta" });
     },
+
+    
 
     //Guardar usuario nuevo
     store: (req, res) => {
@@ -91,13 +97,14 @@ const usersController = {
             }
             
             //tomamos los datos del req.body
+            let file = req.file;
             let userToCreate = {
                 nombre: req.body.nombre,
                 apellido: req.body.apellido,
                 email: req.body.email,
                 direccion:req.body.direccion,
                 telefono:req.body.telefono,
-                profilePicture: req.body.profilePicture,
+                profilePicture: `/img/Profile-pictures/${file.filename}`,
                 password: bcrypt.hashSync(req.body.password, 10),
                 fechaDeCreacion: new Date(),
                 esAdmin: req.body.esAdmin?true:false
