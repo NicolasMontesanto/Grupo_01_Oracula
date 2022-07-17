@@ -126,10 +126,10 @@ const usersController = {
     update: (req, res) => {
         
         let id = req.params.id;
-        //let file = req.file;
-        let { nombre, apellido, email, direccion, telefono, profilePicture, password } = req.body;
+        let file = req.file;
+        let { nombre, apellido, email, direccion, telefono, password } = req.body;
 
-        users.forEach((item) => {
+        users.forEach(item => {
             if (item.id == id) {
                 item.nombre = nombre;
                 item.apellido = apellido;
