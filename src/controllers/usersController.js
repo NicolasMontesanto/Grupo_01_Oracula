@@ -21,7 +21,39 @@ const usersController = {
         if (validationsResult.errors.length > 0){
             res.render("./users/login", { errors: validationsResult.mapped(), oldData: req.body});
         } else {
-            //Hacer el login    
+            let userToLogin = User.findFirstByField('email', req.body.email);
+            
+            if(userToLogin){
+              //verifico la contraseña
+             let passOK = bcrypt.compareSync(req.body.password, userToLogin.password)
+             if (passOK){
+                //borro la pass para que no quede en session
+                delete userToLogin.password;
+                //guardo el usuario loggeado en session
+                req.session.userLogged = userToLogin;
+
+                // ! esto en realidad va a redirigir al perfil, cuando la vista de perfil esté hecha 
+                return res.redirect('/')
+             }else {
+                return res.render("./users/login", {
+                    errors: {
+                        password: {
+                            msg: 'La contraseña es incorrecta. Inténtalo nuevamente.'
+                        },
+                    } ,  
+                    oldData: req.body,            
+                });
+             }
+            } 
+            return res.render("./users/login", {
+                errors: {
+                    email: {
+                        msg: 'El email ingresado no pertenece a una cuenta de Orácula'
+                    },
+                } ,  
+                oldData: req.body,            
+            });
+
         }
     },
     //signup.html

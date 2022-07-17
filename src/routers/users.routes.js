@@ -5,8 +5,6 @@ const path = require('path');
 upload = require('../middleWares/multerUsers');
 const validations = require("../middleWares/usersValidations");
 
-
-
 //rutas de páginas de usuarios
 //login
 routes.get("/login", userController.login);
