@@ -37,7 +37,6 @@ const usersController = {
                 //guardo el usuario loggeado en session
                 req.session.userLogged = userToLogin;
 
-                // ! ESTO EN REALIDAD DEBERIA REDIRIGIR AL PERFIL cuando la vista de perfil esté hecha 
                 return res.redirect('/user/profile' )
              }else {
                 return res.render("./users/login", {
