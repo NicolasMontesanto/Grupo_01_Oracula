@@ -13,12 +13,12 @@ const { log } = require("console");
 const usersController = {
     //login.html
     login: (req, res) => {
-        res.render("./users/login", { titulo: "Ingresar" });
+        res.render("./users/login");
     },
 
     //profile.html
     profile: (req, res) => {
-        res.render("./users/profile", { titulo: "Mi Perfil", user: req.session.userLogged },)
+        res.render("./users/profile", {user: req.session.userLogged },)
     },
     //procesar pedido de login
     processLogin: (req, res) => {

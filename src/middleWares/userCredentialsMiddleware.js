@@ -5,10 +5,10 @@ function userCredentialsMiddleware(req, res, next) {
         res.locals.loggedIn = true;
         res.locals.userLogged = userLogged;
     }
-    if (userLogged.isAdmin) {
+    if (userLogged && userLogged.isAdmin) {
         res.locals.isAdmin = true;
     }
-}
-next();
 
+next();
+}
 module.exports = userCredentialsMiddleware;
