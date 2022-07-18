@@ -17,9 +17,9 @@ const usersController = {
 
     //profile.html
     profile: (req, res) => {
-        res.render("./users/profile", { titulo: "Mi Perfil", user: req.session.userLogged }, ) 
+        res.render("./users/profile", { user: req.session.userLogged },)
     },
-
+     //procesar pedido de login
     processLogin: (req, res) => {
         const validationsResult = validationResult(req);
         //Control de errores en el login
@@ -37,36 +37,34 @@ const usersController = {
                 //guardo el usuario loggeado en session
                 req.session.userLogged = userToLogin;
 
-                return res.redirect('/user/profile' )
-             }else {
-                return res.render("./users/login", {
-                    errors: {
-                        password: {
-                            msg: 'La contraseña es incorrecta. Inténtalo nuevamente.'
+                    return res.redirect('/user/profile')
+                } else {
+                    // si no se verificó la contraseña
+                    return res.render("./users/login", {
+                        errors: {
+                            password: {
+                                msg: 'Contraseña o email incorrectos.'
+                            },
                         },
-                    } ,  
-                    oldData: req.body,            
-                });
-             }
-            } 
+                        oldData: req.body,
+                    });
+                }
+            }
+            // si no se verificó el mail 
             return res.render("./users/login", {
                 errors: {
                     email: {
-                        msg: 'El email ingresado no pertenece a una cuenta de Orácula'
+                        msg: 'Contraseña o email incorrectos.'
                     },
-                } ,  
-                oldData: req.body,            
+                },
+                oldData: req.body,
             });
-
         }
     },
     //signup.html
     signup: (req, res) => {
         res.render("./users/signup", { titulo: "Crear cuenta" });
     },
-
-    
-
     //Guardar usuario nuevo
     store: (req, res) => {
         const validationsResult = validationResult(req);
