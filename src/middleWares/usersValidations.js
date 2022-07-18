@@ -8,8 +8,8 @@ const validationsSignup = [
     body('email')
         .notEmpty().withMessage('Por favor completá tu correo').bail()
         .isEmail().withMessage('¡El formato del correo no es válido! Intentalo de nuevo'),
-    body('direccion').notEmpty().withMessage('Por favor completá con tu dirección'),
-    body('telefono').notEmpty().withMessage('Por favor completá con tu teléfono'),
+    body('direccion').isAlphanumeric().withMessage('Por favor completá con tu dirección'),
+    body('telefono').isNumeric().withMessage('Por favor completá con tu número de teléfono'),
     body('profilePicture').custom((value, { req }) => {
         let file = req.file;
         let extensionesPermitidas = ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.jfif'];
@@ -43,4 +43,4 @@ const validationsLogin = [
     body('password').notEmpty().withMessage('No olvides tu contraseña'),
 ];
 
-module.exports = {validationsSignup, validationsLogin};
+module.exports = {validationsSignup, validationsLogin };

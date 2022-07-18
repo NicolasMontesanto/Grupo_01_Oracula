@@ -57,7 +57,7 @@
                             </div>
                             <div class="formulario__item">
                                 <label class="formulario__label" for="direccion">Dirección:</label>
-                                <input class="formulario__input <%= locals.errors && errors.direccion ? 'invalid' : null %>" type="text" id="direccion" name="direccion" required value="<%= locals.oldData ? oldData.direccion : null %>">
+                                <input class="formulario__input <%= locals.errors && errors.direccion ? 'invalid' : null %>" type="text" id="direccion" name="direccion" value="<%= locals.oldData ? oldData.direccion : null %>">
                                 <% if (locals.errors && errors.direccion) { %>
                                     <div class="text-danger">
                                      <p><%=errors.direccion.msg%></p>
@@ -67,7 +67,7 @@
                             </div>
                             <div class="formulario__item">
                                 <label class="formulario__label" for="telefono">Teléfono:</label>
-                                <input class="formulario__input <%= locals.errors && errors.telefono ? 'invalid' : null %>" type="number" id="telefono" name="telefono" required value="<%= locals.oldData ? oldData.telefono : null %>">
+                                <input class="formulario__input <%= locals.errors && errors.telefono ? 'invalid' : null %>" type="number" id="telefono" name="telefono" value="<%= locals.oldData ? oldData.telefono : null %>">
                                 <% if (locals.errors && errors.telefono) { %>
                                     <div class="text-danger">
                                      <p><%=errors.telefono.msg%></p>
