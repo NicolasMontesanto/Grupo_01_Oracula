@@ -18,7 +18,7 @@ const usersController = {
 
     //profile.html
     profile: (req, res) => {
-        res.render("./users/profile", {user: req.session.userLogged },)
+        res.render("./users/profile", { user: req.session.userLogged },)
     },
     //procesar pedido de login
     processLogin: (req, res) => {
@@ -41,7 +41,7 @@ const usersController = {
                     //guardo el usuario loggeado en session
                     req.session.userLogged = userToLogin;
 
-                return res.redirect('/user/profile' )
+                    return res.redirect('/user/profile')
                 } else {
                     // si no se verificó la contraaseña
                     return res.render("./users/login", {
@@ -65,18 +65,10 @@ const usersController = {
             });
         }
     },
-    // hacer logout
-    logout: (req, res) => {
-        req.session.destroy();
-        res.redirect("/");
-    },
     //signup.html
     signup: (req, res) => {
         res.render("./users/signup", { titulo: "Crear cuenta" });
     },
-
-
-
     //Guardar usuario nuevo
     store: (req, res) => {
         const validationsResult = validationResult(req);
@@ -161,6 +153,11 @@ const usersController = {
     delete: (req, res) => {
         let id = req.params.id;
         User.delete(id);
+        res.redirect("/");
+    },
+    // hacer logout
+    logout: (req, res) => {
+        req.session.destroy();
         res.redirect("/");
     },
 
