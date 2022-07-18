@@ -363,10 +363,16 @@ footer {
     }
     .dropdown__links{
         color: var(--gris-claro);
+        font-size: 20px;
         background-color: var(--morado-oscuro);
+        border: solid 5px var(--morado-oscuro);
         padding: 12px 16px;
         text-decoration: none;
         display: block;
+    }
+    .dropdown__links:hover{
+        color: var(--amarillo-naranja);
+        background-color: var(--morado);
     }
     .botonesSuperiores__dropdown:hover .dropdown__contenido {
         display: block;
