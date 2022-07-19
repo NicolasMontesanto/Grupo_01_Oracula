@@ -23,7 +23,7 @@ routes.get("/signup", guestMiddleware, userController.signup);
 routes.post("/signup", upload.single('profilePicture'), validations.validationsSignup, userController.store);
 //edicion
 routes.get("/:id/edit", userController.edit);
-routes.put("/:id/edit", upload.single('profilePicture'), userController.update);
+routes.put("/:id/edit", upload.single('profilePicture'), validations.validationsEdit, userController.update); 
 //borrado
 routes.delete("/:id/delete", userController.delete);
 //profile

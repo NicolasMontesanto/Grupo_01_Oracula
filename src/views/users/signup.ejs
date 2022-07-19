@@ -32,7 +32,7 @@
                                     <div class="text-danger">
                                      <p><%=errors.nombre.msg%></p>
                                     </div>
-                                                                     
+                                           
                                     <% } %>
                             </div>
                             <div class="formulario__item">
@@ -88,7 +88,7 @@
                             </div>
                             <div class="formulario__item">
                                 <label class="formulario__label" for="password">Contraseña:</label>
-                                <input class="formulario__input <%= locals.errors && errors.password ? 'invalid' : null %>" type="password" id="password" name="password">
+                                <input class="formulario__input <%= locals.errors && errors.password ? 'invalid' : null %>" type="password" id="password" name="password" minlength="6">
                                 <% if (locals.errors && errors.password) { %>
                                     <div class="text-danger">
                                      <p><%=errors.password.msg%></p>
@@ -99,7 +99,7 @@
                             <div class="formulario__item">
                                 <label class="formulario__label" for="passwordRepetir">Repita su Contraseña:</label>
                                 <input class="formulario__input <%= locals.errors && errors.passwordRepetir ? 'invalid' : null %>" type="password" id="password-repetir"
-                                    name="passwordRepetir">
+                                    name="passwordRepetir" minlength="6">
                                     <% if (locals.errors && errors.passwordRepetir) { %>
                                         <div class="text-danger">
                                          <p><%=errors.passwordRepetir.msg%></p>
