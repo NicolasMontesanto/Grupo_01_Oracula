@@ -1,20 +1,18 @@
 [
     {
         "id": 1,
-        "nombre": "Cuentos de Beedle el Bardo ",
+        "nombre": "Cuentos de Beedle el Bardo",
         "descripcion": "Autoría: J. K. Rowling \r\n\r\nSerie de cuentos escritos por la figura legendaria de Beedle el bardo, traducidos de su lenguaje rúnico original por Hermione Granger, y anotados por Albus Dumbledore",
         "precio": "3500",
         "imagenes": "/img/productos/1656443047391-prodImg.jpg",
         "categoria": "Literatura",
         "subcategoria": "Cuento",
         "generos": [
-            "urbana",
             "juvenil"
         ],
         "esNovedad": true,
         "esDestacado": false,
         "esOferta": false,
-        "descuento": "",
         "fechaDeCreacion": "2022-06-28T19:04:07.398Z"
     },
     {
@@ -306,7 +304,7 @@
     {
         "id": 18,
         "nombre": "Historias Extraordinarias",
-        "descripcion": "Autoría: Edgar Allan Poe\r\n\r\nEn los 13 relatos que estás por escuchar Poe explora la locura, la muerte, el dolor, la crueldad, el instinto asesino, la desintegración física y moral, la soledad, el aislamiento y la duplicidad de la naturaleza humana.\r\n",
+        "descripcion": "",
         "precio": "1000",
         "imagenes": "/img/productos/1656449162057-prodImg.jpg",
         "categoria": "Literatura",
@@ -318,7 +316,6 @@
         "esNovedad": true,
         "esDestacado": false,
         "esOferta": true,
-        "descuento": "50",
         "fechaDeCreacion": "2022-06-28T20:46:02.066Z"
     },
     {
@@ -877,7 +874,7 @@
         "id": 50,
         "nombre": "MEDIAS HARRY POTTER GRYFFINDOR",
         "descripcion": "Medias tematicas de Gryffindor",
-        "precio": "750",
+        "precio": "700",
         "imagenes": "/img/productos/1656459052016-prodImg.jpg",
         "categoria": "Baratijas",
         "subcategoria": "Ropa",
@@ -888,7 +885,6 @@
         "esNovedad": true,
         "esDestacado": true,
         "esOferta": false,
-        "descuento": "",
         "fechaDeCreacion": "2022-06-28T23:30:52.023Z"
     },
     {
