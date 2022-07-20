@@ -5,11 +5,11 @@ const path = require('path');
 //middleware para visitantes - que impide que usuarixs logueadxs entren a login y registro 
 const guestMiddleware = require('../middleWares/guestMiddelware');
 //middleware para usuarixs logeadxs - que impide que usuarixs NO logueadxs entren a perfil y carrito 
-// ! FALTA IMPLEMENTAR EN LA RUTA DE PERFIL  cuando esté lista  
+
 const loggedMiddleware = require('../middleWares/loggedMiddleware');
 
 const upload = require('../middleWares/multerUsers');
-// validacion de productos 
+// validacion de usuarios 
 const validations = require('../middleWares/usersValidations');
 
 //rutas de páginas de usuarios
