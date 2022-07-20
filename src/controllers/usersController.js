@@ -116,8 +116,8 @@ const usersController = {
                 profilePicture: `/img/Profile-pictures/${file.filename}`,
                 password: bcrypt.hashSync(req.body.password, 10),
                 fechaDeCreacion: new Date(),
-                isAdmin: req.body.isAdmin ? true : false
-
+                isAdmin: req.body.isAdmin ? true : false,
+                tieneMagicPass: false
             };
 
             let userCreated = User.create(userToCreate);

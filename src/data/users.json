@@ -6,7 +6,8 @@
         "apellido": "Rodriguez",
         "password": "2020",
         "fechaDeCreacion": "2022-06-22T00:28:56.854Z",
-        "isAdmin": false
+        "isAdmin": false,
+        "tieneMagicPass": false
     },
     {
         "id": 3,
@@ -17,7 +18,8 @@
         "fechaDeCreacion": "2022-06-22T00:28:56.854Z",
         "esAdmin": false,
         "direccion": "",
-        "telefono": ""
+        "telefono": "",
+        "tieneMagicPass": false
     },
     {
         "id": 4,
@@ -26,7 +28,8 @@
         "apellido": "Lopez",
         "password": "2hjklsl0",
         "fechaDeCreacion": "2022-06-22T00:28:56.854Z",
-        "isAdmin": false
+        "isAdmin": false,
+        "tieneMagicPass": false
     },
     {
         "id": 5,
@@ -35,7 +38,8 @@
         "apellido": "Torres",
         "password": "foxiii",
         "fechaDeCreacion": "2022-06-22T00:28:56.854Z",
-        "isAdmin": false
+        "isAdmin": false,
+        "tieneMagicPass": false
     },
     {
         "id": 6,
@@ -44,7 +48,8 @@
         "apellido": "Moniec",
         "password": "monalisa1",
         "fechaDeCreacion": "2022-06-22T00:28:56.854Z",
-        "isAdmin": false
+        "isAdmin": false,
+        "tieneMagicPass": false
     },
     {
         "id": 7,
@@ -53,7 +58,8 @@
         "apellido": "Arano",
         "password": "$2a$10$YiNMTcpJG1DphCHP5P0go.PrALPj0HSl3/vjLX/JvDHzuZh2RbB02",
         "fechaDeCreacion": "2022-07-16T23:12:47.812Z",
-        "isAdmin": false
+        "isAdmin": false,
+        "tieneMagicPass": true
     },
     {
         "id": 8,
@@ -64,7 +70,8 @@
         "telefono": "3764801004",
         "password": "$2a$10$Kn3HqiqaZSyVia0WqY/jxuwrY.VfSzToyFFXLH3lEHzckM45xgvE.",
         "fechaDeCreacion": "2022-07-17T20:00:36.447Z",
-        "isAdmin": true
+        "isAdmin": true,
+        "tieneMagicPass": false
     },
     {
         "id": 9,
@@ -75,7 +82,8 @@
         "telefono": "3764801004",
         "password": "$2a$10$Kn3HqiqaZSyVia0WqY/jxuwrY.VfSzToyFFXLH3lEHzckM45xgvE.",
         "fechaDeCreacion": "2022-07-17T21:33:41.733Z",
-        "isAdmin": false
+        "isAdmin": false,
+        "tieneMagicPass": true
     },
     {
         "id": 10,
@@ -87,7 +95,8 @@
         "profilePicture": "/img/Profile-pictures/1658082742099-profileImg.jpg",
         "password": "$2a$10$MNMqBUk.FFN7Ns.Lfdbdn.uQVqzriP5lylr6kPggLUq4du28rzGue",
         "fechaDeCreacion": "2022-07-17T18:32:22.225Z",
-        "isAdmin": true
+        "isAdmin": true,
+        "tieneMagicPass": true
     },
     {
         "id": 11,
@@ -99,6 +108,7 @@
         "profilePicture": "/img/Profile-pictures/1658267851156-profileImg.png",
         "password": "$2a$10$Q41sX29YB3Dl8v.NHjNygOD8KW50zf1uA.ceoP0BsegMgeCqi9krO",
         "fechaDeCreacion": "2022-07-19T21:57:31.253Z",
-        "esAdmin": false
+        "isAdmin": false,
+        "tieneMagicPass": true
     }
 ]
