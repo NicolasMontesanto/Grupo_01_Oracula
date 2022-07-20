@@ -127,14 +127,17 @@
     margin-bottom: 20px;
     position: relative;
 }
-.link-password-recover{
-    font-size: 14px;
+.label--secondary{
+    color: var(--gris-claro);
+    font-size: 20px;
     margin-left: 20px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
-.link-signup{
-    font-size: 14px;
-    margin-left: 20px;
+.formulario__link{
+    text-decoration: underline;
+}
+.formulario__link:hover{
+    color: var(--amarillo-naranja);
 }
 
 .formulario__icon-submit {

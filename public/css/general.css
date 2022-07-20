@@ -302,8 +302,10 @@ footer {
     }
 
     .botonesSuperiores__boton {
-        font-size: 24px;
+        font-size: 22px;
         color: var(--marron-claro);
+        max-width: 140px;
+        word-wrap: break-word;
     }
 
     .botonesSuperiores__boton:hover {

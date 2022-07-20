@@ -19,27 +19,27 @@ const usersController = {
     profile: (req, res) => {
         res.render("./users/profile", { user: req.session.userLogged },)
     },
-     //procesar pedido de login
+    //procesar pedido de login
     processLogin: (req, res) => {
         const validationsResult = validationResult(req);
         //Control de errores en el login
-        if (validationsResult.errors.length > 0){
-            res.render("./users/login", { errors: validationsResult.mapped(), oldData: req.body});
+        if (validationsResult.errors.length > 0) {
+            res.render("./users/login", { errors: validationsResult.mapped(), oldData: req.body });
         } else {
-            let userToLogin = User.findFirstByField('email', req.body.email);
-            
-            if(userToLogin){
-              //verifico la contraseña
-             let passOK = bcrypt.compareSync(req.body.password, userToLogin.password)
-             if (passOK){
-                //borro la pass para que no quede en session
-                delete userToLogin.password;
-                //guardo el usuario loggeado en session
-                req.session.userLogged = userToLogin;
-                //chequeo si tildó recordarme
-                if (req.body.recordarPassword != undefined ) {
-                    res.cookie('recordarPassword', userToLogin.email,  {maxAge: 900000 })
-                }
+            let userSearch = User.findFirstByField('email', req.body.email);
+            let userToLogin = Object.assign({}, userSearch);
+            if (userToLogin) {
+                //verifico la contraseña
+                let passOK = bcrypt.compareSync(req.body.password, userToLogin.password)
+                if (passOK) {
+                    //borro la pass para que no quede en session
+                    delete userToLogin.password;
+                    //guardo el usuario loggeado en session
+                    req.session.userLogged = userToLogin;
+                    //chequeo si tildó recordarme
+                    if (req.body.recordarPassword != undefined) {
+                        res.cookie('recordarPassword', userToLogin.email, { maxAge: 1000 * 60 * 15 })
+                    }
 
                     return res.redirect('/user/profile')
                 } else {
@@ -74,21 +74,27 @@ const usersController = {
     store: (req, res) => {
         const validationsResult = validationResult(req);
 
-           //si hay errores se renderiza de nuevo el formulario de register
+        //si hay errores se renderiza de nuevo el formulario de register
         if (validationsResult.errors.length > 0) {
             //si se cargó una imagen, se borra
-            if(req.file.filename) fs.unlinkSync(path.join(__dirname, "../../public/img/Profile-pictures/", req.file.filename));
-            
-           return res.render("./users/signup", {
-             errors: validationsResult.mapped(),
-              oldData: req.body,
+            if (req.file.filename) {
+                fs.unlinkSync(path.join(__dirname, "../../public/img/Profile-pictures/", req.file.filename));
+            }
+
+            return res.render("./users/signup", {
+                errors: validationsResult.mapped(),
+                oldData: req.body,
             });
 
-        }else {                              
+        } else {
             //busco si existe usuarie con el mismo mail
             let userInDB = User.findFirstByField('email', req.body.email);
-            
-            if(userInDB){
+
+            if (userInDB) {
+                //si se cargó una imagen, se borra
+                if (req.file.filename) {
+                    fs.unlinkSync(path.join(__dirname, "../../public/img/Profile-pictures/", req.file.filename));
+                }
                 return res.render("./users/signup", {
                     errors: {
                         email: {
@@ -96,9 +102,9 @@ const usersController = {
                         }
                     },
                     oldData: req.body,
-                   });
+                });
             }
-            
+
             //tomamos los datos del req.body
             let file = req.file;
             let userToCreate = {
@@ -106,14 +112,14 @@ const usersController = {
                 apellido: req.body.apellido,
                 email: req.body.email,
                 direccion: req.body.direccion,
-                telefono:req.body.telefono,
+                telefono: req.body.telefono,
                 profilePicture: `/img/Profile-pictures/${file.filename}`,
                 password: bcrypt.hashSync(req.body.password, 10),
                 fechaDeCreacion: new Date(),
-                esAdmin: req.body.esAdmin?true:false
-                
+                isAdmin: req.body.isAdmin ? true : false
+
             };
-            
+
             let userCreated = User.create(userToCreate);
 
             res.redirect("/user/login");
@@ -124,11 +130,11 @@ const usersController = {
     edit: (req, res) => {
         let id = req.params.id;
         let user = User.findByPK(id);
-        !user?res.send("El usuario no existe"):res.render("./users/userEdit", { user });
+        !user ? res.send("El usuario no existe") : res.render("./users/userEdit", { user });
     },
 
     update: (req, res) => {
-        
+
         let id = req.params.id;
         let file = req.file;
         let { nombre, apellido, email, direccion, telefono, password } = req.body;
@@ -159,6 +165,7 @@ const usersController = {
     },
     // hacer logout
     logout: (req, res) => {
+        res.clearCookie("recordarPassword");
         req.session.destroy();
         res.redirect("/");
     },
