@@ -52,7 +52,7 @@
     margin: auto;
     margin-bottom: 20px;
     font-size: 20px;
-    color: var(--amarillo-anaranjado);
+    color: var(--amarillo-naranja);
 }
 .boton-google{
     margin-top: 10px;
@@ -112,6 +112,23 @@
     height: 35px;
     width: 100%;
     background-color: rgb(240,240,240);
+    padding: 0px 5px;
+    font-size: 20px;
+}
+.formulario--checkbox{
+    display:flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+.label--checkbox{
+    padding-top: 5px;
+    min-width: 180px;
+}
+.input--checkbox{
+    margin-left: 10px;
+    min-width: 20px;
+    height: 20px;
 }
 .recordar-password{
     display: flex;
@@ -129,15 +146,17 @@
     align-items: center;
     margin-bottom: 20px;
 }
-.link-password-recover{
-    font-size: 14px;
-    margin-left: 20px;
-    margin-bottom: 5px;
-}
-.link-login{
+.label--secondary{
     color: var(--gris-claro);
-    font-size: 16px;
+    font-size: 20px;
     margin-left: 20px;
+    margin-bottom: 10px;
+}
+.formulario__link{
+    text-decoration: underline;
+}
+.formulario__link:hover{
+    color: var(--amarillo-naranja);
 }
 
 .formulario__icon-submit {
