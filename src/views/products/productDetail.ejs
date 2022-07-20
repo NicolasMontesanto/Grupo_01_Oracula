@@ -34,10 +34,12 @@
                 <div>
                   <a href="#" class="product-btn"><i class="fas fa-share"></i></a>
                 </div>
+                <% if(locals.userLogged && locals.userLogged.isAdmin){ %> 
                 <div>
                   <a href="/product/<%=elProducto.id%>/edit" class="product-btn"><i
                       class="fa-solid fa-pen-to-square"></i></a>
                 </div>
+                <% } %> 
 
                 <!-- Rating -->
                 <div class="rate">

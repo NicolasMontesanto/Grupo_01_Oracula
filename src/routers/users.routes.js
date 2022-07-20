@@ -7,6 +7,7 @@ const guestMiddleware = require('../middleWares/guestMiddelware');
 //middleware para usuarixs logeadxs - que impide que usuarixs NO logueadxs entren a perfil y carrito 
 
 const loggedMiddleware = require('../middleWares/loggedMiddleware');
+const adminAuthMiddleware = require("../middleWares/adminAuthMiddleware");
 
 const upload = require('../middleWares/multerUsers');
 // validacion de usuarios 
@@ -21,6 +22,8 @@ routes.get("/logout", userController.logout);
 //registro
 routes.get("/signup", guestMiddleware, userController.signup);
 routes.post("/signup", upload.single('profilePicture'), validations.validationsSignup, userController.store);
+//registro admin
+routes.get("/signup/admin", adminAuthMiddleware.noLoggedAdmin, userController.signup);
 //edicion
 routes.get("/:id/edit", userController.edit);
 routes.put("/:id/edit", upload.single('profilePicture'), validations.validationsEdit, userController.update); 
