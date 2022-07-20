@@ -36,6 +36,10 @@ const usersController = {
                 delete userToLogin.password;
                 //guardo el usuario loggeado en session
                 req.session.userLogged = userToLogin;
+                //chequeo si tildó recordarme
+                if (req.body.recordarPassword != undefined ) {
+                    res.cookie('recordarPassword', userToLogin.email,  {maxAge: 900000 })
+                }
 
                     return res.redirect('/user/profile')
                 } else {
@@ -61,6 +65,7 @@ const usersController = {
             });
         }
     },
+
     //signup.html
     signup: (req, res) => {
         res.render("./users/signup", { titulo: "Crear cuenta" });

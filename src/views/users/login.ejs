@@ -30,7 +30,7 @@
           <form class="formulario" action="/user/login" method="POST">
             <div class="formulario__item">
               <label class="formulario__label" for="email">Email:</label>
-              <input class="formulario__input <%= locals.errors && errors.email ? 'invalid' : null %>" type="text" id="email" name="email" value="<%= locals.oldData ? oldData.email : null %>">
+              <input class="formulario__input <%= locals.errors && errors.email ? 'invalid' : null %>" type="email" id="email" name="email" value="<%= locals.oldData ? oldData.email : null %>">
               <% if (locals.errors && errors.email) { %>
               <div class="text-danger">
                 <p><%=errors.email.msg%></p>
@@ -47,7 +47,7 @@
                 <% } %>
             </div>
             <div class="recordar-password">
-              <label for="recordarPassword">Recordame
+              <label for="recordarPassword"> Recordar usuarix
                 <input class="recordar-password__checkbox" type="checkbox" name="recordarPassword" id="recordarPassword">
                 </button>
               </label>

@@ -24,7 +24,7 @@
                         </div>
                         <div class="formulario__item">
                             <label class="formulario__label" for="nombre">Nombre:</label>
-                            <textarea class="formulario__input <%= locals.errors && errors.nombre ? 'invalid' : null %>" type="text" id="nombre" name="nombre" required value="<%= locals.oldData ? oldData.nombre : null %>"><%=user.nombre%></textarea>
+                            <textarea class="formulario__input <%= locals.errors && errors.nombre ? 'invalid' : null %>" type="text" id="nombre" name="nombre" value="<%= locals.oldData ? oldData.nombre : null %>"><%=user.nombre%></textarea> 
                             <% if (locals.errors && errors.nombre) { %>
                                 <div class="text-danger">
                                  <p><%=errors.nombre.msg%></p>
@@ -33,7 +33,7 @@
                         </div>
                         <div class="formulario__item">
                             <label class="formulario__label" for="apellido">Apellido:</label>
-                            <textarea class="formulario__input <%= locals.errors && errors.apellido ? 'invalid' : null %>" type="text" id="apellido" name="apellido" required value="<%= locals.oldData ? oldData.apellido : null %>"><%=user.apellido%></textarea>
+                            <textarea class="formulario__input <%= locals.errors && errors.apellido ? 'invalid' : null %>" type="text" id="apellido" name="apellido" value="<%= locals.oldData ? oldData.apellido : null %>"><%=user.apellido%></textarea>
                             <% if (locals.errors && errors.apellido) { %>
                                 <div class="text-danger">
                                  <p><%=errors.apellido.msg%></p>
@@ -42,7 +42,7 @@
                         </div>
                          <div class="formulario__item">
                             <label class="formulario__label" for="email">Email:</label>
-                            <textarea class="formulario__input <%= locals.errors && errors.email ? 'invalid' : null %>" type="email" id="email" name="email" required value="<%= locals.oldData ? oldData.email : null %>"><%=user.email%></textarea>
+                            <textarea class="formulario__input <%= locals.errors && errors.email ? 'invalid' : null %>" type="email" id="email" name="email"  value="<%= locals.oldData ? oldData.email : null %>"><%=user.email%></textarea>
                             <% if (locals.errors && errors.email) { %>
                                 <div class="text-danger">
                                  <p><%=errors.email.msg%></p>
@@ -52,24 +52,16 @@
                          <div class="formulario__item">
                             <label class="formulario__label" for="direccion">Dirección:</label>
                             <textarea class="formulario__input <%= locals.errors && errors.direccion ? 'invalid' : null %>" type="text" id="direccion" name="direccion" value="<%= locals.oldData ? oldData.direccion : null %>"><%=user.direccion%></textarea>
-                            <% if (locals.errors && errors.direccion) { %>
-                                <div class="text-danger">
-                                 <p><%=errors.direccion.msg%></p>
-                                </div>
-                                <% } %>
+                            
                         </div>
                         <div class="formulario__item">
                             <label class="formulario__label" for="telefono">Teléfono:</label>
                             <textarea  class="formulario__input <%= locals.errors && errors.telefono ? 'invalid' : null %>" type="number" id="telefono" name="telefono" value="<%= locals.oldData ? oldData.telefono : null %>"><%=user.telefono%></textarea>
-                            <% if (locals.errors && errors.telefono) { %>
-                                <div class="text-danger">
-                                 <p><%=errors.telefono.msg%></p>
-                                </div>
-                                <% } %>
+                            
                         </div>
                          <div class="formulario__item">
                             <label class="formulario__label" for="profile-picture">Imagen de perfil:</label>
-                            <input class="formulario__input input--file" type="file" id="profilePicture" name="profilePicture" required accept="image/png, image/jpeg">
+                            <input class="formulario__input input--file" type="file" id="profilePicture" name="profilePicture"  accept="image/png, image/jpeg">
                             <% if (locals.errors && errors.profilePicture) { %>
                                 <div class="text-danger">
                                  <p><%=errors.profilePicture.msg%></p>

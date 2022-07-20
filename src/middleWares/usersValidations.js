@@ -8,8 +8,6 @@ const validationsSignup = [
     body('email')
         .notEmpty().withMessage('Por favor completá tu correo').bail()
         .isEmail().withMessage('¡El formato del correo no es válido! Intentalo de nuevo'),
-    body('direccion').isAlphanumeric().withMessage('Por favor completá con tu dirección'),
-    body('telefono').isNumeric().withMessage('Por favor completá con tu número de teléfono'),
     body('profilePicture').custom((value, { req }) => {
         let file = req.file;
         let extensionesPermitidas = ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.jfif'];
@@ -23,7 +21,7 @@ const validationsSignup = [
         }
         return true;
     }),
-    body('password').isLength( {min: 6}).withMessage('Tu contraseña debe contener al menos 6 caracteres'),
+    body('password').isLength({ min: 6 }).withMessage('Tu contraseña debe contener al menos 6 caracteres'),
     body('passwordRepetir')
         .notEmpty().withMessage('Por favor repetí la contraseña.').bail()
         .custom((value, { req }) => {
@@ -35,21 +33,20 @@ const validationsSignup = [
             }
             return true;
         })
-   ];
+];
 const validationsLogin = [
     body('email')
         .notEmpty().withMessage('Por favor completá tu correo').bail()
         .isEmail().withMessage('¡El formato del correo no es válido! Intentalo de nuevo'),
-    body('password').isLength( {min: 6}).withMessage('No olvides tu contraseña'),
+    body('password').isLength({ min: 6 }).withMessage('No olvides tu contraseña'),
 ];
+
 const validationsEdit = [
     body('nombre').notEmpty().withMessage('Por favor completá con tu nombre'),
     body('apellido').notEmpty().withMessage('Es necesario que completes tu apellido'),
     body('email')
         .notEmpty().withMessage('Por favor completá tu correo').bail()
         .isEmail().withMessage('¡El formato del correo no es válido! Intentalo de nuevo'),
-    body('direccion').isAlphanumeric().withMessage('Por favor completá con tu dirección'),
-    body('telefono').isNumeric().withMessage('Por favor completá con tu número de teléfono'),
     body('profilePicture').custom((value, { req }) => {
         let file = req.file;
         let extensionesPermitidas = ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.jfif'];
@@ -63,7 +60,7 @@ const validationsEdit = [
         }
         return true;
     }),
-    body('password').isLength( {min: 6}).withMessage('Tu contraseña debe contener al menos 6 caracteres'),
+    body('password').isLength({ min: 6 }).withMessage('Tu contraseña debe contener al menos 6 caracteres'),
     body('passwordRepetir')
         .notEmpty().withMessage('Por favor repetí la contraseña.').bail()
         .custom((value, { req }) => {
@@ -75,6 +72,6 @@ const validationsEdit = [
             }
             return true;
         })
-   ];
+];
 
-module.exports = {validationsSignup, validationsLogin, validationsEdit };
+module.exports = { validationsSignup, validationsLogin, validationsEdit };

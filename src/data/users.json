@@ -10,12 +10,14 @@
     },
     {
         "id": 3,
-        "email": "nestormendes@gmail.com",
-        "nombre": "Nestor Roberto",
+        "email": "mendes@gmail.com",
+        "nombre": "Carlos",
         "apellido": "Mendes",
-        "password": "2023frf",
+        "password": "",
         "fechaDeCreacion": "2022-06-22T00:28:56.854Z",
-        "esAdmin": false
+        "esAdmin": false,
+        "direccion": "",
+        "telefono": ""
     },
     {
         "id": 4,
@@ -86,5 +88,17 @@
         "password": "$2a$10$MNMqBUk.FFN7Ns.Lfdbdn.uQVqzriP5lylr6kPggLUq4du28rzGue",
         "fechaDeCreacion": "2022-07-17T18:32:22.225Z",
         "isAdmin": false
+    },
+    {
+        "id": 11,
+        "nombre": "Alicita",
+        "apellido": "Pe",
+        "email": "alicita@gmail.com",
+        "direccion": "",
+        "telefono": "",
+        "profilePicture": "/img/Profile-pictures/1658267851156-profileImg.png",
+        "password": "$2a$10$Q41sX29YB3Dl8v.NHjNygOD8KW50zf1uA.ceoP0BsegMgeCqi9krO",
+        "fechaDeCreacion": "2022-07-19T21:57:31.253Z",
+        "esAdmin": false
     }
 ]
