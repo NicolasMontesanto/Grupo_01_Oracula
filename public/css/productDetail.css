@@ -121,10 +121,14 @@ main {
 }
 
 .product-btn {
-  float: left;
-  padding: 5px;
+    color: var(--gris-claro);
+    float: left;
+    padding: 5px;
+    transition: all 300ms;
 }
-
+.product-btn:hover {
+    color:var(--amarillo-naranja);
+}
 .product-favAndShare{
 margin-bottom: 10px;
   border-bottom: 2px solid var(--morado-oscuro);
