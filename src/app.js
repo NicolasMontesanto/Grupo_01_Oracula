@@ -3,7 +3,7 @@ const path = require('path'); //requiero path
 const session = require('express-session'); //requiero session
 const methodOverride = require("method-override");
 const userCredentialsMiddleware = require("./middleWares/userCredentialsMiddleware");
-const recordarMiddleware = require("./middleWares/AutenMiddleware");
+//const recordarMiddleware = require("./middleWares/recordarMiddleware");
 const cookies = require("cookie-parser");
 
 //express
@@ -23,10 +23,12 @@ app.use(session({
 }));
 //cookies
 app.use(cookies());
+
 // credenciales de usuarix
 app.use(userCredentialsMiddleware);
+
 //recordar usuarix
-//app.use(recordarMiddleware);
+//app.use(recordarMiddleware); 
 
 //configuración de method-override
 app.use(methodOverride("_method"));

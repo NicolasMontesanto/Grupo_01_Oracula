@@ -17,7 +17,7 @@ const usersController = {
 
     //profile.html
     profile: (req, res) => {
-        res.render("./users/profile", { user: req.session.userLogged },)
+         res.render("./users/profile", { user: req.session.userLogged },)
     },
     //procesar pedido de login
     processLogin: (req, res) => {
@@ -36,9 +36,9 @@ const usersController = {
                     delete userToLogin.password;
                     //guardo el usuario loggeado en session
                     req.session.userLogged = userToLogin;
-                    //chequeo si tildó recordarme
-                    if (req.body.recordarPassword != undefined) {
-                        res.cookie('recordarPassword', userToLogin.email, { maxAge: 1000 * 60 * 15 })
+                    //compruebo si tildó recordarme
+                    if (req.body.recordarPassword) {
+                        res.cookie('userEmail', req.body.email, { maxAge: 1000 * 60 * 15 })
                     }
 
                     return res.redirect('/user/profile')
@@ -68,6 +68,7 @@ const usersController = {
 
     //signup.html
     signup: (req, res) => {
+        res.cookie("recordarPassword", { maxAge: 1000 * 60 * 15 })
         res.render("./users/signup", { titulo: "Crear cuenta" });
     },
     //Guardar usuario nuevo
@@ -165,6 +166,7 @@ const usersController = {
     },
     // hacer logout
     logout: (req, res) => {
+        res.clearCookie('userEmail');
         res.clearCookie("recordarPassword");
         req.session.destroy();
         res.redirect("/");

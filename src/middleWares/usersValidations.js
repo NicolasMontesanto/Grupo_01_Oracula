@@ -41,7 +41,7 @@ const validationsLogin = [
     body('password').isLength({ min: 6 }).withMessage('No olvides tu contraseña'),
 ];
 
-const validationsEdit = [
+const validationsUserEdit = [
     body('nombre').notEmpty().withMessage('Por favor completá con tu nombre'),
     body('apellido').notEmpty().withMessage('Es necesario que completes tu apellido'),
     body('email')
@@ -74,4 +74,4 @@ const validationsEdit = [
         })
 ];
 
-module.exports = { validationsSignup, validationsLogin, validationsEdit };
+module.exports = { validationsSignup, validationsLogin, validationsUserEdit };
