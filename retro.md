@@ -51,4 +51,28 @@ Este Sprint fluyó de forma sencilla, pudimos lograr todo a tiempo y sin mayores
 * Quedarse trabadxs en una tarea
 
 ### Dejar de hacer
-* No dar reportes por varios días 
+* No dar reportes por varios días
+
+## Revision del sprint 4
+
+### Comenzar a hacer
+* Establecer reglas de cómo escribir y modificar código.
+
+### Hacer más
+* Hacer merges más periódicos.
+* Estimar la dificultad de las tareas
+* Comentar el código
+* Tener el PlayGround al día
+* Tener en cuenta el feedback de nuestrxs compañerxs
+* .
+
+### Continuar haciendo
+* Weekly meetings.
+* Subdividir las grandes tareas en otras más pequeñas.
+* Actualizar el Trello.
+
+### Hacer menos
+
+### Dejar de hacer
+* Tomar decisiones importantes de forma unilateral.
+* No dar reportes por varios días.
