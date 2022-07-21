@@ -4,7 +4,7 @@ let products = require('../data/products.json');
 //express validator
 const { validationResult } = require('express-validator');
 
-let sortear = function(productosASortear){
+let sortear = function (productosASortear) {
     let sorteados = productosASortear.sort(() => Math.random() - 0.5)
     return sorteados;
 }
@@ -14,7 +14,7 @@ const productsController = {
     detail: (req, res) => {
         let id = req.params.id;
         let elProducto = products.find(element => element.id == id)
-        let productosDeCategoria = products.filter(item => item.categoria == elProducto.categoria && item!=elProducto);
+        let productosDeCategoria = products.filter(item => item.categoria == elProducto.categoria && item != elProducto);
         let productosDesordenados = sortear(productosDeCategoria);
 
         res.render('./products/productDetail', { elProducto, productosDesordenados });
@@ -24,7 +24,7 @@ const productsController = {
     cart: (req, res) => {
         res.render('./products/productCart', { products });
     },
-    
+
     //Renderizar vista de todos los productos
     list: (req, res) => {
         res.render('./products/productList', { products });
@@ -36,21 +36,22 @@ const productsController = {
         res.render('./products/productCreate');
     },
 
-    
-    
+
+
     //Guardar producto nuevo
     store: (req, res) => {
 
-       const validationsResult =  validationResult(req);
+        const validationsResult = validationResult(req);
 
         //si hay errores se renderiza de nuevo el formulario de creación
-       if(validationsResult.errors.length > 0) {
-        res.render('./products/productCreate', {
-            errors : validationsResult.mapped(),
-            oldData : req.body
-        })}
-        else{           
-            
+        if (validationsResult.errors.length > 0) {
+            res.render('./products/productCreate', {
+                errors: validationsResult.mapped(),
+                oldData: req.body
+            })
+        }
+        else {
+
             //función que busca el mayor ID y devuelve el siguiente
             function siguienteID(products) {
                 let id = 1;
@@ -61,58 +62,60 @@ const productsController = {
                 }
                 return id += 1;
             }
-            
+
             let file = req.file;
-            
+
             //tomamos los datos del req.body
             //Valores de esDestacado, esNovedad, esOferta
-            let esDestacado, esNovedad, esOferta;
-            
-            esDestacado = req.body.esDestacado?true:false;
-            esNovedad = req.body.esNovedad?true:false;
-            esOferta = req.body.esOferta?true:false;
-            
-            
+            let esDestacado, esNovedad, esOferta, esMagicPass;
+
+            esDestacado = req.body.esDestacado ? true : false;
+            esNovedad = req.body.esNovedad ? true : false;
+            esOferta = req.body.esOferta ? true : false;
+            esMagicPass = req.body.esMagicPass ? true : false;
+
+
             //Array de Objetos Género
             let generos = [];
             if (req.body.esGeneroMedieval) {
                 generos.push("medieval");
             }
-        if (req.body.esGeneroUrbana) {
-            generos.push("urbana");
+            if (req.body.esGeneroUrbana) {
+                generos.push("urbana");
+            }
+            if (req.body.esGeneroClasica) {
+                generos.push("clasica");
+            }
+            if (req.body.esGeneroOscura) {
+                generos.push("oscura");
+            }
+            if (req.body.esGeneroJuvenil) {
+                generos.push("juvenil");
+            }
+
+            let productNuevo = {
+                id: siguienteID(products),
+                nombre: req.body.nombre,
+                descripcion: req.body.descripcion,
+                moneda: req.body.moneda,
+                precio: req.body.precio,
+                imagenes: `/img/productos/${file.filename}`,
+                categoria: req.body.categoria,
+                subcategoria: req.body.subcategoria,
+                generos: generos,
+                esNovedad: esNovedad,
+                esDestacado: esDestacado,
+                esOferta: esOferta,
+                descuento: req.body.descuento,
+                esMagicPass: esMagicPass,
+                fechaDeCreacion: new Date()
+            }
+            products.push(productNuevo);
+            let productsJSON = JSON.stringify(products, null, 4);
+            fs.writeFileSync(path.join(__dirname, "../data/products.json"), productsJSON, "utf-8");
+
+            res.redirect("/");
         }
-        if (req.body.esGeneroClasica) {
-            generos.push("clasica");
-        }
-        if (req.body.esGeneroOscura) {
-            generos.push("oscura");
-        }
-        if (req.body.esGeneroJuvenil) {
-            generos.push("juvenil");
-        }
-        
-        let productNuevo = {
-            id: siguienteID(products),
-            nombre: req.body.nombre,
-            descripcion: req.body.descripcion,
-            moneda: req.body.moneda,
-            precio: req.body.precio,
-            imagenes: `/img/productos/${file.filename}`,
-            categoria: req.body.categoria,
-            subcategoria: req.body.subcategoria,
-            generos: generos,
-            esNovedad: esNovedad,
-            esDestacado: esDestacado,
-            esOferta: esOferta,
-            descuento: req.body.descuento,
-            fechaDeCreacion: new Date()
-        }
-        products.push(productNuevo);
-        let productsJSON = JSON.stringify(products, null, 4);
-        fs.writeFileSync(path.join(__dirname, "../data/products.json"), productsJSON, "utf-8");
-        
-        res.redirect("/");
-    }
     },
 
     //Renderizamos la vista de Edit
@@ -130,11 +133,12 @@ const productsController = {
         let file = req.file;
 
         //Valores de esDestacado, esNovedad, esOferta
-        let esNovedad, esDestacado, esOferta;
-        
-        esDestacado = req.body.esDestacado?true:false;
-        esNovedad = req.body.esNovedad?true:false;
-        esOferta = req.body.esOferta?true:false;
+        let esDestacado, esNovedad, esOferta, esMagicPass;
+
+        esDestacado = req.body.esDestacado ? true : false;
+        esNovedad = req.body.esNovedad ? true : false;
+        esOferta = req.body.esOferta ? true : false;
+        esMagicPass = req.body.esMagicPass ? true : false;
 
         //Array de Objetos Género
         let generos = [];
@@ -154,7 +158,7 @@ const productsController = {
             generos.push("juvenil");
         }
 
-        let { nombre, descripcion, precio, categoria, subcategoria, descuento } = req.body;
+        let { nombre, descripcion, precio, categoria, subcategoria, descuento} = req.body;
         products.forEach(item => {
             if (item.id == id) {
                 item.nombre = nombre;
@@ -167,6 +171,7 @@ const productsController = {
                 item.esDestacado = esDestacado;
                 item.esOferta = esOferta;
                 item.descuento = descuento;
+                item.esMagicPass = esMagicPass;
                 if (file) {
                     item.imagenes = `img/${file.filename}`;
                 }
