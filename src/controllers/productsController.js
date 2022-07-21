@@ -176,6 +176,8 @@ const productsController = {
                     item.imagenes = `img/${file.filename}`;
                 }
             }
+
+            
         });
         let productsJSON = JSON.stringify(products, null, 4);
         fs.writeFileSync(path.join(__dirname, "../data/products.json"), productsJSON, "utf-8");
