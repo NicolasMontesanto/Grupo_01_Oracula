@@ -2,16 +2,40 @@
 <html lang="en">
 <head>
     <%- include('../partials/head.ejs')%>
-    <title><%= user.nombre + " " + user.apellido%> </title>
+    <link href="/css/profile.css" rel="stylesheet" />
+    <title> <%= user.nombre + " " + user.apellido%> </title>
 </head>
 <body>
     <!--header-->
     <%- include('../partials/header.ejs')%>
     <div class="fondo">
         <main>
-            <h2>
-                <%= user.nombre %> 
-            </h2>
+
+        <section class="seccion-perfil-usuario">
+            <div class="perfil-usuario-header">
+                <div class="perfil-usuario-portada">
+                    <div class="perfil-usuario-avatar">
+                        <img src= <%= user.profilePicture %> alt="img-avatar">
+                    </div>
+                </div>
+            </div>
+            <div class="perfil-usuario-body">
+                <div class="perfil-usuario-bio">
+
+                    <h3 class="titulo">Bienvenidx <%= user.nombre + " " + user.apellido%>!</h3>
+                    
+                </div>
+                <div class="perfil-usuario-footer">
+                    <ul class="lista-datos">
+                        <li><i class="icono fas fa-map-signs"></i> Direccion: <%= user.direccion%></li>
+                        <li><i class="icono fas fa-phone-alt"></i> Telefono: <%= user.telefono %></li>
+                        <li><i class="icono fas fa-briefcase"></i> Email: <%= user.email %></li>
+                        <li><a href=" /user/<%= user.id%>/edit" class="perfil-usuario-button">Editar perfil</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
         </main>
     <!--footer-->
     <%- include('../partials/footer.ejs')%>
