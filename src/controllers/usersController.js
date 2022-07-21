@@ -166,6 +166,7 @@ const usersController = {
     },
     // hacer logout
     logout: (req, res) => {
+        //al cerrar sesion se borran las cookies del usuarix
         res.clearCookie('userEmail');
         res.clearCookie("recordarPassword");
         req.session.destroy();
