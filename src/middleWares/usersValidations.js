@@ -51,7 +51,6 @@ const validationsUserEdit = [
         let file = req.file;
         let extensionesPermitidas = ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.jfif'];
         if (file) {
-            console.log("existe file");
             console.log();
             let fileExtension = path.extname(file.originalname);
             if (!extensionesPermitidas.includes(fileExtension.toLowerCase())) {

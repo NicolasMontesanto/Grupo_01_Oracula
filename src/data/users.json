@@ -110,5 +110,18 @@
         "fechaDeCreacion": "2022-07-19T21:57:31.253Z",
         "isAdmin": false,
         "tieneMagicPass": true
+    },
+    {
+        "id": 12,
+        "nombre": "Cuenta",
+        "apellido": "Admin",
+        "email": "emailadmin@admin.com",
+        "direccion": "donde viven lxs admins.",
+        "telefono": "123456789",
+        "profilePicture": "/img/Profile-pictures/1658461136728-profileImg.jpg",
+        "password": "$2a$10$KmoQCgJXyFuLUxc4AZMw/.fme88LBEwkWKojcWmQ3fWzn2xyjXGy2",
+        "fechaDeCreacion": "2022-07-22T03:38:56.814Z",
+        "isAdmin": true,
+        "tieneMagicPass": false
     }
 ]

@@ -17,6 +17,15 @@
     --oracula: #bddcf4;
 }
 
+.text-danger {
+    color: red;
+}
+
+.invalid {
+    border: 1px solid red;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px var(--oracula);
+}
 .main {
     width: 100%;
     flex-direction: column;
