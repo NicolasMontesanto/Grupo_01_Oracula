@@ -1,69 +1,133 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <%- include('../partials/head.ejs')%>
-    <link rel="stylesheet" href="/css/userEdit.css">
-    <title>Editar Usuario</title>
+        <link rel="stylesheet" href="/css/userEdit.css">
+        <title>Editar Usuario</title>
 </head>
 
 <body>
     <!--header-->
     <%- include('../partials/header.ejs')%>
-     <!-- MAIN -->
-    <div class="fondo">
+        <!-- MAIN -->
+        <div class="fondo">
             <main>
                 <section class="titulo">
                     <h1 class="titulo__text">Editar Usuario</h1>
                 </section>
                 <div class="formulario__container">
-                    <form class="formulario" action="/user/<%=user.id%>/edit?_method=PUT" method="post">
+                    <form class="formulario" action="/user/<%=user.id%>/edit?_method=PUT" method="post" enctype="multipart/form-data">
                         <div class="formulario__item">
-                            <label class="formulario__label" for="id"> <%=user.nombre%> <%=user.apellido%> </label>
-                        </div>
-                        <div class="formulario__item">
-                            <label class="formulario__label" for="email">Email:</label>
-                            <input class="formulario__input" type="email" id="email" name="email"
-                                value="<%=user.email%>">
+                            <label class="formulario__label" for="id">
+                                <%=user.nombre%>
+                                    <%=user.apellido%>
+                            </label>
                         </div>
                         <div class="formulario__item">
                             <label class="formulario__label" for="nombre">Nombre:</label>
-                            <textarea class="formulario__input input--text-area" type="text" id="nombre"
-                                name="nombre"><%=user.nombre%></textarea>
+                            <input class="formulario__input <%= locals.errors && errors.nombre ? 'invalid' : null %>"
+                                type="text" id="nombre" name="nombre" value="<%=user.nombre%>">
+                            <% if (locals.errors && errors.nombre) { %>
+                                <div class="text-danger">
+                                    <p>
+                                        <%=errors.nombre.msg%>
+                                    </p>
+                                </div>
+                                <% } %>
                         </div>
                         <div class="formulario__item">
                             <label class="formulario__label" for="apellido">Apellido:</label>
-                            <textarea class="formulario__input input--text-area" type="text" id="apellido"
-                            name="apellido"><%=user.apellido%></textarea>
-                         </div>
-                         <div class="formulario__item">
-                            <label class="formulario__label" for="contraseña">Cambiar contraseña:</label>
-                            <input class="formulario__input" type="password" id="contraseña" name="contraseña"
-                                value="<%=user.contraseña%>">
+                            <input
+                                class="formulario__input <%= locals.errors && errors.apellido ? 'invalid' : null %>"
+                                type="text" id="apellido" name="apellido" value="<%=user.apellido%>"></input>
+                            <% if (locals.errors && errors.apellido) { %>
+                                <div class="text-danger">
+                                    <p>
+                                        <%=errors.apellido.msg%>
+                                    </p>
+                                </div>
+                                <% } %>
                         </div>
                         <div class="formulario__item">
-                            <label class="formulario__label" for="contraseña">Confirme su contraseña:</label>
-                            <input class="formulario__input" type="password" id="contraseña" name="contraseña"
-                                value="<%=user.contraseña%>">
-                        </div>
-                          <div class="formulario__item last-item">
-                                    <button class="formulario__icon-submit" type="submit">
-                                        <i class="fa-solid fa-pen-to-square"></i>
-                                    </button>
+                            <label class="formulario__label" for="email">Email:</label>
+                            <input class="formulario__input <%= locals.errors && errors.email ? 'invalid' : null %>"
+                                type="email" id="email" name="email" value="<%=user.email%>">
+                            <% if (locals.errors && errors.email) { %>
+                                <div class="text-danger">
+                                    <p>
+                                        <%=errors.email.msg%>
+                                    </p>
                                 </div>
-                   </form>
-                
-                                   <form class="formulario--delete" action="/user/<%=user.id%>/delete?_method=DELETE"
-                    method="POST">
-                    <button class="formulario__icon-delete" type="submit">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </form>
-            </div>  
+                                <% } %>
+                        </div>
+                        <div class="formulario__item">
+                            <label class="formulario__label" for="direccion">Dirección:</label>
+                            <input
+                                class="formulario__input <%= locals.errors && errors.direccion ? 'invalid' : null %>"
+                                type="text" id="direccion" name="direccion" value="<%=user.direccion%>">
+                        </div>
+                        <div class="formulario__item">
+                            <label class="formulario__label" for="telefono">Teléfono:</label>
+                            <input
+                                class="formulario__input <%= locals.errors && errors.telefono ? 'invalid' : null %>"
+                                type="number" id="telefono" name="telefono" value="<%=user.telefono%>">
+                        </div>
+                        <div class="formulario__item">
+                            <label class="formulario__label" for="profile-picture">Imagen de perfil:</label>
+                            <input class="formulario__input input--file" type="file" id="profilePicture"
+                                name="profilePicture" accept="image/png, image/jpeg">
+                            <% if (locals.errors && errors.profilePicture) { %>
+                                <div class="text-danger">
+                                    <p>
+                                        <%=errors.profilePicture.msg%>
+                                    </p>
+                                </div>
+                                <% } %>
+                        </div>
+                        <div class="formulario__item">
+                            <label class="formulario__label" for="password">Cambiar contraseña:</label>
+                            <input class="formulario__input <%= locals.errors && errors.password ? 'invalid' : null %>"
+                                type="password" id="password" name="password" minlength="6">
+                            <% if (locals.errors && errors.password) { %>
+                                <div class="text-danger">
+                                    <p>
+                                        <%=errors.password.msg%>
+                                    </p>
+                                </div>
+                                <% } %>
+                        </div>
+                        <div class="formulario__item">
+                            <label class="formulario__label" for="password">Confirme su contraseña:</label>
+                            <input
+                                class="formulario__input <%= locals.errors && errors.passwordRepetir ? 'invalid' : null %>"
+                                type="password" id="password-repetir" name="passwordRepetir" minlength="6">
+                            <% if (locals.errors && errors.passwordRepetir) { %>
+                                <div class="text-danger">
+                                    <p>
+                                        <%=errors.passwordRepetir.msg%>
+                                    </p>
+                                </div>
+                                <% } %>
+                        </div>
+                        <div class="formulario__item last-item">
+                            <button class="formulario__icon-submit" type="submit">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </button>
+                        </div>
+                    </form>
+
+                    <form class="formulario--delete" action="/user/<%=user.id%>/delete?_method=DELETE" method="POST">
+                        <button class="formulario__icon-delete" type="submit">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </form>
+                </div>
             </main>
-        <!--footer-->
-        <%- include('../partials/footer.ejs')%>
-    </div>
+            <!--footer-->
+            <%- include('../partials/footer.ejs')%>
+        </div>
 </body>
 
 </html>

@@ -93,6 +93,11 @@
     margin: 3px 0;
     padding:0;
 }
+.formulario--loneCheckbox {
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
 .label--checkbox{
     padding-top: 5px;
     width: 30%;

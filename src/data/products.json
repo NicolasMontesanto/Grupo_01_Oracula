@@ -1,30 +1,29 @@
 [
     {
         "id": 1,
-        "nombre": "Cuentos de Beedle el Bardo ",
+        "nombre": "Cuentos de Beedle el Bardo",
         "descripcion": "Autoría: J. K. Rowling \r\n\r\nSerie de cuentos escritos por la figura legendaria de Beedle el bardo, traducidos de su lenguaje rúnico original por Hermione Granger, y anotados por Albus Dumbledore",
         "precio": "3500",
         "imagenes": "/img/productos/1656443047391-prodImg.jpg",
-        "categoria": "literatura",
-        "subcategoria": "cuento",
+        "categoria": "Literatura",
+        "subcategoria": "Cuento",
         "generos": [
-            "urbana",
             "juvenil"
         ],
         "esNovedad": true,
         "esDestacado": false,
         "esOferta": false,
-        "descuento": "",
-        "fechaDeCreacion": "2022-06-28T19:04:07.398Z"
+        "fechaDeCreacion": "2022-06-28T19:04:07.398Z",
+        "esMagicPass": true
     },
     {
         "id": 2,
-        "nombre": "Antología de la literatura fantástica",
-        "descripcion": "Autoría: Adolfo Bioy Casares, Silvina Ocampo, Jorge Luis Borges. \r\nBorges, Bioy Casares y Silvina Ocampo nos ofrecen en esta Antologia de la literatura fantastica lo mejor de un genero literario que siempre ha ejercido un atractivo irresistible en el publico lector. Es el genero representado por las irrupciones de la fantasía creadora y la intuición artística en lo desconocido, lo inexplicable, lo misterioso, lo sobrenatural.\r\n\r\n",
+        "nombre": "Antología de la Literatura fantástica",
+        "descripcion": "Autoría: Adolfo Bioy Casares, Silvina Ocampo, Jorge Luis Borges. \r\nBorges, Bioy Casares y Silvina Ocampo nos ofrecen en esta Antologia de la Literatura fantastica lo mejor de un genero literario que siempre ha ejercido un atractivo irresistible en el publico lector. Es el genero representado por las irrupciones de la fantasía creadora y la intuición artística en lo desconocido, lo inexplicable, lo misterioso, lo sobrenatural.\r\n\r\n",
         "precio": "2300",
         "imagenes": "/img/productos/1656443192626-prodImg.jpg",
-        "categoria": "literatura",
-        "subcategoria": "cuento",
+        "categoria": "Literatura",
+        "subcategoria": "Cuento",
         "generos": [
             "clasica"
         ],
@@ -32,7 +31,8 @@
         "esDestacado": false,
         "esOferta": true,
         "descuento": "20",
-        "fechaDeCreacion": "2022-06-28T19:06:32.633Z"
+        "fechaDeCreacion": "2022-06-28T19:06:32.633Z",
+        "esMagicPass": true
     },
     {
         "id": 3,
@@ -40,8 +40,8 @@
         "descripcion": "Autoría: Neil Gaiman\r\n\r\nAl día siguiente de mudarse de casa, Coraline explora las catorce puertas de su nuevo hogar. Trece se pueden abrir con normalidad, pero la decimocuarta está cerrada y tapiada. Cuando por fin consigue abrirla, Coraline se encuentra con un pasadizo secreto que la conduce a otra casa tan parecida a la suya que resulta escalofriante.\r\n\r\nSin embargo, hay ciertas diferencias que llaman su atención: la comida es más rica, los juguetes son tan desconocidos como maravillosos y, sobre todo, hay otra madre y otro padre que quieren que Coraline se quede con ellos, se convierta en su hija y no se marche nunca. Pronto Coraline se da cuenta de que, tras los espejos, hay otros niños que han caído en la trampa. Son como almas perdidas, y ahora ella es su única esperanza de salvación. Pero para rescatarlos tendrá también que recuperar a sus verdaderos padres, y cumplir así el desafío que le permitirá volver a su vida anterior.",
         "precio": "1100",
         "imagenes": "/img/productos/1656443421367-prodImg.jpg",
-        "categoria": "literatura",
-        "subcategoria": "novela",
+        "categoria": "Literatura",
+        "subcategoria": "Novela",
         "generos": [
             "urbana",
             "juvenil"
@@ -50,7 +50,8 @@
         "esDestacado": true,
         "esOferta": false,
         "descuento": "",
-        "fechaDeCreacion": "2022-06-28T19:10:21.376Z"
+        "fechaDeCreacion": "2022-06-28T19:10:21.376Z",
+        "esMagicPass": true
     },
     {
         "id": 4,
@@ -58,8 +59,8 @@
         "descripcion": "Autoría: Guillermo del Toro - Cornelia Funke \r\n\r\nAmbientada en el año 1944, El laberinto del fauno cuenta el viaje de Ofelia, una niña de 13 años que se traslada hasta un pequeño pueblo donde su madre se casa con un cruel capitán del ejército franquista. Una noche, Ofelia descubre las ruinas de un laberinto donde se encuentra con un fauno, una extraña criatura que le hace una increíble revelación: Ofelia es en realidad una princesa, última de su estirpe, a la que los suyos llevan mucho tiempo esperando.",
         "precio": "3100",
         "imagenes": "/img/productos/1656443520775-prodImg.jpg",
-        "categoria": "literatura",
-        "subcategoria": "novela",
+        "categoria": "Literatura",
+        "subcategoria": "Novela",
         "generos": [
             "oscura"
         ],
@@ -67,7 +68,8 @@
         "esDestacado": true,
         "esOferta": false,
         "descuento": "",
-        "fechaDeCreacion": "2022-06-28T19:12:00.783Z"
+        "fechaDeCreacion": "2022-06-28T19:12:00.783Z",
+        "esMagicPass": true
     },
     {
         "id": 5,
@@ -75,8 +77,8 @@
         "descripcion": "Autoría: Franz Kafka\r\n\r\nTal vez te sorprenda encontrar el famoso relato de Kafka en este mundo fantástico y es que el mundo de Kafka es un mundo que obedece todo él a una ley onírica, para el relato kafkiano es una regla. Por tanto se trata, para nosotrxs, de una forma innovadora de relato fantástico respecto al del siglo XIX.\r\nLa metamorfosis es un relato dividido en tres partes, donde se narra la transformación de Gregorio Samsa, un viajante de comercio de telas, en un monstruoso insecto, y el impacto que tendrá este acontecimiento no solo en su vida, sino en la de su familia.",
         "precio": "1200",
         "imagenes": "/img/productos/1656443601413-prodImg.jpg",
-        "categoria": "literatura",
-        "subcategoria": "novela",
+        "categoria": "Literatura",
+        "subcategoria": "Novela",
         "generos": [
             "clasica",
             "oscura"
@@ -85,7 +87,8 @@
         "esDestacado": false,
         "esOferta": true,
         "descuento": "10",
-        "fechaDeCreacion": "2022-06-28T19:13:21.421Z"
+        "fechaDeCreacion": "2022-06-28T19:13:21.421Z",
+        "esMagicPass": true
     },
     {
         "id": 6,
@@ -93,8 +96,8 @@
         "descripcion": "Autoría: Hector G. Oesterheld - Alberto Breccia \r\n\r\nEzra Winston, un anticuario de Londres, es guiado por misteriosas señales hasta la tumba de un ajusticiado, un tal Mort Cinder. Este vuelve de la muerte para arrastrarlo a sombrías aventuras y para contarle historias ocurridas en el fondo de los tiempos.\r\n\r\nEn esta edición de tamaño especial, las ilustraciones oscuras de Breccia se ven con un detalle que asusta. ",
         "precio": "5600",
         "imagenes": "/img/productos/1656443944880-prodImg.jpg",
-        "categoria": "literatura",
-        "subcategoria": "historieta",
+        "categoria": "Literatura",
+        "subcategoria": "Historieta",
         "generos": [
             "clasica",
             "oscura"
@@ -103,7 +106,8 @@
         "esDestacado": true,
         "esOferta": false,
         "descuento": "",
-        "fechaDeCreacion": "2022-06-28T19:19:04.888Z"
+        "fechaDeCreacion": "2022-06-28T19:19:04.888Z",
+        "esMagicPass": true
     },
     {
         "id": 7,
@@ -111,8 +115,8 @@
         "descripcion": "Autoría: Terry Pratcchett \r\n\r\nCuarta novela de la hilarante saga del Mundodisco.\r\nEn esta entrega, Mortimer es un joven soñador y despistado a quien le toca en suerte una inesperada tarea: convertirse en aprendiz de la Muerte y aplicarse en liberar almas de su envoltura carnal.",
         "precio": "1800",
         "imagenes": "/img/productos/1656444097772-prodImg.jpg",
-        "categoria": "literatura",
-        "subcategoria": "novela",
+        "categoria": "Literatura",
+        "subcategoria": "Novela",
         "generos": [
             "urbana",
             "juvenil"
@@ -121,7 +125,8 @@
         "esDestacado": true,
         "esOferta": true,
         "descuento": "30",
-        "fechaDeCreacion": "2022-06-28T19:21:37.778Z"
+        "fechaDeCreacion": "2022-06-28T19:21:37.778Z",
+        "esMagicPass": true
     },
     {
         "id": 8,
@@ -129,8 +134,8 @@
         "descripcion": "Autoría: Louise O'Neill\r\n\r\n¿Crees que conoces la historia de La sirenita? Tal vez deberías pensarlo mejor...\r\nEn el fondo del mar, a cierta distancia de la fría costa irlandesa, vive Gaia, una joven sirena que sueña con liberarse de un padre autoritario.\r\ncuánto tendrá que sacrificar?\r\n¿Qué deberá hacer la sirenita para encontrar su voz?\r\nUn libro con trasfondos profundamente sombríos, lleno de rabia y gritos de arenga: una narración extraordinaria.\r\nUna nueva visión del cuento de hadas de Hans Christian Andersen a través de una incisiva mirada feminista, dotada de un estilo deslumbrante y agudo y de la habilidad para construir mundos que le han conseguido a la autora legiones de leales admiradores",
         "precio": "2050",
         "imagenes": "/img/productos/1656444253766-prodImg.jpg",
-        "categoria": "literatura",
-        "subcategoria": "novela",
+        "categoria": "Literatura",
+        "subcategoria": "Novela",
         "generos": [
             "clasica",
             "juvenil"
@@ -139,7 +144,8 @@
         "esDestacado": false,
         "esOferta": false,
         "descuento": "",
-        "fechaDeCreacion": "2022-06-28T19:24:13.773Z"
+        "fechaDeCreacion": "2022-06-28T19:24:13.773Z",
+        "esMagicPass": true
     },
     {
         "id": 9,
@@ -147,8 +153,8 @@
         "descripcion": "Autoría: David Petersen\r\n\r\nSituada en un mundo medieval sin humanos, la historia se centra en un grupo de ratones que han jurado servir a sus compañeros. Ellos son conocidos como los Mouse Guards, quienes, comandados por la matriarca Gwendolyn, procuran ese estatus y protegen a comerciantes y viajeros de alimañas, lobos y comadrejas.\r\n",
         "precio": "1000",
         "imagenes": "/img/productos/1656444393230-prodImg.jpg",
-        "categoria": "literatura",
-        "subcategoria": "historieta",
+        "categoria": "Literatura",
+        "subcategoria": "Historieta",
         "generos": [
             "medieval",
             "juvenil"
@@ -157,16 +163,17 @@
         "esDestacado": true,
         "esOferta": false,
         "descuento": "20",
-        "fechaDeCreacion": "2022-06-28T19:26:33.240Z"
+        "fechaDeCreacion": "2022-06-28T19:26:33.240Z",
+        "esMagicPass": true
     },
     {
         "id": 10,
         "nombre": "Cuentos de Terramar ",
-        "descripcion": "Autoría: Ursula K. Le Guin \r\n\r\nEste libro cuenta de una serie de historias indeoendientes que coexisten en un mismo mundo, Terramar:\r\n \r\nEl Descubridor, una novela que transcurre unos cuantos cientos de años antes de Un mago en Terramar, presenta un Archipiélago oscuro y turbulento, y revela cómo se creó la Escuela de Roke.\r\n\r\nLos Huesos de la Tierra tiene como protagonistas a los magos que le enseñaron al primer maestro de Ged, y demuestra cómo la humildad, si es lo suficientemente grande, puede refrenar un terremoto. Rosaoscura y Diamante es la encantadora historia de un noviazgo juvenil, y muestra que a veces los magos pueden dedicarse a carreras alternativas.\r\n\r\nEn el Gran Pantano, de la breve pero accidentada época de Ged como Archimago de Terramar, habla del amor del poder y del poder del amor.\r\n\r\nDragónvolador muestra cómo una mujer, lo suficientemente decidida, puede romper el techo de cristal del reino masculino de la magia. Tiene lugar poco tiempo después de la última novela en Terramar, y también proporciona un puente -un puente de dragón- hasta la próxima novela en Terramar: En el otro viento.\r\n\r\nLa autora concluye esta colección con un ensayo sobre la historia de Terramar, su gente, sus lenguas, su literatura y su magia, y nos proporciona dos nuevos mapas de Terramar.",
+        "descripcion": "Autoría: Ursula K. Le Guin \r\n\r\nEste libro cuenta de una serie de historias indeoendientes que coexisten en un mismo mundo, Terramar:\r\n \r\nEl Descubridor, una novela que transcurre unos cuantos cientos de años antes de Un mago en Terramar, presenta un Archipiélago oscuro y turbulento, y revela cómo se creó la Escuela de Roke.\r\n\r\nLos Huesos de la Tierra tiene como protagonistas a los magos que le enseñaron al primer maestro de Ged, y demuestra cómo la humildad, si es lo suficientemente grande, puede refrenar un terremoto. Rosaoscura y Diamante es la encantadora historia de un noviazgo juvenil, y muestra que a veces los magos pueden dedicarse a carreras alternativas.\r\n\r\nEn el Gran Pantano, de la breve pero accidentada época de Ged como Archimago de Terramar, habla del amor del poder y del poder del amor.\r\n\r\nDragónvolador muestra cómo una mujer, lo suficientemente decidida, puede romper el techo de cristal del reino masculino de la magia. Tiene lugar poco tiempo después de la última novela en Terramar, y también proporciona un puente -un puente de dragón- hasta la próxima novela en Terramar: En el otro viento.\r\n\r\nLa autora concluye esta colección con un ensayo sobre la historia de Terramar, su gente, sus lenguas, su Literatura y su magia, y nos proporciona dos nuevos mapas de Terramar.",
         "precio": "900",
         "imagenes": "/img/productos/1656444503224-prodImg.jpg",
-        "categoria": "literatura",
-        "subcategoria": "cuento",
+        "categoria": "Literatura",
+        "subcategoria": "Cuento",
         "generos": [
             "medieval",
             "clasica"
@@ -175,7 +182,8 @@
         "esDestacado": true,
         "esOferta": false,
         "descuento": "",
-        "fechaDeCreacion": "2022-06-28T19:28:23.232Z"
+        "fechaDeCreacion": "2022-06-28T19:28:23.232Z",
+        "esMagicPass": true
     },
     {
         "id": 11,
@@ -183,8 +191,8 @@
         "descripcion": "Autoría: Michael Ende \r\n\r\nHuyendo de niños que lo acosan, el apocado chico Bastián llega a la librería del antipático Karl Konrad Koreander, y allí descubre un libro que le llama la atención: La historia interminable. Cuando el dueño se ausenta, Bastián lo roba.\r\nEn el colegio, en vez de acudir a clase, decide esconderse en el desván para leerlo; al poco se adentrará en el mundo desvaneciente de Fantasia, donde el joven y valiente Atreyu emprende un gran viaje para salvar a la Emperatriz Infantil. Bastián ignora que está leyendo un libro mágico, y que esa historia será para él más que una historia.",
         "precio": "7",
         "imagenes": "/img/productos/1656444614567-prodImg.jpg",
-        "categoria": "literatura",
-        "subcategoria": "novela",
+        "categoria": "Literatura",
+        "subcategoria": "Novela",
         "generos": [
             "clasica",
             "juvenil"
@@ -193,7 +201,8 @@
         "esDestacado": false,
         "esOferta": true,
         "descuento": "5",
-        "fechaDeCreacion": "2022-06-28T19:30:14.575Z"
+        "fechaDeCreacion": "2022-06-28T19:30:14.575Z",
+        "esMagicPass": true
     },
     {
         "id": 12,
@@ -201,8 +210,8 @@
         "descripcion": "Autoría: L. Frank Baum - Benjamin Lacombe - Sebastien Perez \r\n\r\nDorothy no podía imaginarse que la casa donde se resguardaba de los tornados saliera volando y aterrizase... en otro mundo. Deberá buscar la manera de regresar con su perrito Toto a casa. Para ello, viajará hasta la Ciudad de las Esmeraldas, donde el maravilloso Mago de Oz le concederá su deseo (o al menos eso le ha dicho la Bruja buena del Norte).\r\n\r\nEl Mago de Oz de todos los tiempos, esta vez, ilustrado maravillosa.. y un poco tenebrosamente, por Benjamin Lacombe.",
         "precio": "4000",
         "imagenes": "/img/productos/1656444792493-prodImg.jpg",
-        "categoria": "literatura",
-        "subcategoria": "novela",
+        "categoria": "Literatura",
+        "subcategoria": "Novela",
         "generos": [
             "clasica"
         ],
@@ -210,7 +219,8 @@
         "esDestacado": true,
         "esOferta": false,
         "descuento": "",
-        "fechaDeCreacion": "2022-06-28T19:33:12.500Z"
+        "fechaDeCreacion": "2022-06-28T19:33:12.500Z",
+        "esMagicPass": true
     },
     {
         "id": 13,
@@ -218,8 +228,8 @@
         "descripcion": "Autoría: J. K. Rowling \r\n\r\nCon estas historias sobre poder, política y unos poltergeists muy pesados te harás una idea del lado más oscuro de la comunidad mágica: descubrirás los despiadados orígenes de la profesora Umbridge, la verdad sobre los ministros de Magia y la historia de la prisión mágica de Azkaban. También bucearás en los primeros años de Horace Slughorn como maestro de pociones y su relación con un tal Tom Sorvolo Ryddle.",
         "precio": "9",
         "imagenes": "/img/productos/1656444961597-prodImg.jpg",
-        "categoria": "literatura",
-        "subcategoria": "cuento",
+        "categoria": "Literatura",
+        "subcategoria": "Cuento",
         "generos": [
             "urbana",
             "juvenil"
@@ -228,7 +238,8 @@
         "esDestacado": false,
         "esOferta": false,
         "descuento": "",
-        "fechaDeCreacion": "2022-06-28T19:36:01.605Z"
+        "fechaDeCreacion": "2022-06-28T19:36:01.605Z",
+        "esMagicPass": true
     },
     {
         "id": 14,
@@ -236,8 +247,8 @@
         "descripcion": "Eso que tanto estábamos esperando al fín sucedió. Este maravilloso equipo de humanxs se unió para narrar con sus voces la saga completa de Harry Potter, añadiendo sutiles pero importantes detalles de ambiente que comvierten el relato en toda una experiencia inmersiva. \r\nPreparate para escuchar cientos de horas de esta saga, en cualquier momento, en cualquier lugar.",
         "precio": "1700",
         "imagenes": "/img/productos/1656445122448-prodImg.jpg",
-        "categoria": "literatura",
-        "subcategoria": "audiolibro",
+        "categoria": "Literatura",
+        "subcategoria": "Audiolibro",
         "generos": [
             "urbana",
             "clasica",
@@ -247,7 +258,8 @@
         "esDestacado": true,
         "esOferta": false,
         "descuento": "",
-        "fechaDeCreacion": "2022-06-28T19:38:42.456Z"
+        "fechaDeCreacion": "2022-06-28T19:38:42.456Z",
+        "esMagicPass": true
     },
     {
         "id": 15,
@@ -255,8 +267,8 @@
         "descripcion": "Autoría: Patrick Rothfuss\r\n\r\n«Al despertar, Auri supo que faltaban siete días. Sí, estaba segura. Él iría a visitarla al séptimo día.»\r\n\r\nLa Universidad, el bastión del conocimiento, atrae a las mentes más brillantes para aprender ciencias como la artificería y la alquimia. Pero bajo esos edificios y sus concurridas aulas existe un mundo en penumbra.\r\n\r\nEn ese laberinto de túneles antiguos, de salas y habitaciones abandonadas, de escaleras serpenteantes y pasillos semiderruidos vive Auri, otrora alumna de la Universidad. Ahora cuida de la Subrealidad, de la que ha aprendido que hay misterios que no conviene remover. Ya no se deja engañar por la lógica en la que tanto confían en lo alto: ella sabe reconocer los sutiles peligros y los nombres olvidados que se ocultan bajo la superficie de las cosas.",
         "precio": "700",
         "imagenes": "/img/productos/1656445216483-prodImg.jpg",
-        "categoria": "literatura",
-        "subcategoria": "audiolibro",
+        "categoria": "Literatura",
+        "subcategoria": "Audiolibro",
         "generos": [
             "medieval",
             "urbana",
@@ -266,7 +278,8 @@
         "esDestacado": false,
         "esOferta": true,
         "descuento": "15",
-        "fechaDeCreacion": "2022-06-28T19:40:16.493Z"
+        "fechaDeCreacion": "2022-06-28T19:40:16.493Z",
+        "esMagicPass": true
     },
     {
         "id": 16,
@@ -274,8 +287,8 @@
         "descripcion": "Autoría: H. P. Lovercraft - A. Breccia \r\n\r\nLos mitos de Cthulhu es una mitología del terror cósmico y primitivo que acecha en lo cotidiano pero se mantiene en las sombras. Los mitos fueron alimentados por otros escritores, miembros del Círculo de Lovecraft. \r\nY, en esta edición,  han sido vueltos historieta por el famoso dibujante Alberto Breccia.",
         "precio": "1600",
         "imagenes": "/img/productos/1656445333137-prodImg.png",
-        "categoria": "literatura",
-        "subcategoria": "historieta",
+        "categoria": "Literatura",
+        "subcategoria": "Historieta",
         "generos": [
             "clasica",
             "oscura"
@@ -284,7 +297,8 @@
         "esDestacado": true,
         "esOferta": false,
         "descuento": "",
-        "fechaDeCreacion": "2022-06-28T19:42:13.149Z"
+        "fechaDeCreacion": "2022-06-28T19:42:13.149Z",
+        "esMagicPass": true
     },
     {
         "id": 17,
@@ -292,8 +306,8 @@
         "descripcion": "Autoría: Cao Xuequin\r\n\r\nEl bello y trágico relato de los desvelos amorosos de Jia Baoyu y Lin Daiyu en la China del siglo XVIII, en el crepúsculo de un esplendor feudal que ya no es más que un sueño, no sólo constituye un abanico de todas las pasiones humanas, en el que se entremezclan dulzura y crueldad, sino que es a la vez una crónica deslumbrante de los claroscuros de la sociedad y la cultura de la China imperial.",
         "precio": "800",
         "imagenes": "/img/productos/1656445510643-prodImg.jpg",
-        "categoria": "literatura",
-        "subcategoria": "audiolibro",
+        "categoria": "Literatura",
+        "subcategoria": "Audiolibro",
         "generos": [
             "clasica"
         ],
@@ -301,16 +315,17 @@
         "esDestacado": true,
         "esOferta": false,
         "descuento": "",
-        "fechaDeCreacion": "2022-06-28T19:45:10.649Z"
+        "fechaDeCreacion": "2022-06-28T19:45:10.649Z",
+        "esMagicPass": true
     },
     {
         "id": 18,
         "nombre": "Historias Extraordinarias",
-        "descripcion": "Autoría: Edgar Allan Poe\r\n\r\nEn los 13 relatos que estás por escuchar Poe explora la locura, la muerte, el dolor, la crueldad, el instinto asesino, la desintegración física y moral, la soledad, el aislamiento y la duplicidad de la naturaleza humana.\r\n",
+        "descripcion": "",
         "precio": "1000",
         "imagenes": "/img/productos/1656449162057-prodImg.jpg",
-        "categoria": "literatura",
-        "subcategoria": "novela",
+        "categoria": "Literatura",
+        "subcategoria": "Novela",
         "generos": [
             "clasica",
             "oscura"
@@ -318,8 +333,8 @@
         "esNovedad": true,
         "esDestacado": false,
         "esOferta": true,
-        "descuento": "50",
-        "fechaDeCreacion": "2022-06-28T20:46:02.066Z"
+        "fechaDeCreacion": "2022-06-28T20:46:02.066Z",
+        "esMagicPass": true
     },
     {
         "id": 19,
@@ -327,8 +342,8 @@
         "descripcion": "Astra L. Doomsday es el ex capitán de la guardia real y finalmente logró su mayor deseo, reunir el dinero suficiente para retirarse y comprar una acogedora casa, lo que no sabe es que sus tan soñados días de paz terminarán muy rápido con la llegada de una pequeña aprendiz de bruja, quien lo confundirá con el Dios Maligno que fue derrotado y encerrado cientos de años atrás por una de sus ancestros. Astra ahora tendrá que cuidar de esta pequeña bruja, después de aclarar el malentendido, puesto que ya no tiene un hogar al cual regresar.\r\n\r\n",
         "precio": "700",
         "imagenes": "/img/productos/1656449702875-prodImg.png",
-        "categoria": "literatura",
-        "subcategoria": "manga",
+        "categoria": "Literatura",
+        "subcategoria": "Manga",
         "generos": [
             "urbana",
             "juvenil"
@@ -337,7 +352,8 @@
         "esDestacado": false,
         "esOferta": false,
         "descuento": "",
-        "fechaDeCreacion": "2022-06-28T20:55:02.883Z"
+        "fechaDeCreacion": "2022-06-28T20:55:02.883Z",
+        "esMagicPass": true
     },
     {
         "id": 20,
@@ -345,8 +361,8 @@
         "descripcion": "Autoría: Jun Mochizuki\r\n\r\nEl protagonista, Oz Vessalius, heredero de la familia Vessalius, nunca creyó en la existencia del Abismo hasta su ceremonia de madurez donde es condenado a ir luego de ser culpado por un crimen que no cometió. En un intento de escapar, Oz forma un contrato con una Chain de nombre Alice y con la vista puesta en el regreso a casa, viajarán por un mundo de misterio, tragedia y desesperación.",
         "precio": "700",
         "imagenes": "/img/productos/1656450205721-prodImg.jpg",
-        "categoria": "literatura",
-        "subcategoria": "manga",
+        "categoria": "Literatura",
+        "subcategoria": "Manga",
         "generos": [
             "oscura",
             "juvenil"
@@ -355,7 +371,8 @@
         "esDestacado": false,
         "esOferta": true,
         "descuento": "25",
-        "fechaDeCreacion": "2022-06-28T21:03:25.725Z"
+        "fechaDeCreacion": "2022-06-28T21:03:25.725Z",
+        "esMagicPass": true
     },
     {
         "id": 21,
@@ -363,8 +380,8 @@
         "descripcion": "Autoría: Stephen King \r\n\r\nDirecto desde la mente de Stephen King, El bazar de los malos sueños es una colección 20 relatos magníficos, inquietantes, absorbentes... Un preciado regalo del autor a sus lectores.«Escribí estos relatos especialmente para ti. Adelante, léelos, pero ten mucho cuidado. Los mejores tienen dientes.»\r\nStephen KingStephen King nos presenta en El bazar de los malos sueños una excepcional selección de relatos, algunos nuevos y otros revisados en profundidad. Cada uno viene precedido de su propia introducción, donde habla sobre sus orígenes y sobre los motivos que lo llevaron a escribirlo. Trata temas como la moralidad, la vida después de la muerte, la culpa y lo que corregiríamos del pasado si pudiéramos ver el futuro.",
         "precio": "10",
         "imagenes": "/img/productos/1656450381444-prodImg.jpg",
-        "categoria": "literatura",
-        "subcategoria": "cuento",
+        "categoria": "Literatura",
+        "subcategoria": "Cuento",
         "generos": [
             "oscura"
         ],
@@ -372,7 +389,8 @@
         "esDestacado": false,
         "esOferta": true,
         "descuento": "5",
-        "fechaDeCreacion": "2022-06-28T21:06:21.449Z"
+        "fechaDeCreacion": "2022-06-28T21:06:21.449Z",
+        "esMagicPass": true
     },
     {
         "id": 22,
@@ -380,8 +398,8 @@
         "descripcion": "Autoría: Oscar Wilde \r\n\r\nDorian Gray sigue siendo, más de cien años después de la muerte de su autor, una piedra angular en los debates entre la ética y la estética, en las relaciones que mantienen el bien y el mal, el alma y el cuerpo, el arte y la vida. Presidida por la ley de la fatalidad, Dorian Gray no deja de alcanzar el objetivo que el propio Wilde quería para su libro: «Venenoso si ustedes quieren, pero no podrán negar que también es perfecto, y la perfección es la meta a la que apuntamos nosotros los artistas».",
         "precio": "980",
         "imagenes": "/img/productos/1656450987514-prodImg.jpg",
-        "categoria": "literatura",
-        "subcategoria": "novela",
+        "categoria": "Literatura",
+        "subcategoria": "Novela",
         "generos": [
             "clasica"
         ],
@@ -389,7 +407,8 @@
         "esDestacado": false,
         "esOferta": true,
         "descuento": "40",
-        "fechaDeCreacion": "2022-06-28T21:16:27.519Z"
+        "fechaDeCreacion": "2022-06-28T21:16:27.519Z",
+        "esMagicPass": true
     },
     {
         "id": 23,
@@ -397,8 +416,8 @@
         "descripcion": "Autoría: J. R. R. Tolkien\r\n\r\nEl viaje de La Comunidad del Anillo está llegando a su fin. Las fuerzas de Sauron han atacado Minas Tirith, la capital de Gondor, en su asedio definitivo contra la humanidad. El antaño gran reino, ahora gobernado por un anciano senescal, nunca ha necesitado más desesperadamente la figura de un Rey.",
         "precio": "910",
         "imagenes": "/img/productos/1656451096084-prodImg.jpg",
-        "categoria": "literatura",
-        "subcategoria": "novela",
+        "categoria": "Literatura",
+        "subcategoria": "Novela",
         "generos": [
             "medieval",
             "clasica"
@@ -407,7 +426,8 @@
         "esDestacado": true,
         "esOferta": false,
         "descuento": "",
-        "fechaDeCreacion": "2022-06-28T21:18:16.088Z"
+        "fechaDeCreacion": "2022-06-28T21:18:16.088Z",
+        "esMagicPass": true
     },
     {
         "id": 24,
@@ -415,8 +435,8 @@
         "descripcion": "One Piece es un manga escrito y dibujado por Eiichiro Oda, que ilustra las aventuras de los protagonistas piratas, en concreto la tripulación pirata formada por Monkey D. Luffy, quienes están en la búsqueda de un tesoro llamado One Piece. Fue publicado por primera vez el 19 de julio de 1997 en la revista Shonen Jump.",
         "precio": "680",
         "imagenes": "/img/productos/1656451181812-prodImg.jpg",
-        "categoria": "literatura",
-        "subcategoria": "manga",
+        "categoria": "Literatura",
+        "subcategoria": "Manga",
         "generos": [
             "clasica"
         ],
@@ -424,7 +444,8 @@
         "esDestacado": false,
         "esOferta": true,
         "descuento": "50",
-        "fechaDeCreacion": "2022-06-28T21:19:41.819Z"
+        "fechaDeCreacion": "2022-06-28T21:19:41.819Z",
+        "esMagicPass": true
     },
     {
         "id": 25,
@@ -432,8 +453,8 @@
         "descripcion": "Soudtrack de la trilogía \"The Hobbit\" ",
         "precio": "200",
         "imagenes": "/img/productos/1656452229163-prodImg.jfif",
-        "categoria": "multimedia",
-        "subcategoria": "soundtrack",
+        "categoria": "Multimedia",
+        "subcategoria": "Soundtrack",
         "generos": [
             "medieval"
         ],
@@ -441,7 +462,8 @@
         "esDestacado": false,
         "esOferta": false,
         "descuento": "",
-        "fechaDeCreacion": "2022-06-28T21:37:09.173Z"
+        "fechaDeCreacion": "2022-06-28T21:37:09.173Z",
+        "esMagicPass": true
     },
     {
         "id": 26,
@@ -449,8 +471,8 @@
         "descripcion": "2 horas dela mejor música de fantasía por Adrian von Ziegler ",
         "precio": "350",
         "imagenes": "/img/productos/1656452353679-prodImg.PNG",
-        "categoria": "multimedia",
-        "subcategoria": "soundtrack",
+        "categoria": "Multimedia",
+        "subcategoria": "Soundtrack",
         "generos": [
             "juvenil"
         ],
@@ -458,7 +480,8 @@
         "esDestacado": true,
         "esOferta": false,
         "descuento": "",
-        "fechaDeCreacion": "2022-06-28T21:39:13.707Z"
+        "fechaDeCreacion": "2022-06-28T21:39:13.707Z",
+        "esMagicPass": true
     },
     {
         "id": 27,
@@ -466,8 +489,8 @@
         "descripcion": "Soundtrack original compuesto por Yoko Shimomura.  2016",
         "precio": "280",
         "imagenes": "/img/productos/1656452471675-prodImg.jpg",
-        "categoria": "multimedia",
-        "subcategoria": "soundtrack",
+        "categoria": "Multimedia",
+        "subcategoria": "Soundtrack",
         "generos": [
             "clasica",
             "juvenil"
@@ -476,7 +499,8 @@
         "esDestacado": true,
         "esOferta": false,
         "descuento": "",
-        "fechaDeCreacion": "2022-06-28T21:41:11.694Z"
+        "fechaDeCreacion": "2022-06-28T21:41:11.694Z",
+        "esMagicPass": true
     },
     {
         "id": 28,
@@ -484,8 +508,8 @@
         "descripcion": "Ejecutado por Global Stage Orchestra",
         "precio": "120",
         "imagenes": "/img/productos/1656452538595-prodImg.jpg",
-        "categoria": "multimedia",
-        "subcategoria": "soundtrack",
+        "categoria": "Multimedia",
+        "subcategoria": "Soundtrack",
         "generos": [
             "clasica"
         ],
@@ -493,7 +517,8 @@
         "esDestacado": false,
         "esOferta": false,
         "descuento": "",
-        "fechaDeCreacion": "2022-06-28T21:42:18.603Z"
+        "fechaDeCreacion": "2022-06-28T21:42:18.603Z",
+        "esMagicPass": true
     },
     {
         "id": 29,
@@ -501,8 +526,8 @@
         "descripcion": "Fantasy  & Adventure Fantasy Music.\r\nEsta mezcla presenta pistas aventureras, asombrosas, dramáticas y heroicas, que aportan energía y vida a cualquier narrativa de búsqueda y descubrimiento.",
         "precio": "159",
         "imagenes": "/img/productos/1656452761763-prodImg.PNG",
-        "categoria": "multimedia",
-        "subcategoria": "soundtrack",
+        "categoria": "Multimedia",
+        "subcategoria": "Soundtrack",
         "generos": [
             "medieval"
         ],
@@ -510,7 +535,8 @@
         "esDestacado": true,
         "esOferta": true,
         "descuento": "10",
-        "fechaDeCreacion": "2022-06-28T21:46:01.785Z"
+        "fechaDeCreacion": "2022-06-28T21:46:01.785Z",
+        "esMagicPass": true
     },
     {
         "id": 30,
@@ -518,8 +544,8 @@
         "descripcion": "Clásico del cine. Willy Wonka, un famoso fabricante de dulces ofrece suministrar dulces de por vida a los cinco ganadores que encuentren el tesoro. 1971",
         "precio": "1200",
         "imagenes": "/img/productos/1656453041923-prodImg.jpg",
-        "categoria": "multimedia",
-        "subcategoria": "pelicula",
+        "categoria": "Multimedia",
+        "subcategoria": "Pelicula",
         "generos": [
             "clasica",
             "juvenil"
@@ -528,7 +554,8 @@
         "esDestacado": false,
         "esOferta": false,
         "descuento": "60",
-        "fechaDeCreacion": "2022-06-28T21:50:41.952Z"
+        "fechaDeCreacion": "2022-06-28T21:50:41.952Z",
+        "esMagicPass": true
     },
     {
         "id": 31,
@@ -536,8 +563,8 @@
         "descripcion": "Sarah Jessica Parker, Bette Midler y Kathy Najimy regresan en la segunda entrega de 'El retorno de las brujas'. Disney, 2022\r\nDirigida por Anne Fletcher, la secuela contará también con el regreso de Doug Jones como Billy Butcherson, el hombre muerto que las hermanas Sanderson resucitaron en la primera entrega. Aunque, en un principio su propósito era atacar a los jóvenes protagonistas, finalmente se une a ellos en su intento por evitar los planes de las brujas.",
         "precio": "1740",
         "imagenes": "/img/productos/1656453088837-prodImg.jpg",
-        "categoria": "multimedia",
-        "subcategoria": "pelicula",
+        "categoria": "Multimedia",
+        "subcategoria": "Pelicula",
         "generos": [
             "juvenil"
         ],
@@ -545,7 +572,8 @@
         "esDestacado": true,
         "esOferta": false,
         "descuento": "",
-        "fechaDeCreacion": "2022-06-28T21:51:28.847Z"
+        "fechaDeCreacion": "2022-06-28T21:51:28.847Z",
+        "esMagicPass": true
     },
     {
         "id": 32,
@@ -553,8 +581,8 @@
         "descripcion": "Hace mil años, el cristal encantado fue partido, iniciando una era de caos, dominada por una raza maligna. El huérfano Jen, creado por hechiceros pacíficos, va en busca del pedazo perdido del cristal para restaurar el equilibrio del universo. ",
         "precio": "1800",
         "imagenes": "/img/productos/1656453207011-prodImg.jpg",
-        "categoria": "multimedia",
-        "subcategoria": "pelicula",
+        "categoria": "Multimedia",
+        "subcategoria": "Pelicula",
         "generos": [
             "juvenil"
         ],
@@ -562,7 +590,8 @@
         "esDestacado": true,
         "esOferta": false,
         "descuento": "",
-        "fechaDeCreacion": "2022-06-28T21:53:27.064Z"
+        "fechaDeCreacion": "2022-06-28T21:53:27.064Z",
+        "esMagicPass": true
     },
     {
         "id": 33,
@@ -570,8 +599,8 @@
         "descripcion": "Spellbound es una película de fantasía musical animada por computadora dirigida por Vicky Jenson. Su música fue compuesta por Alan Menken. La película fue producida por Skydance Animation y Skydance Animation Madrid. 2022",
         "precio": "1200",
         "imagenes": "/img/productos/1656453300750-prodImg.jpg",
-        "categoria": "multimedia",
-        "subcategoria": "pelicula",
+        "categoria": "Multimedia",
+        "subcategoria": "Pelicula",
         "generos": [
             "juvenil"
         ],
@@ -579,7 +608,8 @@
         "esDestacado": true,
         "esOferta": false,
         "descuento": "50",
-        "fechaDeCreacion": "2022-06-28T21:55:00.759Z"
+        "fechaDeCreacion": "2022-06-28T21:55:00.759Z",
+        "esMagicPass": true
     },
     {
         "id": 34,
@@ -587,8 +617,8 @@
         "descripcion": "A Fairy Tale After All es una película de fantasía musical estadounidense de 2022 producida, escrita y dirigida por Erik Peter Carlson. La película está protagonizada por Emily Shenaut, Brian Hull, Gabriel Burrafato, Bridget Winder, Timothy N. Kopacz y Anna Brisbin.",
         "precio": "1100",
         "imagenes": "/img/productos/1656453406967-prodImg.png",
-        "categoria": "multimedia",
-        "subcategoria": "pelicula",
+        "categoria": "Multimedia",
+        "subcategoria": "Pelicula",
         "generos": [
             "juvenil"
         ],
@@ -596,7 +626,8 @@
         "esDestacado": true,
         "esOferta": false,
         "descuento": "",
-        "fechaDeCreacion": "2022-06-28T21:56:46.976Z"
+        "fechaDeCreacion": "2022-06-28T21:56:46.976Z",
+        "esMagicPass": true
     },
     {
         "id": 35,
@@ -604,8 +635,8 @@
         "descripcion": "Bastion es un videojuego de rol de acción (o ARPG) elaborado por el desarrollador independiente Supergiant Games. En este juego, el jugador controla al protagonista, nombrado \"the Kid\", mientras se mueve entre plataformas flotantes a través de un mundo fantasioso al tiempo que combate varios tipos de enemigos que se interponen en su camino.",
         "precio": "200",
         "imagenes": "/img/productos/1656456279212-prodImg.jpg",
-        "categoria": "juegos",
-        "subcategoria": "videojuego",
+        "categoria": "Juegos",
+        "subcategoria": "Videojuego",
         "generos": [
             "clasica",
             "juvenil"
@@ -614,7 +645,8 @@
         "esDestacado": false,
         "esOferta": true,
         "descuento": "50",
-        "fechaDeCreacion": "2022-06-28T22:44:39.214Z"
+        "fechaDeCreacion": "2022-06-28T22:44:39.214Z",
+        "esMagicPass": true
     },
     {
         "id": 36,
@@ -622,8 +654,8 @@
         "descripcion": "Endless Legend es un juego de estrategia y fantasía 4x basado en turnos de los creadores de Endless Space y Dungeon of the Endless. Controla cada aspecto de tu civilización en tu pugna por salvar tu hogar, Auriga. ¡Crea tu propia leyenda!",
         "precio": "330",
         "imagenes": "/img/productos/1656456344949-prodImg.jpg",
-        "categoria": "juegos",
-        "subcategoria": "videojuego",
+        "categoria": "Juegos",
+        "subcategoria": "Videojuego",
         "generos": [
             "medieval",
             "clasica"
@@ -632,7 +664,8 @@
         "esDestacado": true,
         "esOferta": true,
         "descuento": "40",
-        "fechaDeCreacion": "2022-06-28T22:45:44.954Z"
+        "fechaDeCreacion": "2022-06-28T22:45:44.954Z",
+        "esMagicPass": true
     },
     {
         "id": 37,
@@ -640,8 +673,8 @@
         "descripcion": "Hades es un juego de rol de acción roguelike desarrollado y publicado por Supergiant Games. Los jugadores controlan a Zagreus, el hijo de Hades, mientras intenta escapar del Inframundo para llegar al Monte Olimpo, en ocasiones con la ayuda de los obsequios que le otorgan los otros olímpicos. Cada carrera desafía al jugador a través de una serie aleatoria de habitaciones pobladas de enemigos y recompensas. ",
         "precio": "270",
         "imagenes": "/img/productos/1656456410469-prodImg.png",
-        "categoria": "juegos",
-        "subcategoria": "videojuego",
+        "categoria": "Juegos",
+        "subcategoria": "Videojuego",
         "generos": [
             "clasica",
             "oscura"
@@ -650,7 +683,8 @@
         "esDestacado": true,
         "esOferta": false,
         "descuento": "0",
-        "fechaDeCreacion": "2022-06-28T22:46:50.471Z"
+        "fechaDeCreacion": "2022-06-28T22:46:50.471Z",
+        "esMagicPass": true
     },
     {
         "id": 38,
@@ -658,8 +692,8 @@
         "descripcion": "Stardew Valley es un videojuego indie de simulación de granja desarrollado por Eric \"ConcernedApe\" Barone. En Stardew Valley, el jugador toma el rol de un personaje que se encuentra atrapado en un trabajo de oficina, para escapar de él se va a vivir a la granja de su abuelo, la cual se encuentra en ruinas. La granja se encuentra ubicada en un lugar llamado Pueblo Pelícano. El jugador controla las acciones del personaje, utilizando energía al realizar acciones como regar los cultivos o minar, entre muchos otros. El tiempo y la energía utilizada para realizar las acciones dependiendo del nivel que el personaje cuente en dichas actividades, las cuales aumentan con el tiempo al repetir la tarea una y otra vez.",
         "precio": "150",
         "imagenes": "/img/productos/1656456496210-prodImg.jpg",
-        "categoria": "juegos",
-        "subcategoria": "videojuego",
+        "categoria": "Juegos",
+        "subcategoria": "Videojuego",
         "generos": [
             "urbana",
             "juvenil"
@@ -668,16 +702,17 @@
         "esDestacado": true,
         "esOferta": true,
         "descuento": "10",
-        "fechaDeCreacion": "2022-06-28T22:48:16.225Z"
+        "fechaDeCreacion": "2022-06-28T22:48:16.225Z",
+        "esMagicPass": true
     },
     {
         "id": 39,
         "nombre": "The Elder Scrolls V: Skyrim",
-        "descripcion": "The Elder Scrolls V: Skyrim es un ARPG del tipo mundo abierto desarrollado por Bethesda Game Studios. Skyrim es la quinta entrega de la serie The Elder Scrolls de videojuegos de acción y fantasía, y es posterior a The Elder Scrolls IV: Oblivion.",
+        "descripcion": "The Elder Scrolls V: Skyrim es un ARPG del tipo mundo abierto desarrollado por Bethesda Game Studios. Skyrim es la quinta entrega de la serie The Elder Scrolls de videoJuegos de acción y fantasía, y es posterior a The Elder Scrolls IV: Oblivion.",
         "precio": "600",
         "imagenes": "/img/productos/1656456569762-prodImg.jpg",
-        "categoria": "juegos",
-        "subcategoria": "videojuego",
+        "categoria": "Juegos",
+        "subcategoria": "Videojuego",
         "generos": [
             "medieval",
             "clasica",
@@ -687,7 +722,8 @@
         "esDestacado": true,
         "esOferta": true,
         "descuento": "30",
-        "fechaDeCreacion": "2022-06-28T22:49:29.764Z"
+        "fechaDeCreacion": "2022-06-28T22:49:29.764Z",
+        "esMagicPass": true
     },
     {
         "id": 40,
@@ -695,8 +731,8 @@
         "descripcion": "¿Qué pasará si mezclamos pluma de cuervo con sapo? ¿Y si mezclamos raíz de mandrágora con escorpión? A lo largo de seis rondas, los jugadores, convertidos en alquimistas, intentarán ganar prestigio descubriendo las propiedades mágicas de sus ingredientes. Alquimistas, además, incorpora una gran novedad, una app para el móvil que da a los jugadores el resultado de sus combinaciones de ingredientes.",
         "precio": "11000",
         "imagenes": "/img/productos/1656456616950-prodImg.jpg",
-        "categoria": "juegos",
-        "subcategoria": "novela",
+        "categoria": "Juegos",
+        "subcategoria": "Juego de mesa",
         "generos": [
             "medieval",
             "clasica"
@@ -705,7 +741,8 @@
         "esDestacado": true,
         "esOferta": false,
         "descuento": "",
-        "fechaDeCreacion": "2022-06-28T22:50:16.976Z"
+        "fechaDeCreacion": "2022-06-28T22:50:16.976Z",
+        "esMagicPass": true
     },
     {
         "id": 41,
@@ -713,8 +750,8 @@
         "descripcion": "Pyre es un RPG por equipos de los creadores de Bastion y Transistor, Supergiant Games. Conduce a la libertad a una banda de exiliados en una serie de competiciones místicas en el modo campaña o desafía a un amigo a un frenético combate ritual en el modo enfrentamiento.",
         "precio": "150",
         "imagenes": "/img/productos/1656456671241-prodImg.jpg",
-        "categoria": "juegos",
-        "subcategoria": "videojuego",
+        "categoria": "Juegos",
+        "subcategoria": "Videojuego",
         "generos": [
             "clasica"
         ],
@@ -722,7 +759,8 @@
         "esDestacado": true,
         "esOferta": true,
         "descuento": "25",
-        "fechaDeCreacion": "2022-06-28T22:51:11.254Z"
+        "fechaDeCreacion": "2022-06-28T22:51:11.254Z",
+        "esMagicPass": true
     },
     {
         "id": 42,
@@ -730,8 +768,8 @@
         "descripcion": "The Witcher 3: Wild Hunt es un videojuego de rol desarrollado y publicado por la compañía polaca CD Projekt RED. El juego es la tercera parte de la saga, precedido por The Witcher y The Witcher 2: Assassins of Kings, las cuales están basadas en la saga literaria de Geralt de Rivia escrita por Andrzej Sapkowski. Es un juego de perspectiva en tercera persona, el jugador controla al protagonista Geralt de Rivia, un cazador de monstruos conocido como Lobo Blanco, es un brujo, el cual emprende un largo viaje a través de Los reinos del norte. Ellx jugadorx lucha contra el peligroso mundo mediante magia y espadas, mientras interactúa con los NPC y completa tanto misiones secundarias como la misión principal de la historia, La cual es encontrar a la hija adoptiva de Geralt, Ciri, y detener la profecía del invierno blanco.",
         "precio": "1000",
         "imagenes": "/img/productos/1656456913782-prodImg.jpeg",
-        "categoria": "juegos",
-        "subcategoria": "videojuego",
+        "categoria": "Juegos",
+        "subcategoria": "Videojuego",
         "generos": [
             "medieval",
             "clasica",
@@ -741,7 +779,8 @@
         "esDestacado": true,
         "esOferta": true,
         "descuento": "30",
-        "fechaDeCreacion": "2022-06-28T22:55:13.786Z"
+        "fechaDeCreacion": "2022-06-28T22:55:13.786Z",
+        "esMagicPass": true
     },
     {
         "id": 43,
@@ -749,8 +788,8 @@
         "descripcion": "Minecraft es un videojuego de construcción de tipo «mundo abierto» o sandbox creado originalmente por el sueco Markus Persson.El juego se centra en la colocación y destrucción de bloques, siendo que este se compone de objetos tridimensionales cúbicos, colocados sobre un patrón de rejilla fija. Estos cubos o bloques representan principalmente distintos elementos de la naturaleza, como tierra, piedra, minerales, troncos, entre otros.",
         "precio": "1500",
         "imagenes": "/img/productos/1656456962797-prodImg.jpeg",
-        "categoria": "juegos",
-        "subcategoria": "videojuego",
+        "categoria": "Juegos",
+        "subcategoria": "Videojuego",
         "generos": [
             "clasica",
             "juvenil"
@@ -759,7 +798,8 @@
         "esDestacado": true,
         "esOferta": true,
         "descuento": "30",
-        "fechaDeCreacion": "2022-06-28T22:56:02.801Z"
+        "fechaDeCreacion": "2022-06-28T22:56:02.801Z",
+        "esMagicPass": true
     },
     {
         "id": 44,
@@ -767,8 +807,8 @@
         "descripcion": "Munchkin es un juego de cartas de rol diseñado por Steve Jackson e ilustrado por John Kovalic para Steve Jackson Games. El lema que resume el objetivo del juego es Mata a los monstruos, roba el tesoro, apuñala a tus amigos.",
         "precio": "3000",
         "imagenes": "/img/productos/1656457045469-prodImg.jpg",
-        "categoria": "juegos",
-        "subcategoria": "novela",
+        "categoria": "Juegos",
+        "subcategoria": "Juego de mesa",
         "generos": [
             "medieval",
             "urbana",
@@ -778,7 +818,8 @@
         "esDestacado": false,
         "esOferta": true,
         "descuento": "25",
-        "fechaDeCreacion": "2022-06-28T22:57:25.477Z"
+        "fechaDeCreacion": "2022-06-28T22:57:25.477Z",
+        "esMagicPass": false
     },
     {
         "id": 45,
@@ -786,8 +827,8 @@
         "descripcion": "Las tierras alrededor del Pico Fuegotormentoso se han vuelto peligrosas. Los pocos pueblos cerca del volcán han sido acosados por bandas merodeadoras de orcos y kóbold, y horrores más peligrosos acechan en las sombras. Lo peor de todo, un nuevo villano tiene su hogar en la montaña - el terrible dragón rojo Ashardalon ha convertido el volcán en su guarida.",
         "precio": "20000",
         "imagenes": "/img/productos/1656457101125-prodImg.jpeg",
-        "categoria": "juegos",
-        "subcategoria": "novela",
+        "categoria": "Juegos",
+        "subcategoria": "Juego de mesa",
         "generos": [
             "medieval",
             "clasica",
@@ -797,7 +838,8 @@
         "esDestacado": true,
         "esOferta": true,
         "descuento": "40",
-        "fechaDeCreacion": "2022-06-28T22:58:21.147Z"
+        "fechaDeCreacion": "2022-06-28T22:58:21.147Z",
+        "esMagicPass": false
     },
     {
         "id": 46,
@@ -805,8 +847,8 @@
         "descripcion": "Llavero plástico de alta calidad con diseño de Totoro. No te lo pierdas!",
         "precio": "300",
         "imagenes": "/img/productos/1656458796584-prodImg.jpg",
-        "categoria": "baratijas",
-        "subcategoria": "accesorio",
+        "categoria": "Baratijas",
+        "subcategoria": "Accesorio",
         "generos": [
             "urbana",
             "juvenil"
@@ -815,16 +857,17 @@
         "esDestacado": false,
         "esOferta": false,
         "descuento": "0",
-        "fechaDeCreacion": "2022-06-28T23:26:36.587Z"
+        "fechaDeCreacion": "2022-06-28T23:26:36.587Z",
+        "esMagicPass": false
     },
     {
         "id": 47,
         "nombre": "FIGURA THE WITCHER",
-        "descripcion": "Figura de 7 pulgadas coleccionable con accesorios y base. En esta oportunidad, traemos para ti a Wild Hunt. No te la pierdas!",
+        "descripcion": "Figura de 7 pulgadas coleccionable con Accesorios y base. En esta oportunidad, traemos para ti a Wild Hunt. No te la pierdas!",
         "precio": "10000",
         "imagenes": "/img/productos/1656458939909-prodImg.jpg",
-        "categoria": "baratijas",
-        "subcategoria": "coleccionable",
+        "categoria": "Baratijas",
+        "subcategoria": "Coleccionable",
         "generos": [
             "medieval",
             "oscura",
@@ -834,7 +877,8 @@
         "esDestacado": true,
         "esOferta": false,
         "descuento": "",
-        "fechaDeCreacion": "2022-06-28T23:28:59.914Z"
+        "fechaDeCreacion": "2022-06-28T23:28:59.914Z",
+        "esMagicPass": false
     },
     {
         "id": 48,
@@ -842,8 +886,8 @@
         "descripcion": "Llavero plastico de alta calidad con diseño de Alianza, perteneciente al popular videojuego World of Warcraft. No te lo pierdas!",
         "precio": "300",
         "imagenes": "/img/productos/1656458977582-prodImg.jpg",
-        "categoria": "baratijas",
-        "subcategoria": "accesorio",
+        "categoria": "Baratijas",
+        "subcategoria": "Accesorio",
         "generos": [
             "urbana",
             "juvenil"
@@ -852,7 +896,8 @@
         "esDestacado": false,
         "esOferta": false,
         "descuento": "",
-        "fechaDeCreacion": "2022-06-28T23:29:37.587Z"
+        "fechaDeCreacion": "2022-06-28T23:29:37.587Z",
+        "esMagicPass": false
     },
     {
         "id": 49,
@@ -860,8 +905,8 @@
         "descripcion": "Llavero plastico de alta calidad con diseño a todo color del Escudo de Armas de la Casa Stark, perteneciente a la Popular Serie Game of Thrones. No te lo pierdas!",
         "precio": "300",
         "imagenes": "/img/productos/1656459010445-prodImg.jpg",
-        "categoria": "baratijas",
-        "subcategoria": "accesorio",
+        "categoria": "Baratijas",
+        "subcategoria": "Accesorio",
         "generos": [
             "medieval",
             "clasica",
@@ -871,16 +916,17 @@
         "esDestacado": false,
         "esOferta": false,
         "descuento": "",
-        "fechaDeCreacion": "2022-06-28T23:30:10.449Z"
+        "fechaDeCreacion": "2022-06-28T23:30:10.449Z",
+        "esMagicPass": false
     },
     {
         "id": 50,
         "nombre": "MEDIAS HARRY POTTER GRYFFINDOR",
         "descripcion": "Medias tematicas de Gryffindor",
-        "precio": "750",
+        "precio": "700",
         "imagenes": "/img/productos/1656459052016-prodImg.jpg",
-        "categoria": "baratijas",
-        "subcategoria": "ropa",
+        "categoria": "Baratijas",
+        "subcategoria": "Ropa",
         "generos": [
             "clasica",
             "juvenil"
@@ -888,8 +934,8 @@
         "esNovedad": true,
         "esDestacado": true,
         "esOferta": false,
-        "descuento": "",
-        "fechaDeCreacion": "2022-06-28T23:30:52.023Z"
+        "fechaDeCreacion": "2022-06-28T23:30:52.023Z",
+        "esMagicPass": false
     },
     {
         "id": 51,
@@ -897,8 +943,8 @@
         "descripcion": "Montañas de la Locura es un juego cooperativo de estrategia inspirado en la obra de H.P. Lovecraft (La llamada de Cthulhu, La sombra sobre Innsmouth, entre otras), diseñado por Rob Daviau (Pandemic: Legacy, Betrayal at the House on the Hill, etc.) y nominado a un premio Origins, con mucha estrategia y algo de humor. Cada jugador se pone en la piel de un científico en búsqueda de las reliquias de una ciudad antigua. Solo el trabajo en equipo los salvará de no caer en ¡la locura!",
         "precio": "10000",
         "imagenes": "/img/productos/1656460181912-prodImg.jpg",
-        "categoria": "baratijas",
-        "subcategoria": "accesorio",
+        "categoria": "Baratijas",
+        "subcategoria": "Accesorio",
         "generos": [
             "clasica",
             "oscura"
@@ -907,7 +953,8 @@
         "esDestacado": true,
         "esOferta": false,
         "descuento": "",
-        "fechaDeCreacion": "2022-06-28T23:49:41.916Z"
+        "fechaDeCreacion": "2022-06-28T23:49:41.916Z",
+        "esMagicPass": false
     },
     {
         "id": 52,
@@ -915,8 +962,8 @@
         "descripcion": "Anillo de Harry Potter con la palabra \"ALWAYS\" y el simbolo de las reliquias de la muerte.",
         "precio": "800",
         "imagenes": "/img/productos/1656460464366-prodImg.jpg",
-        "categoria": "baratijas",
-        "subcategoria": "accesorio",
+        "categoria": "Baratijas",
+        "subcategoria": "Accesorio",
         "generos": [
             "urbana",
             "juvenil"
@@ -925,7 +972,8 @@
         "esDestacado": false,
         "esOferta": false,
         "descuento": "",
-        "fechaDeCreacion": "2022-06-28T23:54:24.371Z"
+        "fechaDeCreacion": "2022-06-28T23:54:24.371Z",
+        "esMagicPass": false
     },
     {
         "id": 53,
@@ -933,8 +981,8 @@
         "descripcion": "Figura Original Funko Pop Games de la Coleccion Assassin's Creed Valhalla Numero 776 Eivor, tal como se lo puede apreciar en el popular Videojuego. No te lo pierdas!",
         "precio": "5000",
         "imagenes": "/img/productos/1656460913482-prodImg.jpg",
-        "categoria": "baratijas",
-        "subcategoria": "coleccionable",
+        "categoria": "Baratijas",
+        "subcategoria": "Coleccionable",
         "generos": [
             "urbana",
             "juvenil"
@@ -943,7 +991,8 @@
         "esDestacado": true,
         "esOferta": false,
         "descuento": "",
-        "fechaDeCreacion": "2022-06-29T00:01:53.494Z"
+        "fechaDeCreacion": "2022-06-29T00:01:53.494Z",
+        "esMagicPass": false
     },
     {
         "id": 54,
@@ -951,8 +1000,8 @@
         "descripcion": "Figura Original Funko Pop Games de la Coleccion Pokemon, Numero 455 Charmander. No te la pierdas!",
         "precio": "5000",
         "imagenes": "/img/productos/1656460945893-prodImg.jpg",
-        "categoria": "baratijas",
-        "subcategoria": "coleccionable",
+        "categoria": "Baratijas",
+        "subcategoria": "Coleccionable",
         "generos": [
             "urbana",
             "juvenil"
@@ -961,7 +1010,8 @@
         "esDestacado": true,
         "esOferta": false,
         "descuento": "",
-        "fechaDeCreacion": "2022-06-29T00:02:25.899Z"
+        "fechaDeCreacion": "2022-06-29T00:02:25.899Z",
+        "esMagicPass": false
     },
     {
         "id": 55,
@@ -969,8 +1019,8 @@
         "descripcion": "De la película Harry Potter and the Goblet of Fire llega la figura funko original coleccionable numero 38 Mad-Eye Moody.",
         "precio": "5000",
         "imagenes": "/img/productos/1656460994223-prodImg.jpg",
-        "categoria": "baratijas",
-        "subcategoria": "coleccionable",
+        "categoria": "Baratijas",
+        "subcategoria": "Coleccionable",
         "generos": [
             "clasica"
         ],
@@ -978,16 +1028,17 @@
         "esDestacado": false,
         "esOferta": false,
         "descuento": "",
-        "fechaDeCreacion": "2022-06-29T00:03:14.229Z"
+        "fechaDeCreacion": "2022-06-29T00:03:14.229Z",
+        "esMagicPass": false
     },
     {
         "id": 56,
         "nombre": "Llaves espada de Kingdom Hearts",
-        "descripcion": "Set completo de colgantes y keychain de las llaves espada de Kingdom Hearts Birth by Sleep que podrá tener en su posesión ya sea como complemento o como colección.bDisfruta coleccionando o llevando como complemento este maravilloso set de colgantes de llaves espada de la saga de videojuegos Kingdom Hearts.",
+        "descripcion": "Set completo de colgantes y keychain de las llaves espada de Kingdom Hearts Birth by Sleep que podrá tener en su posesión ya sea como complemento o como colección.bDisfruta coleccionando o llevando como complemento este maravilloso set de colgantes de llaves espada de la saga de videoJuegos Kingdom Hearts.",
         "precio": "2000",
         "imagenes": "/img/productos/1656462834716-prodImg.jpg",
-        "categoria": "baratijas",
-        "subcategoria": "accesorio",
+        "categoria": "Baratijas",
+        "subcategoria": "Accesorio",
         "generos": [
             "urbana",
             "clasica"
@@ -996,7 +1047,8 @@
         "esDestacado": false,
         "esOferta": false,
         "descuento": "",
-        "fechaDeCreacion": "2022-06-29T00:33:54.724Z"
+        "fechaDeCreacion": "2022-06-29T00:33:54.724Z",
+        "esMagicPass": false
     },
     {
         "id": 57,
@@ -1004,8 +1056,8 @@
         "descripcion": "Pulsera negra con el simbolo de Cloud Strife de Final Fantasy VII",
         "precio": "",
         "imagenes": "/img/productos/1656462928021-prodImg.jpg",
-        "categoria": "baratijas",
-        "subcategoria": "accesorio",
+        "categoria": "Baratijas",
+        "subcategoria": "Accesorio",
         "generos": [
             "clasica",
             "oscura"
@@ -1014,7 +1066,8 @@
         "esDestacado": true,
         "esOferta": false,
         "descuento": "",
-        "fechaDeCreacion": "2022-06-29T00:35:28.026Z"
+        "fechaDeCreacion": "2022-06-29T00:35:28.026Z",
+        "esMagicPass": false
     },
     {
         "id": 58,
@@ -1022,8 +1075,8 @@
         "descripcion": "Peluche de Chimuelo, de Como Entrenar a tu Dragon",
         "precio": "5000",
         "imagenes": "/img/productos/1656463365597-prodImg.jpg",
-        "categoria": "baratijas",
-        "subcategoria": "coleccionable",
+        "categoria": "Baratijas",
+        "subcategoria": "Coleccionable",
         "generos": [
             "clasica",
             "juvenil"
@@ -1032,6 +1085,7 @@
         "esDestacado": true,
         "esOferta": true,
         "descuento": "30",
-        "fechaDeCreacion": "2022-06-29T00:42:45.602Z"
+        "fechaDeCreacion": "2022-06-29T00:42:45.602Z",
+        "esMagicPass": false
     }
 ]

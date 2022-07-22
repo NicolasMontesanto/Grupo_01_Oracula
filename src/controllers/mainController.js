@@ -24,7 +24,7 @@ const mainController = {
         let novedades = sortear(novedadesEnOrden);
 
          //hacemos lo mismo con las ofertas
-         let ofertasEnOrden = products.filter(item => item.esOferta == true);
+         let ofertasEnOrden = products.filter(item =>(item.esOferta == true && item.descuento != ""));
          let ofertas = sortear(ofertasEnOrden);
 
         res.render('home', {products, productosDestacados, novedades, ofertas});
