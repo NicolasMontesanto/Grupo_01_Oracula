@@ -17,6 +17,16 @@
     --oracula: #bddcf4;
 }
 
+.text-danger {
+    color: red;
+}
+
+.invalid {
+    border: 1px solid red;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px var(--oracula);
+}
+
 .main {
     width: 100%;
     flex-direction: column;
@@ -34,7 +44,8 @@
 .titulo__text {
     margin: 0px;
 }
-.formulario__container{
+
+.formulario__container {
     background-color: rgba(69, 41, 63, 0.5);
     box-shadow: 10px 10px 20px 10px var(--morado-oscuro);
     width: 90%;
@@ -45,8 +56,9 @@
     padding: 20px;
     border-radius: 20px;
 }
+
 .formulario {
-   
+
     justify-content: center;
     align-items: center;
 }
@@ -62,6 +74,7 @@
     padding-left: 20px;
     padding-right: 20px;
 }
+
 .formulario__label {
     font-size: 20px;
     font-weight: bold;
@@ -78,29 +91,40 @@
     padding: 0px 5px;
     font-size: 20px;
 }
-.formulario--imagen{
+
+.formulario--imagen {
     flex-direction: row;
     justify-content: center;
 }
-.imagen-preview{
+
+.imagen-preview {
     height: 30vh;
     max-width: 100%;
     object-fit: scale-down;
 }
-.formulario--checkbox{
+
+.formulario--checkbox {
     flex-direction: row;
     justify-content: start;
     align-items: center;
     margin: 3px 0;
-    padding:0;
+    padding: 0;
 }
-.label--checkbox{
+
+.formulario--loneCheckbox {
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+.label--checkbox {
     padding-top: 5px;
     width: 30%;
     min-width: 180px;
     margin: 0;
 }
-.input--checkbox{
+
+.input--checkbox {
     width: 20px;
 }
 
@@ -109,6 +133,7 @@
     width: 100%;
     background-color: rgb(240, 240, 240);
 }
+
 .input--file {
     height: fit-content;
     padding: 0px;
@@ -123,15 +148,16 @@
     background-color: rgb(240, 240, 240);
     align-self: flex-start;
     font-size: 18px;
-    margin-top:5px;
+    margin-top: 5px;
 }
 
 .input--small {
     max-width: 40%;
     min-width: 160px;
 }
+
 .formulario__icon-submit {
-    color:var(--marron-claro);
+    color: var(--marron-claro);
     font-size: 40px;
     font-weight: bold;
     margin: 10px 40px;
@@ -143,11 +169,13 @@
     color: var(--oracula);
     text-shadow: 0px 0px 50px var(--oracula);
 }
-.formulario--delete{
-    height:0;
+
+.formulario--delete {
+    height: 0;
 }
+
 .formulario__icon-delete {
-    color:var(--terracota);
+    color: var(--terracota);
     font-size: 40px;
     font-weight: bold;
     margin: 10px 20px;
@@ -157,60 +185,75 @@
     top: -76px;
     margin-left: 60px;
 }
+
 .formulario__icon-delete:hover {
     color: var(--naranja);
     text-shadow: 0px 0px 50px var(--naranja);
 }
-.last-item{
+
+.last-item {
     flex-direction: row;
     justify-content: flex-end;
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.input--pdm{
+
+.input--pdm {
     padding: 0;
     margin: 10px 0;
 }
+
 @media (min-width: 820px) {
-    .formulario__icon-submit, 
+
+    .formulario__icon-submit,
     .formulario__icon-delete {
         font-size: 60px;
     }
-    .formulario__icon-submit{
+
+    .formulario__icon-submit {
         margin-right: 0px;
     }
-    .formulario__checkbox__container{
+
+    .formulario__checkbox__container {
         flex-direction: row;
         justify-content: space-between;
     }
-    .formulario--checkbox{
+
+    .formulario--checkbox {
         justify-content: start;
         width: auto;
     }
-    .label--checkbox{
+
+    .label--checkbox {
         min-width: fit-content;
-        padding-right:8px;
+        padding-right: 8px;
     }
-    .input--checkbox{
+
+    .input--checkbox {
         min-width: 20px;
     }
-    .imagen-preview{
+
+    .imagen-preview {
         height: 400px;
         max-width: 100%;
         object-fit: scale-down;
     }
-    .formulario__icon-delete{
+
+    .formulario__icon-delete {
         margin-left: 100px;
-        top:-99px;
+        top: -99px;
     }
-    .precio-descuento-moneda{
+
+    .precio-descuento-moneda {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
     }
-    .input--pdm{
+
+    .input--pdm {
         width: auto;
     }
+
     .input--small {
         max-width: 40%;
         min-width: 160px;

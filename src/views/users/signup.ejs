@@ -3,62 +3,144 @@
 
 <head>
     <%- include('../partials/head.ejs')%>
-    <link rel="stylesheet" href="/css/signup.css">
+        <link rel="stylesheet" href="/css/signup.css">
 </head>
 
 <body>
     <!--header-->
     <%- include('../partials/header.ejs')%>
-    <!--main-->
-    <div class="fondo">
-        <main class="main">
-            <section class="titulo">
-                <h1 class="titulo__text">Creá tu cuenta</h1>
-            </section>
-            <section class="formulario__box">
-                <div class="boton-google__container">
-                    <button class="boton-google" type="submit" id="google" name="google">
-                        <i class="fa-brands fa-google"></i>
-                        Google
-                    </button>
-                </div>
+        <!--main-->
+        <div class="fondo">
+            <main class="main">
+                <section class="titulo">
+                    <% if (locals && locals.isAdmin) { %>
+                        <h1 class="titulo__text">Crear cuenta</h1>
+                    <% } else { %>
+                    <h1 class="titulo__text">Creá tu cuenta</h1>
+                    <% } %> 
+                </section>
+                <section class="formulario__box">
+                    <div class="boton-google__container">
+                        <button class="boton-google" type="submit" id="google" name="google">
+                            <i class="fa-brands fa-google"></i>
+                            Google
+                        </button>
+                    </div>
                     <section class="formulario__container">
                         <!-- YA CON METHOD = "POST"-->
-                        <form class="formulario" action="/user/signup" method="post" >
-                            <div class="formulario__item">
-                                <label class="formulario__label" for="email">Email:</label>
-                                <input class="formulario__input" type="email" id="email" name="email">
-                            </div>
+                        <form class="formulario" action="/user/signup" method="post" enctype="multipart/form-data">
                             <div class="formulario__item">
                                 <label class="formulario__label" for="nombre">Nombre:</label>
-                                <input class="formulario__input" type="text" id="nombre" name="nombre">
+                                <input
+                                    class="formulario__input <%= locals.errors && errors.nombre ? 'invalid' : null %>"
+                                    type="text" id="nombre" name="nombre"
+                                    value="<%= locals.oldData ? oldData.nombre : null %>">
+                                <% if (locals.errors && errors.nombre) { %>
+                                    <div class="text-danger">
+                                        <p>
+                                            <%=errors.nombre.msg%>
+                                        </p>
+                                    </div>
+                                    <% } %>
                             </div>
                             <div class="formulario__item">
                                 <label class="formulario__label" for="apellido">Apellido:</label>
-                                <input class="formulario__input" type="text" id="apellido" name="apellido">
+                                <input
+                                    class="formulario__input <%= locals.errors && errors.apellido ? 'invalid' : null %>"
+                                    type="text" id="apellido" name="apellido"
+                                    value="<%= locals.oldData ? oldData.apellido : null %>">
+                                <% if (locals.errors && errors.apellido) { %>
+                                    <div class="text-danger">
+                                        <p>
+                                            <%=errors.apellido.msg%>
+                                        </p>
+                                    </div>
+                                    <% } %>
+                            </div>
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="email">Email:</label>
+                                <input class="formulario__input <%= locals.errors && errors.email ? 'invalid' : null %>"
+                                    type="email" id="email" name="email"
+                                    value="<%= locals.oldData ? oldData.email : null %>">
+                                <% if (locals.errors && errors.email) { %>
+                                    <div class="text-danger">
+                                        <p>
+                                            <%=errors.email.msg%>
+                                        </p>
+                                    </div>
+                                    <% } %>
+                            </div>
+                             <div class="formulario__item">
+                                <label class="formulario__label" for="direccion">Dirección:</label>
+                                <input
+                                    class="formulario__input <%= locals.errors && errors.direccion ? 'invalid' : null %>"
+                                    type="text" id="direccion" name="direccion"
+                                    value="<%= locals.oldData ? oldData.direccion : null %>">
+                            </div>
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="telefono">Teléfono:</label>
+                                <input
+                                    class="formulario__input <%= locals.errors && errors.telefono ? 'invalid' : null %>"
+                                    type="number" id="telefono" name="telefono"
+                                    value="<%= locals.oldData ? oldData.telefono : null %>">
+                            </div>
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="profile-picture">Imagen de perfil:</label>
+                                <input class="formulario__input input--file" type="file" id="profilePicture"
+                                    name="profilePicture" accept="image/png, image/jpeg">
+                                <% if (locals.errors && errors.profilePicture) { %>
+                                    <div class="text-danger">
+                                        <p>
+                                            <%=errors.profilePicture.msg%>
+                                        </p>
+                                    </div>
+                                    <% } %>
                             </div>
                             <div class="formulario__item">
                                 <label class="formulario__label" for="password">Contraseña:</label>
-                                <input class="formulario__input" type="password" id="password" name="password">
+                                <input
+                                    class="formulario__input <%= locals.errors && errors.password ? 'invalid' : null %>"
+                                    type="password" id="password" name="password" minlength="6">
+                                <% if (locals.errors && errors.password) { %>
+                                    <div class="text-danger">
+                                        <p>
+                                            <%=errors.password.msg%>
+                                        </p>
+                                    </div>
+                                    <% } %>
                             </div>
                             <div class="formulario__item">
-                                <label class="formulario__label" for="password-repetir">Repita su Contraseña:</label>
-                                <input class="formulario__input" type="password" id="password-repetir"
-                                    name="password-repetir">
+                                <label class="formulario__label" for="passwordRepetir">Repita su Contraseña:</label>
+                                <input
+                                    class="formulario__input <%= locals.errors && errors.passwordRepetir ? 'invalid' : null %>"
+                                    type="password" id="password-repetir" name="passwordRepetir" minlength="6">
+                                <% if (locals.errors && errors.passwordRepetir) { %>
+                                    <div class="text-danger">
+                                        <p>
+                                            <%=errors.passwordRepetir.msg%>
+                                        </p>
+                                    </div>
+                                    <% } %>
                             </div>
+                            <% if (locals && locals.isAdmin) { %>
+                                <div class="formulario__item formulario--checkbox">
+                                    <label class="formulario__label label--checkbox" for="isAdmin">¿Es Administradorx?</label>
+                                    <input class="input--checkbox" type="checkbox" name="isAdmin" id="isAdmin">
+                                </div>
+                            <% } %>
                             <div class="formulario__submit">
-                                <p class="link-login">¿Ya tenés cuenta? <a href="/user/login">Ingresá acá.</a></p>
+                                <p class="label--secondary">¿Ya tenés cuenta? <a class="formulario__link" href="/user/login">Ingresá acá.</a></p>
                                 <button type="submit">
                                     <i class="fa-solid fa-circle-arrow-right formulario__icon-submit"></i>
                                 </button>
                             </div>
                         </form>
                     </section>
-            </section>
-        </main>
-        <!--footer-->
-        <%- include('../partials/footer.ejs')%>
-    </div>
+                </section>
+            </main>
+            <!--footer-->
+            <%- include('../partials/footer.ejs')%>
+        </div>
 </body>
 
 </html>
