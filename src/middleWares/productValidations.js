@@ -31,10 +31,9 @@ const validationsEditProduct = [
     body('imagenes').custom((value, { req }) => {
         let file = req.file;
         let extensionesPermitidas = ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.jfif'];
-        let fileExtension = path.extname(file.originalname);
-        if (!file) {
-            throw new Error('Seleccioná una imagen para tu producto');
-        } else {
+        if (file) {
+            console.log();
+            let fileExtension = path.extname(file.originalname);
             if (!extensionesPermitidas.includes(fileExtension.toLowerCase())) {
                 throw new Error(`Las extensiones de archivo permitidas son ${extensionesPermitidas.join(", ")}`)
             }

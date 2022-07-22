@@ -129,7 +129,11 @@
                                 </div>
                             <% } %>
                             <div class="formulario__submit">
-                                <p class="label--secondary">¿Ya tenés cuenta? <a class="formulario__link" href="/user/login">Ingresá acá.</a></p>
+                                <p class="label--secondary">
+                                    <% if (locals && !locals.isAdmin) { %>
+                                    ¿Ya tenés cuenta? <a class="formulario__link" href="/user/login">Ingresá acá.</a>
+                                <% } %>
+                                </p>
                                 <button type="submit">
                                     <i class="fa-solid fa-circle-arrow-right formulario__icon-submit"></i>
                                 </button>
