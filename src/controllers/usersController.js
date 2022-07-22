@@ -17,7 +17,7 @@ const usersController = {
 
     //profile.html
     profile: (req, res) => {
-         res.render("./users/profile", { user: req.session.userLogged },)
+        res.render("./users/profile", { user: req.session.userLogged },)
     },
     //procesar pedido de login
     processLogin: (req, res) => {
@@ -140,23 +140,39 @@ const usersController = {
         let file = req.file;
         let { nombre, apellido, email, direccion, telefono, password } = req.body;
 
-        users.forEach((item) => {
-            if (item.id == id) {
-                item.nombre = nombre;
-                item.apellido = apellido;
-                item.email = email;
-                item.direccion = direccion;
-                item.telefono = telefono;
-                item.password = password;
-                if (file) {
-                    item.imagenes = `img/${file.filename}`;
-                }
-            }
-        });
+        const validationsResult = validationResult(req);
 
-        let usersJSON = JSON.stringify(users, null, 4);
-        fs.writeFileSync(path.join(__dirname, "../data/users.json"), usersJSON, "utf-8");
-        res.redirect("/");
+        //si hay errores se renderiza de nuevo el formulario de register
+        if (validationsResult.errors.length > 0) {
+            //si se cargó una imagen, se borra
+            if (req.file && req.file.filename) {
+                fs.unlinkSync(path.join(__dirname, "../../public/img/Profile-pictures/", req.file.filename));
+            }
+            res.render("./users/userEdit", { user: req.session.userLogged, errors: validationsResult.mapped() });
+        } else {
+            users.forEach((item) => {
+                if (item.id == id) {
+                    item.nombre = nombre;
+                    item.apellido = apellido;
+                    item.email = email;
+                    item.direccion = direccion;
+                    item.telefono = telefono;
+                    if (req.body.password.length>0){
+                        item.password = bcrypt.hashSync(req.body.password, 10);
+                    }
+                    if (file) {
+                        if (item.profile) {
+                            fs.unlinkSync(path.join(__dirname, "../../public/img/Profile-pictures/", item.profilePicture));
+                        }
+                        item.profilePicture = `/img/Profile-pictures/${file.filename}`;
+                    }
+                }
+            });
+
+            let usersJSON = JSON.stringify(users, null, 4);
+            fs.writeFileSync(path.join(__dirname, "../data/users.json"), usersJSON, "utf-8");
+            res.redirect("/user/profile");
+        }
     },
 
     delete: (req, res) => {

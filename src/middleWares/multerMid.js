@@ -6,16 +6,18 @@ let multer = require('multer');
 const storage = multer.diskStorage({
 
     //ubicacion
-    destination:  (req, file, cb) => {
-      cb(null, './public/img/productos')
+    destination: (req, file, cb) => {
+        cb(null, './public/img/productos')
     },
     //nombre del archivo
-    filename:  (req, file, cb) => {
-      const fileName = `${Date.now()}-prodImg${path.extname(file.originalname)}`
-      cb(null, fileName);
+    filename: (req, file, cb) => {
+        if (file && file.originalname) {
+            const fileName = `${Date.now()}-prodImg${path.extname(file.originalname)}`
+            cb(null, fileName);
+        }
     }
-  })
-  
-  const upload = multer({ storage })
+})
 
-  module.exports = upload;
+const upload = multer({ storage })
+
+module.exports = upload;
