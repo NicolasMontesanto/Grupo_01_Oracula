@@ -8,27 +8,26 @@ const cookies = require("cookie-parser");
 
 //express
 let app = express(); 
-
-//ejs 
-app.set("view engine", "ejs"); 
-//cambiamos la ruta x default para que contemple que views esta en src 
-app.set('views', __dirname + '/views')
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+//cookies
+app.use(cookies());
 //session
 app.use(session({
     secret: 'Oracula secrets',
     resave: false,
     saveUninitialized: false,
 }));
-//cookies
-app.use(cookies());
-
 // credenciales de usuarix
 app.use(userCredentialsMiddleware);
-
 //recordar usuarix
 app.use(recordarMiddleware); 
+//ejs 
+app.set("view engine", "ejs"); 
+//cambiamos la ruta x default para que contemple que views esta en src 
+app.set('views', __dirname + '/views')
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
+
 
 //configuración de method-override
 app.use(methodOverride("_method"));
