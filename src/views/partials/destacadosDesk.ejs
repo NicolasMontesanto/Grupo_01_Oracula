@@ -1,59 +1,56 @@
 <!-- Slider de destacados-->
-<section class="destacados">
-<div class="sliderDestacados">
-    <%for(let i = 0; i < productosDestacados.length; i++){%>
-        <div class="sliderDestacados__elemento">
-            <a href="/product/detail/<%=productosDestacados[i].id%>">
-            <img src="<%=productosDestacados[i].imagenes%>" class="sliderDestacados__img">
-            </a>
-            <div class="content">
-                <h1 class="content__titulo"><%=productosDestacados[i].nombre%></h1>
-                <p class="content__categoria"><%=productosDestacados[i].subcategoria%></p>
-              </div>
-            </a>
+<section class="destacados contenedor--sombra">
+    <div class="sliderDestacados">
+        <%for(let i=0; i < productosDestacados.length; i++){%>
+            <div class="sliderDestacados__elemento">
+                <a href="/product/detail/<%=productosDestacados[i].id%>">
+                    <img src="<%=productosDestacados[i].imagenes%>" class="sliderDestacados__img">
+                </a>
+                <div class="content">
+                    <h1 class="content__titulo">
+                        <%=productosDestacados[i].nombre%>
+                    </h1>
+                    <p class="content__categoria">
+                        <%=productosDestacados[i].subcategoria%>
+                    </p>
+                </div>
+                </a>
+            </div>
+            <%}%>
+    </div>
+    <%if(productosDestacados.length>=5){ %>
+    <div id="slideshow-wrap">
+        <% for (let i=0; i<5; i++){ %>
+            <%if(i==1) {%>
+                <input type="radio" id="button-<%=i%>" name="controls" checked="checked" />
+            <%}else {%>
+                <input type="radio" id="button-<%=i%>" name="controls" />
+            <%}%>
+            <label for="button-<%=i%>"></label>
+        <%}%>
+
+        <% for (let i=1; i<5; i++){%>
+            <label for="button-<%=i%>" class="arrows" id="arrow-<%=i%>">></label>
+        <%}%>
+        <div id="slideshow-inner">
+        <ul>
+            <% for (let i=1; i<5; i++){%>
+                <li id="slide<%=i%>">
+                    <img src="<%=productosDestacados[i].imagenes%>" />
+                    <a href="/product/detail/<%=productosDestacados[i].id%>">
+                    <div class="content">
+                        <h1>
+                            <%=productosDestacados[i].nombre%>
+                        </h1>
+                        <p>
+                            <%=productosDestacados[i].subcategoria%>
+                        </p>
+                    </div>
+                    </a>
+                </li>
+            <%}%>
+        </ul>
         </div>
+    </div>
     <%}%>
-</div>
-
-
-<%if(productosDestacados.length>=5){ %>
-  
-
-        <div id="slideshow-wrap">
-
-            <% for (let i=0; i<5; i++){ %>
-                <%if(i==1) {%>
-                    <input type="radio" id="button-<%=i%>" name="controls" checked="checked" />
-                    <%}else {%>
-                        <input type="radio" id="button-<%=i%>" name="controls" />
-                        <%}%>
-                            <label for="button-<%=i%>"></label>
-                            <%}%>
-
-                                <% for (let i=1; i<5; i++){%>
-                                    <label for="button-<%=i%>" class="arrows" id="arrow-<%=i%>">></label>
-                                    <%}%>
-                                        <div id="slideshow-inner">
-                                            <ul>
-                                                <% for (let i=1; i<5; i++){%>
-                                                    <li id="slide<%=i%>">
-                                                        <img src="<%=productosDestacados[i].imagenes%>" />
-                                                        <a href="/product/detail/<%=productosDestacados[i].id%>">
-                                                              
-                                                       
-                                                        <div class="content">
-                                                            <h1><%=productosDestacados[i].nombre%></h1>
-                                                            <p><%=productosDestacados[i].subcategoria%></p>
-                                                          </div>
-                                                        </a>
-                                                    </li>
-
-                                                    <%}%>
-                                            </ul>
-                                        </div>
-        </div>
-    
-<%}%>
-
-  
 </section>

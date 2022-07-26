@@ -1,32 +1,22 @@
-    <!-- Novedades Slider Mobile -->
-    <section class="novedades">
-        <h2 class="novedades__titulo"> ¡No te pierdas las novedades! </h2>
-        <div class="novedades__container">              
-               
-                    <%for (let i=0; i<novedades.length; i++){%>
-
-                        <div class="contenedor-card-item">
-                            <div class="contenedor-card-item-wrapper">
-                                <a href="/product/detail/<%=novedades[i].id%>">
-                                    <img src="<%=novedades[i].imagenes%>"
-                                        alt="Producto-<%=novedades[i].id%>">
-                                </a>
-                                <div class="contenedor-info">
-                                    <div class="info">
-                                        <p class="titulo">
-                                            <%=novedades[i].nombre%>
-                                        </p>
-                                        <span class="categoria">
-                                            <%=novedades[i].subcategoria%>
-                                        </span>
-                                    </div>
-                                    <!-- <div class="fondo"></div> -->
-                                </div>
-                            </div>
+<!-- Novedades Slider Mobile -->
+<section class="novedades contenedor--sombra">
+    <h2 class="novedades__titulo"> ¡No te pierdas las novedades! </h2>
+    <div class="novedades__container">              
+        <%for (let i=0; i<novedades.length; i++){%>
+            <div class="contenedor-card-item">
+                <div class="contenedor-card-item-wrapper">
+                    <a href="/product/detail/<%=novedades[i].id%>">
+                        <img src="<%=novedades[i].imagenes%>" alt="Producto-<%=novedades[i].id%>">
+                    </a>
+                    <div class="contenedor-info">
+                        <div class="info">
+                            <p class="titulo"> <%=novedades[i].nombre%></p>
+                            <span class="categoria"><%=novedades[i].subcategoria%></span>
                         </div>
-  
-            <%}%>
-        </div>
-        
-
-    </section>
+                        <!-- <div class="fondo"></div> -->
+                    </div>
+                </div>
+            </div>
+        <%}%>
+    </div>
+</section>
