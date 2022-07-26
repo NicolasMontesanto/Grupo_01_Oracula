@@ -34,14 +34,26 @@ li {
     margin: 0;
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.contenedor--sombra{
+    box-shadow: 0px 1px 10px -2px rgba(0, 0, 0, 0.5);
+}
+
 .fondo {
-    background-image: url(/img/Fondos/Background2.jpg);
+    background-image:linear-gradient(
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0.2)
+      ),url(/img/Fondos/Background2.jpg);
     background-attachment: fixed;
     background-size: cover;
     height: 100%;
     min-height: 100vh;
     width: 100%;
-    z-index: -100;
+    z-index: -1000;
     padding-top: 88px;
 }
 
@@ -105,11 +117,6 @@ button {
     margin-right: 5px;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
 .Busqueda {
     padding: 5px;
     position: relative;
@@ -156,7 +163,7 @@ a {
 
 /*---FOOTER---*/
 footer {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--filtro);
     width: 100%;
 }
 
@@ -185,6 +192,15 @@ footer {
     width: 60%;
     justify-content: space-evenly;
     padding-left: 10px;
+}
+
+.links__link {
+    line-height: 1.5em;
+    color: #a9b2a2;
+    text-decoration: none;
+}
+.links__link:hover{
+    color: #FBB954;
 }
 
 .adicional_logo {
@@ -230,11 +246,6 @@ footer {
     .Burguer,
     .Busqueda {
         display: none;
-    }
-
-    .fondo {
-        background-image: url(/img/Fondos/Background2.jpg);
-        background-size: cover;
     }
 
     /*---HEADER---*/
@@ -359,6 +370,9 @@ footer {
         min-width: 160px;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         z-index: 1001;
+    }
+    .icon--dropdown{
+        font-size: 20px;
     }
     .icon--dropdown{
         font-size: 20px;
