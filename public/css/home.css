@@ -452,7 +452,7 @@
         color: var(--marron-claro);
         font-size: 55px;
         flex-direction: column;
-        margin: 2vw;
+        margin-bottom: 30px;
     }
     .categorias__boton:hover .categorias__icon {
         transform: scale(1.5);
