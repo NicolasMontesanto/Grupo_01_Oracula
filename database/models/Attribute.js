@@ -1,5 +1,4 @@
 const AttributeProduct = require("./AttributeProduct");
-const Subcategory = require("./Subcategory");
 
 module.exports = (sequelize, dataTypes) => {
     let alias = "Attributes";

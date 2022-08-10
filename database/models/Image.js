@@ -10,13 +10,6 @@ module.exports = (sequelize, dataTypes) => {
         url: {
             type: dataTypes.STRING,
             allowNull: false,
-        },
-        productID: {
-            type: dataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: Product,
-            }
         }
     }
     let config = {

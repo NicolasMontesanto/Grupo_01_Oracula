@@ -1,6 +1,4 @@
 
-const Favorite = require("./Favorite");
-const Product = require("./Product");
 
 module.exports = (sequelize, dataTypes) => {
     let alias = "ProductsFavorites";
@@ -9,20 +7,6 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
-        },
-        productID: {
-            type: dataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: Product,
-            }
-        },
-        favoriteID: {
-            type: dataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: Favorite,
-            }
         }
     }
     let config = {

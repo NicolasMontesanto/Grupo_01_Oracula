@@ -1,4 +1,3 @@
-const Category = require("./Category");
 
 module.exports = (sequelize, dataTypes) => {
     let alias = "Subcategories";
