@@ -12,19 +12,36 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING,
             allowNull: false,
         }, 
-        categoryID: {
-            type: dataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: Category,
-            }
-        }
     }
     let config = {
         tableName: "Subcategories",
         timestamps: false
     }
     
-    const Subcategory = sequelize.define(alias, cols, config)
+
+    const Subcategory = sequelize.define(alias, cols, config);
+
+    Subcategory.associate = function(models){
+        Subcategory.hasMany(models.Attribute, {
+            as: 'Attribute',
+            foreignKey: 'attributeID',
+        })   
+        Subcategory.hasMany(models.Products, {
+            as: 'Products',
+            foreignKey: 'productID',
+        })   
+
+        Subcategory.belongsTo(models.Category, {
+            as: 'category',
+            foreignKey: {
+                name: 'categoryID',
+                type: dataTypes.INTEGER,
+                allowNull: false
+            },
+        })   
+  
+       
+
+    }
     return Subcategory;
 }

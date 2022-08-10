@@ -1,5 +1,4 @@
-const Product = require("./Product");
-const Purchase = require("./Purchase");
+
 
 module.exports = (sequelize, dataTypes) => {
     let alias = "PurchasesProducts";
@@ -8,20 +7,6 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
-        },
-        purchaseID: {
-            type: dataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: Purchase,
-            }
-        },
-        productID: {
-            type: dataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: Product,
-            }
         },
         porcentajeDescuento: {
             type: dataTypes.INTEGER,

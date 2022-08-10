@@ -1,4 +1,5 @@
 
+const ProductWishlist = require("./ProductWishlist");
 const User = require("./User");
 
 module.exports = (sequelize, dataTypes) => {
@@ -8,20 +9,31 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
-        },
-        userID: {
-            type: dataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: User,
-            }
         }
     }
     let config = {
         tableName: "Wishlists",
         timestamps: false
     }
-    
-    const Wishlist = sequelize.define(alias, cols, config)
+
+    const Wishlist = sequelize.define(alias, cols, config);
+    Wishlist.associate = function (models) {
+        Wishlist.belongsTo(models.User, {
+            as: 'user',
+            foreignKey: {
+                name: 'userID',
+                type: dataTypes.INTEGER,
+                allowNull: false
+            }
+        })
+    }
+
+    Wishlist.belongsToMany(models.Product, {
+        as: 'product',
+        through: ProductWishlist,
+        foreignKey: 'wishlistID',
+        otherKey: 'productID'
+    })      
+
     return Wishlist;
 }

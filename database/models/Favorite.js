@@ -1,3 +1,4 @@
+const ProductFavorite = require("./ProductFavorite");
 const User = require("./User");
 
 module.exports = (sequelize, dataTypes) => {
@@ -7,20 +8,35 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
-        },
-        userID: {
-            type: dataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: User,
-            }
-        }
+        }        
     }
     let config = {
         tableName: "Favorites",
         timestamps: false
     }
     
-    const Favorite = sequelize.define(alias, cols, config)
+    const Favorite = sequelize.define(alias, cols, config);
+
+    
+    Favorite.associate = function(models){
+        Favorite.belongsTo(models.User, {
+            as: 'user',
+            foreignKey: {
+                name: 'userID',
+                type: dataTypes.INTEGER,
+                allowNull: false
+            }
+        })   
+        
+        Favorite.belongsToMany(models.Product, {
+            as: 'product',
+            through: ProductFavorite,
+            foreignKey: 'favoriteID',
+            otherKey: 'productID'
+        })   
+       
+       
+
+    }
     return Favorite;
 }

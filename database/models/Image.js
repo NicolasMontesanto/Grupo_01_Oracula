@@ -1,4 +1,3 @@
-const Product = require("./Product");
 
 module.exports = (sequelize, dataTypes) => {
     let alias = "Images";
@@ -25,6 +24,19 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     }
     
-    const Image = sequelize.define(alias, cols, config)
+    const Image = sequelize.define(alias, cols, config);
+
+    
+    Image.associate = function(models){
+    Image.belongsTo(models.User, {
+        as: 'user',
+        foreignKey: {
+            name: 'userID',
+            type: dataTypes.INTEGER,
+            allowNull: false
+        }
+    })   
+    }
+
     return Image;
 }

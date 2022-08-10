@@ -1,4 +1,3 @@
-const Genre = require("./Genre");
 
 module.exports = (sequelize, dataTypes) => {
     let alias = "ProductsGenres";
@@ -7,20 +6,6 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
-        },
-        productID: {
-            type: dataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: Product,
-            }
-        },
-        genreID: {
-            type: dataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: Genre,
-            }
         }
     }
     let config = {
@@ -29,5 +14,6 @@ module.exports = (sequelize, dataTypes) => {
     }
     
     const  ProductGenre = sequelize.define(alias, cols, config)
+
     return ProductGenre;
 }

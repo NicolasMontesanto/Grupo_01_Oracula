@@ -1,6 +1,8 @@
-const Category = require("./Category");
-const Categorie = require("./Category");
-const Subcategory = require("./Subcategory");
+const AttributeProduct = require("./AttributeProduct");
+const CartProduct = require("./CartProduct");
+const ProductFavorite = require("./ProductFavorite");
+const ProductGenre = require("./ProductGenre");
+const PurchaseProduct = require("./PurchaseProduct");
 
 module.exports = (sequelize, dataTypes) => {
     let alias = "Product";
@@ -36,20 +38,6 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.BOOLEAN,
             allowNull: false,
             default: false
-        },
-        categoryID: {
-            type: dataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: Category,
-            }
-        },
-        subcategoryID: {
-            type: dataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: Subcategory,
-            }
         }
 
     }
@@ -58,6 +46,69 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: true
     }
     
-    const Product = sequelize.define(alias, cols, config)
+    const Product = sequelize.define(alias, cols, config);
+
+    Product.associate = function(models){
+
+        Product.belongsTo(models.Category, {
+            as: 'Category',
+            foreignKey: {
+                name: 'CategoryID',
+                type: dataTypes.INTEGER,
+                allowNull: false
+            }
+        })
+
+        Product.belongsTo(models.Subcategory, {
+            as: 'subcategory',
+            foreignKey: {
+                name: 'subcategoryID',
+                type: dataTypes.INTEGER,
+                allowNull: false
+            }
+        })   
+
+        Product.belongsToMany(models.Attribute, {
+            as: 'attribute',
+            through: AttributeProduct,
+            foreignKey: 'productID',
+            otherKey: 'attributeID'
+        })   
+        
+       Product.belongsToMany(models.Cart, {
+            as: 'cart',
+            through: CartProduct,
+            foreignKey: 'productID',
+            otherKey: 'cartID'
+        })   
+
+        Product.belongsToMany(models.Favorite, {
+            as: 'favorite',
+            through: ProductFavorite,
+            foreignKey: 'productID',
+            otherKey: 'cartID'
+        })   
+
+
+
+        Product.belongsToMany(models.Genre, {
+            as: 'genre',
+            through: ProductGenre,
+            foreignKey: 'productID',
+            otherKey: 'genreID'
+        })   
+
+        Purchase.belongsToMany(models.Purchase, {
+            as: 'purchase',
+            through: PurchaseProduct,
+            foreignKey: 'productID',
+            otherKey:'purchaseID' 
+        })      
+
+       
+  
+       
+
+    }
     return Product;
 }

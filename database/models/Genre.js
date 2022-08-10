@@ -1,3 +1,4 @@
+const ProductGenre = require("./ProductGenre");
 
 module.exports = (sequelize, dataTypes) => {
     let alias = "Genres";
@@ -17,6 +18,19 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     }
     
-    const Genre = sequelize.define(alias, cols, config)
+    const Genre = sequelize.define(alias, cols, config);
+
+    Genre.associate = function(models){
+       
+        Genre.belongsToMany(models.Product, {
+            as: 'product',
+            through: ProductGenre,
+            foreignKey: 'genreID',
+            otherKey: 'productID'
+        })   
+    }
+
+
+    
     return Genre;
 }

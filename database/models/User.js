@@ -1,3 +1,4 @@
+const Category = require("./Category");
 
 module.exports = (sequelize, dataTypes) => {
     let alias = "Users";
@@ -55,6 +56,19 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     }
     
-    const User = sequelize.define(alias, cols, config)
+    const User = sequelize.define(alias, cols, config);
+
+    User.associate = function(models){
+        User.hasOne(models.Cart);
+        User.hasOne(models.Image);
+        User.hasOne(models.Favorite);
+        User.hasOne(models.Wishlist);
+        User.hasMany(models.Purchase, {
+            as: 'purchase',
+            foreignKey: 'purchaseID',
+        })                   
+       
+
+    }
     return User;
 }

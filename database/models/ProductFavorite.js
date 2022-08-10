@@ -1,5 +1,6 @@
 
 const Favorite = require("./Favorite");
+const Product = require("./Product");
 
 module.exports = (sequelize, dataTypes) => {
     let alias = "ProductsFavorites";

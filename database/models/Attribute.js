@@ -1,3 +1,4 @@
+const AttributeProduct = require("./AttributeProduct");
 const Subcategory = require("./Subcategory");
 
 module.exports = (sequelize, dataTypes) => {
@@ -13,13 +14,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false,
         }, 
         unidad: {type: dataTypes.STRING},
-        subcategoryID: {
-            type: dataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: Subcategory,
-            }
-        }
+       
     }
     let config = {
         tableName: "Attributes",
@@ -27,5 +22,27 @@ module.exports = (sequelize, dataTypes) => {
     }
     
     const Attribute = sequelize.define(alias, cols, config)
+
+    
+      
+    Attribute.associate = function(models){
+        Attribute.belongsTo(models.Subcategory, {
+            as: 'subcategory',
+            foreignKey: {
+                name: 'subcategoryID',
+                type: dataTypes.INTEGER,
+                allowNull: false
+            }
+        })   
+
+        Attribute.belongsToMany(models.Product, {
+            as: 'product',
+            through: AttributeProduct,
+            foreignKey: 'attributeID',
+            otherKey: 'productID'
+        })          
+
+    }
+
     return Attribute;
 }

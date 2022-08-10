@@ -8,20 +8,6 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
-        },
-        cartID: {
-            type: dataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: Cart,
-            }
-        },
-        productID: {
-            type: dataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: Product,
-            }
         }
     }
     let config = {

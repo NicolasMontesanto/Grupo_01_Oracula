@@ -1,3 +1,4 @@
+const PurchaseProduct = require("./PurchaseProduct");
 const User = require("./User");
 
 module.exports = (sequelize, dataTypes) => {
@@ -7,13 +8,6 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
-        },
-        userID: {
-            type: dataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: User,
-            }
         },
         montoTotal: {
             type: dataTypes.DECIMAL(10,2),
@@ -34,6 +28,28 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     }
     
-    const Purchase = sequelize.define(alias, cols, config)
+    const Purchase = sequelize.define(alias, cols, config);
+
+    
+   Purchase.associate = function(models){
+        Purchase.belongsTo(models.User, {
+            as: 'user',
+            foreignKey: {
+            name: 'userID',
+            type: dataTypes.INTEGER,
+            allowNull: false
+        }
+        })   
+
+       Purchase.belongsToMany(models.Product, {
+            as: 'product',
+            through: PurchaseProduct,
+            foreignKey: 'purchaseID',
+            otherKey: 'productID'
+        })      
+
+
+    }
+
     return Purchase;
 }

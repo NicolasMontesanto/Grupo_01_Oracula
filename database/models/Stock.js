@@ -28,6 +28,18 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     }
     
-    const Stock = sequelize.define(alias, cols, config)
+    const Stock = sequelize.define(alias, cols, config);
+
+    Stock.associate = function(models){
+        Stock.belongsTo(models.Product, {
+            as: 'product',
+            foreignKey: {
+                name: 'productID',
+                type: dataTypes.INTEGER,
+                allowNull: false
+            }
+        })     
+
+    }
     return Stock;
 }
