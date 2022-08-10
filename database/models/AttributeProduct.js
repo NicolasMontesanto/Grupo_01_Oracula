@@ -21,28 +21,6 @@ module.exports = (sequelize, dataTypes) => {
 
     const AttributeProduct = sequelize.define(alias, cols, config);
 
-    /*AttributeProduct.associate = function (models) {
-
-        AttributeProduct.belongsTo(models.Product, {
-            as: 'product',
-            foreignKey: {
-                name: 'productID',
-                type: dataTypes.INTEGER,
-                allowNull: false
-            }
-        })
-
-        AttributeProduct.belongsTo(models.Attribute, {
-            as: 'atributte',
-            foreignKey: {
-                name: 'atributteID',
-                type: dataTypes.INTEGER,
-                allowNull: false
-            }
-        })
-
-
-    }*/
-
+    
     return AttributeProduct;
 }
