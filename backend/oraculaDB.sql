@@ -31,6 +31,7 @@ CREATE TABLE `Products`(
 `updatedAt` DATETIME DEFAULT NOW() ON UPDATE NOW(),
 `categoryID` INT NOT NULL,
 `subcategoryID` INT NOT NULL,
+`estaActivo` BIT NOT NULL DEFAULT 1,
 FOREIGN KEY(`categoryID`) REFERENCES `Categories`(`id`),
 FOREIGN KEY(`subcategoryID`) REFERENCES `Subcategories`(`id`)
 );
