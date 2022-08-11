@@ -22,8 +22,11 @@ const mainController = {
     estaConectado: {
         funciona: (req, res) => {
             db.Category.findByPk(1)
-                .then(genre => {
+                .then(category => {
+                    console.log(category.nombre)
+                    if(category.nombre == 'Juegos'){
                     res.send('Funciona!!');
+                    }
                 });
         }
     },

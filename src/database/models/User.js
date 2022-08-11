@@ -65,7 +65,6 @@ module.exports = (sequelize, dataTypes) => {
 
     User.associate = function(models){
         User.hasOne(models.Cart);
-        User.hasOne(models.Image);
         User.hasOne(models.Favorite);
         User.hasOne(models.Wishlist);
         User.hasMany(models.Purchase, {
