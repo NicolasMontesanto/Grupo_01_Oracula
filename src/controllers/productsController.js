@@ -45,6 +45,9 @@ const productsController = {
 
         //si hay errores se renderiza de nuevo el formulario de creación
         if (validationsResult.errors.length > 0) {
+            if (req.file.filename) {
+                fs.unlinkSync(path.join(__dirname, "../../public", req.file.filename));
+            }
             res.render('./products/productCreate', {
                 errors: validationsResult.mapped(),
                 oldData: req.body
@@ -131,57 +134,73 @@ const productsController = {
     update: (req, res) => {
         let id = req.params.id;
         let file = req.file;
+        const validationsResult = validationResult(req);
 
-        //Valores de esDestacado, esNovedad, esOferta
-        let esDestacado, esNovedad, esOferta, esMagicPass;
+        //si hay errores se renderiza de nuevo el formulario de creación
+        if (validationsResult.errors.length > 0) {
+            if (req.file && req.file.filename) {
+                fs.unlinkSync(path.join(__dirname, "../../public", req.file.filename));
+            }
+            let product = products.find(element => element.id == id);
+            res.render("./products/productEdit", {
+                product:product,
+                errors: validationsResult.mapped(),
+            })
+        }
+        else {
 
-        esDestacado = req.body.esDestacado ? true : false;
-        esNovedad = req.body.esNovedad ? true : false;
-        esOferta = req.body.esOferta ? true : false;
-        esMagicPass = req.body.esMagicPass ? true : false;
+            //Valores de esDestacado, esNovedad, esOferta
+            let esDestacado, esNovedad, esOferta, esMagicPass;
 
-        //Array de Objetos Género
-        let generos = [];
-        if (req.body.esGeneroMedieval) {
-            generos.push("medieval");
-        }
-        if (req.body.esGeneroUrbana) {
-            generos.push("urbana");
-        }
-        if (req.body.esGeneroClasica) {
-            generos.push("clasica");
-        }
-        if (req.body.esGeneroOscura) {
-            generos.push("oscura");
-        }
-        if (req.body.esGeneroJuvenil) {
-            generos.push("juvenil");
-        }
+            esDestacado = req.body.esDestacado ? true : false;
+            esNovedad = req.body.esNovedad ? true : false;
+            esOferta = req.body.esOferta ? true : false;
+            esMagicPass = req.body.esMagicPass ? true : false;
 
-        let { nombre, descripcion, precio, categoria, subcategoria, descuento} = req.body;
-        products.forEach(item => {
-            if (item.id == id) {
-                item.nombre = nombre;
-                item.descripcion = descripcion;
-                item.precio = precio;
-                item.categoria = categoria;
-                item.subcategoria = subcategoria;
-                item.generos = generos;
-                item.esNovedad = esNovedad;
-                item.esDestacado = esDestacado;
-                item.esOferta = esOferta;
-                item.descuento = descuento;
-                item.esMagicPass = esMagicPass;
-                if (file) {
-                    item.imagenes = `img/${file.filename}`;
-                }
+            //Array de Objetos Género
+            let generos = [];
+            if (req.body.esGeneroMedieval) {
+                generos.push("medieval");
+            }
+            if (req.body.esGeneroUrbana) {
+                generos.push("urbana");
+            }
+            if (req.body.esGeneroClasica) {
+                generos.push("clasica");
+            }
+            if (req.body.esGeneroOscura) {
+                generos.push("oscura");
+            }
+            if (req.body.esGeneroJuvenil) {
+                generos.push("juvenil");
             }
 
-            
-        });
-        let productsJSON = JSON.stringify(products, null, 4);
-        fs.writeFileSync(path.join(__dirname, "../data/products.json"), productsJSON, "utf-8");
-        res.redirect("/");
+            let { nombre, descripcion, precio, categoria, subcategoria, descuento } = req.body;
+            products.forEach(item => {
+                if (item.id == id) {
+                    item.nombre = nombre;
+                    item.descripcion = descripcion;
+                    item.precio = precio;
+                    item.categoria = categoria;
+                    item.subcategoria = subcategoria;
+                    item.generos = generos;
+                    item.esNovedad = esNovedad;
+                    item.esDestacado = esDestacado;
+                    item.esOferta = esOferta;
+                    item.descuento = descuento;
+                    item.esMagicPass = esMagicPass;
+                    if (file) {
+                        if (item.imagenes) {
+                            fs.unlinkSync(path.join(__dirname, "../../public", item.imagenes));
+                        }
+                        item.imagenes = `/img/productos/${file.filename}`;
+                    }
+                }
+            });
+            let productsJSON = JSON.stringify(products, null, 4);
+            fs.writeFileSync(path.join(__dirname, "../data/products.json"), productsJSON, "utf-8");
+            res.redirect("/");
+        }
     },
     delete: (req, res) => {
         let id = req.params.id;
