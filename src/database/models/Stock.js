@@ -1,6 +1,6 @@
 
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Stocks";
+    let alias = "Stock";
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -12,7 +12,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false,
         },
         updatedAt: {
-            type: dataTypes.DATETIME,
+            type: dataTypes.DATE,
             allowNull: false
         }
     }

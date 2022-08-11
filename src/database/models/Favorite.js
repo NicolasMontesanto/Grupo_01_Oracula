@@ -1,8 +1,6 @@
-const ProductFavorite = require("./ProductFavorite");
-const User = require("./User");
 
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Favorites";
+    let alias = "Favorite";
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -30,7 +28,7 @@ module.exports = (sequelize, dataTypes) => {
         
         Favorite.belongsToMany(models.Product, {
             as: 'product',
-            through: ProductFavorite,
+            through: 'ProductFavorite',
             foreignKey: 'favoriteID',
             otherKey: 'productID'
         })   

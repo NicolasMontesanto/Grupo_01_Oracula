@@ -1,7 +1,7 @@
 
 
 module.exports = (sequelize, dataTypes) => {
-    let alias = "PurchasesProducts";
+    let alias = "PurchaseProduct";
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -28,6 +28,27 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     }
     
-    const PurchaseProduct = sequelize.define(alias, cols, config)
+    const PurchaseProduct = sequelize.define(alias, cols, config);
+
+    PurchaseProduct.associate = function(models){
+    PurchaseProduct.belongsTo(models.Purchase, {
+        as: 'Purchase',
+        foreignKey: {
+            name: 'purchaseID',
+            type: dataTypes.INTEGER,
+            allowNull: false
+        }
+    }),
+
+    PurchaseProduct.belongsTo(models.Product, {
+        as: 'Product',
+        foreignKey: {
+            name: 'productID',
+            type: dataTypes.INTEGER,
+            allowNull: false
+        }
+    })  
+}
+
     return PurchaseProduct;
 }

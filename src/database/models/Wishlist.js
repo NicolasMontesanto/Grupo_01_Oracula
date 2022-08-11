@@ -1,8 +1,6 @@
 
-const ProductWishlist = require("./ProductWishlist");
-
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Wishlists";
+    let alias = "Wishlist";
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -16,6 +14,7 @@ module.exports = (sequelize, dataTypes) => {
     }
 
     const Wishlist = sequelize.define(alias, cols, config);
+
     Wishlist.associate = function (models) {
         Wishlist.belongsTo(models.User, {
             as: 'user',
@@ -25,14 +24,15 @@ module.exports = (sequelize, dataTypes) => {
                 allowNull: false
             }
         })
-    }
+    
 
     Wishlist.belongsToMany(models.Product, {
         as: 'product',
-        through: ProductWishlist,
+        through: 'ProductWishlist',
         foreignKey: 'wishlistID',
         otherKey: 'productID'
-    })      
+    })   
+}   
 
     return Wishlist;
 }

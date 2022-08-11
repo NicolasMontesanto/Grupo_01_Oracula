@@ -1,8 +1,4 @@
-const AttributeProduct = require("./AttributeProduct");
-const CartProduct = require("./CartProduct");
-const ProductFavorite = require("./ProductFavorite");
-const ProductGenre = require("./ProductGenre");
-const PurchaseProduct = require("./PurchaseProduct");
+
 
 module.exports = (sequelize, dataTypes) => {
     let alias = "Product";
@@ -68,23 +64,22 @@ module.exports = (sequelize, dataTypes) => {
             }
         })   
 
-        Product.belongsToMany(models.Attribute, {
-            as: 'attribute',
-            through: AttributeProduct,
-            foreignKey: 'productID',
-            otherKey: 'attributeID'
-        })   
         
+        Product.hasMany(models.AttributeProduct, {
+            as: 'atributeProduct',
+            foreignKey: 'attributeProductID',
+        })          
+
        Product.belongsToMany(models.Cart, {
             as: 'cart',
-            through: CartProduct,
+            through: 'CartProduct',
             foreignKey: 'productID',
             otherKey: 'cartID'
         })   
 
         Product.belongsToMany(models.Favorite, {
             as: 'favorite',
-            through: ProductFavorite,
+            through: 'ProductFavorite',
             foreignKey: 'productID',
             otherKey: 'cartID'
         })   
@@ -93,18 +88,15 @@ module.exports = (sequelize, dataTypes) => {
 
         Product.belongsToMany(models.Genre, {
             as: 'genre',
-            through: ProductGenre,
+            through: 'ProductGenre',
             foreignKey: 'productID',
             otherKey: 'genreID'
         })   
 
-        Purchase.belongsToMany(models.Purchase, {
-            as: 'purchase',
-            through: PurchaseProduct,
-            foreignKey: 'productID',
-            otherKey:'purchaseID' 
-        })      
-
+        Product.hasMany(models.PurchaseProduct, {
+            as: 'purchaseProduct',
+            foreignKey: 'purchaseProductID',
+        })
        
   
        

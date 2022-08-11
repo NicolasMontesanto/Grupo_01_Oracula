@@ -1,7 +1,6 @@
-const CartProduct = require("./CartProduct");
 
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Carts";
+    let alias = "Cart";
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -33,7 +32,7 @@ module.exports = (sequelize, dataTypes) => {
 
         Cart.belongsToMany(models.Product, {
             as: 'product',
-            through: CartProduct,
+            through: 'CartProduct',
             foreignKey: 'cartID',
             otherKey: 'productID'
         })   

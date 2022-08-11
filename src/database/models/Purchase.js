@@ -1,7 +1,7 @@
-const PurchaseProduct = require("./PurchaseProduct");
+
 
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Purchases";
+    let alias = "Purchase";
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -13,7 +13,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         createdAt: {
-            type: dataTypes.DATETIME,
+            type: dataTypes.DATE,
             allowNull: false
         },
         esCancelado: {
@@ -40,12 +40,13 @@ module.exports = (sequelize, dataTypes) => {
         }
         })   
 
-       Purchase.belongsToMany(models.Product, {
-            as: 'product',
-            through: PurchaseProduct,
-            foreignKey: 'purchaseID',
-            otherKey: 'productID'
-        })      
+        Purchase.hasMany(models.PurchaseProduct, {
+            as: 'purchaseProduct',
+            foreignKey: 'purchaseProductID',
+        })
+
+      
+
 
 
     }

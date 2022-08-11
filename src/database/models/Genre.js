@@ -1,7 +1,6 @@
-const ProductGenre = require("./ProductGenre");
 
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Genres";
+    let alias = "Genre";
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -24,7 +23,7 @@ module.exports = (sequelize, dataTypes) => {
        
         Genre.belongsToMany(models.Product, {
             as: 'product',
-            through: ProductGenre,
+            through: 'ProductGenre',
             foreignKey: 'genreID',
             otherKey: 'productID'
         })   

@@ -1,14 +1,22 @@
-require('dotenv').config()
-
 module.exports = {
+  // "development": {
+  //   "username": process.env.DB_USER,
+  //   "password": process.env.DB_PASS,
+  //   "database": process.env.DB_NAME,
+  //   "port": process.env.DB_PORT,
+  //   "host": "127.0.0.1",
+  //   "dialect": "mysql"
+  // },
   "development": {
-    "username": process.env.DB_USER,
-    "password": process.env.DB_PASS,
-    "database": process.env.DB_NAME,
-    "port": process.env.DB_PORT,
+    "username": "root",
+    "password": "admin",
+    "database": "oraculaDB",
+    "port": 3306,
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
+  
+   
   "test": {
     "username": "root",
     "password": null,

@@ -1,7 +1,7 @@
-const Category = require("./Category");
+
 
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Users";
+    let alias = "User";
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -47,7 +47,7 @@ module.exports = (sequelize, dataTypes) => {
             default: false
         },
         createdAt: {
-            type: dataTypes.DATETIME,
+            type: dataTypes.DATE,
             allowNull: false
         }
     }

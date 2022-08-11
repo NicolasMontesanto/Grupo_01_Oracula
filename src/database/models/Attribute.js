@@ -1,7 +1,6 @@
-const AttributeProduct = require("./AttributeProduct");
 
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Attributes";
+    let alias = "Attribute";
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -34,11 +33,9 @@ module.exports = (sequelize, dataTypes) => {
             }
         })   
 
-        Attribute.belongsToMany(models.Product, {
-            as: 'product',
-            through: AttributeProduct,
-            foreignKey: 'attributeID',
-            otherKey: 'productID'
+        Attribute.hasMany(models.Attribute, {
+            as: 'atributeProduct',
+            foreignKey: 'attributeProductID',
         })          
 
     }
