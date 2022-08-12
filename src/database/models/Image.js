@@ -21,10 +21,10 @@ module.exports = (sequelize, dataTypes) => {
 
     
     Image.associate = function(models){
-    Image.belongsTo(models.User, {
-        as: 'user',
+    Image.belongsTo(models.Product, {
+        as: 'product',
         foreignKey: {
-            name: 'userID',
+            name: 'productID',
             type: dataTypes.INTEGER,
             allowNull: false
         }
