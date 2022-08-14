@@ -4,6 +4,7 @@
 <head>
     <%- include('../partials/head.ejs')%>
         <link rel="stylesheet" href="/css/productCreate.css">
+        <script src="/js/productCreate.js" defer></script>
         <title>Registrar Producto</title>
 </head>
 
@@ -18,174 +19,209 @@
                 </section>
                 <div class="formulario__container">
                     <form class="formulario" action="/product/create" method="post" enctype="multipart/form-data">
-
-
-                        
                         <div class="formulario__item">
                             <label class="formulario__label" for="nombre">Nombre del producto:</label>
-                            <input class="formulario__input  <%= locals.errors && errors.nombre ? 'invalid' : null %>" type="text" id="nombre" name="nombre" value="<%= locals.oldData ? oldData.nombre : null %>" >
+                            <input class="formulario__input  <%= locals.errors && errors.nombre ? 'invalid' : null %>"
+                                type="text" id="nombre" name="nombre"
+                                value="<%= locals.oldData ? oldData.nombre : null %>">
                             <% if (locals.errors && errors.nombre) { %>
                                 <div class="text-danger">
-                                 <p><%=errors.nombre.msg%></p>
+                                    <p>
+                                        <%=errors.nombre.msg%>
+                                    </p>
                                 </div>
-                                                                 
+
                                 <% } %>
                         </div>
                         <div class="formulario__item">
                             <label class="formulario__label" for="descripcion">Descripción:</label>
-                            <textarea class="formulario__input input--text-area <%= locals.errors && errors.descripcion ? 'invalid' : null %> " 
-                                type="text" id="descripcion"
-                                name="descripcion"
-                               > <%= locals.oldData ? oldData.descripcion : null %></textarea>
-                                <% if (locals.errors && errors.descripcion) { %>
-                                    <div class="text-danger">
-                                     <p><%=errors.descripcion.msg%></p>
-                                    </div>
-                                                                     
+                            <textarea class="formulario__input input--text-area <%= locals.errors && errors.descripcion ? 'invalid' : null %>" type="text" id="descripcion" name="descripcion"><%= locals.oldData ? oldData.descripcion : null %></textarea>
+                            <% if (locals.errors && errors.descripcion) { %>
+                                <div class="text-danger">
+                                    <p>
+                                        <%=errors.descripcion.msg%>
+                                    </p>
+                                </div>
+
                                 <% } %>
                         </div>
                         <div class="formulario__item">
                             <label class="formulario__label" for="categoria">Categoría a la que pertenece:</label>
-                            <select class="formulario__desplegable <%= locals.errors && errors.categoria ? 'invalid' : null %>" id="categoria" name="categoria">
-                                <option  value = "" > Elegí una categoría </optionvalue></option>
-                                <% let categorias = ['Literatura', 'Juegos', 'Multimedia', 'Baratijas'] %> 
-                                <% for( const unaCategoria of categorias ) { %>
-                                    <option value="<%= unaCategoria %>"
-                                        <%= locals.oldData && unaCategoria == oldData.categoria ? 'selected' : null %>> <%= unaCategoria %> </option>
-                                <% } %>
-                                                                
+                            <select
+                                class="formulario__desplegable <%= locals.errors && errors.categoria ? 'invalid' : null %>"
+                                id="categoria" name="categoria">
+                                <option value=""> Elegí una categoría </optionvalue>
+                                </option>
+                                <% for( let i=0; i<categorias.length; i++ ) { %>
+                                    <option value="<%= categorias[i].id %>" <%=locals.oldData &&
+                                        categorias[i].id==oldData.categoria ? 'selected' : null %>> <%=
+                                            categorias[i].nombre %>
+                                    </option>
+                                    <% } %>
                             </select>
                             <% if (locals.errors && errors.categoria) { %>
-                            <div class="text-danger">
-                             <p><%=errors.categoria.msg%></p>
-                            </div>
-                                                             
-                            <% } %>
-                           
-                            <select class="formulario__desplegable <%= locals.errors && errors.subcategoria ? 'invalid' : null %>" id="categoria" name="subcategoria">
-                               
-                                    <option value = ""> Elegí una subcategoría </optionvalue></option>
-                                    <optgroup class="formulario__option-group " label="Literatura">
-                                    <% let subcategoriasLit = ['Novela', 'Cuento', 'Audiolibro', 'Manga', 'Historieta'] %> 
-                                    <% for( const unaSubcategoria of subcategoriasLit ) { %>
-                                        <option value="<%= unaSubcategoria %>" 
-                                            <%= locals.oldData && unaSubcategoria == oldData.subcategoria ? 'selected' : null %>><%= unaSubcategoria %></option>
-                                    <% } %>
-                                   
-                                </optgroup>
-                                <optgroup class="formulario__option-group" label="Juegos">
-                                    <% let subcategoriasJueg = ['Videojuego', 'Juego de mesa'] %> 
-                                    <% for( const unaSubcategoria of subcategoriasJueg ) { %>
-                                        <option value="<%= unaSubcategoria %>"
-                                            <%= locals.oldData && unaSubcategoria == oldData.subcategoria ? 'selected' : null %>><%= unaSubcategoria %></option>
-                                    <% } %>
-                                   
-                                </optgroup>
-                                <optgroup class="formulario__option-group" label="Baratijas">
-                                    <% let subcategoriasBar = ['Ropa', 'Accesorio', 'Coleccionable'] %> 
-                                    <% for( const unaSubcategoria of subcategoriasBar ) { %>
-                                        <option value="<%= unaSubcategoria %>"
-                                            <%= locals.oldData && unaSubcategoria == oldData.subcategoria ? 'selected' : null %>><%= unaSubcategoria %></option>
-                                    <% } %>
-                                </optgroup>
-                                <optgroup class="formulario__option-group" label="Multimedia">
-                                    <% let subcategoriasMul = ['Película', 'Soundtrack'] %> 
-                                    <% for( const unaSubcategoria of subcategoriasMul ) { %>
-                                        <option value="<%= unaSubcategoria %>"
-                                            <%= locals.oldData && unaSubcategoria == oldData.subcategoria ? 'selected' : null %>><%= unaSubcategoria %></option>
-                                    <% } %>                                   
+                                <div class="text-danger">
+                                    <p>
+                                        <%=errors.categoria.msg%>
+                                    </p>
+                                </div>
+                                <% } %>
+                            <select class="formulario__desplegable <%= locals.errors && errors.subcategoria ? 'invalid' : null %>" id="subcategoria" name="subcategoria" >
+                                <option value="">
+                                    Elegí una subcategoría
+                                </optionvalue>
+                                    <% for( let i=0; i<subcategorias.length; i++ ) { %>
+                                        <option  value="<%= subcategorias[i].id %>" <%=locals.oldData && subcategorias[i].id==oldData.subcategoria ? 'selected' : null %>  data-nombre="<%= subcategorias[i].nombre%>" >
+                                            <%=subcategorias[i].nombre%> 
+                                        </option>
+                                    <%}%>
                             </select>
                             <% if (locals.errors && errors.subcategoria) { %>
                                 <div class="text-danger">
-                                 <p><%=errors.subcategoria.msg%></p>
+                                    <p>
+                                        <%=errors.subcategoria.msg%>
+                                    </p>
                                 </div>
-                                                                 
-                                <% } %>
+                            <% } %>
+                        </div>
+                        <div class="input--atributos" id="JuegoDeMesa">
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="cantidadJugadorxs">Cantidad de Jugadorxs:</label>
+                                <input class="formulario__input" type="number" value="<%= locals.oldData ? oldData.cantidadJugadorxs : null %>" name="cantidadJugadorxs" id="cantidadJugadorxs">
+                            </div>
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="edadRecomendada">Edad Recomendada:</label>
+                                <input class="formulario__input" type="number" value="<%= locals.oldData ? oldData.edadRecomendada : null %>" name="edadRecomendada" id="edadRecomendada">
+                            </div>
+                        </div>
+                        <div class="input--atributos" id="Videojuego">
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="desarrolladorx">Desarrollado por:</label>
+                                <input class="formulario__input" type="text" value="<%= locals.oldData ? oldData.desarrolladorx : null %>" name="desarrolladorx" id="desarrolladorx">
+                            </div>
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="lanzamiento">Fecha de Lanzamiento:</label>
+                                <input class="formulario__input" type="date" value="<%= locals.oldData ? oldData.lanzamiento : null %>" name="lanzamiento" id="lanzamiento">
+                            </div>      
+                        </div>
+                        <div class="input--atributos" id="Libro">
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="extension">Cantidad de páginas:</label>
+                                <input class="formulario__input" type="number" value="<%= locals.oldData ? oldData.extension : null %>" name="extension" id="extension">
+                            </div>
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="autoriaLibro">Autoría:</label>
+                                <input class="formulario__input" type="text" value="<%= locals.oldData ? oldData.autoriaLibro : null %>" name="autoriaLibro" id="autoriaLibro">
+                            </div>
+                        </div>
+                        <div class="input--atributos" id="Audiolibro">
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="duracionAudiolibro">Duración:</label>
+                                <input class="formulario__input" type="number" value="<%= locals.oldData ? oldData.duracionAudiolibro : null %>" name="duracionAudiolibro" id="duracionAudiolibro">
+                            </div>
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="autoriaAudiolibro">Autoría:</label>
+                                <input class="formulario__input" type="text" value="<%= locals.oldData ? oldData.autoriaAudiolibro : null %>" name="autoriaAudiolibro" id="autoriaAudiolibro">
+                            </div>
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="narradorx">Narrado por:</label>
+                                <input class="formulario__input" type="text" value="<%= locals.oldData ? oldData.narradorx : null %>" name="narradorx" id="narradorx">
+                            </div>
+                        </div>
+                        <div class="input--atributos" id="Ropa">
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="talle">Talle:</label>
+                                <select class="formulario__desplegable" name="talle" id="talle">
+                                    <option value="" selected >Elegí un talle</option>
+                                    <option value="S" <%=locals.oldData && oldData.talle == "S" ? 'selected' : null %> >S</option>
+                                    <option value="M" <%=locals.oldData && oldData.talle == "M" ? 'selected' : null %> >M</option>
+                                    <option value="L" <%=locals.oldData && oldData.talle == "L" ? 'selected' : null %> >L</option>
+                                    <option value="XL" <%=locals.oldData && oldData.talle == "XL" ? 'selected' : null %> >XL</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input--atributos" id="Coleccionable">
+                        </div>
+                        <div class="input--atributos" id="Accesorio">
+                        </div>
+                        <div class="input--atributos" id="Pelicula">
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="duracionPelicula">Duración:</label>
+                                <input class="formulario__input" type="number" value="<%= locals.oldData ? oldData.duracionPelicula : null %>" name="duracionPelicula" id="duracionPelicula">
+                            </div>
+                        </div>
+                        <div class="input--atributos" id="Soundtrack">
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="duracionSoundtrack">Duración:</label>
+                                <input class="formulario__input" type="number" value="<%= locals.oldData ? oldData.duracionSoundtrack : null %>" name="duracionSoundtrack" id="duracionSoundtrack">
+                            </div>
                         </div>
                         <div class="formulario__item formulario__checkbox__container">
                             <div class="formulario__item formulario--checkbox">
-                                <label class="formulario__label label--checkbox" for="esGeneroMedieval">Medieval</label>
-                                <input class="formulario__input input--checkbox" type="checkbox" name="esGeneroMedieval" id="esGeneroMedieval" value="true">
+                                <label class="formulario__label label--checkbox" for="esClasica">Clásica</label>
+                                <input class="formulario__input input--checkbox" type="checkbox" name="esClasica" id="esClasica" value="<%=generos[0].id%>" <%=locals.oldData && oldData.esClasica ? 'checked' : null%>>
                             </div>
                             <div class="formulario__item formulario--checkbox">
-                                <label class="formulario__label label--checkbox" for="esGeneroUrbana">Urbana</label>
-                                <input class="formulario__input input--checkbox" type="checkbox" name="esGeneroUrbana" id="esGeneroUrbana" value="true">
+                                <label class="formulario__label label--checkbox" for="esMedieval">Medieval</label>
+                                <input class="formulario__input input--checkbox" type="checkbox" name="esMedieval" id="esMedieval" value="<%=generos[1].id%>" <%=locals.oldData && oldData.esMedieval ? 'checked' : null%>>
                             </div>
                             <div class="formulario__item formulario--checkbox">
-                                <label class="formulario__label label--checkbox" for="esGeneroClasica">Clásicos</label>
-                                <input class="formulario__input input--checkbox" type="checkbox" name="esGeneroClasica" id="esGeneroClasica" value="true">
+                                <label class="formulario__label label--checkbox" for="esJuvenil">Juvenil</label>
+                                <input class="formulario__input input--checkbox" type="checkbox" name="esJuvenil" id="esJuvenil" value="<%=generos[2].id%>" <%=locals.oldData && oldData.esJuvenil ? 'checked' : null%>>
                             </div>
                             <div class="formulario__item formulario--checkbox">
-                                <label class="formulario__label label--checkbox" for="esGeneroOscura">Oscura</label>
-                                <input class="formulario__input input--checkbox" type="checkbox" name="esGeneroOscura"  id="esGeneroOscura" value="true">
+                                <label class="formulario__label label--checkbox" for="esUrbana">Urbana</label>
+                                <input class="formulario__input input--checkbox" type="checkbox" name="esUrbana" id="esUrbana" value="<%=generos[3].id%>" <%=locals.oldData && oldData.esUrbana ? 'checked' : null%>>
                             </div>
-                           <div class="formulario__item formulario--checkbox">
-                             <label class="formulario__label label--checkbox" for="esGeneroJuvenil">Juvenil</label>
-                             <input class="formulario__input input--checkbox" type="checkbox" name="esGeneroJuvenil" id="esGeneroJuvenil" value="true">
-                           </div>
-                         </div>
+                            <div class="formulario__item formulario--checkbox">
+                                <label class="formulario__label label--checkbox" for="esOscura">Oscura</label>
+                                <input class="formulario__input input--checkbox" type="checkbox" name="esOscura" id="esOscura" value="<%=generos[4].id%>" <%=locals.oldData && oldData.esOscura ? 'checked' : null%>>
+                            </div>
+                        </div>
                         <div class="formulario__item">
                             <label class="formulario__label" for="imagenes">Imágenes del producto:</label>
-                            <input class="formulario__input input--file <%= locals.errors && errors.imagenes ? 'invalid' : null %>" }
-                            type="file" id="imagenes" name="imagenes" 
-                             required
+                            <input
+                                class="formulario__input input--file <%= locals.errors && errors.imagenes ? 'invalid' : null %>"
+                                } type="file" id="imagenes" name="imagenes" required
                                 accept="image/png, image/jpeg, image/gif, image/svg, image/jpeg, image/jfif">
-                                <% if (locals.errors && errors.imagenes) { %>
-                                    <div class="text-danger">
-                                     <p><%=errors.imagenes.msg%></p>
-                                    </div>
-                                                                     
-                                    <% } %>
+                            <% if (locals.errors && errors.imagenes) { %>
+                                <div class="text-danger">
+                                    <p>
+                                        <%=errors.imagenes.msg%>
+                                    </p>
+                                </div>
+                            <% } %>
                         </div>
                         <div class="formulario__item formulario__checkbox__container">
                             <div class="formulario__item formulario--checkbox">
-                                <label for="esNovedad" class="formulario__label label--checkbox">¿Es una
-                                    novedad?</label>
-                                <input class="formulario__input input--checkbox" type="checkbox" id="esNovedad"
-                                    name="esNovedad" value="true">
+                                <label for="esNovedad" class="formulario__label label--checkbox">¿Es una novedad?</label>
+                                <input class="formulario__input input--checkbox" type="checkbox" id="esNovedad" name="esNovedad" value="true">
                             </div>
                             <div class="formulario__item formulario--checkbox">
-                                <label for="esDestacado" class="formulario__label label--checkbox">¿Es
-                                    destacado?</label>
-                                <input class="formulario__input input--checkbox" type="checkbox" id="esDestacado"
-                                    name="esDestacado" value="true">
+                                <label for="esDestacado" class="formulario__label label--checkbox">¿Es destacado?</label>
+                                <input class="formulario__input input--checkbox" type="checkbox" id="esDestacado" name="esDestacado" value="true">
                             </div>
                             <div class="formulario__item formulario--checkbox">
-                                <label for="esOferta" class="formulario__label label--checkbox">¿Está en oferta?</label>
-                                <input class="formulario__input input--checkbox" type="checkbox" id="esOferta"
-                                    name="esOferta" value="true">
+                                <label for="esMagicPass" class="formulario__label label--checkbox">¿MagicPass?</label>
+                                <input class="formulario__input input--checkbox" type="checkbox" id="esMagicPass" name="esMagicPass" value="true">
                             </div>
                         </div>
-                        <div class="formulario__item precio-descuento-moneda">
+                        <div class="formulario__item precio-descuento">
                             <div class="formulario__item input--pdm">
                                 <label class="formulario__label" for="precio">Precio: </label>
-                                <input class="formulario__input input--small <%= locals.errors && errors.precio ? 'invalid' : null %>" type="number" id="precio" name="precio"
-                                value="<%= locals.oldData ? oldData.precio : null %>">
+                                <input class="formulario__input input--small <%= locals.errors && errors.precio ? 'invalid' : null %>" type="number" id="precio" name="precio" value="<%= locals.oldData ? oldData.precio : null %>">
                                 <% if (locals.errors && errors.precio) { %>
                                     <div class="text-danger">
-                                     <p><%=errors.precio.msg%></p>
-                                    </div>                                                                     
+                                        <p>
+                                            <%=errors.precio.msg%>
+                                        </p>
+                                    </div>
                                     <% } %>
                             </div>
                             <div class="formulario__item input--pdm">
                                 <label for="descuento" class="formulario__label">Descuento</label>
-                                <input class="formulario__input input--small" type="number" id="descuento"
-                                    name="descuento">
+                                <input class="formulario__input input--small" type="number" id="descuento" name="descuento" value="<%= locals.oldData ? oldData.descuento : null %>">
                             </div>
-                            <div class="formulario__item input--pdm">
-                                <label class="formulario__label" for="moneda">Moneda: </label>
-                                <select class="formulario__desplegable input--small" id="moneda" name="moneda">
-                                    <% let monedas = ['Pesos', 'Dólares', 'Bitcoins', 'Guaraníes', 'Euros']%> 
-                                    <% for( const unaMoneda of monedas ) { %>
-                                        <option value="<%= unaMoneda %>"
-                                            <%= locals.oldData && unaMoneda == oldData.moneda ? 'selected' : null %>><%= unaMoneda %></option>
-                                    <% } %>                                  
-                                </select>
-                            </div>
-                        </div>
-                        <div class="formulario__item formulario--loneCheckbox">
-                            <label for="esMagicPass" class="formulario__label label--checkbox">¿Pertenece al MagicPass?</label>
-                            <input class="formulario__input input--checkbox" type="checkbox" id="esMagicPass" name="esMagicPass" value="true">
                         </div>
                         <div class="formulario__item last-item">
                             <button class="formulario__icon-submit" type="submit">

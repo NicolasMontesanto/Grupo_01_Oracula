@@ -1,5 +1,3 @@
-
-
 module.exports = (sequelize, dataTypes) => {
     let alias = "Product";
     let cols = {
@@ -9,6 +7,10 @@ module.exports = (sequelize, dataTypes) => {
             autoIncrement: true
         },
         nombre: {
+            type: dataTypes.STRING,
+            allowNull: false
+        },
+        descripcion: {
             type: dataTypes.STRING,
             allowNull: false
         },
@@ -35,7 +37,6 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false,
             default: false
         }
-
     }
     let config = {
         tableName: "Products",
@@ -49,7 +50,7 @@ module.exports = (sequelize, dataTypes) => {
         Product.belongsTo(models.Category, {
             as: 'Category',
             foreignKey: {
-                name: 'CategoryID',
+                name: 'categoryID',
                 type: dataTypes.INTEGER,
                 allowNull: false
             }
@@ -67,12 +68,12 @@ module.exports = (sequelize, dataTypes) => {
         
         Product.hasMany(models.AttributeProduct, {
             as: 'atributeProduct',
-            foreignKey: 'attributeProductID',
+            foreignKey: 'productID',
         })        
         
         Product.hasMany(models.Image, {
             as: 'image',
-            foreignKey: 'imageID',
+            foreignKey: 'productID',
         })      
 
        Product.belongsToMany(models.Cart, {
@@ -89,23 +90,20 @@ module.exports = (sequelize, dataTypes) => {
             otherKey: 'cartID'
         })   
 
-
+        Product.belongsToMany(models.Attribute, {
+            as: "attribute",
+            through: "AttributeProduct"
+        })
 
         Product.belongsToMany(models.Genre, {
             as: 'genre',
-            through: 'ProductGenre',
-            foreignKey: 'productID',
-            otherKey: 'genreID'
-        })   
-
+            through: 'ProductGenre'
+        })
+        
         Product.hasMany(models.PurchaseProduct, {
             as: 'purchaseProduct',
             foreignKey: 'purchaseProductID',
         })
-       
-  
-       
-
     }
     return Product;
 }
