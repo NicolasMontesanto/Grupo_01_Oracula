@@ -26,17 +26,13 @@ module.exports = (sequelize, dataTypes) => {
     Attribute.associate = function(models){
         Attribute.belongsTo(models.Subcategory, {
             as: 'subcategory',
-            foreignKey: {
-                name: 'subcategoryID',
-                type: dataTypes.INTEGER,
-                allowNull: false
-            }
-        })   
-
-        Attribute.hasMany(models.Attribute, {
-            as: 'atributeProduct',
-            foreignKey: 'attributeProductID',
-        })          
+            foreignKey: 'subcategoryID'
+        })
+        
+        Attribute.belongsToMany(models.Product, {
+            as: "product",
+            through: "AttributeProduct"
+        })        
 
     }
 

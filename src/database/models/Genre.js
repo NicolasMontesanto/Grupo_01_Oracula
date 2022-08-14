@@ -23,13 +23,9 @@ module.exports = (sequelize, dataTypes) => {
        
         Genre.belongsToMany(models.Product, {
             as: 'product',
-            through: 'ProductGenre',
-            foreignKey: 'genreID',
-            otherKey: 'productID'
+            through: 'ProductGenre'
         })   
     }
-
-
-    
+   
     return Genre;
 }

@@ -13,5 +13,5 @@ INSERT INTO oraculaDB.attributes (nombre, unidad, subcategoryID) VALUES ('Cantid
 
 /*Cargar los géneros*/
 INSERT INTO oraculaDB.genres (nombre)
- VALUES ('Fantasía clásica'), ('Fantasía Medieval'), ('Fantasía Juvenil'), ('Fantasía Urbana'), ('Fantasía Oscura'), ('Inclasificable') ;
+ VALUES ('Fantasía Clásica'), ('Fantasía Medieval'), ('Fantasía Juvenil'), ('Fantasía Urbana'), ('Fantasía Oscura'), ('Inclasificable') ;
 
