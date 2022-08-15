@@ -1,6 +1,8 @@
 const path = require("path");
 const fs = require("fs");
 let users = require("../data/users.json");
+const db = require('../database/models');
+const { promiseImpl } = require('ejs');
 //express validator
 const { validationResult } = require("express-validator");
 //hash
@@ -26,45 +28,58 @@ const usersController = {
         if (validationsResult.errors.length > 0) {
             res.render("./users/login", { errors: validationsResult.mapped(), oldData: req.body });
         } else {
-            let userSearch = User.findFirstByField('email', req.body.email);
-            let userToLogin = Object.assign({}, userSearch);
-            if (userToLogin) {
-                //verifico la contraseña
-                let passOK = bcrypt.compareSync(req.body.password, userToLogin.password)
-                if (passOK) {
-                    //borro la pass para que no quede en session
-                    delete userToLogin.password;
-                    //guardo el usuario loggeado en session
-                    req.session.userLogged = userToLogin;
-                    //compruebo si tildó recordarme
-                    if (req.body.recordarPassword) {
-                        res.cookie('userEmail', req.body.email, { maxAge: 1000 * 60 * 15 })
+            db.User.findOne({
+                where: {
+                    email: req.body.email
+                },
+                raw: true,
+                nest: true
+            })
+                .then((userToLogin) => {
+                    // let userToLogin = Object.assign({}, userFound)
+                     if (userToLogin) {
+                        //verifico la contraseña
+                        let passOK = bcrypt.compareSync(req.body.password, userToLogin.password)
+                        if (passOK) {
+                            //borro la pass para que no quede en session
+                            delete userToLogin.password;
+                            //guardo el usuario loggeado en session
+                            req.session.userLogged = userToLogin;
+                            
+                            //compruebo si tildó recordarme
+                            if (req.body.recordarPassword) {
+                              res.cookie('userEmail', req.body.email, { maxAge: 1000 * 60 * 15 })
+                            }
+
+                            res.redirect('/user/profile')
+                        } else {
+                            // si no se verificó la contraseña
+                            return res.render("./users/login", {
+                                errors: {
+                                    password: {
+                                        msg: 'Contraseña o email incorrectos.'
+                                    },
+                                },
+                                oldData: req.body,
+                            });
+                        }
+                    } else {
+                        // si no se verificó el mail 
+                        return res.render("./users/login", {
+                            errors: {
+                                email: {
+                                    msg: 'Contraseña o email incorrectos.'
+                                },
+                            },
+                            oldData: req.body,
+                        });
                     }
 
-                    return res.redirect('/user/profile')
-                } else {
-                    // si no se verificó la contraseña
-                    return res.render("./users/login", {
-                        errors: {
-                            password: {
-                                msg: 'Contraseña o email incorrectos.'
-                            },
-                        },
-                        oldData: req.body,
-                    });
-                }
-            }
-            // si no se verificó el mail 
-            return res.render("./users/login", {
-                errors: {
-                    email: {
-                        msg: 'Contraseña o email incorrectos.'
-                    },
-                },
-                oldData: req.body,
-            });
+                });
         }
+
     },
+
 
     //signup.html
     signup: (req, res) => {
@@ -86,46 +101,60 @@ const usersController = {
                 errors: validationsResult.mapped(),
                 oldData: req.body,
             });
-
+            //Si no hay errores, se procede con la carga de usuarie
         } else {
             //busco si existe usuarie con el mismo mail
-            let userInDB = User.findFirstByField('email', req.body.email);
+            db.User.findOne({
+                where: { email: req.body.email }
+            }).then((userInDB) => {
+                 if (userInDB) {
+                    //si se cargó una imagen, se borra
+                    if (req.file.filename) {
+                        fs.unlinkSync(path.join(__dirname, "../../public/img/Profile-pictures/", req.file.filename));
+                    }
+                    return res.render("./users/signup", {
+                        errors: {
+                            email: {
+                                msg: "Este email ya esta registrado",
+                            }
+                        },
+                        oldData: req.body,
+                    });
+                } else {
+                    //Guarda el atributo file del request, donde se encuentra la imagen cargada
+                    let file = req.file;
 
-            if (userInDB) {
-                //si se cargó una imagen, se borra
-                if (req.file.filename) {
-                    fs.unlinkSync(path.join(__dirname, "../../public/img/Profile-pictures/", req.file.filename));
+                    //Crea el usuarix
+                    db.User.create({
+                        nombre: req.body.nombre,
+                        apellido: req.body.apellido,
+                        email: req.body.email,
+                        direccion: req.body.direccion,
+                        telefono: req.body.telefono,
+                        imagen: `/img/Profile-pictures/${file.filename}`,
+                        password: bcrypt.hashSync(req.body.password, 10),
+                        magicPass: req.body.magicPass ? true : false,
+                        esAdmin: req.body.isAdmin ? true : false,
+                        createdAt: new Date()
+                    })
+                        .then(usuarioCreado => {
+                           db.Cart.create({
+                                montoTotal: 0,
+                                userID: usuarioCreado.id
+                            }).then(carrito => { console.log(carrito) })
+
+                        })
+
+
+                    //let userCreated = User.create(userToCreate);
+
+                    res.redirect("/user/login");
                 }
-                return res.render("./users/signup", {
-                    errors: {
-                        email: {
-                            msg: "Este email ya esta registrado",
-                        }
-                    },
-                    oldData: req.body,
-                });
-            }
-
-            //tomamos los datos del req.body
-            let file = req.file;
-            let userToCreate = {
-                nombre: req.body.nombre,
-                apellido: req.body.apellido,
-                email: req.body.email,
-                direccion: req.body.direccion,
-                telefono: req.body.telefono,
-                profilePicture: `/img/Profile-pictures/${file.filename}`,
-                password: bcrypt.hashSync(req.body.password, 10),
-                fechaDeCreacion: new Date(),
-                isAdmin: req.body.isAdmin ? true : false,
-                tieneMagicPass: false
-            };
-
-            let userCreated = User.create(userToCreate);
-
-            res.redirect("/user/login");
+            });
         }
+
     },
+
 
     //Renderizar la vista de Edit
     edit: (req, res) => {
@@ -157,7 +186,7 @@ const usersController = {
                     item.email = email;
                     item.direccion = direccion;
                     item.telefono = telefono;
-                    if (req.body.password.length>0){
+                    if (req.body.password.length > 0) {
                         item.password = bcrypt.hashSync(req.body.password, 10);
                     }
                     if (file) {
@@ -189,6 +218,6 @@ const usersController = {
         res.redirect("/");
     },
 
-    // ! FALTA IMPLEMENTAR EL METODO PROFILE: que renderiza la vista por get, incorporando a usuarix loggeadx 
 };
+
 module.exports = usersController;

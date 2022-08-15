@@ -49,11 +49,6 @@ module.exports = (sequelize, dataTypes) => {
         createdAt: {
             type: dataTypes.DATE,
             allowNull: false
-        },
-        estaActivo: {
-            type: dataTypes.BOOLEAN,
-            allowNull: false,
-            default: true
         }
     }
     let config = {
