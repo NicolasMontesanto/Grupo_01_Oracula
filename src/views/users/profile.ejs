@@ -29,7 +29,17 @@
                     <ul class="lista-datos">
                         <li><i class="icono fas fa-map-signs"></i> Direccion: <%= user.direccion%></li>
                         <li><i class="icono fas fa-phone-alt"></i> Telefono: <%= user.telefono %></li>
-                        <li><i class="icono fas fa-briefcase"></i> Email: <%= user.email %></li>
+                        <li><i class="fa-solid fa-envelope"></i> Email: <%= user.email %></li>
+                        <li><i class="fa-solid fa-wand-sparkles"></i>Tiene MagicPass: <% if(user.magicPass == true){ %>
+                            <%= "SI" %> 
+                            <%} else {%>
+                            <%= "NO" %></li>
+                           <% } %>
+                        <li><i class="fa-solid fa-hat-wizard"></i>Es Administrador:<% if(user.esAdmin == true){ %>
+                            <%= "SI" %> 
+                            <%} else {%>
+                            <%= "NO" %></li>
+                            <% } %>
                         <li><a href=" /user/<%= user.id%>/edit" class="perfil-usuario-button">Editar perfil</a></li>
                     </ul>
                 </div>

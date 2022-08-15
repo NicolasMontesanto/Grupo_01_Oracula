@@ -138,7 +138,7 @@ body {
     padding: 5px 0;
 }
 
-.seccion-perfil-usuario .lista-datos li>.icono {
+.seccion-perfil-usuario .lista-datos li i {
     margin-right: 1rem;
     font-size: 1.2rem;
     vertical-align: middle;
@@ -155,7 +155,7 @@ body {
     padding: 12px 30px;
     transition: all .5s;
     margin-left: auto;
-    
+    margin-top: 7%;
   }
   
   .perfil-usuario-button:hover {
