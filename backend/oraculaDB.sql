@@ -80,11 +80,12 @@ CREATE TABLE `Users` (
   `email` VARCHAR(50) NOT NULL,
   `direccion` VARCHAR(50) NULL,
   `telefono` VARCHAR(20) NULL,
-  `imagen` VARCHAR(45) NOT NULL,
+  `imagen` VARCHAR(100) NOT NULL,
   `password` TEXT NOT NULL,
   `esAdmin` BIT NOT NULL,
   `magicPass` BIT NOT NULL,
-  `createdAt` DATE NOT NULL
+  `createdAt` DATE NOT NULL,
+  `estaActivo` BIT NOT NULL DEFAULT 1
 );
 
 DROP TABLE IF EXISTS `Wishlists`;

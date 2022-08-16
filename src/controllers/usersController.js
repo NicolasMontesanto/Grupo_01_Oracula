@@ -37,7 +37,7 @@ const usersController = {
             })
                 .then((userToLogin) => {
                     // let userToLogin = Object.assign({}, userFound)
-                     if (userToLogin) {
+                    if (userToLogin) {
                         //verifico la contraseña
                         let passOK = bcrypt.compareSync(req.body.password, userToLogin.password)
                         if (passOK) {
@@ -45,10 +45,10 @@ const usersController = {
                             delete userToLogin.password;
                             //guardo el usuario loggeado en session
                             req.session.userLogged = userToLogin;
-                            
+
                             //compruebo si tildó recordarme
                             if (req.body.recordarPassword) {
-                              res.cookie('userEmail', req.body.email, { maxAge: 1000 * 60 * 15 })
+                                res.cookie('userEmail', req.body.email, { maxAge: 1000 * 60 * 15 })
                             }
 
                             res.redirect('/user/profile')
@@ -107,7 +107,7 @@ const usersController = {
             db.User.findOne({
                 where: { email: req.body.email }
             }).then((userInDB) => {
-                 if (userInDB) {
+                if (userInDB) {
                     //si se cargó una imagen, se borra
                     if (req.file.filename) {
                         fs.unlinkSync(path.join(__dirname, "../../public/img/Profile-pictures/", req.file.filename));
@@ -135,15 +135,15 @@ const usersController = {
                         password: bcrypt.hashSync(req.body.password, 10),
                         magicPass: req.body.magicPass ? true : false,
                         esAdmin: req.body.isAdmin ? true : false,
-                        createdAt: new Date()
+                        createdAt: new Date(),
+                        estaActivo: req.body.estaActivo ? false : true
                     })
                         .then(usuarioCreado => {
-                           db.Cart.create({
+                            db.Cart.create({
                                 montoTotal: 0,
                                 userID: usuarioCreado.id
-                            }).then(carrito => { console.log(carrito) })
-
-                        })
+                            })
+                          })
 
 
                     //let userCreated = User.create(userToCreate);
@@ -159,8 +159,11 @@ const usersController = {
     //Renderizar la vista de Edit
     edit: (req, res) => {
         let id = req.params.id;
-        let user = User.findByPK(id);
-        !user ? res.send("El usuario no existe") : res.render("./users/userEdit", { user });
+        db.User.findByPk(id)
+            .then((user) => {
+                !user ? res.send("El usuario no existe") : res.render("./users/userEdit", { user });
+            });
+
     },
 
     update: (req, res) => {
@@ -179,36 +182,44 @@ const usersController = {
             }
             res.render("./users/userEdit", { user: req.session.userLogged, errors: validationsResult.mapped() });
         } else {
-            users.forEach((item) => {
-                if (item.id == id) {
-                    item.nombre = nombre;
-                    item.apellido = apellido;
-                    item.email = email;
-                    item.direccion = direccion;
-                    item.telefono = telefono;
-                    if (req.body.password.length > 0) {
-                        item.password = bcrypt.hashSync(req.body.password, 10);
-                    }
-                    if (file) {
-                        if (item.profile) {
-                            fs.unlinkSync(path.join(__dirname, "../../public/img/Profile-pictures/", item.profilePicture));
+            db.User.update({
+                nombre: req.body.nombre,
+                apellido: req.body.apellido,
+                email: req.body.email,
+                direccion: req.body.direccion,
+                telefono: req.body.telefono,
+                password: bcrypt.hashSync(req.body.password, 10),
+                if (file) {
+                        if (imagen) {
+                            fs.unlinkSync(path.join(__dirname, "../../public/img/Profile-pictures/", imagen));
                         }
-                        item.profilePicture = `/img/Profile-pictures/${file.filename}`;
+                       imagen = `/img/Profile-pictures/${file.filename}`;
                     }
+                },
+                {
+                    where: { id: id }
                 }
-            });
+                );       
 
-            let usersJSON = JSON.stringify(users, null, 4);
-            fs.writeFileSync(path.join(__dirname, "../data/users.json"), usersJSON, "utf-8");
             res.redirect("/user/profile");
         }
     },
 
     delete: (req, res) => {
         let id = req.params.id;
-        User.delete(id);
-        res.redirect("/");
+        db.User.findByPk(id)
+            .then(
+                db.User.update({
+                estaActivo: false, 
+                }, {
+                    where : {id : id}
+                }),
+                res.clearCookie('userEmail', 'recordarPassword'),
+                req.session.destroy(),
+                res.redirect("/")
+           )       
     },
+
     // hacer logout
     logout: (req, res) => {
         //al cerrar sesion se borran las cookies del usuarix
