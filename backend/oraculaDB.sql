@@ -80,7 +80,7 @@ CREATE TABLE `Users` (
   `email` VARCHAR(50) NOT NULL,
   `direccion` VARCHAR(50) NULL,
   `telefono` VARCHAR(20) NULL,
-  `imagen` VARCHAR(45) NOT NULL,
+  `imagen` VARCHAR(200) NOT NULL,
   `password` TEXT NOT NULL,
   `esAdmin` BIT NOT NULL,
   `magicPass` BIT NOT NULL,
