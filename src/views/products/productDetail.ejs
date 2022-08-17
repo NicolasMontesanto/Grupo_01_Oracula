@@ -20,7 +20,7 @@
                 <section class="product__container">
                     <!-- Left Column / Merch Image -->
                     <div class="left-column">
-                        <img class="product__image" src=<%=elProducto.imagenes%> alt="" class="imagen__principal">
+                        <img class="product__image" src="<%=elProducto.image.url%>" alt="<%=elProducto.nombre%>" class="imagen__principal">
                     </div>
 
                     <!-- Right Column -->
@@ -29,8 +29,7 @@
                         <div class="product-description">
                             <h2 class="product-favAndShare">
                                 <div>
-                                    <a href="#" class="product-btn"><i class="far fa-bookmark"
-                                            alt="Agregar a favoritos"></i></a>
+                                    <a href="#" class="product-btn"><i class="far fa-bookmark" alt="Agregar a favoritos"></i></a>
                                 </div>
                                 <div>
                                     <a href="#" class="product-btn"><i class="fas fa-share"></i></a>
@@ -60,9 +59,9 @@
                             <p class="product__text text--descripcion">
                                 <%=elProducto.descripcion%>
                             </p>
-                            <p class="product__text text--tag">
-                                <%=elProducto.subcategoria.toUpperCase()%>
-                            </p>
+                           <!-- <p class="product__text text--tag">
+                                <%=//elProducto.subcategoria.toUpperCase()%>
+                           </p> -->
                         </div>
 
                         <!-- Product Pricing -->
@@ -89,8 +88,7 @@
                         <%for (let i=0; i<4 && i<productosDesordenados.length; i++){%>
                             <article class="suggested__article">
                                 <a href="/product/detail/<%=productosDesordenados[i].id%>"><img
-                                        src=<%=productosDesordenados[i].imagenes%> alt="Imagen de
-                                    <%=productosDesordenados[i].nombre%>" class="suggested__product">
+                                        src="<%=productosDesordenados[i].image.url%>" alt="Imagen de <%=productosDesordenados[i].nombre%>" class="suggested__product">
                                 </a>
                                 <div class="suggested__description">
                                     <i class="fas fa-broom suggested__icon"></i>

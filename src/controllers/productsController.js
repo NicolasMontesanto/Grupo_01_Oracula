@@ -4,8 +4,9 @@ let products = require('../data/products.json');
 //express validator
 const { validationResult } = require('express-validator');
 const db = require('../database/models');
+const sequelize = require("sequelize");
 const { promiseImpl } = require('ejs');
-const { log } = require('console');
+const { log, Console } = require('console');
 
 let sortear = function (productosASortear) {
     let sorteados = productosASortear.sort(() => Math.random() - 0.5)
@@ -16,16 +17,49 @@ const productsController = {
     //productDetail.html
     detail: (req, res) => {
         let id = req.params.id;
-        let elProducto = products.find(element => element.id == id)
-        let productosDeCategoria = products.filter(item => item.categoria == elProducto.categoria && item != elProducto);
-        let productosDesordenados = sortear(productosDeCategoria);
-
-        res.render('./products/productDetail', { elProducto, productosDesordenados });
+        db.Product.findByPk(id, {
+            include: "image",
+            raw: true,
+            nest: true
+        })
+            .then(producto => {
+                let productosDeCategoria;
+                db.Product.findAll({
+                    where: {
+                        categoryID: producto.categoryID,
+                        id: {
+                            [sequelize.Op.not]: producto.id
+                        }
+                    },
+                    include: "image",
+                    raw: true,
+                    nest: true
+                })
+                    .then(productos => {
+                        //productosDeCategoria = productos.filter(item => item.id != producto.id);
+                        let productosDesordenados = sortear(productos);
+                        console.log(productosDesordenados);
+                        res.render('./products/productDetail', { elProducto: producto, productosDesordenados });
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
+            })
+            .catch(err => {
+                console.log(err)
+            })
     },
 
     //Renderizar vista de todos los productos
     list: (req, res) => {
-        res.render('./products/productList', { products });
+        db.Product.findAll({
+            include: "image",
+            raw: true,
+            nest: true
+        })
+            .then(productos => {
+                res.render('./products/productList', { products: productos });
+            })
     },
 
 
