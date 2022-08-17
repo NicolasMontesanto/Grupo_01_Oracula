@@ -84,7 +84,8 @@ CREATE TABLE `Users` (
   `password` TEXT NOT NULL,
   `esAdmin` BIT NOT NULL,
   `magicPass` BIT NOT NULL,
-  `createdAt` DATE NOT NULL
+  `createdAt` DATE NOT NULL,
+  `estaActivo` BIT NOT NULL DEFAULT 1
 );
 
 DROP TABLE IF EXISTS `Wishlists`;
