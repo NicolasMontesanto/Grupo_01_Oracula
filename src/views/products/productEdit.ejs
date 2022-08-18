@@ -4,6 +4,7 @@
 <head>
     <%- include('../partials/head.ejs')%>
         <link rel="stylesheet" href="/css/productEdit.css">
+        <script src="/js/productEdit.js" defer></script>
         <title>Editar Producto</title>
 </head>
 
@@ -50,7 +51,7 @@
                             <label class="formulario__label" for="categoria">Categoría a la que pertenece:</label>
                             <select class="formulario__desplegable" id="categoria" name="categoria">
                                     <% for( const unaCategoria of categorias ) { %>
-                                        <option <%if(product.categoryID==unaCategoria.id ){%> selected <%}%> value="<%=unaCategoria.nombre %>"><%= unaCategoria.nombre %> </option>
+                                        <option <%if(product.categoryID==unaCategoria.id ){%> selected <%}%> value="<%=unaCategoria.id %>"><%= unaCategoria.nombre %> </option>
                                     <% } %>
                             </select>
                             <% if (locals.errors && errors.categoria) { %>
@@ -60,9 +61,9 @@
                                     </p>
                                 </div>
                             <% } %>
-                            <select class="formulario__desplegable" id="categoria" name="subcategoria">
+                            <select class="formulario__desplegable" id="subcategoria" name="subcategoria">
                                     <% for( const unaSubcategoria of subcategorias) { %>
-                                        <option <%if(product.subcategoryID==unaSubcategoria.id ){%> selected <%}%> value="<%= unaSubcategoria.nombre %>"> <%= unaSubcategoria.nombre %> </option>
+                                        <option <%if(product.subcategoryID==unaSubcategoria.id ){%> selected <%}%> value="<%= unaSubcategoria.id %>"  data-nombre="<%= unaSubcategoria.nombre%>"> <%= unaSubcategoria.nombre %> </option>
                                     <% } %>
                             </select>
                             <% if (locals.errors && errors.subcategoria) { %>
@@ -73,6 +74,78 @@
                                 </div>
                             <% } %>
                         </div>
+                        <div class="input--atributos" id="JuegoDeMesa">
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="cantidadJugadorxs">Cantidad de Jugadorxs:</label>
+                                <input class="formulario__input" type="number" value="<%= locals.oldData ? oldData.autoriaLibro : (product.subcategoryID == 1 ? product.attribute[0].AttributeProduct.valor : null) %>" name="cantidadJugadorxs" id="cantidadJugadorxs">
+                            </div>
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="edadRecomendada">Edad Recomendada:</label>
+                                <input class="formulario__input" type="number" value="<%= locals.oldData ? oldData.autoriaLibro : (product.subcategoryID == 1 ? product.attribute[1].AttributeProduct.valor : null) %>" name="edadRecomendada" id="edadRecomendada">
+                            </div>
+                        </div>
+                        <div class="input--atributos" id="Videojuego">
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="desarrolladorx">Desarrollado por:</label>
+                                <input class="formulario__input" type="text" value="<%= locals.oldData ? oldData.autoriaLibro : (product.subcategoryID == 2 ? product.attribute[0].AttributeProduct.valor : null) %>" name="desarrolladorx" id="desarrolladorx">
+                            </div>
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="lanzamiento">Fecha de Lanzamiento:</label>
+                                <input class="formulario__input" type="date" value="<%= locals.oldData ? oldData.autoriaLibro : (product.subcategoryID == 2 ? product.attribute[1].AttributeProduct.valor : null) %>" name="lanzamiento" id="lanzamiento">
+                            </div>      
+                        </div>
+                        <div class="input--atributos" id="Libro">
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="extension">Cantidad de páginas:</label>
+                                <input class="formulario__input" type="number" value="<%= locals.oldData ? oldData.autoriaLibro : (product.subcategoryID == 3 ? product.attribute[0].AttributeProduct.valor : null) %>" name="extension" id="extension">
+                            </div>
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="autoriaLibro">Autoría:</label>
+                                <input class="formulario__input" type="text" value="<%= locals.oldData ? oldData.autoriaLibro : (product.subcategoryID == 3 ? product.attribute[1].AttributeProduct.valor : null) %>" name="autoriaLibro" id="autoriaLibro">
+                            </div>
+                        </div>
+                        <div class="input--atributos" id="Audiolibro">
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="duracionAudiolibro">Duración:</label>
+                                <input class="formulario__input" type="number" value="<%= locals.oldData ? oldData.autoriaLibro : (product.subcategoryID == 4 ? product.attribute[0].AttributeProduct.valor : null) %>" name="duracionAudiolibro" id="duracionAudiolibro">
+                            </div>
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="autoriaAudiolibro">Autoría:</label>
+                                <input class="formulario__input" type="text" value="<%= locals.oldData ? oldData.autoriaLibro : (product.subcategoryID == 4 ? product.attribute[1].AttributeProduct.valor : null) %>" name="autoriaAudiolibro" id="autoriaAudiolibro">
+                            </div>
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="narradorx">Narrado por:</label>
+                                <input class="formulario__input" type="text" value="<%= locals.oldData ? oldData.autoriaLibro : (product.subcategoryID == 4 ? product.attribute[2].AttributeProduct.valor : null) %>" name="narradorx" id="narradorx">
+                            </div>
+                        </div>
+                        <div class="input--atributos" id="Ropa">
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="talle">Talle:</label>
+                                <select class="formulario__desplegable" name="talle" id="talle">
+                                    <option value="" selected >Elegí un talle</option>
+                                    <option value="S" <%=locals.oldData && oldData.talle == "S" ? 'selected' : (product.subcategoryID == 5 && product.attribute[0].AttributeProduct.valor == "S" ? "selected": null) %> >S</option>
+                                    <option value="M" <%=locals.oldData && oldData.talle == "M" ? 'selected' : (product.subcategoryID == 5 && product.attribute[0].AttributeProduct.valor == "M" ? "selected": null) %> >M</option>
+                                    <option value="L" <%=locals.oldData && oldData.talle == "L" ? 'selected' : (product.subcategoryID == 5 && product.attribute[0].AttributeProduct.valor == "L" ? "selected": null) %> >L</option>
+                                    <option value="XL" <%=locals.oldData && oldData.talle == "XL" ? 'selected' : (product.subcategoryID == 5 && product.attribute[0].AttributeProduct.valor == "XL" ? "selected": null) %> >XL</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input--atributos" id="Coleccionable">
+                        </div>
+                        <div class="input--atributos" id="Accesorio">
+                        </div>
+                        <div class="input--atributos" id="Pelicula">
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="duracionPelicula">Duración:</label>
+                                <input class="formulario__input" type="number" value="<%= locals.oldData ? oldData.autoriaLibro : (product.subcategoryID == 8 ? product.attribute[0].AttributeProduct.valor : null)%>" name="duracionPelicula" id="duracionPelicula">
+                            </div>
+                        </div>
+                        <div class="input--atributos" id="Soundtrack">
+                            <div class="formulario__item">
+                                <label class="formulario__label" for="duracionSoundtrack">Duración:</label>
+                                <input class="formulario__input" type="number" value="<%= locals.oldData ? oldData.autoriaLibro : (product.subcategoryID == 9 ? product.attribute[0].AttributeProduct.valor : null)%>" name="duracionSoundtrack" id="duracionSoundtrack">
+                            </div>
+                        </div>
                         <div class="formulario__item">
                             <label class="formulario__label" for="">Géneros de Fantasía a los que pertenece:</label>
                         </div>
@@ -80,27 +153,27 @@
                             <div class="formulario__item formulario--checkbox">
                                 <label class="formulario__label label--checkbox" for="esClasica">Clásica</label>
                                 <input class="formulario__input input--checkbox" type="checkbox" 
-                                <%for (let i = 0; i < product.genre.length; i++ ) { if(product.genre[i].id == 1) {%> checked <%} }%> name="esClasica" id="esClasica" value="true">
+                                <%for (let i = 0; i < product.genre.length; i++ ) { if(product.genre[i].id == 1) {%> checked <%} }%> name="esClasica" id="esClasica" value="1">
                             </div>
                             <div class="formulario__item formulario--checkbox">
                                 <label class="formulario__label label--checkbox" for="esMedieval">Medieval</label>
                                 <input class="formulario__input input--checkbox" type="checkbox" 
-                                <%for (let i = 0; i < product.genre.length; i++ ) { if(product.genre[i].id == 2) {%> checked <%} }%> name="esMedieval" id="esMedieval" value="true">
+                                <%for (let i = 0; i < product.genre.length; i++ ) { if(product.genre[i].id == 2) {%> checked <%} }%> name="esMedieval" id="esMedieval" value="2">
                             </div>
                             <div class="formulario__item formulario--checkbox">
                                 <label class="formulario__label label--checkbox" for="esJuvenil">Juvenil</label>
                                 <input class="formulario__input input--checkbox" type="checkbox" 
-                                <%for (let i = 0; i < product.genre.length; i++ ) { if(product.genre[i].id == 3) {%> checked <%} }%> name="esJuvenil" id="esJuvenil" value="true">
+                                <%for (let i = 0; i < product.genre.length; i++ ) { if(product.genre[i].id == 3) {%> checked <%} }%> name="esJuvenil" id="esJuvenil" value="3">
                             </div>
                             <div class="formulario__item formulario--checkbox">
                                 <label class="formulario__label label--checkbox" for="esUrbana">Urbana</label>
                                 <input class="formulario__input input--checkbox" type="checkbox" 
-                                <%for (let i = 0; i < product.genre.length; i++ ) { if(product.genre[i].id == 4) {%> checked <%} }%> name="esUrbana" id="esUrbana" value="true">
+                                <%for (let i = 0; i < product.genre.length; i++ ) { if(product.genre[i].id == 4) {%> checked <%} }%> name="esUrbana" id="esUrbana" value="4">
                             </div>
                             <div class="formulario__item formulario--checkbox">
                                 <label class="formulario__label label--checkbox" for="esOscura">Oscura</label>
                                 <input class="formulario__input input--checkbox" type="checkbox" 
-                                <%for (let i = 0; i < product.genre.length; i++ ) { if(product.genre[i].id == 5) {%> checked <%} }%> name="esOscura" id="esOscura" value="true">
+                                <%for (let i = 0; i < product.genre.length; i++ ) { if(product.genre[i].id == 5) {%> checked <%} }%> name="esOscura" id="esOscura" value="5">
                             </div>
                         </div>
                         <div class="formulario__item">

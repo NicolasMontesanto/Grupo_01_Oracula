@@ -233,6 +233,7 @@ const productsController = {
         Promise.all([promesaCategorias, promesaSubcategorias, promesaGeneros, promesaProducto])
             .then(function ([resultadoCategorias, resultadoSubcategorias, resultadoGeneros, resultadoProducto]) {
                 //Mando las categorias, subcategorias, géneros y producto a la vista
+                console.log(resultadoProducto.attribute[0].AttributeProduct)
                 if (resultadoProducto) {
                     res.render('./products/productEdit', { categorias: resultadoCategorias, subcategorias: resultadoSubcategorias, generos: resultadoGeneros, product: resultadoProducto });
                 } else {
@@ -312,30 +313,78 @@ const productsController = {
             }
 
             let { nombre, descripcion, precio, categoria, subcategoria, descuento } = req.body;
-            products.forEach(item => {
-                if (item.id == id) {
-                    item.nombre = nombre;
-                    item.descripcion = descripcion;
-                    item.precio = precio;
-                    item.categoria = categoria;
-                    item.subcategoria = subcategoria;
-                    item.generos = generos;
-                    item.esNovedad = esNovedad;
-                    item.esDestacado = esDestacado;
-                    item.esOferta = esOferta;
-                    item.descuento = descuento;
-                    item.esMagicPass = esMagicPass;
-                    if (file) {
-                        if (item.imagenes) {
-                            fs.unlinkSync(path.join(__dirname, "../../public", item.imagenes));
-                        }
-                        item.imagenes = `/img/productos/${file.filename}`;
-                    }
-                }
-            });
-            let productsJSON = JSON.stringify(products, null, 4);
-            fs.writeFileSync(path.join(__dirname, "../data/products.json"), productsJSON, "utf-8");
-            res.redirect("/");
+
+            db.Product.findByPk(id)
+                .then(producto => {
+                    producto.nombre = nombre;
+                    producto.descripcion = descripcion;
+                    producto.precio = precio;
+                    producto.descuento = descuento;
+                    producto.esNovedad = esNovedad;
+                    producto.esDestacado = esDestacado;
+                    producto.esMagicPass = esMagicPass;
+                    producto.categoryID = categoria;
+                    producto.subcategoryID = subcategoria;
+                    producto.save()
+                        .then(resultado => {
+
+                            //Actualiza la imagen si se trajo una imagen de la vista
+                            if (file) {
+                                db.Image.update({
+                                    url: `/img/productos/${file.filename}`,
+                                }, {
+                                    where: {
+                                        productID: id
+                                    }
+                                })
+                                    .catch(error => console.log(error))
+                            }
+
+                            //Crea las asociaciones entre el producto y sus géneros
+                            producto.setGenre(generos);
+
+                            //Busca los atributos pertenecientes a la subcategoría del producto
+                            db.Attribute.findAll({
+                                where: {
+                                    subcategoryID: producto.subcategoryID
+                                }
+                            })
+                                .then(atributos => {
+                                    //Según el id de la categoría del producto, carga los valores a los atributos correspondientes
+                                    switch (producto.subcategoryID) {
+                                        case '1':
+                                            producto.setAttribute(atributos[0], { through: { valor: req.body.cantidadJugadorxs } });
+                                            producto.setAttribute(atributos[1], { through: { valor: req.body.edadRecomendada } });
+                                            break;
+                                        case '2':
+                                            producto.setAttribute(atributos[0], { through: { valor: req.body.desarrolladorx } });
+                                            producto.setAttribute(atributos[1], { through: { valor: req.body.lanzamiento } });
+                                            break;
+                                        case '3':
+                                            producto.setAttribute(atributos[0], { through: { valor: req.body.extension } });
+                                            producto.setAttribute(atributos[1], { through: { valor: req.body.autoriaLibro } });
+                                            break;
+                                        case '4':
+                                            producto.setAttribute(atributos[0], { through: { valor: req.body.duracionAudiolibro } });
+                                            producto.setAttribute(atributos[1], { through: { valor: req.body.autoriaAudiolibro } });
+                                            producto.setAttribute(atributos[2], { through: { valor: req.body.narradorx } });
+                                            break;
+                                        case '5':
+                                            producto.setAttribute(atributos[0], { through: { valor: req.body.talle } });
+                                            break;
+                                        case '6': break
+                                        case '7': break
+                                        case '8':
+                                            producto.setAttribute(atributos[0], { through: { valor: req.body.duracionPelicula } });
+                                            break;
+                                        case '9':
+                                            producto.setAttribute(atributos[0], { through: { valor: req.body.duracionSoundtrack } });
+                                            break;
+                                    }
+                                })
+                        })
+                    res.redirect("/product/list");
+                })
         }
     },
     delete: (req, res) => {
@@ -372,19 +421,19 @@ const productsController = {
     //Lista todos los productos del carrito
     cartList: (req, res) => {
         db.CartProduct.findAll()
-        .then(function(CartProduct){
-            res.render('/cart', {CartProduct:CartProduct})
-        })
+            .then(function (CartProduct) {
+                res.render('/cart', { CartProduct: CartProduct })
+            })
     },
     //Borra productos del carrito
-    cartDelete: (req,res) => {
+    cartDelete: (req, res) => {
         db.CartProduct.destroy({
             where: {
                 id: req.params.id
             }
         }),
 
-        res.redirect('/cart')
+            res.redirect('/cart')
     }
 };
 module.exports = productsController;

@@ -1,10 +1,17 @@
+//se consigue el select de subcategorías
 let inputSubcategoria = document.querySelector("#subcategoria");
+//se consiguen todos los inputs con la clase 'input--atributos'
+let inputAtributos = document.querySelectorAll(".input--atributos");
+
+window.addEventListener("load", function(e){
+    let opcionSeleccionada = inputSubcategoria.selectedOptions[0].dataset.nombre
+    if (opcionSeleccionada){
+        document.querySelector(`#${opcionSeleccionada}`).style.display = "flex";
+    }
+})
+
 //función que muestra los atributos para cada subcategoría
 inputSubcategoria.addEventListener("change", function(e){
-    //se consiguen todos los inputs con la clase 'input--atributos'
-    let inputAtributos = document.querySelectorAll(".input--atributos");
-    console.log("Escuché el evento")
-    console.log(inputAtributos);
     //se esconden todos los atributos
     for (input of inputAtributos){
         input.style.display = "none";

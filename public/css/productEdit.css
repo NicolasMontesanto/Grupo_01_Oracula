@@ -113,6 +113,9 @@
     min-width: 180px;
     margin: 0;
 }
+.input--atributos{
+    display:none;
+}
 .input--checkbox{
     width: 20px;
 }
