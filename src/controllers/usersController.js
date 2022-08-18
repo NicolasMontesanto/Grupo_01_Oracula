@@ -35,50 +35,50 @@ const usersController = {
                 raw: true,
                 nest: true
             })
-                .then((userToLogin) => {
-                    // let userToLogin = Object.assign({}, userFound)
-                    if (userToLogin) {
-                        //verifico la contraseña
-                        let passOK = bcrypt.compareSync(req.body.password, userToLogin.password)
-                        if (passOK) {
-                            //borro la pass para que no quede en session
-                            delete userToLogin.password;
-                            //guardo el usuario loggeado en session
-                            req.session.userLogged = userToLogin;
+            .then((userToLogin) => {
+                // let userToLogin = Object.assign({}, userFound)
+                if (userToLogin) {
+                    //verifico la contraseña
+                    let passOK = bcrypt.compareSync(req.body.password, userToLogin.password)
+                    if (passOK) {
+                        //borro la pass para que no quede en session
+                        delete userToLogin.password;
+                        //guardo el usuario loggeado en session
+                        req.session.userLogged = userToLogin;
 
-                            //compruebo si tildó recordarme
-                            if (req.body.recordarPassword) {
-                                res.cookie('userEmail', req.body.email, { maxAge: 1000 * 60 * 15 })
-                            }
-
-                            res.redirect('/user/profile')
-                        } else {
-                            // si no se verificó la contraseña
-                            return res.render("./users/login", {
-                                errors: {
-                                    password: {
-                                        msg: 'Contraseña o email incorrectos.'
-                                    },
-                                },
-                                oldData: req.body,
-                            });
+                        //compruebo si tildó recordarme
+                        if (req.body.recordarPassword) {
+                            res.cookie('userEmail', req.body.email, { maxAge: 1000 * 60 * 15 })
                         }
+
+                        res.redirect('/user/profile')
                     } else {
-                        // si no se verificó el mail 
+                        // si no se verificó la contraseña
                         return res.render("./users/login", {
                             errors: {
-                                email: {
+                                password: {
                                     msg: 'Contraseña o email incorrectos.'
                                 },
                             },
                             oldData: req.body,
                         });
                     }
+                } else {
+                    // si no se verificó el mail 
+                    return res.render("./users/login", {
+                        errors: {
+                            email: {
+                                msg: 'Contraseña o email incorrectos.'
+                            },
+                        },
+                        oldData: req.body,
+                    });
+                }
 
-                });
-        }
+            });
+    }
 
-    },
+},
 
 
     //signup.html
