@@ -14,6 +14,7 @@ let sortear = function (productosASortear) {
 }
 
 const productsController = {
+
     //productDetail.html
     detail: (req, res) => {
         let id = req.params.id;
@@ -57,10 +58,29 @@ const productsController = {
             nest: true
         })
             .then(productos => {
-                res.render('./products/productList', { products: productos });
+                    res.render('./products/productList', { products: productos });
             })
     },
 
+    //Renderiza la vista de búsqueda de productos
+    search: (req, res) => {
+        let query = req.query.search;
+        db.Product.findAll({
+            where: {
+                nombre: { [sequelize.Op.like]: "%" + query + "%" }
+            },
+            include: "image",
+            raw: true,
+            nest: true
+        })
+            .then(productos => {
+                if (productos.length>0) {
+                    res.render('./products/productList', { products: productos });
+                } else {
+                    res.send("No se encontraron productos con ese nombre")
+                }
+            })
+    },
 
     //Renderizar Vista Create
     create: (req, res) => {
