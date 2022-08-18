@@ -153,6 +153,7 @@ CREATE TABLE `CartsProducts` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `productID` int NOT NULL,
   `cartID` int NOT NULL,
+  `cantidad` int NOT NULL,
    FOREIGN KEY (`productID`) REFERENCES Products(`id`),
    FOREIGN KEY (`cartID`) REFERENCES Carts(`id`)
 );

@@ -453,26 +453,76 @@ const productsController = {
     },
     //productCart.html
     cart: (req, res) => {
-        res.render('./products/productCart', { products });
+        db.CartProduct.findAll({
+
+            raw: true,
+            nest: true
+        })
+            .then(productos => {
+                let arrayID = [];
+                let arrayProductos = [];
+                for(let i = 0; i < productos.length; i++) {
+                    arrayID.push(productos[i].productID);
+                }
+                
+                    db.Product.findAll( {
+                        where: {
+                            id: arrayID
+                        },
+                        include:"image", 
+                        raw: true, 
+                        nest: true} )
+                    .then(producto => {
+                        
+                        console.log("ESTE ES EL CONSOLE LOG");
+                        
+                        arrayProductos.push(producto)
+
+                    })
+                
+
+                res.render('./products/productCart', { arrayProductos: arrayProductos });
+            })
+        
+        
     },
     //Boton que agrega el producto a la tabla de la DB
     cartButton: (req, res) => {
-        db.CartProduct.create({
+        db.CartProduct.findOne({
+            where: {
+                productID: req.params.id,
+                cartID: req.session.userLogged.id
+            }
+        })
+        .then(productoCarrito => {
+            if (productoCarrito) {
+                db.CartProduct.update({
+                    cantidad: productoCarrito.cantidad + 1},
+                    {where:{
+                        id: productoCarrito.id
+                    }} 
+                )
+                .then(resultado => {
+                    res.redirect('/product/cart');
+                })
 
-            productID: req.params.id,
-            usersID: users.id
+            } else {
+                db.CartProduct.create({
 
+                    productID: req.params.id,
+                    cartID: req.session.userLogged.id,
+                    cantidad: 1
+        
+                })
+                .then(resultado => {
+                    res.redirect('/product/cart');
+                })
+            }
         })
 
         res.render('./products/productCart', { products });
     },
-    //Lista todos los productos del carrito
-    cartList: (req, res) => {
-        db.CartProduct.findAll()
-            .then(function (CartProduct) {
-                res.render('/cart', { CartProduct: CartProduct })
-            })
-    },
+
     //Borra productos del carrito
     cartDelete: (req, res) => {
         db.CartProduct.destroy({

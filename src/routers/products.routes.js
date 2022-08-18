@@ -14,9 +14,7 @@ routes.get("/detail/:id", productController.detail);
 //carrito
 routes.get("/cart",loggedMiddleware.noLogged, productController.cart);
 //agregar producto a carrito
-routes.post('/detail/:id', loggedMiddleware.noLogged, productController.cartButton);
-//lectura de productos del carrito
-routes.get('/cart', loggedMiddleware.noLogged, productController.cartList);
+routes.post('/cart/:id', loggedMiddleware.noLogged, productController.cartButton);
 //eliminar productos del carrito
 routes.post('/cart/delete', loggedMiddleware.noLogged, productController.cartDelete);
 //listar todos los productos

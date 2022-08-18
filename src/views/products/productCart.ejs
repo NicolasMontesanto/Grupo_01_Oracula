@@ -22,13 +22,14 @@
         <section class="carrito">
           <div class="item">
             <h2 class="item__titulo">Detalle de compra</h2>
+            <%for (let i = 0; i < arrayProductos.length; i++) { %>
             <div class="tarjeta">
               <div class="tarjetita">
                 <div class="tarjeta__img">
-                  <img src="/img/productos/juegos/Cartas.jpg" alt="Cartas" class="tarjeta__img--img">
+                  <img src="<%=arrayProductos[i].image.url%>" alt="Cartas" class="tarjeta__img--img">
                 </div>
                 <div class="item__detalle">
-                  <h3 class="item__detalle--nombre">Star Spinner Tarot</h3>
+                  <h3 class="item__detalle--nombre"><%=arrayProductos[i].nombre%></h3>
                   <div class="item__datos">
                     <div class="item__datos--cantidad">
                       <button class="item__datos--boton" id="menos">
@@ -40,44 +41,18 @@
                       </button>
                     </div>
                     <div class="item__datos--precio">
-                      <span id="precio"> $6.874,00</span>
+                      <span id="precio"><%=arrayProductos[i].precio - arrayProductos[i].precio * (arrayProductos[i].descuento / 100)%></span>
                     </div>
                   </div>
                 </div>
-                <form action="/cart/delete/<%=productCart.id%>" method="POST">   
+                <form action="/cart/delete/" method="POST">   
                 <button class="item__detalle--cerrar" type="submit"> 
                   <i class="fa-solid fa-xmark"></i>
                 </button>
                 </form>
               </div>
             </div>
-            <div class="tarjeta">
-              <div class="tarjetita">
-                <div class="tarjeta__img">
-                  <img src="/img/productos/juegos/remera.jpg" alt="remera" class="tarjeta__img--img">
-                </div>
-                <div class="item__detalle">
-                  <h3 class="item__detalle--nombre">Remera gato Gandalf </h3>
-                  <div class="item__datos">
-                    <div class="item__datos--cantidad">
-                      <button class="item__datos--boton" id="menos">
-                        <i class="fa-solid fa-minus"></i>
-                      </button>
-                      <span id="item__datos--contar">1</span>
-                      <button class="item__datos--boton" id="mas">
-                        <i class="fa-solid fa-plus"></i>
-                      </button>
-                    </div>
-                    <div class="item__datos--precio">
-                      <span id="precio"> $2.300,00</span>
-                    </div>
-                  </div>
-                </div>
-                <button class="item__detalle--cerrar">
-                  <i class="fa-solid fa-xmark"></i>
-                </button>
-              </div>
-            </div>
+            <%}%>
           </div>
 
           <div class="compra">
