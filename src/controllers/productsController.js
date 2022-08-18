@@ -38,7 +38,6 @@ const productsController = {
                     .then(productos => {
                         //productosDeCategoria = productos.filter(item => item.id != producto.id);
                         let productosDesordenados = sortear(productos);
-                        console.log(productosDesordenados);
                         res.render('./products/productDetail', { elProducto: producto, productosDesordenados });
                     })
                     .catch(err => {
@@ -73,7 +72,14 @@ const productsController = {
         Promise.all([promesaCategorias, promesaSubcategorias, promesaGeneros])
             .then(function ([resultadoCategorias, resultadoSubcategorias, resultadoGeneros]) {
                 //Mando las categorias, subcategorias y géneros a la vista
-                res.render('./products/productCreate', { categorias: resultadoCategorias, subcategorias: resultadoSubcategorias, generos: resultadoGeneros });
+                res.render('./products/productCreate', {
+                    categorias: resultadoCategorias,
+                    subcategorias: resultadoSubcategorias,
+                    generos: resultadoGeneros
+                });
+            })
+            .catch(error => {
+                console.log(error);
             })
     },
 
@@ -214,12 +220,28 @@ const productsController = {
     //Renderizamos la vista de Edit
     edit: (req, res) => {
         let id = req.params.id;
-        let product = products.find(element => element.id == id);
-        if (product == undefined) {
-            res.send("Producto no encontrado");
-        } else {
-            res.render('./products/productEdit', { product });
-        }
+
+        //Busco las categorías, subcategorias, géneros, el producto seleccionado y sus atributos.
+        let promesaCategorias = db.Category.findAll();
+        let promesaSubcategorias = db.Subcategory.findAll();
+        let promesaGeneros = db.Genre.findAll();
+        let promesaProducto = db.Product.findByPk(id, {
+            include: ["attribute", "genre", "image"],
+            nest: true
+        })
+
+        Promise.all([promesaCategorias, promesaSubcategorias, promesaGeneros, promesaProducto])
+            .then(function ([resultadoCategorias, resultadoSubcategorias, resultadoGeneros, resultadoProducto]) {
+                //Mando las categorias, subcategorias, géneros y producto a la vista
+                if (resultadoProducto) {
+                    res.render('./products/productEdit', { categorias: resultadoCategorias, subcategorias: resultadoSubcategorias, generos: resultadoGeneros, product: resultadoProducto });
+                } else {
+                    res.send("Producto no encontrado");
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            })
     },
     update: (req, res) => {
         let id = req.params.id;
@@ -229,40 +251,64 @@ const productsController = {
         //si hay errores se renderiza de nuevo el formulario de creación
         if (validationsResult.errors.length > 0) {
             if (req.file && req.file.filename) {
-                fs.unlinkSync(path.join(__dirname, "../../public", req.file.filename));
+                fs.unlinkSync(path.join(__dirname, "../../public/img/productos", req.file.filename));
             }
-            let product = products.find(element => element.id == id);
-            res.render("./products/productEdit", {
-                product: product,
-                errors: validationsResult.mapped(),
+            //Busco las categorías, subcategorias, géneros, el producto seleccionado y sus atributos.
+            let promesaCategorias = db.Category.findAll();
+            let promesaSubcategorias = db.Subcategory.findAll();
+            let promesaGeneros = db.Genre.findAll();
+            let promesaProducto = db.Product.findByPk(id, {
+                include: ["attribute", "genre", "image"],
+                nest: true
             })
-        }
-        else {
 
-            //Valores de esDestacado, esNovedad, esOferta
-            let esDestacado, esNovedad, esOferta, esMagicPass;
+            Promise.all([promesaCategorias, promesaSubcategorias, promesaGeneros, promesaProducto])
+                .then(function ([resultadoCategorias, resultadoSubcategorias, resultadoGeneros, resultadoProducto]) {
+                    //Mando las categorias, subcategorias, géneros y producto a la vista
+                    res.render('./products/productEdit', {
+                        categorias: resultadoCategorias,
+                        subcategorias: resultadoSubcategorias,
+                        generos: resultadoGeneros,
+                        product: resultadoProducto,
+                        errors: validationsResult.mapped(),
+                    });
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        } else {
 
+            //Toma los datos del req y del req.body
+            //Valores de esDestacado, esNovedad, esMagicPass
+            let esDestacado, esNovedad, esMagicPass;
             esDestacado = req.body.esDestacado ? true : false;
             esNovedad = req.body.esNovedad ? true : false;
-            esOferta = req.body.esOferta ? true : false;
             esMagicPass = req.body.esMagicPass ? true : false;
 
-            //Array de Objetos Género
+            //Array de Géneros donde se guardan los géneros cargados para el producto, si no se cargan géneros se asigna el género "Inclasificable"
             let generos = [];
-            if (req.body.esGeneroMedieval) {
-                generos.push("medieval");
+            if (req.body.esMedieval) {
+                let id = parseInt(req.body.esMedieval);
+                generos.push(id);
             }
-            if (req.body.esGeneroUrbana) {
-                generos.push("urbana");
+            if (req.body.esUrbana) {
+                let id = parseInt(req.body.esUrbana);
+                generos.push(id);
             }
-            if (req.body.esGeneroClasica) {
-                generos.push("clasica");
+            if (req.body.esClasica) {
+                let id = parseInt(req.body.esClasica);
+                generos.push(id);
             }
-            if (req.body.esGeneroOscura) {
-                generos.push("oscura");
+            if (req.body.esOscura) {
+                let id = parseInt(req.body.esOscura);
+                generos.push(id);
             }
-            if (req.body.esGeneroJuvenil) {
-                generos.push("juvenil");
+            if (req.body.esJuvenil) {
+                let id = parseInt(req.body.esJuvenil);
+                generos.push(id);
+            }
+            if (generos.length == 0) {
+                generos.push(6);
             }
 
             let { nombre, descripcion, precio, categoria, subcategoria, descuento } = req.body;

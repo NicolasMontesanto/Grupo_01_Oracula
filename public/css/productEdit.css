@@ -216,7 +216,7 @@
         margin-left: 100px;
         top:-99px;
     }
-    .precio-descuento-moneda{
+    .precio-descuento{
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
