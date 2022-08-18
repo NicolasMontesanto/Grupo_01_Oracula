@@ -7,11 +7,18 @@ const validations = require('../middleWares/productValidations');
 //middleware para usuarixs logeadxs - que impide que usuarixs NO logueadxs entren a perfil y carrito 
 const loggedMiddleware = require('../middleWares/loggedMiddleware');
 const adminAuthMiddleware = require("../middleWares/adminAuthMiddleware");
+const { Router } = require('express');
 
 //rutas de páginas de productos
 routes.get("/detail/:id", productController.detail);
 //carrito
 routes.get("/cart",loggedMiddleware.noLogged, productController.cart);
+//agregar producto a carrito
+routes.post('/detail/:id', loggedMiddleware.noLogged, productController.cartButton);
+//lectura de productos del carrito
+routes.get('/cart', loggedMiddleware.noLogged, productController.cartList);
+//eliminar productos del carrito
+routes.post('/cart/delete', loggedMiddleware.noLogged, productController.cartDelete);
 //listar todos los productos
 routes.get("/list", productController.list);
 //crear el producto

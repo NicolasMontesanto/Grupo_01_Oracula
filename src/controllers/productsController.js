@@ -311,6 +311,34 @@ const productsController = {
     //productCart.html
     cart: (req, res) => {
         res.render('./products/productCart', { products });
+    },
+    //Boton que agrega el producto a la tabla de la DB
+    cartButton: (req, res) => {
+        db.CartProduct.create({
+
+            productID: req.params.id,
+            usersID: users.id
+
+        })
+
+        res.render('./products/productCart', { products });
+    },
+    //Lista todos los productos del carrito
+    cartList: (req, res) => {
+        db.CartProduct.findAll()
+        .then(function(CartProduct){
+            res.render('/cart', {CartProduct:CartProduct})
+        })
+    },
+    //Borra productos del carrito
+    cartDelete: (req,res) => {
+        db.CartProduct.destroy({
+            where: {
+                id: req.params.id
+            }
+        }),
+
+        res.redirect('/cart')
     }
 };
 module.exports = productsController;
