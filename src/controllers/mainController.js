@@ -39,7 +39,7 @@ const mainController = {
                 descuento: { [sequelize.Op.gt]: 0 },
 
             },
-            include: ['image'],
+            include: ['image', 'subcategory'],
             raw: true,
             nest: true
         }
@@ -48,7 +48,7 @@ const mainController = {
             where: {
                 esDestacado: true
             },
-            include: ['image'],
+            include: ['image','subcategory'],
             raw: true,
             nest: true
         }
@@ -57,7 +57,7 @@ const mainController = {
             where: {
                 esNovedad: true
             },
-            include: ['image'],
+            include: ['image', 'subcategory'],
             raw: true,
             nest: true
         }
@@ -79,28 +79,48 @@ const mainController = {
     category: (req, res) => {
 
         let categoriaID = req.params.id;
-        db.Product.findAll({
+        
+        let promesaCategoria= db.Category.findByPk(categoriaID);       
+        
+        let promesaProductosDeCategoria = db.Product.findAll({
             where: {
                 categoryID: categoriaID,
             },
             raw: true,
             nest: true,
-            include: ['image']
-
+            include: ['image', 'subcategory']
         })
-            .then(productos => {
-                console.log(productos);
-                let productosDestacadosEnOrden = productos.filter(item => item.esDestacado == true);
+        
+        let promesaDestacados = db.Product.findAll({
+            where: {
+                esDestacado: true,
+                categoryID: categoriaID
+            },
+            include: ['image','subcategory'],
+            raw: true,
+            nest: true
+        }
+        );
+        let promesaNovedades = db.Product.findAll({
+            where: {
+                esNovedad: true,
+                categoryID: categoriaID
+            },
+            include: ['image', 'subcategory'],
+            raw: true,
+            nest: true
+        }
+        );
 
-                //desordenamos los productos destacados para que la vista de categoria nos muestre 5 al azar cada vez     
-                let productosDestacados = sortear(productosDestacadosEnOrden);
+        Promise.all([promesaProductosDeCategoria, promesaNovedades, promesaDestacados, promesaCategoria])
+            .then(function([resultadoProductosDeCategoria, resultadoNovedades, resultadoDestacados, resultadoCategoria]){
 
-                //hacemos lo mismo con las novedades
-                let novedadesEnOrden = productos.filter(item => item.esNovedad == true);
+                   
+                let productosDestacados = sortear(resultadoDestacados);
+              
+                let novedades = sortear(resultadoNovedades);
 
-                let novedades = sortear(novedadesEnOrden);
-
-                res.render('category', { productos, productosDestacados, novedades });
+                res.render('category', { productos: resultadoProductosDeCategoria, productosDestacados, novedades, categoria: resultadoCategoria });
 
 
             })
