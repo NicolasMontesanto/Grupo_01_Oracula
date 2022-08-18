@@ -5,7 +5,7 @@ function userCredentialsMiddleware(req, res, next) {
         res.locals.loggedIn = true;
         res.locals.userLogged = userLogged;
     }
-    if (userLogged && userLogged.esAdmin == 1) {
+    if (userLogged && userLogged.esAdmin == true) {
         res.locals.isAdmin = true;
     }
 
