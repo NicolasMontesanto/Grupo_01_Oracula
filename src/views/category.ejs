@@ -17,7 +17,7 @@ El boton de me interesa funciona pero se ve mal aun -->
         <div class="fondo">
             <main>
                 <%if(productos.length>0){%>
-                    <h2 class="destacados__titulo">Destacados en <%=productos[0].categoria%></h2>
+                    <h2 class="destacados__titulo">Destacados en <%=categoria.nombre%></h2>
                             <%if(productosDestacados.length<5){%>
                                 <h3>Estamos trabajando para tener productos destacados que mostrarte en esta sección
                                 </h3>
@@ -45,7 +45,7 @@ El boton de me interesa funciona pero se ve mal aun -->
                                                                             <%=productos[i].nombre%>
                                                                         </p>
                                                                         <span class="categoria">
-                                                                            <%=productos[i].subcategoria%>
+                                                                            <%=productos[i].subcategory.nombre%>
                                                                         </span>
                                                                     </div>
                                                                     <!-- <div class="fondo"></div> -->
