@@ -69,7 +69,7 @@
                             <select class="formulario__desplegable <%= locals.errors && errors.subcategoria ? 'invalid' : null %>" id="subcategoria" name="subcategoria" >
                                 <option value="">
                                     Elegí una subcategoría
-                                </optionvalue>
+                                </option>
                                     <% for( let i=0; i<subcategorias.length; i++ ) { %>
                                         <option  value="<%= subcategorias[i].id %>" <%=locals.oldData && subcategorias[i].id==oldData.subcategoria ? 'selected' : null %>  data-nombre="<%= subcategorias[i].nombre%>" >
                                             <%=subcategorias[i].nombre%> 
@@ -156,6 +156,9 @@
                                 <input class="formulario__input" type="number" value="<%= locals.oldData ? oldData.duracionSoundtrack : null %>" name="duracionSoundtrack" id="duracionSoundtrack">
                             </div>
                         </div>
+                        <div class="formulario__item">
+                            <label class="formulario__label" for="">Géneros de Fantasía a los que pertenece:</label>
+                        </div>
                         <div class="formulario__item formulario__checkbox__container">
                             <div class="formulario__item formulario--checkbox">
                                 <label class="formulario__label label--checkbox" for="esClasica">Clásica</label>
@@ -216,7 +219,7 @@
                                             <%=errors.precio.msg%>
                                         </p>
                                     </div>
-                                    <% } %>
+                                <% } %>
                             </div>
                             <div class="formulario__item input--pdm">
                                 <label for="descuento" class="formulario__label">Descuento</label>

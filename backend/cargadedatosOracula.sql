@@ -5,7 +5,7 @@ VALUES ('Juegos'), ('Literatura'), ('Multimedia'), ('Baratijas');
 
 /*Cargar las subcategorías*/
 INSERT INTO oraculaDB.subcategories (nombre, categoryID)
- VALUES ('Juego de mesa', 1), ('Videojuego', 1), ('Libro', 2), ('Audiolibro', 2), ('Ropa' , 3), ('Coleccionable' , 3), ('Accesorio' , 3), ('Pelicula' , 4), ('Soundtrack' , 4);
+ VALUES ('Juego de mesa', 1), ('Videojuego', 1), ('Libro', 2), ('Audiolibro', 2), ('Ropa' , 4), ('Coleccionable' , 4), ('Accesorio' , 4), ('Pelicula' , 3), ('Soundtrack' , 3);
 
 /*Cargar los atributos */
 INSERT INTO oraculaDB.attributes (nombre, unidad, subcategoryID) VALUES ('Cantidad de jugadorxs', null, 1 ),('Edad Recomendada', 'años', 1),('Desarrolladorx', null, 2),('Lanzamiento', 'fecha', 2),('Extensión', 'cantidad de páginas', 3),('Autoría', null, 3), ('Duración', 'minutos', 4), 
