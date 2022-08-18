@@ -44,9 +44,11 @@
                     </div>
                   </div>
                 </div>
-                <button class="item__detalle--cerrar">
+                <form action="/cart/delete/<%=productCart.id%>" method="POST">   
+                <button class="item__detalle--cerrar" type="submit"> 
                   <i class="fa-solid fa-xmark"></i>
                 </button>
+                </form>
               </div>
             </div>
             <div class="tarjeta">

@@ -4,7 +4,7 @@
         <%for(let i=0; i < productosDestacados.length; i++){%>
             <div class="sliderDestacados__elemento">
                 <a href="/product/detail/<%=productosDestacados[i].id%>">
-                    <img src="<%=productosDestacados[i].imagenes%>" class="sliderDestacados__img">
+                    <img src="<%=productosDestacados[i].image.url%>" class="sliderDestacados__img">
                 </a>
                 <div class="content">
                     <h1 class="content__titulo">
@@ -36,7 +36,7 @@
         <ul>
             <% for (let i=1; i<5; i++){%>
                 <li id="slide<%=i%>">
-                    <img src="<%=productosDestacados[i].imagenes%>" />
+                    <img src="<%=productosDestacados[i].image.url%>" />
                     <a href="/product/detail/<%=productosDestacados[i].id%>">
                     <div class="content">
                         <h1>
