@@ -21,6 +21,8 @@ routes.get('/cart', loggedMiddleware.noLogged, productController.cartList);
 routes.post('/cart/delete', loggedMiddleware.noLogged, productController.cartDelete);
 //listar todos los productos
 routes.get("/list", productController.list);
+//Buscar producto
+routes.get("/search", productController.search);
 //crear el producto
 routes.get("/create", adminAuthMiddleware.noLoggedAdmin, productController.create);
 routes.post("/create",  upload.single('imagenes'), validations.validationsCreateProduct, productController.store);

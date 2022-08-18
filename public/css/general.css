@@ -54,7 +54,7 @@ a {
     min-height: 100vh;
     width: 100%;
     z-index: -1000;
-    padding-top: 88px;
+    padding-top: 120px;
 }
 
 .secciones,
@@ -103,7 +103,7 @@ header {
 }
 
 .header__relleno {
-    height: 58px;
+    height: 50px;
 }
 
 button {
@@ -157,7 +157,8 @@ button {
 
 .menu--categorias,
 .menu--generos,
-.menu--admin {
+.menu--admin,
+.search__container {
     display: none;
 }
 
@@ -255,7 +256,7 @@ footer {
     }
 
     .header__relleno {
-        padding-bottom: 88px;
+        padding-bottom: 50px;
     }
 
     .logo {
@@ -453,6 +454,31 @@ footer {
         font-size: 20px;
         font-weight: 100;
         padding-bottom: 10px;
+    }
+    /*---SEARCH---*/
+    .search__container{
+        background-color: var(--morado-oscuro);
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .search__form{
+        margin-left: 50px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+    }
+    .search__input{
+        width: 30%;
+        background-color: var(--morado-oscuro);
+        border: 0px transparent;
+        font-size: 22px;
+        color: var(--amarillo-naranja);
+    }
+    .search__button{
+        font-size: 35px;
+        line-height: 0px;
+        color: var(--gris-claro)
     }
 
     /*---FOOTER---*/
