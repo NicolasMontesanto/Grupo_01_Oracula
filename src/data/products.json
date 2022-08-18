@@ -72,7 +72,7 @@
         "esMagicPass": true
     },
     {
-        "id": 5,
+        "id": 7,
         "nombre": "La Metamorfosis",
         "descripcion": "Autoría: Franz Kafka\r\n\r\nTal vez te sorprenda encontrar el famoso relato de Kafka en este mundo fantástico y es que el mundo de Kafka es un mundo que obedece todo él a una ley onírica, para el relato kafkiano es una regla. Por tanto se trata, para nosotrxs, de una forma innovadora de relato fantástico respecto al del siglo XIX.\r\nLa metamorfosis es un relato dividido en tres partes, donde se narra la transformación de Gregorio Samsa, un viajante de comercio de telas, en un monstruoso insecto, y el impacto que tendrá este acontecimiento no solo en su vida, sino en la de su familia.",
         "precio": "1200",
@@ -91,7 +91,7 @@
         "esMagicPass": true
     },
     {
-        "id": 6,
+        "id": 5,
         "nombre": "Mort Cinder",
         "descripcion": "Autoría: Hector G. Oesterheld - Alberto Breccia \r\n\r\nEzra Winston, un anticuario de Londres, es guiado por misteriosas señales hasta la tumba de un ajusticiado, un tal Mort Cinder. Este vuelve de la muerte para arrastrarlo a sombrías aventuras y para contarle historias ocurridas en el fondo de los tiempos.\r\n\r\nEn esta edición de tamaño especial, las ilustraciones oscuras de Breccia se ven con un detalle que asusta. ",
         "precio": "5600",
@@ -110,7 +110,7 @@
         "esMagicPass": true
     },
     {
-        "id": 7,
+        "id": 6,
         "nombre": "Mort ",
         "descripcion": "Autoría: Terry Pratcchett \r\n\r\nCuarta novela de la hilarante saga del Mundodisco.\r\nEn esta entrega, Mortimer es un joven soñador y despistado a quien le toca en suerte una inesperada tarea: convertirse en aprendiz de la Muerte y aplicarse en liberar almas de su envoltura carnal.",
         "precio": "1800",

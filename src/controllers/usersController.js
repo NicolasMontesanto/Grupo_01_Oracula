@@ -31,9 +31,7 @@ const usersController = {
             db.User.findOne({
                 where: {
                     email: req.body.email
-                },
-                raw: true,
-                nest: true
+                }
             })
             .then((userToLogin) => {
                 // let userToLogin = Object.assign({}, userFound)

@@ -34,7 +34,7 @@
                                 <div>
                                     <a href="#" class="product-btn"><i class="fas fa-share"></i></a>
                                 </div>
-                                <% if(locals.userLogged && locals.userLogged.isAdmin){ %>
+                                <% if(locals.userLogged && locals.userLogged.esAdmin){ %>
                                     <div>
                                         <a href="/product/<%=elProducto.id%>/edit" class="product-btn">
                                             <i class="fa-solid fa-pen-to-square"></i>
@@ -75,12 +75,12 @@
                                             <%=(elProducto.precio)-(elProducto.precio*(elProducto.descuento /100))%>
                                                 </span>
                                         <%}%>
-                                            <a href=" /product/cart" class="cart-btn">Agregar al carrito</a>
+                                            <a href=" /product/cart" class="cart-btn" type="submit">Agregar al carrito</a>
                         </div>
                     </div>
                 </section>
                 <section class="suggested__container">
-                    <h2 class="suggested__title">
+                    <h2 class="suggested__title"> 
                         Productos sugeridos
                     </h2>
                     <!-- Barra de productos sugeridos -->

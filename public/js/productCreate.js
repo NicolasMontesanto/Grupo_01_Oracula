@@ -1,10 +1,10 @@
 let inputSubcategoria = document.querySelector("#subcategoria");
-
 //función que muestra los atributos para cada subcategoría
 inputSubcategoria.addEventListener("change", function(e){
     //se consiguen todos los inputs con la clase 'input--atributos'
     let inputAtributos = document.querySelectorAll(".input--atributos");
-    
+    console.log("Escuché el evento")
+    console.log(inputAtributos);
     //se esconden todos los atributos
     for (input of inputAtributos){
         input.style.display = "none";

@@ -4,12 +4,13 @@ const fs = require("fs");
 
 //prueba de conexion a la db 
 const db = require('../database/models');
-const sequelize = db.sequelize;
+const sequelize = require('sequelize');
 
 
 
 
 let products = require('../data/products.json');
+
 
 let sortear = function (productosASortear) {
     let sorteados = productosASortear.sort(() => Math.random() - 0.5)
@@ -24,8 +25,8 @@ const mainController = {
             db.Category.findByPk(1)
                 .then(category => {
                     console.log(category.nombre)
-                    if(category.nombre == 'Juegos'){
-                    res.send('Funciona!!');
+                    if (category.nombre == 'Juegos') {
+                        res.send('Funciona!!');
                     }
                 });
         }
@@ -33,39 +34,114 @@ const mainController = {
 
     //home
     home: (req, res) => {
+        let promesaOfertas = db.Product.findAll({
+            where: {
+                descuento: { [sequelize.Op.gt]: 0 },
 
-        //traemos todos los productos destacados
-        let productosDestacadosEnOrden = products.filter(item => item.esDestacado == true);
-        //desordenamos los productos destacados para que la vista nos muestre al azar cada vez     
-        let productosDestacados = sortear(productosDestacadosEnOrden);
+            },
+            include: ['image', 'subcategory'],
+            raw: true,
+            nest: true
+        }
+        );
+        let promesaDestacados = db.Product.findAll({
+            where: {
+                esDestacado: true
+            },
+            include: ['image','subcategory'],
+            raw: true,
+            nest: true
+        }
+        );
+        let promesaNovedades = db.Product.findAll({
+            where: {
+                esNovedad: true
+            },
+            include: ['image', 'subcategory'],
+            raw: true,
+            nest: true
+        }
+        );
 
-        //hacemos lo mismo con las novedades
-        let novedadesEnOrden = products.filter(item => item.esNovedad == true);
-        let novedades = sortear(novedadesEnOrden);
+        Promise.all([promesaOfertas, promesaDestacados, promesaNovedades])
+            .then(function ([resultadoOfertas, resultadoDestacados, resultadoNovedades]) {
+                productosDestacados = sortear(resultadoDestacados);
+                novedades = sortear(resultadoNovedades);
+                ofertas = sortear(resultadoOfertas)
+                res.render('./home', { productosDestacados, novedades, ofertas });
+            })
+            .catch(error =>
+                console.log(error))
 
-        //hacemos lo mismo con las ofertas
-        let ofertasEnOrden = products.filter(item => (item.esOferta == true && item.descuento != ""));
-        let ofertas = sortear(ofertasEnOrden);
-
-        res.render('home', { products, productosDestacados, novedades, ofertas });
     },
 
     //category
     category: (req, res) => {
-        let categoria = req.params.categoria;
-        let productos = products.filter(item => item.categoria == categoria);
 
-        let productosDestacadosEnOrden = productos.filter(item => item.esDestacado == true);
+        let categoriaID = req.params.id;
+        
+        let promesaCategoria= db.Category.findByPk(categoriaID);       
+        
+        let promesaProductosDeCategoria = db.Product.findAll({
+            where: {
+                categoryID: categoriaID,
+            },
+            raw: true,
+            nest: true,
+            include: ['image', 'subcategory']
+        })
+        
+        let promesaDestacados = db.Product.findAll({
+            where: {
+                esDestacado: true,
+                categoryID: categoriaID
+            },
+            include: ['image','subcategory'],
+            raw: true,
+            nest: true
+        }
+        );
+        let promesaNovedades = db.Product.findAll({
+            where: {
+                esNovedad: true,
+                categoryID: categoriaID
+            },
+            include: ['image', 'subcategory'],
+            raw: true,
+            nest: true
+        }
+        );
 
-        //desordenamos los productos destacados para que la vista de categoria nos muestre 5 al azar cada vez     
-        let productosDestacados = sortear(productosDestacadosEnOrden);
+        Promise.all([promesaProductosDeCategoria, promesaNovedades, promesaDestacados, promesaCategoria])
+            .then(function([resultadoProductosDeCategoria, resultadoNovedades, resultadoDestacados, resultadoCategoria]){
 
-        //hacemos lo mismo con las novedades
-        let novedadesEnOrden = productos.filter(item => item.esNovedad == true);
+                   
+                let productosDestacados = sortear(resultadoDestacados);
+              
+                let novedades = sortear(resultadoNovedades);
 
-        let novedades = sortear(novedadesEnOrden);
+                res.render('category', { productos: resultadoProductosDeCategoria, productosDestacados, novedades, categoria: resultadoCategoria });
 
-        res.render('category', { productos, productosDestacados, novedades });
+
+            })
+            .catch(error =>
+                console.log(error))
+
+
+
+        // let productos = products.filter(item => item.categoria == categoria);
+
+        // let productosDestacadosEnOrden = productos.filter(item => item.esDestacado == true);
+
+        // //desordenamos los productos destacados para que la vista de categoria nos muestre 5 al azar cada vez     
+        // let productosDestacados = sortear(productosDestacadosEnOrden);
+
+        // //hacemos lo mismo con las novedades
+        // let novedadesEnOrden = productos.filter(item => item.esNovedad == true);
+
+        // let novedades = sortear(novedadesEnOrden);
+
+        // res.render('category', { productos, productosDestacados, novedades });
     }
 };
 
