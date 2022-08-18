@@ -233,7 +233,6 @@ const productsController = {
         Promise.all([promesaCategorias, promesaSubcategorias, promesaGeneros, promesaProducto])
             .then(function ([resultadoCategorias, resultadoSubcategorias, resultadoGeneros, resultadoProducto]) {
                 //Mando las categorias, subcategorias, géneros y producto a la vista
-                console.log(resultadoProducto.attribute[0].AttributeProduct)
                 if (resultadoProducto) {
                     res.render('./products/productEdit', { categorias: resultadoCategorias, subcategorias: resultadoSubcategorias, generos: resultadoGeneros, product: resultadoProducto });
                 } else {
@@ -388,20 +387,49 @@ const productsController = {
         }
     },
     delete: (req, res) => {
+        //Guardo el id del producto a borrar que viene de la request
         let id = req.params.id;
-        let productToDelete = products.find(item => item.id == id);
 
-        let productImg = path.join(__dirname, "../../public/img/productos" + productToDelete.imagenes);
+        //Busco el producto a borrar para conseguir el URL de su imagen
+        db.Product.findByPk(id, {
+            include: ["image"],
+            raw: true,
+            nest: true
+        })
+            .then(producto => {
+                //guardo la URL de la imagen
+                let imageURL = producto.image.url;
+                //Borro la imagen asociada al producto
+                db.Image.destroy({ where: { productID: id } })
+                    .then(res1 => {
+                        //Borro el archivo de la imagen
+                        fs.unlinkSync(path.join(__dirname, "../../public", imageURL));
 
-        products = products.filter(product => product.id != id);
-
-        if (fs.existsSync(productImg)) {
-            fs.unlinkSync(productImg);
-        }
-
-        let productsJSON = JSON.stringify(products, null, 4);
-        fs.writeFileSync(path.join(__dirname, "../data/products.json"), productsJSON, "utf-8");
-        res.redirect("/");
+                        //Borro los géneros asociados al producto
+                        db.ProductGenre.destroy({ where: { productID: id } })
+                            .then(res2 => {
+                                //Borro los atributos del producto
+                                db.AttributeProduct.destroy({ where: { productID: id } })
+                                    .then(res3 => {
+                                        //Borro el producto de cada carrito donde se encuentra
+                                        db.CartProduct.destroy({ where: { productID: id } })
+                                            .then(res4 => {
+                                                //Borro el producto
+                                                db.Product.destroy({ where: { id: id } })
+                                                    .then(respuesta => {
+                                                        res.redirect("/product/list");
+                                                    })
+                                                    .catch(error => console.log(error))
+                                            })
+                                            .catch(error => console.log(error))
+                                    })
+                                    .catch(error => console.log(error))
+                            })
+                            .catch(error => console.log(error))
+                    })
+                    .catch(error => console.log(error))
+            })
+            .catch(error => console.log(error))
     },
     //productCart.html
     cart: (req, res) => {
