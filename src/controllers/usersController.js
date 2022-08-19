@@ -56,12 +56,10 @@ const usersController = {
                         if (req.body.recordarPassword) {
                             res.cookie('userEmail', req.body.email, { maxAge: 1000 * 60 * 15 })
                         }
-
                         res.redirect('/user/profile')
-
                         })
-                        
-                        
+                        .catch(error => {console.log(error)}) 
+
                     } else {
                         // si no se verificó la contraseña
                         return res.render("./users/login", {
@@ -85,7 +83,9 @@ const usersController = {
                     });
                 }
 
-            });
+            })
+            .catch(error => {console.log(error)})
+        ;
     }
 
 },
@@ -152,8 +152,8 @@ const usersController = {
                             where: { id: userInDB.id }
                  } ).then(respuesta=>{
                     res.redirect("/user/profile")
-                }
-             );
+                })
+                 .catch(error => {console.log(error)})
             
                 } else {
                     //Guarda el atributo file del request, donde se encuentra la imagen cargada
@@ -180,13 +180,13 @@ const usersController = {
                             })
                             res.redirect("/user/login");
                           })
-
+                          .catch(error => {console.log(error)})
 
                     //let userCreated = User.create(userToCreate);
-
-               
+              
                 }
-            });
+            })
+            .catch(error => {console.log(error)})
         }
 
     },
@@ -198,7 +198,8 @@ const usersController = {
         db.User.findByPk(id)
             .then((user) => {
                 !user ? res.send("El usuario no existe") : res.render("./users/userEdit", { user });
-            });
+            })
+            .catch(error => {console.log(error)});
 
     },
 
@@ -238,7 +239,8 @@ const usersController = {
                 ).then((respuesta)=>{
                     res.redirect("/user/profile")
                 }
-             );
+             )
+             .catch(error => {console.log(error)})
         }
     },
 
@@ -254,7 +256,8 @@ const usersController = {
                 res.clearCookie('userEmail', 'recordarPassword'),
                 req.session.destroy(),
                 res.redirect("/")
-           )       
+           )
+           .catch(error => {console.log(error)})       
     },
 
     // hacer logout
