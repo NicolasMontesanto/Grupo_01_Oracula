@@ -24,14 +24,14 @@ CREATE TABLE `Products`(
 `descripcion` TEXT NOT NULL,
 `precio` DECIMAL(10,2) NOT NULL,
 `descuento` TINYINT UNSIGNED,
-`esNovedad` TINYINT NOT NULL DEFAULT 0,
-`esDestacado` TINYINT NOT NULL DEFAULT 0,
-`esMagicPass` TINYINT NOT NULL DEFAULT 0,
+`esNovedad` BIT NOT NULL DEFAULT 0,
+`esDestacado` BIT NOT NULL DEFAULT 0,
+`esMagicPass` BIT NOT NULL DEFAULT 0,
 `createdAt` DATETIME DEFAULT NOW(),
 `updatedAt` DATETIME DEFAULT NOW() ON UPDATE NOW(),
 `categoryID` INT NOT NULL,
 `subcategoryID` INT NOT NULL,
-`estaActivo` TINYINT NOT NULL DEFAULT 1,
+`estaActivo` BIT NOT NULL DEFAULT 1,
 FOREIGN KEY(`categoryID`) REFERENCES `Categories`(`id`),
 FOREIGN KEY(`subcategoryID`) REFERENCES `Subcategories`(`id`)
 );
@@ -82,10 +82,10 @@ CREATE TABLE `Users` (
   `telefono` VARCHAR(20) NULL,
   `imagen` VARCHAR(200) NOT NULL,
   `password` TEXT NOT NULL,
-  `esAdmin` TINYINT NOT NULL,
-  `magicPass` TINYINT NOT NULL,
+  `esAdmin` BIT NOT NULL,
+  `magicPass` BIT NOT NULL,
   `createdAt` DATE NOT NULL,
-  `estaActivo` TINYINT NOT NULL DEFAULT 1
+  `estaActivo` BIT NOT NULL DEFAULT 1
 );
 
 DROP TABLE IF EXISTS `Wishlists`;
@@ -101,7 +101,7 @@ CREATE TABLE `Purchases` (
   `userID` INT NOT NULL,
   `createdAt` DATE NOT NULL,
   `montoTotal` DECIMAL NOT NULL,
-  `esCancelado` TINYINT NOT NULL,
+  `esCancelado` BIT NOT NULL,
   FOREIGN KEY (`userID`) REFERENCES `Users` (`id`)
  );
 
