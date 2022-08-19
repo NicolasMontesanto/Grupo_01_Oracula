@@ -43,13 +43,26 @@ const usersController = {
                         delete userToLogin.password;
                         //guardo el usuario loggeado en session
                         req.session.userLogged = userToLogin;
-
-                        //compruebo si tildó recordarme
+                        //Busco el carrito del usuario y lo guardo en session
+                        db.Cart.findOne({
+                            where: {
+                                userID: userToLogin.id
+                            }
+                        })
+                        .then (carrito => {
+                            req.session.cartID = carrito.id
+                            //compruebo si tildó recordarme
+                            //console.log("****************************************");
+                            //console.log(req.session.cartID);
                         if (req.body.recordarPassword) {
                             res.cookie('userEmail', req.body.email, { maxAge: 1000 * 60 * 15 })
                         }
 
                         res.redirect('/user/profile')
+
+                        })
+                        
+                        
                     } else {
                         // si no se verificó la contraseña
                         return res.render("./users/login", {

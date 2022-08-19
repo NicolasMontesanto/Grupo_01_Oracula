@@ -454,46 +454,53 @@ const productsController = {
     //productCart.html
     cart: (req, res) => {
         db.CartProduct.findAll({
-
+            where: {
+                cartID: req.session.cartID 
+            },
             raw: true,
             nest: true
         })
-            .then(productos => {
+            .then(productosCarrito => {
                 let arrayID = [];
-                let arrayProductos = [];
-                for(let i = 0; i < productos.length; i++) {
-                    arrayID.push(productos[i].productID);
+
+                for(let i = 0; i < productosCarrito.length; i++) {
+                    arrayID.push(productosCarrito[i].productID);
                 }
+                console.log(arrayID);
                 
+                if(arrayID.length > 0) {
                     db.Product.findAll( {
                         where: {
-                            id: arrayID
+                            id: {
+                                [sequelize.Op.or]: arrayID
+                            }
                         },
                         include:"image", 
                         raw: true, 
                         nest: true} )
-                    .then(producto => {
+                    .then(productos => {
                         
-                        console.log("ESTE ES EL CONSOLE LOG");
-                        
-                        arrayProductos.push(producto)
 
+                        
+                        res.render('./products/productCart', { arrayProductos: productos });   
                     })
-                
+                } else {
+                    res.render('./products/productCart', {arrayProductos:[]})
+                }
 
-                res.render('./products/productCart', { arrayProductos: arrayProductos });
+                
             })
         
         
     },
     //Boton que agrega el producto a la tabla de la DB
     cartButton: (req, res) => {
+        let id = parseInt(req.params.id)
         db.CartProduct.findOne({
             where: {
-                productID: req.params.id,
-                cartID: req.session.userLogged.id
-            }
-        })
+                productID: id,
+                cartID: req.session.cartID
+        }})
         .then(productoCarrito => {
             if (productoCarrito) {
                 db.CartProduct.update({
@@ -509,8 +516,8 @@ const productsController = {
             } else {
                 db.CartProduct.create({
 
-                    productID: req.params.id,
-                    cartID: req.session.userLogged.id,
+                    productID: id,
+                    cartID: req.session.cartID,
                     cantidad: 1
         
                 })
@@ -520,18 +527,22 @@ const productsController = {
             }
         })
 
-        res.render('./products/productCart', { products });
     },
 
     //Borra productos del carrito
     cartDelete: (req, res) => {
+        let id = parseInt(req.params.id)
+        console.log(req.session.cartID);
+        console.log("******************************************");
         db.CartProduct.destroy({
             where: {
-                id: req.params.id
+                productID: id,
+                cartID: req.session.cartID
+
             }
         }),
 
-            res.redirect('/cart')
+            res.redirect('/product/cart')
     }
 };
 module.exports = productsController;
