@@ -75,7 +75,11 @@
                                             <%=(elProducto.precio)-(elProducto.precio*(elProducto.descuento /100))%>
                                                 </span>
                                         <%}%>
-                                            <a href=" /product/cart" class="cart-btn" type="submit">Agregar al carrito</a>
+                                        <form action="/product/cart/<%=elProducto.id%>" method="POST">
+                                            <button type="submit" class="cart-btn" type="submit">
+                                                Agregar al carrito
+                                            </button> 
+                                        </form>       
                         </div>
                     </div>
                 </section>

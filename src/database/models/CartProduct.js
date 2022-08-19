@@ -4,9 +4,12 @@ module.exports = (sequelize, dataTypes) => {
     let cols = {
         id: {
             type: dataTypes.INTEGER,
-            as: 'CartProduct',
             primaryKey: true,
             autoIncrement: true
+        },
+        cantidad: {
+            type: dataTypes.INTEGER,
+            allowNull: false
         }
     }
     let config = {
