@@ -113,10 +113,10 @@ INSERT INTO images (id, url, productID)
 VALUES (25, '/img/productos/1656452229163-prodImg.jfif', 25);
 
 INSERT INTO productsGenres ( productID, genreID)
-VALUES (25, 8);
+VALUES (25, 2);
 
 INSERT INTO attributesProducts (valor, attributeID, productID)
-VALUES ('140', 24, 25);
+VALUES ('140', 12, 25);
 
 
 INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, createdAt, updatedAt, categoryID, subcategoryID )
@@ -130,7 +130,7 @@ INSERT INTO productsGenres ( productID, genreID)
 VALUES (26, 3);
 
 INSERT INTO attributesProducts (valor, attributeID, productID)
-VALUES ('180', 24 , 26 );
+VALUES ('180', 12 , 26 );
 
 
 INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, createdAt, updatedAt, categoryID, subcategoryID )
@@ -144,10 +144,10 @@ INSERT INTO images (id, url, productID)
 VALUES (27, '/img/productos/1656452471675-prodImg.jpg', 27);
 
 INSERT INTO productsGenres ( productID, genreID)
-VALUES (27, 7), (27, 3);
+VALUES (27, 1), (27, 3);
 
 INSERT INTO attributesProducts (valor, attributeID, productID)
-VALUES ('136', 24 , 26 );
+VALUES ('136', 12 , 26 );
 
 INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, createdAt, updatedAt, categoryID, subcategoryID )
 VALUES (28, 'Las crónicas de Narnia Soundtrack', 
@@ -160,10 +160,10 @@ INSERT INTO images (id, url, productID)
 VALUES (28, '/img/productos/1656452538595-prodImg.jpg', 28);
 
 INSERT INTO productsGenres ( productID, genreID)
-VALUES (28, 7);
+VALUES (28, 1);
 
 INSERT INTO attributesProducts (valor, attributeID, productID)
-VALUES ('90', 24, 28);
+VALUES ('90', 12, 28);
 
 INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, createdAt, updatedAt, categoryID, subcategoryID )
 VALUES (29, 'KINGDOM Majestic Fantasy Orchestral Music', 
@@ -176,10 +176,10 @@ INSERT INTO images (id, url, productID)
 VALUES (29, '/img/productos/1656452761763-prodImg.PNG', 29);
 
 INSERT INTO productsGenres ( productID, genreID)
-VALUES (29, 8);
+VALUES (29, 2);
 
 INSERT INTO attributesProducts (valor, attributeID, productID)
-VALUES ('112', 24, 29);
+VALUES ('112', 12, 29);
 
 INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, createdAt, updatedAt, categoryID, subcategoryID )
 VALUES (30, 'Willy Wonka & the Chocolate Factory ', 
@@ -192,10 +192,10 @@ INSERT INTO images (id, url, productID)
 VALUES (30, '/img/productos/1656453041923-prodImg.jpg', 30);
 
 INSERT INTO productsGenres ( productID, genreID)
-VALUES (30, 7), (30, 3);
+VALUES (30, 1), (30, 3);
 
 INSERT INTO attributesProducts (valor, attributeID, productID)
-VALUES ('100', 23, 30);
+VALUES ('100', 11, 30);
 
 INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, createdAt, updatedAt, categoryID, subcategoryID )
 VALUES (31, 'Hocus Pocus 2', 
@@ -211,7 +211,7 @@ INSERT INTO productsGenres ( productID, genreID)
 VALUES (31, 3);
 
 INSERT INTO attributesProducts (valor, attributeID, productID)
-VALUES ('95', 23, 31);
+VALUES ('95', 11, 31);
 
 INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, createdAt, updatedAt, categoryID, subcategoryID )
 VALUES (32, 'The Dark Crystal: Age of Resistance', 
@@ -227,7 +227,7 @@ INSERT INTO productsGenres ( productID, genreID)
 VALUES (32, 3);
 
 INSERT INTO attributesProducts (valor, attributeID, productID)
-VALUES ('102', 23, 32);
+VALUES ('102', 11, 32);
 
 INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, createdAt, updatedAt, categoryID, subcategoryID )
 VALUES (33, 'Spellbound', 
@@ -243,7 +243,7 @@ INSERT INTO productsGenres ( productID, genreID)
 VALUES (33, 3);
 
 INSERT INTO attributesProducts (valor, attributeID, productID)
-VALUES ('110', 23, 33);
+VALUES ('110', 11, 33);
 
 INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, createdAt, updatedAt, categoryID, subcategoryID )
 VALUES (34, 'A Fairy Tale After All', 
@@ -259,4 +259,4 @@ INSERT INTO productsGenres ( productID, genreID)
 VALUES (34, 3);
 
 INSERT INTO attributesProducts (valor, attributeID, productID)
-VALUES ('87', 23, 34);
+VALUES ('87', 11, 34);
