@@ -30,7 +30,8 @@ const usersController = {
         } else {
             db.User.findOne({
                 where: {
-                    email: req.body.email
+                    email: req.body.email,
+                    estaActivo : 1 
                 }
             })
             .then((userToLogin) => {
@@ -52,8 +53,6 @@ const usersController = {
                         .then (carrito => {
                             req.session.cartID = carrito.id
                             //compruebo si tildó recordarme
-                            //console.log("****************************************");
-                            //console.log(req.session.cartID);
                         if (req.body.recordarPassword) {
                             res.cookie('userEmail', req.body.email, { maxAge: 1000 * 60 * 15 })
                         }
@@ -99,6 +98,8 @@ const usersController = {
     },
     //Guardar usuario nuevo
     store: (req, res) => {
+         //Guarda el atributo file del request, donde se encuentra la imagen cargada
+         let file = req.file;
         const validationsResult = validationResult(req);
 
         //si hay errores se renderiza de nuevo el formulario de register
@@ -118,7 +119,7 @@ const usersController = {
             db.User.findOne({
                 where: { email: req.body.email }
             }).then((userInDB) => {
-                if (userInDB) {
+                if (userInDB.estaActivo == 1) {
                     //si se cargó una imagen, se borra
                     if (req.file.filename) {
                         fs.unlinkSync(path.join(__dirname, "../../public/img/Profile-pictures/", req.file.filename));
@@ -131,6 +132,29 @@ const usersController = {
                         },
                         oldData: req.body,
                     });
+                }else if(userInDB.estaActivo == 0){
+                     db.User.update({
+                        nombre: req.body.nombre,
+                        apellido: req.body.apellido,
+                        email: req.body.email,
+                        direccion: req.body.direccion,
+                        telefono: req.body.telefono,
+                        estaActivo : 1,
+                        password: bcrypt.hashSync(req.body.password, 10),
+                        if (file) {
+                                if (imagen) {
+                                    fs.unlinkSync(path.join(__dirname, "../../public/img/Profile-pictures/", imagen));
+                                }
+                               imagen = `/img/Profile-pictures/${file.filename}`;
+                            }
+                        },
+                        {
+                            where: { id: userInDB.id }
+                 } ).then(respuesta=>{
+                    res.redirect("/user/profile")
+                }
+             );
+            
                 } else {
                     //Guarda el atributo file del request, donde se encuentra la imagen cargada
                     let file = req.file;
@@ -154,12 +178,13 @@ const usersController = {
                                 montoTotal: 0,
                                 userID: usuarioCreado.id
                             })
+                            res.redirect("/user/login");
                           })
 
 
                     //let userCreated = User.create(userToCreate);
 
-                    res.redirect("/user/login");
+               
                 }
             });
         }
@@ -210,9 +235,10 @@ const usersController = {
                 {
                     where: { id: id }
                 }
-                );       
-
-            res.redirect("/user/profile");
+                ).then((respuesta)=>{
+                    res.redirect("/user/profile")
+                }
+             );
         }
     },
 
