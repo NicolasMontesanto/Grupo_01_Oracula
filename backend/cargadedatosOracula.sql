@@ -1,3 +1,12 @@
+use oraculaDB; 
+
+Delete from attributes where id > 0; 
+Delete from subcategories where id > 0; 
+Delete from categories where id > 0;
+Delete from genres where id > 0; 
+Delete from carts where id > 0; 
+Delete from users where id > 0; 
+
 
 /*Cargar las categorías*/
 INSERT INTO oraculaDB.categories (nombre) 
@@ -15,3 +24,10 @@ INSERT INTO oraculaDB.attributes (nombre, unidad, subcategoryID) VALUES ('Cantid
 INSERT INTO oraculaDB.genres (nombre)
  VALUES ('Fantasía Clásica'), ('Fantasía Medieval'), ('Fantasía Juvenil'), ('Fantasía Urbana'), ('Fantasía Oscura'), ('Inclasificable') ;
 
+/*Cargar User Admin*/
+
+INSERT INTO oraculaDB.users (id, nombre, apellido, email, direccion, telefono, imagen, password, magicPass, esAdmin, createdAt)
+VALUES (1, "Admin", "Admin", "admin@email.com","","", "/img/Profile-pictures/1661038507014-profileImg.jpg", "$2a$10$V5Fx1YBAFvxd5T1Dm8AOKeIzDamdSvt7lnMBJOJYLfL0uSUy4NFrC", 0, 1, CURRENT_TIMESTAMP());
+
+INSERT INTO oraculaDB.carts (id, montoTotal, userID)
+VALUES (1, 0, 1);

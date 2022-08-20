@@ -31,64 +31,64 @@ const usersController = {
             db.User.findOne({
                 where: {
                     email: req.body.email,
-                    estaActivo : 1 
+                    estaActivo: 1
                 }
             })
-            .then((userToLogin) => {
-                // let userToLogin = Object.assign({}, userFound)
-                if (userToLogin) {
-                    //verifico la contraseña
-                    let passOK = bcrypt.compareSync(req.body.password, userToLogin.password)
-                    if (passOK) {
-                        //borro la pass para que no quede en session
-                        delete userToLogin.password;
-                        //guardo el usuario loggeado en session
-                        req.session.userLogged = userToLogin;
-                        //Busco el carrito del usuario y lo guardo en session
-                        db.Cart.findOne({
-                            where: {
-                                userID: userToLogin.id
-                            }
-                        })
-                        .then (carrito => {
-                            req.session.cartID = carrito.id
-                            //compruebo si tildó recordarme
-                        if (req.body.recordarPassword) {
-                            res.cookie('userEmail', req.body.email, { maxAge: 1000 * 60 * 15 })
-                        }
-                        res.redirect('/user/profile')
-                        })
-                        .catch(error => {console.log(error)}) 
+                .then((userToLogin) => {
+                    // let userToLogin = Object.assign({}, userFound)
+                    if (userToLogin) {
+                        //verifico la contraseña
+                        let passOK = bcrypt.compareSync(req.body.password, userToLogin.password)
+                        if (passOK) {
+                            //borro la pass para que no quede en session
+                            delete userToLogin.password;
+                            //guardo el usuario loggeado en session
+                            req.session.userLogged = userToLogin;
+                            //Busco el carrito del usuario y lo guardo en session
+                            db.Cart.findOne({
+                                where: {
+                                    userID: userToLogin.id
+                                }
+                            })
+                                .then(carrito => {
+                                    req.session.cartID = carrito.id
+                                    //compruebo si tildó recordarme
+                                    if (req.body.recordarPassword) {
+                                        res.cookie('userEmail', req.body.email, { maxAge: 1000 * 60 * 15 })
+                                    }
+                                    res.redirect('/user/profile')
+                                })
+                                .catch(error => { console.log(error) })
 
+                        } else {
+                            // si no se verificó la contraseña
+                            return res.render("./users/login", {
+                                errors: {
+                                    password: {
+                                        msg: 'Contraseña o email incorrectos.'
+                                    },
+                                },
+                                oldData: req.body,
+                            });
+                        }
                     } else {
-                        // si no se verificó la contraseña
+                        // si no se verificó el mail 
                         return res.render("./users/login", {
                             errors: {
-                                password: {
+                                email: {
                                     msg: 'Contraseña o email incorrectos.'
                                 },
                             },
                             oldData: req.body,
                         });
                     }
-                } else {
-                    // si no se verificó el mail 
-                    return res.render("./users/login", {
-                        errors: {
-                            email: {
-                                msg: 'Contraseña o email incorrectos.'
-                            },
-                        },
-                        oldData: req.body,
-                    });
-                }
 
-            })
-            .catch(error => {console.log(error)})
-        ;
-    }
+                })
+                .catch(error => { console.log(error) })
+                ;
+        }
 
-},
+    },
 
 
     //signup.html
@@ -98,8 +98,8 @@ const usersController = {
     },
     //Guardar usuario nuevo
     store: (req, res) => {
-         //Guarda el atributo file del request, donde se encuentra la imagen cargada
-         let file = req.file;
+        //Guarda el atributo file del request, donde se encuentra la imagen cargada
+        let file = req.file;
         const validationsResult = validationResult(req);
 
         //si hay errores se renderiza de nuevo el formulario de register
@@ -119,42 +119,44 @@ const usersController = {
             db.User.findOne({
                 where: { email: req.body.email }
             }).then((userInDB) => {
-                if (userInDB.estaActivo == 1) {
-                    //si se cargó una imagen, se borra
-                    if (req.file.filename) {
-                        fs.unlinkSync(path.join(__dirname, "../../public/img/Profile-pictures/", req.file.filename));
-                    }
-                    return res.render("./users/signup", {
-                        errors: {
-                            email: {
-                                msg: "Este email ya esta registrado",
-                            }
-                        },
-                        oldData: req.body,
-                    });
-                }else if(userInDB.estaActivo == 0){
-                     db.User.update({
-                        nombre: req.body.nombre,
-                        apellido: req.body.apellido,
-                        email: req.body.email,
-                        direccion: req.body.direccion,
-                        telefono: req.body.telefono,
-                        estaActivo : 1,
-                        password: bcrypt.hashSync(req.body.password, 10),
-                        if (file) {
+                if (userInDB) {
+                    if (userInDB.estaActivo == 1) {
+                        //si se cargó una imagen, se borra
+                        if (req.file.filename) {
+                            fs.unlinkSync(path.join(__dirname, "../../public/img/Profile-pictures/", req.file.filename));
+                        }
+                        return res.render("./users/signup", {
+                            errors: {
+                                email: {
+                                    msg: "Este email ya esta registrado",
+                                }
+                            },
+                            oldData: req.body,
+                        });
+                    } else if (userInDB.estaActivo == 0) {
+                        db.User.update({
+                            nombre: req.body.nombre,
+                            apellido: req.body.apellido,
+                            email: req.body.email,
+                            direccion: req.body.direccion,
+                            telefono: req.body.telefono,
+                            estaActivo: 1,
+                            password: bcrypt.hashSync(req.body.password, 10),
+                            if(file) {
                                 if (imagen) {
                                     fs.unlinkSync(path.join(__dirname, "../../public/img/Profile-pictures/", imagen));
                                 }
-                               imagen = `/img/Profile-pictures/${file.filename}`;
+                                imagen = `/img/Profile-pictures/${file.filename}`;
                             }
                         },
-                        {
-                            where: { id: userInDB.id }
-                 } ).then(respuesta=>{
-                    res.redirect("/user/profile")
-                })
-                 .catch(error => {console.log(error)})
-            
+                            {
+                                where: { id: userInDB.id }
+                            }).then(respuesta => {
+                                res.redirect("/user/profile")
+                            })
+                            .catch(error => { console.log(error) })
+
+                    }
                 } else {
                     //Guarda el atributo file del request, donde se encuentra la imagen cargada
                     let file = req.file;
@@ -179,14 +181,14 @@ const usersController = {
                                 userID: usuarioCreado.id
                             })
                             res.redirect("/user/login");
-                          })
-                          .catch(error => {console.log(error)})
+                        })
+                        .catch(error => { console.log(error) })
 
                     //let userCreated = User.create(userToCreate);
-              
+
                 }
             })
-            .catch(error => {console.log(error)})
+                .catch(error => { console.log(error) })
         }
 
     },
@@ -199,7 +201,7 @@ const usersController = {
             .then((user) => {
                 !user ? res.send("El usuario no existe") : res.render("./users/userEdit", { user });
             })
-            .catch(error => {console.log(error)});
+            .catch(error => { console.log(error) });
 
     },
 
@@ -226,21 +228,21 @@ const usersController = {
                 direccion: req.body.direccion,
                 telefono: req.body.telefono,
                 password: bcrypt.hashSync(req.body.password, 10),
-                if (file) {
-                        if (imagen) {
-                            fs.unlinkSync(path.join(__dirname, "../../public/img/Profile-pictures/", imagen));
-                        }
-                       imagen = `/img/Profile-pictures/${file.filename}`;
+                if(file) {
+                    if (imagen) {
+                        fs.unlinkSync(path.join(__dirname, "../../public/img/Profile-pictures/", imagen));
                     }
-                },
+                    imagen = `/img/Profile-pictures/${file.filename}`;
+                }
+            },
                 {
                     where: { id: id }
                 }
-                ).then((respuesta)=>{
-                    res.redirect("/user/profile")
-                }
-             )
-             .catch(error => {console.log(error)})
+            ).then((respuesta) => {
+                res.redirect("/user/profile")
+            }
+            )
+                .catch(error => { console.log(error) })
         }
     },
 
@@ -249,15 +251,15 @@ const usersController = {
         db.User.findByPk(id)
             .then(
                 db.User.update({
-                estaActivo: false, 
+                    estaActivo: false,
                 }, {
-                    where : {id : id}
+                    where: { id: id }
                 }),
                 res.clearCookie('userEmail', 'recordarPassword'),
                 req.session.destroy(),
                 res.redirect("/")
-           )
-           .catch(error => {console.log(error)})       
+            )
+            .catch(error => { console.log(error) })
     },
 
     // hacer logout
