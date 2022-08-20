@@ -260,3 +260,172 @@ VALUES (34, 3);
 
 INSERT INTO attributesProducts (valor, attributeID, productID)
 VALUES ('87', 11, 34);
+
+
+INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, categoryID, subcategoryID )
+VALUES (35, 'Bastion', 
+'Bastion es un videojuego de rol de acción (o ARPG) elaborado por el desarrollador independiente Supergiant Games. En este juego, el jugador controla al protagonista, nombrado \"the Kid\", mientras se mueve entre plataformas flotantes a través de un mundo fantasioso al tiempo que combate varios tipos de enemigos que se interponen en su camino.', 
+'200',
+50, 
+1, 1, 1, 1, 2);
+
+INSERT INTO images (id, url, productID)
+VALUES (35, '/img/productos/1656456279212-prodImg.jpg', 35);
+
+INSERT INTO productsGenres ( productID, genreID)
+VALUES (35, 1);
+
+INSERT INTO attributesProducts (valor, attributeID, productID)
+VALUES ('Supergiant Games', 3, 35);
+
+INSERT INTO attributesProducts (valor, attributeID, productID)
+VALUES ('2010-07-20', 4, 35);
+
+
+INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, categoryID, subcategoryID )
+VALUES (36, 'Hades', 
+'Hades es un juego de rol de acción roguelike desarrollado y publicado por Supergiant Games. Los jugadores controlan a Zagreus, el hijo de Hades, mientras intenta escapar del Inframundo para llegar al Monte Olimpo, en ocasiones con la ayuda de los obsequios que le otorgan los otros olímpicos. Cada carrera desafía al jugador a través de una serie aleatoria de habitaciones pobladas de enemigos y recompensas.', 
+'270',
+0, 
+1, 1, 1, 1, 2);
+
+INSERT INTO images (id, url, productID)
+VALUES (36, '/img/productos/1656456410469-prodImg.png', 36);
+
+INSERT INTO productsGenres ( productID, genreID)
+VALUES (36, 5);
+
+INSERT INTO attributesProducts (valor, attributeID, productID)
+VALUES ('Supergiant Games', 3, 36);
+
+INSERT INTO attributesProducts (valor, attributeID, productID)
+VALUES ('2019-10-12', 4, 36);
+
+
+INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, categoryID, subcategoryID )
+VALUES (37, 'Stardew Valley', 
+'Stardew Valley es un videojuego indie de simulación de granja desarrollado por Eric \"ConcernedApe\" Barone. En Stardew Valley, el jugador toma el rol de un personaje que se encuentra atrapado en un trabajo de oficina, para escapar de él se va a vivir a la granja de su abuelo, la cual se encuentra en ruinas. La granja se encuentra ubicada en un lugar llamado Pueblo Pelícano. El jugador controla las acciones del personaje, utilizando energía al realizar acciones como regar los cultivos o minar, entre muchos otros. El tiempo y la energía utilizada para realizar las acciones dependiendo del nivel que el personaje cuente en dichas actividades, las cuales aumentan con el tiempo al repetir la tarea una y otra vez.', 
+'150',
+0, 
+1, 1, 1, 1, 2);
+
+INSERT INTO images (id, url, productID)
+VALUES (37, '/img/productos/1656456496210-prodImg.jpg', 37);
+
+INSERT INTO productsGenres ( productID, genreID)
+VALUES (37, 4);
+
+INSERT INTO attributesProducts (valor, attributeID, productID)
+VALUES ('Concerned Ape', 3, 37);
+
+INSERT INTO attributesProducts (valor, attributeID, productID)
+VALUES ('2016-02-26', 4, 37);
+
+
+INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, categoryID, subcategoryID )
+VALUES (38, 'Alquimistas', 
+'¿Qué pasará si mezclamos pluma de cuervo con sapo? ¿Y si mezclamos raíz de mandrágora con escorpión? A lo largo de seis rondas, los jugadores, convertidos en alquimistas, intentarán ganar prestigio descubriendo las propiedades mágicas de sus ingredientes. Alquimistas, además, incorpora una gran novedad, una app para el móvil que da a los jugadores el resultado de sus combinaciones de ingredientes.', 
+'11000',
+20, 
+1, 1, 0, 1, 1);
+
+INSERT INTO images (id, url, productID)
+VALUES (38, '/img/productos/1656456616950-prodImg.jpg', 38);
+
+INSERT INTO productsGenres ( productID, genreID)
+VALUES (38, 2);
+
+INSERT INTO attributesProducts (valor, attributeID, productID)
+VALUES ('4', 1, 38);
+
+INSERT INTO attributesProducts (valor, attributeID, productID)
+VALUES ('13', 2, 38);
+
+
+INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, categoryID, subcategoryID )
+VALUES (39, 'Munchkin', 
+'Munchkin es un juego de cartas de rol diseñado por Steve Jackson e ilustrado por John Kovalic para Steve Jackson Games. El lema que resume el objetivo del juego es Mata a los monstruos, roba el tesoro, apuñala a tus amigos.', 
+'3000',
+0, 
+1, 1, 0, 1, 1);
+
+INSERT INTO images (id, url, productID)
+VALUES (39, '/img/productos/1656457045469-prodImg.jpg', 39);
+
+INSERT INTO productsGenres ( productID, genreID)
+VALUES (39, 3);
+
+INSERT INTO productsGenres ( productID, genreID)
+VALUES (39, 2);
+
+INSERT INTO attributesProducts (valor, attributeID, productID)
+VALUES ('6', 1, 39);
+
+INSERT INTO attributesProducts (valor, attributeID, productID)
+VALUES ('10', 2, 39);
+
+
+INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, categoryID, subcategoryID )
+VALUES (40, 'Dungeons & Dragons: Wrath of Ashardalon', 
+'Las tierras alrededor del Pico Fuegotormentoso se han vuelto peligrosas. Los pocos pueblos cerca del volcán han sido acosados por bandas merodeadoras de orcos y kóbold, y horrores más peligrosos acechan en las sombras. Lo peor de todo, un nuevo villano tiene su hogar en la montaña - el terrible dragón rojo Ashardalon ha convertido el volcán en su guarida.', 
+'20000',
+40, 
+1, 1, 0, 1, 1);
+
+INSERT INTO images (id, url, productID)
+VALUES (40, '/img/productos/1656457101125-prodImg.jpeg', 40);
+
+INSERT INTO productsGenres ( productID, genreID)
+VALUES (40, 1);
+
+INSERT INTO productsGenres ( productID, genreID)
+VALUES (40, 2);
+
+INSERT INTO attributesProducts (valor, attributeID, productID)
+VALUES ('5', 1, 40);
+
+INSERT INTO attributesProducts (valor, attributeID, productID)
+VALUES ('12', 2, 40);
+
+
+INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, categoryID, subcategoryID )
+VALUES (41, 'The Witcher 3: Wild Hunt', 
+'The Witcher 3: Wild Hunt es un videojuego de rol desarrollado y publicado por la compañía polaca CD Projekt RED. El juego es la tercera parte de la saga, precedido por The Witcher y The Witcher 2: Assassins of Kings, las cuales están basadas en la saga literaria de Geralt de Rivia escrita por Andrzej Sapkowski. Es un juego de perspectiva en tercera persona, el jugador controla al protagonista Geralt de Rivia, un cazador de monstruos conocido como Lobo Blanco, es un brujo, el cual emprende un largo viaje a través de Los reinos del norte. Ellx jugadorx lucha contra el peligroso mundo mediante magia y espadas, mientras interactúa con los NPC y completa tanto misiones secundarias como la misión principal de la historia, La cual es encontrar a la hija adoptiva de Geralt, Ciri, y detener la profecía del invierno blanco.', 
+'1000',
+30, 
+1, 1, 1, 1, 2);
+
+INSERT INTO images (id, url, productID)
+VALUES (41, '/img/productos/1656456913782-prodImg.jpeg', 41);
+
+INSERT INTO productsGenres ( productID, genreID)
+VALUES (41, 2);
+
+INSERT INTO productsGenres ( productID, genreID)
+VALUES (41, 5);
+
+INSERT INTO attributesProducts (valor, attributeID, productID)
+VALUES ('CD Projekt', 3, 41);
+
+INSERT INTO attributesProducts (valor, attributeID, productID)
+VALUES ('2015-05-18', 4, 41);
+
+
+INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, categoryID, subcategoryID )
+VALUES (42, 'Pyre', 
+'Pyre es un RPG por equipos de los creadores de Bastion y Transistor, Supergiant Games. Conduce a la libertad a una banda de exiliados en una serie de competiciones místicas en el modo campaña o desafía a un amigo a un frenético combate ritual en el modo enfrentamiento.', 
+'150',
+25, 
+1, 1, 1, 1, 2);
+
+INSERT INTO images (id, url, productID)
+VALUES (42, '/img/productos/1656456671241-prodImg.jpg', 42);
+
+INSERT INTO productsGenres ( productID, genreID)
+VALUES (42, 6);
+
+INSERT INTO attributesProducts (valor, attributeID, productID)
+VALUES ('Supergiant Games', 3, 42);
+
+INSERT INTO attributesProducts (valor, attributeID, productID)
+VALUES ('2017-07-25', 4, 42);
