@@ -429,3 +429,118 @@ VALUES ('Supergiant Games', 3, 42);
 
 INSERT INTO attributesProducts (valor, attributeID, productID)
 VALUES ('2017-07-25', 4, 42);
+
+INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, categoryID, subcategoryID )
+VALUES (43, 'Llavero Plastico Totoro', 
+'Llavero plástico de alta calidad con diseño de Totoro. No te lo pierdas!',
+300, 
+10,
+1, 1, 1, 4, 7);
+
+INSERT INTO images (id, url, productID)
+VALUES (43, '/img/productos/1656458796584-prodImg.jpg', 43);
+
+INSERT INTO productsGenres ( productID, genreID)
+VALUES (43, 3),
+
+INSERT INTO attributesProducts (valor, attributeID, productID)
+VALUES ('2018-07-25', 4, 43);
+
+INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, categoryID, subcategoryID )
+VALUES (44, 'Figura The Witcher', 
+'Figura de 7 pulgadas coleccionable con Accesorios y base. En esta oportunidad, traemos para ti a Wild Hunt. No te la pierdas!',
+10000, 
+10,
+1, 1, 1, 4, 6);
+
+INSERT INTO images (id, url, productID)
+VALUES (44, '/img/productos/1656458939909-prodImg.jpg', 44);
+
+INSERT INTO productsGenres ( productID, genreID)
+VALUES (44, 2),
+
+INSERT INTO attributesProducts (valor, attributeID, productID)
+VALUES ('2016-06-25', 4, 44);
+
+INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, categoryID, subcategoryID )
+VALUES (45, 'Llavero coleccionable WOW alianza', 
+'Llavero plastico de alta calidad con diseño de Alianza, perteneciente al popular videojuego World of Warcraft.',
+300, 
+5,
+1, 1, 1, 4, 7);
+
+INSERT INTO images (id, url, productID)
+VALUES (45, '/img/productos/1656458977582-prodImg.jpg', 45);
+
+INSERT INTO productsGenres ( productID, genreID)
+VALUES (45, 2),
+
+INSERT INTO attributesProducts (valor, attributeID, productID)
+VALUES ('2018-06-14', 4, 45);
+
+INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, categoryID, subcategoryID )
+VALUES (46, 'Medias Harry Potter', 
+'Medias tematicas de Gryffindor',
+700, 
+5,
+1, 1, 1, 4, 2);
+
+INSERT INTO images (id, url, productID)
+VALUES (46, '/img/productos/1656459052016-prodImg.jpg', 46);
+
+INSERT INTO productsGenres ( productID, genreID)
+VALUES (46, 3),
+
+INSERT INTO attributesProducts (valor, attributeID, productID)
+VALUES ('2020-08-25', 4, 46);
+
+INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, categoryID, subcategoryID )
+VALUES (47, 'Anillo Harry Potter', 
+'Anillo de Harry Potter con la palabra \"ALWAYS\" y el simbolo de las reliquias de la muerte.',
+10000, 
+10,
+1, 1, 1, 4, 7);
+
+INSERT INTO images (id, url, productID)
+VALUES (47, '/img/productos/1656460464366-prodImg.jpg', 47);
+
+INSERT INTO productsGenres ( productID, genreID)
+VALUES (47, 3),
+
+INSERT INTO attributesProducts (valor, attributeID, productID)
+VALUES ('2019-08-10', 4, 47);
+
+INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, categoryID, subcategoryID )
+VALUES (48, 'Funko POP Eivor', 
+'Figura Original Funko Pop Games de la Coleccion Assassins Creed Valhalla Numero 776 Eivor, tal como se lo puede apreciar en el popular Videojuego',
+6000, 
+5,
+1, 1, 1, 4, 6);
+
+INSERT INTO images (id, url, productID)
+VALUES (48, '/img/productos/1656460913482-prodImg.jpg', 48);
+
+INSERT INTO productsGenres ( productID, genreID)
+VALUES (48, 2),
+
+INSERT INTO attributesProducts (valor, attributeID, productID)
+VALUES ('2020-12-25', 4, 48);
+
+INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, categoryID, subcategoryID )
+VALUES (49, 'Peluche Chimuelo', 
+'Peluche de Chimuelo, de Como Entrenar a tu Dragon',
+5000, 
+5,
+1, 1, 1, 4, 7);
+
+INSERT INTO images (id, url, productID)
+VALUES (49, '/img/productos/1656463365597-prodImg.jpg', 49);
+
+INSERT INTO productsGenres ( productID, genreID)
+VALUES (49, 3),
+
+INSERT INTO attributesProducts (valor, attributeID, productID)
+VALUES ('2014-06-25', 4, 49);
+
+
+
