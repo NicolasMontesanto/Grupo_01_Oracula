@@ -44,8 +44,10 @@ Para crear el sitio nos inspiramos en estas páginas, en algunos casos por las f
 1. https://es.scribd.com/ En este caso, lo tomamos de referencia por la posibilidad que ofrece (al igual que Xbox) de comprar una suscripción y con ella acceder a muchos contenidos. También porque propone reproducir estos contenidos a través de la App asociada a la página.
 
        
-## Enlace al tablero de trabajo: https://trello.com/b/atEetjYf/grupo1oracula 
+## Enlace al tablero de trabajo: https://trello.com/b/atEetjYf/grupo1oracula
 
+# User Admin:
+email: admin@email.com
+password: 12345678
 
 ```te esperamos!!```
-
