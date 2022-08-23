@@ -15,12 +15,12 @@ let sortear = function (productosASortear) {
 
 const productsController = {
 
-    //productDetail.html
+    //Renderiza la vista del detalle de un producto
     detail: (req, res) => {
         let id = req.params.id;
         db.Product.findByPk(id, {
-            include: "image",
-            raw: true,
+            include: ["image", "attribute"],
+            //raw: true,
             nest: true
         })
             .then(producto => {
@@ -32,12 +32,11 @@ const productsController = {
                             [sequelize.Op.not]: producto.id
                         }
                     },
-                    include: "image",
+                    include: ["image"],
                     raw: true,
                     nest: true
                 })
                     .then(productos => {
-                        //productosDeCategoria = productos.filter(item => item.id != producto.id);
                         let productosDesordenados = sortear(productos);
                         res.render('./products/productDetail', { elProducto: producto, productosDesordenados });
                     })
@@ -50,7 +49,7 @@ const productsController = {
             })
     },
 
-    //Renderizar vista de todos los productos
+    //Renderiza la vista de todos los productos
     list: (req, res) => {
         db.Product.findAll({
             include: "image",
@@ -58,7 +57,7 @@ const productsController = {
             nest: true
         })
             .then(productos => {
-                    res.render('./products/productList', { products: productos });
+                res.render('./products/productList', { products: productos });
             })
     },
 
@@ -74,7 +73,7 @@ const productsController = {
             nest: true
         })
             .then(productos => {
-                if (productos.length>0) {
+                if (productos.length > 0) {
                     res.render('./products/productList', { products: productos });
                 } else {
                     res.send("No se encontraron productos con ese nombre")
@@ -82,7 +81,7 @@ const productsController = {
             })
     },
 
-    //Renderizar Vista Create
+    //Renderiza la Vista Create
     create: (req, res) => {
         //Busco las categorías, subcategorias y géneros
         let promesaCategorias = db.Category.findAll();
@@ -103,7 +102,7 @@ const productsController = {
             })
     },
 
-    //Guardar producto nuevo
+    //Guarda un producto nuevo
     store: (req, res) => {
 
         const validationsResult = validationResult(req);
@@ -237,7 +236,7 @@ const productsController = {
         }
     },
 
-    //Renderizamos la vista de Edit
+    //Renderizas la vista de Edit
     edit: (req, res) => {
         let id = req.params.id;
 
@@ -263,6 +262,8 @@ const productsController = {
                 console.log(error);
             })
     },
+
+    //Actualiza los datos de un producto
     update: (req, res) => {
         let id = req.params.id;
         let file = req.file;
@@ -406,6 +407,8 @@ const productsController = {
                 })
         }
     },
+
+    //Borra los datos de un producto
     delete: (req, res) => {
         //Guardo el id del producto a borrar que viene de la request
         let id = req.params.id;
@@ -451,11 +454,12 @@ const productsController = {
             })
             .catch(error => console.log(error))
     },
-    //productCart.html
+
+    //Renderiza la vista del carrito
     cart: (req, res) => {
         db.CartProduct.findAll({
             where: {
-                cartID: req.session.cartID 
+                cartID: req.session.cartID
             },
             raw: true,
             nest: true
@@ -463,77 +467,81 @@ const productsController = {
             .then(productosCarrito => {
                 let arrayID = [];
 
-                for(let i = 0; i < productosCarrito.length; i++) {
+                for (let i = 0; i < productosCarrito.length; i++) {
                     arrayID.push(productosCarrito[i].productID);
                 }
-                console.log(arrayID);
-                
-                if(arrayID.length > 0) {
-                    db.Product.findAll( {
+
+                if (arrayID.length > 0) {
+                    db.Product.findAll({
                         where: {
                             id: {
                                 [sequelize.Op.or]: arrayID
                             }
                         },
-                        include:"image", 
-                        raw: true, 
-                        nest: true} )
-                    .then(productos => {
-                        
-
-                        
-                        res.render('./products/productCart', { arrayProductos: productos });   
+                        include: "image",
+                        raw: true,
+                        nest: true
                     })
+                        .then(productos => {
+
+
+
+                            res.render('./products/productCart', { arrayProductos: productos });
+                        })
                 } else {
-                    res.render('./products/productCart', {arrayProductos:[]})
+                    res.render('./products/productCart', { arrayProductos: [] })
                 }
 
-                
+
             })
-        
-        
+
+
     },
-    //Boton que agrega el producto a la tabla de la DB
+
+    //Boton que agrega un producto al carrito
     cartButton: (req, res) => {
         let id = parseInt(req.params.id)
         db.CartProduct.findOne({
             where: {
                 productID: id,
                 cartID: req.session.cartID
-        }})
-        .then(productoCarrito => {
-            if (productoCarrito) {
-                db.CartProduct.update({
-                    cantidad: productoCarrito.cantidad + 1},
-                    {where:{
-                        id: productoCarrito.id
-                    }} 
-                )
-                .then(resultado => {
-                    res.redirect('/product/cart');
-                })
-
-            } else {
-                db.CartProduct.create({
-
-                    productID: id,
-                    cartID: req.session.cartID,
-                    cantidad: 1
-        
-                })
-                .then(resultado => {
-                    res.redirect('/product/cart');
-                })
             }
         })
+            .then(productoCarrito => {
+                if (productoCarrito) {
+                    db.CartProduct.update({
+                        cantidad: productoCarrito.cantidad + 1
+                    },
+                        {
+                            where: {
+                                id: productoCarrito.id
+                            }
+                        }
+                    )
+                        .then(resultado => {
+                            res.redirect('/product/cart');
+                        })
+
+                } else {
+                    db.CartProduct.create({
+
+                        productID: id,
+                        cartID: req.session.cartID,
+                        cantidad: 1
+
+                    })
+                        .then(resultado => {
+                            res.redirect('/product/cart');
+                        })
+                }
+            })
 
     },
 
     //Borra productos del carrito
     cartDelete: (req, res) => {
         let id = parseInt(req.params.id)
-        console.log(req.session.cartID);
-        console.log("******************************************");
+
         db.CartProduct.destroy({
             where: {
                 productID: id,
