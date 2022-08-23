@@ -20,7 +20,7 @@
                 <section class="product__container">
                     <!-- Left Column / Merch Image -->
                     <div class="left-column">
-                        <img class="product__image" src="<%=elProducto.image.url%>" alt="<%=elProducto.nombre%>" class="imagen__principal">
+                        <img class="product__image" src="<%=elProducto.image[0].url%>" alt="<%=elProducto.nombre%>" class="imagen__principal">
                     </div>
 
                     <!-- Right Column -->
@@ -59,27 +59,34 @@
                             <p class="product__text text--descripcion">
                                 <%=elProducto.descripcion%>
                             </p>
-                           <!-- <p class="product__text text--tag">
-                                <%=//elProducto.subcategoria.toUpperCase()%>
-                           </p> -->
+                            <div>
+                                <% for( let i = 0; i < elProducto.attribute.length; i++ ) { %>
+                                    <span class="product__text text--attribute"> 
+                                        <%=elProducto.attribute[i].nombre + ":"%> 
+                                    </span>
+                                    <span class="product__text text--attribute">
+                                        <%= elProducto.attribute[i].AttributeProduct.valor + "."%> 
+                                    </span>
+                                    <br>
+                                <% } %>
+                            </div>
                         </div>
-
                         <!-- Product Pricing -->
                         <div class="product__price">
                             <%if(elProducto.descuento==0){%>
                                 <span class="product__price--number">$<%=elProducto.precio%></span>
-                                <%}%>
-                                    <%if(elProducto.descuento>0){%>
-                                        <span class="product__price--discount">$<%=elProducto.precio%></span>
-                                        <span class="product__price--number">$
-                                            <%=(elProducto.precio)-(elProducto.precio*(elProducto.descuento /100))%>
-                                                </span>
-                                        <%}%>
-                                        <form action="/product/cart/<%=elProducto.id%>" method="POST">
-                                            <button type="submit" class="cart-btn" type="submit">
-                                                Agregar al carrito
-                                            </button> 
-                                        </form>       
+                            <%}%>
+                            <%if(elProducto.descuento>0){%>
+                                <span class="product__price--discount">$<%=elProducto.precio%></span>
+                                <span class="product__price--number">$
+                                    <%=(elProducto.precio)-(elProducto.precio*(elProducto.descuento /100))%>
+                                </span>
+                            <%}%>
+                            <form action="/product/cart/<%=elProducto.id%>" method="POST">
+                                <button type="submit" class="cart-btn" type="submit">
+                                    Agregar al carrito
+                                </button> 
+                            </form>       
                         </div>
                     </div>
                 </section>
