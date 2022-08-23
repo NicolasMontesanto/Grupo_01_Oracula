@@ -63,13 +63,7 @@ module.exports = (sequelize, dataTypes) => {
                 type: dataTypes.INTEGER,
                 allowNull: false
             }
-        })   
-
-        
-        Product.hasMany(models.AttributeProduct, {
-            as: 'atributeProduct',
-            foreignKey: 'productID',
-        })        
+        })  
         
         Product.hasMany(models.Image, {
             as: 'image',
