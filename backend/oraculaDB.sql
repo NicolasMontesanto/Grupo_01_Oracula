@@ -1,4 +1,4 @@
-DROP database oraculaDB;
+DROP database IF EXISTS oraculaDB;
 CREATE DATABASE IF NOT EXISTS oraculaDB ;
 USE oraculaDB;
 

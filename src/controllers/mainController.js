@@ -6,11 +6,7 @@ const fs = require("fs");
 const db = require('../database/models');
 const sequelize = require('sequelize');
 
-
-
-
 let products = require('../data/products.json');
-
 
 let sortear = function (productosASortear) {
     let sorteados = productosASortear.sort(() => Math.random() - 0.5)
@@ -18,7 +14,6 @@ let sortear = function (productosASortear) {
 }
 
 const mainController = {
-
     //prueba conectividad 
     estaConectado: {
         funciona: (req, res) => {
@@ -48,7 +43,7 @@ const mainController = {
             where: {
                 esDestacado: true
             },
-            include: ['image','subcategory'],
+            include: ['image', 'subcategory'],
             raw: true,
             nest: true
         }
@@ -79,9 +74,9 @@ const mainController = {
     category: (req, res) => {
 
         let categoriaID = req.params.id;
-        
-        let promesaCategoria= db.Category.findByPk(categoriaID);       
-        
+
+        let promesaCategoria = db.Category.findByPk(categoriaID);
+
         let promesaProductosDeCategoria = db.Product.findAll({
             where: {
                 categoryID: categoriaID,
@@ -90,13 +85,13 @@ const mainController = {
             nest: true,
             include: ['image', 'subcategory']
         })
-        
+
         let promesaDestacados = db.Product.findAll({
             where: {
                 esDestacado: true,
                 categoryID: categoriaID
             },
-            include: ['image','subcategory'],
+            include: ['image', 'subcategory'],
             raw: true,
             nest: true
         }
@@ -113,11 +108,10 @@ const mainController = {
         );
 
         Promise.all([promesaProductosDeCategoria, promesaNovedades, promesaDestacados, promesaCategoria])
-            .then(function([resultadoProductosDeCategoria, resultadoNovedades, resultadoDestacados, resultadoCategoria]){
+            .then(function ([resultadoProductosDeCategoria, resultadoNovedades, resultadoDestacados, resultadoCategoria]) {
 
-                   
                 let productosDestacados = sortear(resultadoDestacados);
-              
+
                 let novedades = sortear(resultadoNovedades);
 
                 res.render('category', { productos: resultadoProductosDeCategoria, productosDestacados, novedades, categoria: resultadoCategoria });
@@ -127,21 +121,6 @@ const mainController = {
             .catch(error =>
                 console.log(error))
 
-
-
-        // let productos = products.filter(item => item.categoria == categoria);
-
-        // let productosDestacadosEnOrden = productos.filter(item => item.esDestacado == true);
-
-        // //desordenamos los productos destacados para que la vista de categoria nos muestre 5 al azar cada vez     
-        // let productosDestacados = sortear(productosDestacadosEnOrden);
-
-        // //hacemos lo mismo con las novedades
-        // let novedadesEnOrden = productos.filter(item => item.esNovedad == true);
-
-        // let novedades = sortear(novedadesEnOrden);
-
-        // res.render('category', { productos, productosDestacados, novedades });
     }
 };
 

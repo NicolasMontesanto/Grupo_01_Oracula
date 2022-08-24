@@ -15,12 +15,12 @@ let sortear = function (productosASortear) {
 
 const productsController = {
 
-    //productDetail.html
+    //Renderiza la vista del detalle de un producto
     detail: (req, res) => {
         let id = req.params.id;
         db.Product.findByPk(id, {
-            include: "image",
-            raw: true,
+            include: ["image", "attribute"],
+            //raw: true,
             nest: true
         })
             .then(producto => {
@@ -32,12 +32,11 @@ const productsController = {
                             [sequelize.Op.not]: producto.id
                         }
                     },
-                    include: "image",
+                    include: ["image"],
                     raw: true,
                     nest: true
                 })
                     .then(productos => {
-                        //productosDeCategoria = productos.filter(item => item.id != producto.id);
                         let productosDesordenados = sortear(productos);
                         res.render('./products/productDetail', { elProducto: producto, productosDesordenados });
                     })
@@ -50,7 +49,7 @@ const productsController = {
             })
     },
 
-    //Renderizar vista de todos los productos
+    //Renderiza la vista de todos los productos
     list: (req, res) => {
         db.Product.findAll({
             include: "image",
@@ -82,7 +81,7 @@ const productsController = {
             })
     },
 
-    //Renderizar Vista Create
+    //Renderiza la Vista Create
     create: (req, res) => {
         //Busco las categorías, subcategorias y géneros
         let promesaCategorias = db.Category.findAll();
@@ -103,7 +102,7 @@ const productsController = {
             })
     },
 
-    //Guardar producto nuevo
+    //Guarda un producto nuevo
     store: (req, res) => {
 
         const validationsResult = validationResult(req);
@@ -237,7 +236,7 @@ const productsController = {
         }
     },
 
-    //Renderizamos la vista de Edit
+    //Renderizas la vista de Edit
     edit: (req, res) => {
         let id = req.params.id;
 
@@ -263,6 +262,8 @@ const productsController = {
                 console.log(error);
             })
     },
+
+    //Actualiza los datos de un producto
     update: (req, res) => {
         let id = req.params.id;
         let file = req.file;
@@ -406,6 +407,8 @@ const productsController = {
                 })
         }
     },
+
+    //Borra los datos de un producto
     delete: (req, res) => {
         //Guardo el id del producto a borrar que viene de la request
         let id = req.params.id;
@@ -451,7 +454,8 @@ const productsController = {
             })
             .catch(error => console.log(error))
     },
-    //productCart.html
+
+    //Renderiza la vista del carrito
     cart: (req, res) => {
         let promesaCarrito = db.Cart.findByPk(req.session.cartID)
         let promesaCarritoProducto = db.CartProduct.findAll({
@@ -468,7 +472,6 @@ const productsController = {
                 for (let i = 0; i < productosCarrito.length; i++) {
                     arrayID.push(productosCarrito[i].productID);
                 }
-                console.log(arrayID);
 
                 if (arrayID.length > 0) {
                     db.Product.findAll({
@@ -477,7 +480,9 @@ const productsController = {
                                 [sequelize.Op.or]: arrayID
                             }
                         },
-                        include: ["image"],
+
+                        include: "image",
+
                         raw: true,
                         nest: true
                     })
@@ -505,7 +510,8 @@ const productsController = {
 
 
     },
-    //Boton que agrega el producto a la tabla de la DB
+
+    //Boton que agrega un producto al carrito
     cartButton: (req, res) => {
         let id = parseInt(req.params.id)
         let promesaProducto = db.Product.findByPk(id) 
@@ -516,6 +522,7 @@ const productsController = {
                 cartID: req.session.cartID
             }
         })
+
         Promise.all([promesaCarrito, promesaCarritoProducto, promesaProducto])
             .then(([carrito, productoCarrito, producto]) => {
 
@@ -524,7 +531,7 @@ const productsController = {
                 if (productoCarrito) {
                     db.CartProduct.update({
                         cantidad: productoCarrito.cantidad + 1,
-                        
+                       
                     },
                         {
                             where: {
@@ -548,7 +555,6 @@ const productsController = {
                             res.redirect('/product/cart');
                         })
                 }
-                
             })
 
     },

@@ -147,7 +147,7 @@ INSERT INTO productsGenres ( productID, genreID)
 VALUES (27, 1), (27, 3);
 
 INSERT INTO attributesProducts (valor, attributeID, productID)
-VALUES ('136', 12 , 26 );
+VALUES ('136', 12 , 27 );
 
 INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, createdAt, updatedAt, categoryID, subcategoryID )
 VALUES (28, 'Las crónicas de Narnia Soundtrack', 
@@ -430,6 +430,8 @@ VALUES ('Supergiant Games', 3, 42);
 INSERT INTO attributesProducts (valor, attributeID, productID)
 VALUES ('2017-07-25', 4, 42);
 
+
+
 INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, categoryID, subcategoryID )
 VALUES (43, 'Llavero Plastico Totoro', 
 'Llavero plástico de alta calidad con diseño de Totoro. No te lo pierdas!',
@@ -443,8 +445,6 @@ VALUES (43, '/img/productos/1656458796584-prodImg.jpg', 43);
 INSERT INTO productsGenres ( productID, genreID)
 VALUES (43, 3);
 
-INSERT INTO attributesProducts (valor, attributeID, productID)
-VALUES ('2018-07-25', 4, 43);
 
 INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, categoryID, subcategoryID )
 VALUES (44, 'Figura The Witcher', 
@@ -459,8 +459,6 @@ VALUES (44, '/img/productos/1656458939909-prodImg.jpg', 44);
 INSERT INTO productsGenres ( productID, genreID)
 VALUES (44, 2);
 
-INSERT INTO attributesProducts (valor, attributeID, productID)
-VALUES ('2016-06-25', 4, 44);
 
 INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, categoryID, subcategoryID )
 VALUES (45, 'Llavero coleccionable WOW alianza', 
@@ -474,9 +472,6 @@ VALUES (45, '/img/productos/1656458977582-prodImg.jpg', 45);
 
 INSERT INTO productsGenres ( productID, genreID)
 VALUES (45, 2);
-
-INSERT INTO attributesProducts (valor, attributeID, productID)
-VALUES ('2018-06-14', 4, 45);
 
 INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, categoryID, subcategoryID )
 VALUES (46, 'Medias Harry Potter', 
@@ -492,7 +487,9 @@ INSERT INTO productsGenres ( productID, genreID)
 VALUES (46, 3);
 
 INSERT INTO attributesProducts (valor, attributeID, productID)
-VALUES ('2020-08-25', 4, 46);
+VALUES ('M', 10, 46);
+
+
 
 INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, categoryID, subcategoryID )
 VALUES (47, 'Anillo Harry Potter', 
@@ -507,8 +504,6 @@ VALUES (47, '/img/productos/1656460464366-prodImg.jpg', 47);
 INSERT INTO productsGenres ( productID, genreID)
 VALUES (47, 3);
 
-INSERT INTO attributesProducts (valor, attributeID, productID)
-VALUES ('2019-08-10', 4, 47);
 
 INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, categoryID, subcategoryID )
 VALUES (48, 'Funko POP Eivor', 
@@ -523,8 +518,6 @@ VALUES (48, '/img/productos/1656460913482-prodImg.jpg', 48);
 INSERT INTO productsGenres ( productID, genreID)
 VALUES (48, 2);
 
-INSERT INTO attributesProducts (valor, attributeID, productID)
-VALUES ('2020-12-25', 4, 48);
 
 INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, categoryID, subcategoryID )
 VALUES (49, 'Peluche Chimuelo', 
@@ -539,8 +532,6 @@ VALUES (49, '/img/productos/1656463365597-prodImg.jpg', 49);
 INSERT INTO productsGenres ( productID, genreID)
 VALUES (49, 3);
 
-INSERT INTO attributesProducts (valor, attributeID, productID)
-VALUES ('2014-06-25', 4, 49);
 
 
 

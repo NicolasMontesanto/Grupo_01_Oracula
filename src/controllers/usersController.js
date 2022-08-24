@@ -134,6 +134,8 @@ const usersController = {
                             oldData: req.body,
                         });
                     } else if (userInDB.estaActivo == 0) {
+                        let file = req.file;
+                        // let imagenDB = db.User.imagen
                         db.User.update({
                             nombre: req.body.nombre,
                             apellido: req.body.apellido,
@@ -142,20 +144,14 @@ const usersController = {
                             telefono: req.body.telefono,
                             estaActivo: 1,
                             password: bcrypt.hashSync(req.body.password, 10),
-                            if(file) {
-                                if (imagen) {
-                                    fs.unlinkSync(path.join(__dirname, "../../public/img/Profile-pictures/", imagen));
-                                }
-                                imagen = `/img/Profile-pictures/${file.filename}`;
-                            }
-                        },
-                            {
-                                where: { id: userInDB.id }
-                            }).then(respuesta => {
-                                res.redirect("/user/profile")
+                            imagen: `/img/Profile-pictures/${file.filename}`
+                        }, {
+                             where: { id: userInDB.id }
+                            })
+                            .then( respuesta =>{
+                              res.redirect("/user/profile")
                             })
                             .catch(error => { console.log(error) })
-
                     }
                 } else {
                     //Guarda el atributo file del request, donde se encuentra la imagen cargada
@@ -185,13 +181,12 @@ const usersController = {
                         .catch(error => { console.log(error) })
 
                     //let userCreated = User.create(userToCreate);
-
                 }
+            
             })
-                .catch(error => { console.log(error) })
+            .catch(error => { console.log(error) })
         }
-
-    },
+      },
 
 
     //Renderizar la vista de Edit
@@ -221,27 +216,22 @@ const usersController = {
             }
             res.render("./users/userEdit", { user: req.session.userLogged, errors: validationsResult.mapped() });
         } else {
-            db.User.update({
+                
+                db.User.update({
                 nombre: req.body.nombre,
                 apellido: req.body.apellido,
                 email: req.body.email,
                 direccion: req.body.direccion,
                 telefono: req.body.telefono,
                 password: bcrypt.hashSync(req.body.password, 10),
-                if(file) {
-                    if (imagen) {
-                        fs.unlinkSync(path.join(__dirname, "../../public/img/Profile-pictures/", imagen));
-                    }
-                    imagen = `/img/Profile-pictures/${file.filename}`;
-                }
-            },
-                {
-                    where: { id: id }
-                }
-            ).then((respuesta) => {
-                res.redirect("/user/profile")
-            }
-            )
+                 //si trae imagen de perfil actualiza, sino deja la actual
+                imagen: `/img/Profile-pictures/${file.filename}`
+                },{
+                where: { id: id }
+                })
+                .then( respuesta =>{
+                    res.redirect("/user/profile")
+                })
                 .catch(error => { console.log(error) })
         }
     },

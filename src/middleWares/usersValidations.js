@@ -47,19 +47,7 @@ const validationsUserEdit = [
     body('email')
         .notEmpty().withMessage('Por favor completá tu correo').bail()
         .isEmail().withMessage('¡El formato del correo no es válido! Intentalo de nuevo'),
-    body('profilePicture').custom((value, { req }) => {
-        let file = req.file;
-        let extensionesPermitidas = ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.jfif'];
-        if (file) {
-            console.log();
-            let fileExtension = path.extname(file.originalname);
-            if (!extensionesPermitidas.includes(fileExtension.toLowerCase())) {
-                throw new Error(`Las extensiones de archivo permitidas son ${extensionesPermitidas.join(", ")}`)
-            }
-        }
-        return true;
-    }),
-    body('password').custom((value, { req }) => {
+    body('password').notEmpty().custom((value, { req }) => {
         if (req.body.password) {
             let passNueva = req.body.password;
             if (passNueva.length < 6) {
