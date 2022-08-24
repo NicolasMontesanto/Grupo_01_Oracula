@@ -2,6 +2,14 @@
 <img width="40%" align="right" alt="Caldero" src="https://github.com/NicolasMontesanto/Grupo_01_Oracula/blob/feature_logo/design/Logo/gris.png" />
 <a href="https://github.com/NicolasMontesanto/Grupo_01_Oracula/tree/main">
   
+## Enlace al tablero de trabajo: https://trello.com/b/atEetjYf/grupo1oracula
+
+# User Admin:
+email: admin@email.com
+password: 12345678
+
+# Cargar base de datos con "oraculaDB.sql"
+  
 <img align="left" alt="Oracula's Github" width="26px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/github.svg" />
 </a> 
 te invitamos a conocer el repositorio de nuestro eCommerce de productos del género fantástico
@@ -42,12 +50,5 @@ Para crear el sitio nos inspiramos en estas páginas, en algunos casos por las f
 1. https://store.steampowered.com/?l=spanish Por la manera en la página recomienda distintos productos dependiendo de nuestras últimas compras o géneros favoritos y su estructura en general. <img width="13%"  align="right" align="centre" alt="inspo" src="https://cdn-icons-png.flaticon.com/512/4214/4214072.png" />
 1. https://www.larevisteriacomics.com/ Si bien este sitio es funcional y práctico, nos gustaría poder hacer algo más atractivo visualemente. Es una referencia de lo que no queremos hacer en términos estéticos. 
 1. https://es.scribd.com/ En este caso, lo tomamos de referencia por la posibilidad que ofrece (al igual que Xbox) de comprar una suscripción y con ella acceder a muchos contenidos. También porque propone reproducir estos contenidos a través de la App asociada a la página.
-
-       
-## Enlace al tablero de trabajo: https://trello.com/b/atEetjYf/grupo1oracula
-
-# User Admin:
-email: admin@email.com
-password: 12345678
 
 ```te esperamos!!```
