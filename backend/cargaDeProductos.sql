@@ -441,7 +441,7 @@ INSERT INTO images (id, url, productID)
 VALUES (43, '/img/productos/1656458796584-prodImg.jpg', 43);
 
 INSERT INTO productsGenres ( productID, genreID)
-VALUES (43, 3),
+VALUES (43, 3);
 
 INSERT INTO attributesProducts (valor, attributeID, productID)
 VALUES ('2018-07-25', 4, 43);
@@ -457,7 +457,7 @@ INSERT INTO images (id, url, productID)
 VALUES (44, '/img/productos/1656458939909-prodImg.jpg', 44);
 
 INSERT INTO productsGenres ( productID, genreID)
-VALUES (44, 2),
+VALUES (44, 2);
 
 INSERT INTO attributesProducts (valor, attributeID, productID)
 VALUES ('2016-06-25', 4, 44);
@@ -473,7 +473,7 @@ INSERT INTO images (id, url, productID)
 VALUES (45, '/img/productos/1656458977582-prodImg.jpg', 45);
 
 INSERT INTO productsGenres ( productID, genreID)
-VALUES (45, 2),
+VALUES (45, 2);
 
 INSERT INTO attributesProducts (valor, attributeID, productID)
 VALUES ('2018-06-14', 4, 45);
@@ -489,7 +489,7 @@ INSERT INTO images (id, url, productID)
 VALUES (46, '/img/productos/1656459052016-prodImg.jpg', 46);
 
 INSERT INTO productsGenres ( productID, genreID)
-VALUES (46, 3),
+VALUES (46, 3);
 
 INSERT INTO attributesProducts (valor, attributeID, productID)
 VALUES ('2020-08-25', 4, 46);
@@ -505,7 +505,7 @@ INSERT INTO images (id, url, productID)
 VALUES (47, '/img/productos/1656460464366-prodImg.jpg', 47);
 
 INSERT INTO productsGenres ( productID, genreID)
-VALUES (47, 3),
+VALUES (47, 3);
 
 INSERT INTO attributesProducts (valor, attributeID, productID)
 VALUES ('2019-08-10', 4, 47);
@@ -521,7 +521,7 @@ INSERT INTO images (id, url, productID)
 VALUES (48, '/img/productos/1656460913482-prodImg.jpg', 48);
 
 INSERT INTO productsGenres ( productID, genreID)
-VALUES (48, 2),
+VALUES (48, 2);
 
 INSERT INTO attributesProducts (valor, attributeID, productID)
 VALUES ('2020-12-25', 4, 48);
@@ -537,7 +537,7 @@ INSERT INTO images (id, url, productID)
 VALUES (49, '/img/productos/1656463365597-prodImg.jpg', 49);
 
 INSERT INTO productsGenres ( productID, genreID)
-VALUES (49, 3),
+VALUES (49, 3);
 
 INSERT INTO attributesProducts (valor, attributeID, productID)
 VALUES ('2014-06-25', 4, 49);
