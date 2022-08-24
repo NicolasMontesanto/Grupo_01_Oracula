@@ -61,7 +61,7 @@ Para crear el sitio nos inspiramos en estas páginas, en algunos casos por las f
 1. https://www.mercadolibre.com.ar/ Nos encantó las estructuras de la página de un producto y el carrito.
 1. https://harrypottershop.co.uk/ Por su estética, la navbar de la homepage, la forma en la que presentan los detalles de un producto y el carrito. 
 1. https://www.xbox.com/en-US/ Por la estructurta y forma en la que presentan los productos en la homepage.
-1. https://store.steampowered.com/?l=spanish Por la manera en la página recomienda distintos productos dependiendo de nuestras últimas compras o géneros favoritos y su estructura en general. <img width="13%"  align="right" align="centre" alt="inspo" src="https://cdn-icons-png.flaticon.com/512/4214/4214072.png" />
+1. https://store.steampowered.com/?l=spanish Por la manera en la página recomienda distintos productos dependiendo de nuestras últimas compras o géneros favoritos y su estructura en general.
 1. https://www.larevisteriacomics.com/ Si bien este sitio es funcional y práctico, nos gustaría poder hacer algo más atractivo visualemente. Es una referencia de lo que no queremos hacer en términos estéticos. 
 1. https://es.scribd.com/ En este caso, lo tomamos de referencia por la posibilidad que ofrece (al igual que Xbox) de comprar una suscripción y con ella acceder a muchos contenidos. También porque propone reproducir estos contenidos a través de la App asociada a la página.
 
