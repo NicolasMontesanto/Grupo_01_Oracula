@@ -518,9 +518,8 @@ const productsController = {
         })
         Promise.all([promesaCarrito, promesaCarritoProducto, promesaProducto])
             .then(([carrito, productoCarrito, producto]) => {
-                console.log(producto.precio);
-                console.log("*******************************");
-                carrito.montoTotal += producto.precio;
+
+                carrito.montoTotal = parseInt(carrito.montoTotal) + (producto.precio - (producto.precio*(producto.descuento/100)));
                 carrito.save()
                 if (productoCarrito) {
                     db.CartProduct.update({
@@ -567,7 +566,7 @@ const productsController = {
         })
         Promise.all([promesaCarrito, promesaCarritoProducto, promesaProducto])
             .then(([carrito, productoCarrito, producto]) => {
-                carrito.montoTotal = carrito.montoTotal - (producto.precio*productoCarrito.cantidad);
+                carrito.montoTotal = parseInt(carrito.montoTotal) - (producto.precio - (producto.precio*(producto.descuento/100)));
                 carrito.save();
                 db.CartProduct.destroy({
                     where: {
