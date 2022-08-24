@@ -1,10 +1,17 @@
 ## Enlace al tablero de trabajo: https://trello.com/b/atEetjYf/grupo1oracula
 
-## User Admin:
-email: admin@email.com
-password: 12345678
-
-## Cargar base de datos con "oraculaDB.sql"
+## Pasos para leventar el proyecto: 
+* Ejecutar "npm install" en la consola para descargar los módulos necesarios.
+* Cargar base de datos con "oraculaDB.sql"
+* Crear un archivo ".env" con la configuración de tu base de datos de la siguiente manera:
+    DB_USER= tuUsuario
+    DB_PASS= tuPass
+    DB_NAME= oraculaDB
+    DB_PORT= tuPuerto
+* Ingresá con el siguiente user:
+    User Admin:
+    email: admin@email.com
+    password: 12345678
   
 # <img width="04%" align="centre" alt="magic" src="https://img.icons8.com/dotty/344/sparkling.png" />  Orácula <img width="04%" align="centre" alt="magic" src="https://img.icons8.com/dotty/344/sparkling.png" /> 
 <img width="40%" align="right" alt="Caldero" src="https://github.com/NicolasMontesanto/Grupo_01_Oracula/blob/feature_logo/design/Logo/gris.png" />
