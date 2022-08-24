@@ -1,9 +1,3 @@
-# <img width="04%" align="centre" alt="magic" src="https://img.icons8.com/dotty/344/sparkling.png" />  Orácula <img width="04%" align="centre" alt="magic" src="https://img.icons8.com/dotty/344/sparkling.png" /> 
-<img width="40%" align="right" alt="Caldero" src="https://github.com/NicolasMontesanto/Grupo_01_Oracula/blob/feature_logo/design/Logo/gris.png" />
-<a href="https://github.com/NicolasMontesanto/Grupo_01_Oracula/tree/main">
-  <img align="left" alt="Oracula's Github" width="26px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/github.svg" />
-</a> 
-  
 ## Enlace al tablero de trabajo: https://trello.com/b/atEetjYf/grupo1oracula
 
 ## User Admin:
@@ -12,8 +6,13 @@ password: 12345678
 
 ## Cargar base de datos con "oraculaDB.sql"
   
+# <img width="04%" align="centre" alt="magic" src="https://img.icons8.com/dotty/344/sparkling.png" />  Orácula <img width="04%" align="centre" alt="magic" src="https://img.icons8.com/dotty/344/sparkling.png" /> 
+<img width="40%" align="right" alt="Caldero" src="https://github.com/NicolasMontesanto/Grupo_01_Oracula/blob/feature_logo/design/Logo/gris.png" />
+<a href="https://github.com/NicolasMontesanto/Grupo_01_Oracula/tree/main">
+  <img align="left" alt="Oracula's Github" width="26px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/github.svg" />
+</a> 
 
-te invitamos a conocer el repositorio de nuestro eCommerce de productos del género fantástico
+Te invitamos a conocer el repositorio de nuestro eCommerce de productos del género fantástico
 
 ## Nuestra oferta
 
