@@ -9,10 +9,12 @@ function recordarMiddleware(req, res, next) {
             db.User.findOne({
                 where: {
                     email: emailCookie
-                }
+                },
+                include: "cart"
             }).then(userFromCookie => {
                 if (userFromCookie) {
                     req.session.userLogged = userFromCookie;
+                    req.session.cartID = userFromCookie.cart.id;
                 }
                 next();
             });

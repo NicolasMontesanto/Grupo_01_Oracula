@@ -473,8 +473,6 @@ VALUES (45, '/img/productos/1656458977582-prodImg.jpg', 45);
 INSERT INTO productsGenres ( productID, genreID)
 VALUES (45, 2);
 
-
-
 INSERT INTO products (id, nombre, descripcion, precio, descuento, esNovedad, esDestacado, esMagicPass, categoryID, subcategoryID )
 VALUES (46, 'Medias Harry Potter', 
 'Medias tematicas de Gryffindor',
@@ -533,5 +531,7 @@ VALUES (49, '/img/productos/1656463365597-prodImg.jpg', 49);
 
 INSERT INTO productsGenres ( productID, genreID)
 VALUES (49, 3);
+
+
 
 

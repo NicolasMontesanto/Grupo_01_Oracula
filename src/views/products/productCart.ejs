@@ -35,13 +35,13 @@
                       <button class="item__datos--boton" id="menos">
                         <i class="fa-solid fa-minus"></i>
                       </button>
-                      <span class="item__datos--contar">1</span>
+                      <span class="item__datos--contar"><%=arrayProductos[i].cantidad%></span>
                       <button class="item__datos--boton" id="mas">
                         <i class="fa-solid fa-plus"></i>
                       </button>
                     </div>
                     <div class="item__datos--precio">
-                      <span id="precio"><%=arrayProductos[i].precio - arrayProductos[i].precio * (arrayProductos[i].descuento / 100)%></span>
+                      <span id="precio">$<%=arrayProductos[i].precio - arrayProductos[i].precio * (arrayProductos[i].descuento / 100)%></span>
                     </div>
                   </div>
                 </div>
@@ -56,25 +56,16 @@
           </div>
 
           <div class="compra">
-            <div class="compra__descuento">
+            <!-- <div class="compra__descuento">
               <label for="compra__descuento" class="compra__descuento--titulo">Gift card/Código de descuento</label>
               <div class="compra__descuento--barra">
                 <input type="text" name="descuento" id="descuento" class="input-default">
                 <button class="compra__descuento--boton">Aplicar</button>
               </div>
-            </div>
+            </div> -->
             <div class="compra__costos">
-              <div class="compra__costos--subtotal">
-                <span>Subtotal</span> <span><span id="subtotal">$9.174,00</span></span>
-              </div>
-              <div class="compra__costos--iva">
-                <span>Iva</span> <span> <span id="iva">$0,00</span></span>
-              </div>
-              <div class="compra__costos--envio">
-                <span>Envío</span> <span> <span id="envio">$350,00</span></span>
-              </div>
               <div class="compra__costos--total">
-                <span>Total</span> <span> <span id="total">$9.524,00</span></span>
+                <span>Total</span> <span> <span id="total"><%=carrito.montoTotal%></span></span>
               </div>
             </div>
             <p class="compra__comprar">
