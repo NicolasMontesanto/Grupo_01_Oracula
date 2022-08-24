@@ -1,7 +1,11 @@
 ## Enlace al tablero de trabajo: https://trello.com/b/atEetjYf/grupo1oracula
 
 ## Pasos para leventar el proyecto: 
-* Ejecutar ```npm install``` en la consola para descargar los módulos necesarios.
+* Ejecutar:
+
+        npm install
+  en la consola para descargar los módulos necesarios.
+
 * Cargar base de datos con "oraculaDB.sql"
 * Crear un archivo ".env" con la configuración de tu base de datos de la siguiente manera:
 
