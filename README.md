@@ -4,10 +4,10 @@
 * Ejecutar "npm install" en la consola para descargar los módulos necesarios.
 * Cargar base de datos con "oraculaDB.sql"
 * Crear un archivo ".env" con la configuración de tu base de datos de la siguiente manera:
-    DB_USER= tuUsuario
-    DB_PASS= tuPass
-    DB_NAME= oraculaDB
-    DB_PORT= tuPuerto
+    ** DB_USER= tuUsuario
+    ** DB_PASS= tuPass
+    ** DB_NAME= oraculaDB
+    ** DB_PORT= tuPuerto
 * Ingresá con el siguiente user:
     User Admin:
     email: admin@email.com
