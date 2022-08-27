@@ -93,6 +93,6 @@ camposObligatorios.forEach(function(input){
 //funcion que utiliza expresion regular para validar el email 
 function esEmailValido(email) {
     expr = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    return !expr.test(email) 
+    return expr.test(email) 
 }
 
