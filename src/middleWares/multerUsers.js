@@ -7,8 +7,10 @@ const storage = multer.diskStorage({
       cb(null, './public/img/Profile-pictures')
     },
     filename:  (req, file, cb) => {
+      if (file && file.originalname) {
       const fileName = `${Date.now()}-profileImg${path.extname(file.originalname)}`
       cb(null, fileName);
+      }
     }
   })
   
