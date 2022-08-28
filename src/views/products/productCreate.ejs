@@ -5,6 +5,7 @@
     <%- include('../partials/head.ejs')%>
         <link rel="stylesheet" href="/css/productCreate.css">
         <script src="/js/productCreate.js" defer></script>
+        <script src="/js/productCreateValidations.js" defer></script>
         <title>Registrar Producto</title>
 </head>
 
@@ -21,36 +22,31 @@
                     <form class="formulario" action="/product/create" method="post" enctype="multipart/form-data">
                         <div class="formulario__item">
                             <label class="formulario__label" for="nombre">Nombre del producto:</label>
-                            <input class="formulario__input  <%= locals.errors && errors.nombre ? 'invalid' : null %>"
+                            <input class="formulario__input  <%= locals.errors && errors.nombre ? 'input--invalid' : null %>"
                                 type="text" id="nombre" name="nombre"
-                                value="<%= locals.oldData ? oldData.nombre : null %>">
-                            <% if (locals.errors && errors.nombre) { %>
-                                <div class="text-danger">
-                                    <p>
-                                        <%=errors.nombre.msg%>
-                                    </p>
-                                </div>
-
-                                <% } %>
+                                value="<%= locals.oldData ? oldData.nombre : null %>" placeholder="Raíz de mandrágora">
+                            <i class="fa-solid fa-circle-check input--icon icon--valid hidden" id="iconValidNombre"></i>
+                            <i class="fa-solid fa-circle-exclamation input--icon icon--invalid hidden" id="iconInvalidNombre"></i>
+                            <p class="formulario__error" id="errorNombre">
+                                <%= (locals.errors && errors.nombre)? errors.nombre.msg : "" %> 
+                            </p>
                         </div>
                         <div class="formulario__item">
                             <label class="formulario__label" for="descripcion">Descripción:</label>
-                            <textarea class="formulario__input input--text-area <%= locals.errors && errors.descripcion ? 'invalid' : null %>" type="text" id="descripcion" name="descripcion"><%= locals.oldData ? oldData.descripcion : null %></textarea>
-                            <% if (locals.errors && errors.descripcion) { %>
-                                <div class="text-danger">
-                                    <p>
-                                        <%=errors.descripcion.msg%>
-                                    </p>
-                                </div>
-
-                                <% } %>
+                            <textarea class="formulario__input input--text-area <%= locals.errors && errors.descripcion ? 'invalid' : null %>" type="text" id="descripcion" name="descripcion" placeholder="Esta planta crece en bosques sombríos, a la vereda de ríos y arroyos donde la luz del sol no penetra. "><%= locals.oldData ? oldData.descripcion : null %></textarea>
+                                <i class="fa-solid fa-circle-check input--icon icon--valid hidden" id="iconValidDescripcion"></i>
+                                <i class="fa-solid fa-circle-exclamation input--icon icon--invalid hidden" id="iconInvalidDescripcion"></i>
+                                <p class="formulario__error" id="errorDescripcion">
+                                    <%= (locals.errors && errors.descripcion)? errors.descripcion.msg : null%>
+                                </p>
+                            </textarea>
                         </div>
                         <div class="formulario__item">
                             <label class="formulario__label" for="categoria">Categoría a la que pertenece:</label>
                             <select
                                 class="formulario__desplegable <%= locals.errors && errors.categoria ? 'invalid' : null %>"
                                 id="categoria" name="categoria">
-                                <option value=""> Elegí una categoría </optionvalue>
+                                <option value="" selected hidden> Elegí una categoría </option>
                                 </option>
                                 <% for( let i=0; i<categorias.length; i++ ) { %>
                                     <option value="<%= categorias[i].id %>" <%=locals.oldData &&
@@ -59,15 +55,12 @@
                                     </option>
                                     <% } %>
                             </select>
-                            <% if (locals.errors && errors.categoria) { %>
-                                <div class="text-danger">
-                                    <p>
-                                        <%=errors.categoria.msg%>
-                                    </p>
-                                </div>
-                                <% } %>
+                            <p class="formulario__error" id="errorCategoria">
+                                <%= (locals.errors && errors.categoria)? errors.categoria.msg : null%>
+                            </p>
+                            
                             <select class="formulario__desplegable <%= locals.errors && errors.subcategoria ? 'invalid' : null %>" id="subcategoria" name="subcategoria" >
-                                <option value="">
+                                <option value="" selected hidden>
                                     Elegí una subcategoría
                                 </option>
                                     <% for( let i=0; i<subcategorias.length; i++ ) { %>
@@ -76,62 +69,59 @@
                                         </option>
                                     <%}%>
                             </select>
-                            <% if (locals.errors && errors.subcategoria) { %>
-                                <div class="text-danger">
-                                    <p>
-                                        <%=errors.subcategoria.msg%>
-                                    </p>
-                                </div>
-                            <% } %>
+                            <p class="formulario__error" id="errorSubcategoria">
+                                <%= (locals.errors && errors.subcategoria)? errors.subcategoria.msg : null%>
+                            </p>
+
                         </div>
-                        <div class="input--atributos" id="JuegoDeMesa">
+                        <div class="formulario__atributo" id="JuegoDeMesa">
                             <div class="formulario__item">
                                 <label class="formulario__label" for="cantidadJugadorxs">Cantidad de Jugadorxs:</label>
-                                <input class="formulario__input" type="number" value="<%= locals.oldData ? oldData.cantidadJugadorxs : null %>" name="cantidadJugadorxs" id="cantidadJugadorxs">
+                                <input class="formulario__input input--atributo" type="number" value="<%= locals.oldData ? oldData.cantidadJugadorxs : null %>" name="cantidadJugadorxs" id="cantidadJugadorxs">
                             </div>
                             <div class="formulario__item">
                                 <label class="formulario__label" for="edadRecomendada">Edad Recomendada:</label>
-                                <input class="formulario__input" type="number" value="<%= locals.oldData ? oldData.edadRecomendada : null %>" name="edadRecomendada" id="edadRecomendada">
+                                <input class="formulario__input input--atributo" type="number" value="<%= locals.oldData ? oldData.edadRecomendada : null %>" name="edadRecomendada" id="edadRecomendada">
                             </div>
                         </div>
-                        <div class="input--atributos" id="Videojuego">
+                        <div class="formulario__atributo" id="Videojuego">
                             <div class="formulario__item">
                                 <label class="formulario__label" for="desarrolladorx">Desarrollado por:</label>
-                                <input class="formulario__input" type="text" value="<%= locals.oldData ? oldData.desarrolladorx : null %>" name="desarrolladorx" id="desarrolladorx">
+                                <input class="formulario__input input--atributo" type="text" value="<%= locals.oldData ? oldData.desarrolladorx : null %>" name="desarrolladorx" id="desarrolladorx">
                             </div>
                             <div class="formulario__item">
                                 <label class="formulario__label" for="lanzamiento">Fecha de Lanzamiento:</label>
-                                <input class="formulario__input" type="date" value="<%= locals.oldData ? oldData.lanzamiento : null %>" name="lanzamiento" id="lanzamiento">
+                                <input class="formulario__input input--atributo" type="date" value="<%= locals.oldData ? oldData.lanzamiento : null %>" name="lanzamiento" id="lanzamiento">
                             </div>      
                         </div>
-                        <div class="input--atributos" id="Libro">
+                        <div class="formulario__atributo" id="Libro">
                             <div class="formulario__item">
                                 <label class="formulario__label" for="extension">Cantidad de páginas:</label>
-                                <input class="formulario__input" type="number" value="<%= locals.oldData ? oldData.extension : null %>" name="extension" id="extension">
+                                <input class="formulario__input input--atributo" type="number" value="<%= locals.oldData ? oldData.extension : null %>" name="extension" id="extension">
                             </div>
                             <div class="formulario__item">
                                 <label class="formulario__label" for="autoriaLibro">Autoría:</label>
-                                <input class="formulario__input" type="text" value="<%= locals.oldData ? oldData.autoriaLibro : null %>" name="autoriaLibro" id="autoriaLibro">
+                                <input class="formulario__input input--atributo" type="text" value="<%= locals.oldData ? oldData.autoriaLibro : null %>" name="autoriaLibro" id="autoriaLibro">
                             </div>
                         </div>
-                        <div class="input--atributos" id="Audiolibro">
+                        <div class="formulario__atributo" id="Audiolibro">
                             <div class="formulario__item">
                                 <label class="formulario__label" for="duracionAudiolibro">Duración:</label>
-                                <input class="formulario__input" type="number" value="<%= locals.oldData ? oldData.duracionAudiolibro : null %>" name="duracionAudiolibro" id="duracionAudiolibro">
+                                <input class="formulario__input input--atributo" type="number" value="<%= locals.oldData ? oldData.duracionAudiolibro : null %>" name="duracionAudiolibro" id="duracionAudiolibro">
                             </div>
                             <div class="formulario__item">
                                 <label class="formulario__label" for="autoriaAudiolibro">Autoría:</label>
-                                <input class="formulario__input" type="text" value="<%= locals.oldData ? oldData.autoriaAudiolibro : null %>" name="autoriaAudiolibro" id="autoriaAudiolibro">
+                                <input class="formulario__input input--atributo" type="text" value="<%= locals.oldData ? oldData.autoriaAudiolibro : null %>" name="autoriaAudiolibro" id="autoriaAudiolibro">
                             </div>
                             <div class="formulario__item">
                                 <label class="formulario__label" for="narradorx">Narrado por:</label>
-                                <input class="formulario__input" type="text" value="<%= locals.oldData ? oldData.narradorx : null %>" name="narradorx" id="narradorx">
+                                <input class="formulario__input input--atributo" type="text" value="<%= locals.oldData ? oldData.narradorx : null %>" name="narradorx" id="narradorx">
                             </div>
                         </div>
-                        <div class="input--atributos" id="Ropa">
+                        <div class="formulario__atributo" id="Ropa">
                             <div class="formulario__item">
                                 <label class="formulario__label" for="talle">Talle:</label>
-                                <select class="formulario__desplegable" name="talle" id="talle">
+                                <select class="formulario__desplegable input--atributo" name="talle" id="talle">
                                     <option value="" selected >Elegí un talle</option>
                                     <option value="S" <%=locals.oldData && oldData.talle == "S" ? 'selected' : null %> >S</option>
                                     <option value="M" <%=locals.oldData && oldData.talle == "M" ? 'selected' : null %> >M</option>
@@ -140,20 +130,20 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="input--atributos" id="Coleccionable">
+                        <div class="formulario__atributo" id="Coleccionable">
                         </div>
-                        <div class="input--atributos" id="Accesorio">
+                        <div class="formulario__atributo" id="Accesorio">
                         </div>
-                        <div class="input--atributos" id="Pelicula">
+                        <div class="formulario__atributo" id="Pelicula">
                             <div class="formulario__item">
                                 <label class="formulario__label" for="duracionPelicula">Duración:</label>
-                                <input class="formulario__input" type="number" value="<%= locals.oldData ? oldData.duracionPelicula : null %>" name="duracionPelicula" id="duracionPelicula">
+                                <input class="formulario__input input--atributo" type="number" value="<%= locals.oldData ? oldData.duracionPelicula : null %>" name="duracionPelicula" id="duracionPelicula">
                             </div>
                         </div>
-                        <div class="input--atributos" id="Soundtrack">
+                        <div class="formulario__atributo" id="Soundtrack">
                             <div class="formulario__item">
                                 <label class="formulario__label" for="duracionSoundtrack">Duración:</label>
-                                <input class="formulario__input" type="number" value="<%= locals.oldData ? oldData.duracionSoundtrack : null %>" name="duracionSoundtrack" id="duracionSoundtrack">
+                                <input class="formulario__input input--atributo" type="number" value="<%= locals.oldData ? oldData.duracionSoundtrack : null %>" name="duracionSoundtrack" id="duracionSoundtrack">
                             </div>
                         </div>
                         <div class="formulario__item">
@@ -183,17 +173,12 @@
                         </div>
                         <div class="formulario__item">
                             <label class="formulario__label" for="imagenes">Imágenes del producto:</label>
-                            <input
-                                class="formulario__input input--file <%= locals.errors && errors.imagenes ? 'invalid' : null %>"
-                                } type="file" id="imagenes" name="imagenes" required
-                                accept="image/png, image/jpeg, image/gif, image/svg, image/jpeg, image/jfif">
-                            <% if (locals.errors && errors.imagenes) { %>
-                                <div class="text-danger">
-                                    <p>
-                                        <%=errors.imagenes.msg%>
-                                    </p>
-                                </div>
-                            <% } %>
+                            <input class="formulario__input input--file <%= locals.errors && errors.imagenes ? 'invalid' : null %>"
+                                type="file" id="imagenes" name="imagenes"
+                                accept="image/png, image/jpeg, image/gif, image/jpg">
+                            <p class="formulario__error" id="errorImagenes">
+                                <%= (locals.errors && errors.imagenes)? errors.imagenes.msg : null%>
+                            </p>
                         </div>
                         <div class="formulario__item formulario__checkbox__container">
                             <div class="formulario__item formulario--checkbox">
@@ -213,13 +198,11 @@
                             <div class="formulario__item input--pdm">
                                 <label class="formulario__label" for="precio">Precio: </label>
                                 <input class="formulario__input input--small <%= locals.errors && errors.precio ? 'invalid' : null %>" type="number" id="precio" name="precio" value="<%= locals.oldData ? oldData.precio : null %>">
-                                <% if (locals.errors && errors.precio) { %>
-                                    <div class="text-danger">
-                                        <p>
-                                            <%=errors.precio.msg%>
-                                        </p>
-                                    </div>
-                                <% } %>
+                                <i class="fa-solid fa-circle-check input--icon icon--valid hidden" id="iconValidPrecio"></i>
+                                <i class="fa-solid fa-circle-exclamation input--icon icon--invalid hidden" id="iconInvalidPrecio"></i>
+                                <p class="formulario__error" id="errorPrecio">
+                                    <%= (locals.errors && errors.precio)? errors.precio.msg : null%>
+                                </p>
                             </div>
                             <div class="formulario__item input--pdm">
                                 <label for="descuento" class="formulario__label">Descuento</label>
