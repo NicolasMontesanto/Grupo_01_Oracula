@@ -21,7 +21,7 @@ const validationsSignup = [
         }
         return true;
     }),
-    body('password').isLength({ min: 6 }).withMessage('Tu contraseña debe contener al menos 6 caracteres'),
+    body('password').isLength({ min: 8 }).withMessage('Tu contraseña debe contener al menos 8 caracteres'),
     body('passwordRepetir')
         .notEmpty().withMessage('Por favor repetí la contraseña.').bail()
         .custom((value, { req }) => {
@@ -50,8 +50,8 @@ const validationsUserEdit = [
     body('password').notEmpty().custom((value, { req }) => {
         if (req.body.password) {
             let passNueva = req.body.password;
-            if (passNueva.length < 6) {
-                throw new Error('La contraseña tiene que tener al menos 6 caracteres.');
+            if (passNueva.length < 8) {
+                throw new Error('La contraseña tiene que tener al menos 8 caracteres.');
             }
             let passRepetir = req.body.passwordRepetir;
 
