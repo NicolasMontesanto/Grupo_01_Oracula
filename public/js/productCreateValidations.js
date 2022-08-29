@@ -45,7 +45,7 @@ function insertAfter(elementoNuevo, elementoSeleccionado) {
 //Función que valida que un input tenga la cantidad de caracteres especificada.
 //Al input le agrega las clases "input--valid" o "input--invalid" según corresponda.
 //A los íconos los muestra y oculta según corresponda.
-//Y al error le da o quita el mensaje de error.
+//Y al se error le da o quita el mensaje de error.
 //Recibe el input que se quiere validar, la cantidad de caracteres, los íconos de válido y no válido, el elemento donde se va a mostrar el error, y el mensaje de error a mostrar.
 //Devuelve 1 si hay errores o 0 si no. Esto se usa para contar la cantidad de errores que quedan en el formulario.
 function validateNumberOfChar(input, numberOfChar, iconValid, iconInvalid, error, errorMessage) {
@@ -86,7 +86,7 @@ function validateNumberOfChar(input, numberOfChar, iconValid, iconInvalid, error
 
 //Función que valida que un input select no tenga seleccionado su primer elemento (el placeholder).
 //Al input le agrega las clases "input--valid" o "input--invalid" según corresponda.
-//Y al error le da o quita el mensaje de error.
+//Y al error se le da o quita el mensaje de error.
 //Recibe el input que se quiere validar, el elemento donde se va a mostrar el error, y el mensaje de error a mostrar.
 //Devuelve 1 si hay errores o 0 si no. Esto se usa para contar la cantidad de errores que quedan en el formulario.
 function validateOptionSelected(input, error, errorMessage) {
@@ -121,7 +121,7 @@ function validateOptionSelected(input, error, errorMessage) {
 
 //Función que valida que un input de file tenga alguna de las extensiones aceptadas.
 //Al input le agrega las clases "input--valid" o "input--invalid" según corresponda.
-//Y al error le da o quita el mensaje de error.
+//Y al error se le da o quita el mensaje de error.
 //Recibe el input que se quiere validar, las extensiones aceptadas, el elemento donde se va a mostrar el error, y el mensaje de error a mostrar.
 //Devuelve 1 si hay errores o 0 si no. Esto se usa para contar la cantidad de errores que quedan en el formulario.
 function validateExtensions(input, extensions, error, errorMessage) {
