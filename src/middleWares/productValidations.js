@@ -2,8 +2,8 @@ const { body } = require('express-validator');
 const path = require('path');
 
 const validationsCreateProduct = [
-    body('nombre').notEmpty().withMessage("Por favor completá el nombre del producto"),
-    body('descripcion').notEmpty().withMessage("Necesitamos una descripción para poder cargar el producto"),
+    body('nombre').notEmpty().isLength({ min: 5 }).withMessage("Por favor completá el nombre del producto"),
+    body('descripcion').notEmpty().isLength({ min:20 }).withMessage("Necesitamos una descripción para poder cargar el producto"),
     body('categoria').notEmpty().withMessage("¡No te olvides de seleccionar una categoría!"),
     body('subcategoria').notEmpty().withMessage("Por favor seleccioná también una subcategoría"),
     body('precio').notEmpty().withMessage("¡No olvides el precio!"),
@@ -23,8 +23,8 @@ const validationsCreateProduct = [
 ];
 
 const validationsEditProduct = [
-    body('nombre').notEmpty().withMessage("Por favor completá el nombre del producto"),
-    body('descripcion').notEmpty().withMessage("Necesitamos una descripción para poder cargar el producto"),
+    body('nombre').notEmpty().isLength({ min: 5 }).withMessage("Por favor completá el nombre del producto"),
+    body('descripcion').notEmpty().isLength({ min: 20 }).withMessage("Necesitamos una descripción para poder cargar el producto"),
     body('categoria').notEmpty().withMessage("¡No te olvides de seleccionar una categoría!"),
     body('subcategoria').notEmpty().withMessage("Por favor seleccioná una también subcategoría"),
     body('precio').notEmpty().withMessage("¡No olvides el precio!"),
