@@ -25,11 +25,6 @@
     visibility: hidden;
 }
 
-.invalid {
-    border: 1px solid red;
-    border-radius: 5px;
-}
-
 .main {
     width: 100%;
     flex-direction: column;

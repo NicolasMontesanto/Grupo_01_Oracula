@@ -38,7 +38,7 @@ const validationsLogin = [
     body('email')
         .notEmpty().withMessage('Por favor completá tu correo').bail()
         .isEmail().withMessage('¡El formato del correo no es válido! Intentalo de nuevo'),
-    body('password').isLength({ min: 6 }).withMessage('No olvides tu contraseña'),
+    body('password').isLength({ min: 6 }).withMessage('La contraseña debe tener al menos 6 caracteres.'),
 ];
 
 const validationsUserEdit = [
