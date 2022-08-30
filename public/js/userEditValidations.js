@@ -276,7 +276,8 @@ formulario.addEventListener('submit', function (e) {
 
     // impide que el form se submita si tiene errores
     errors > 0 ? e.preventDefault() : null;
-    errors = 0;    
+    errors = 0;
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
 });
 
 

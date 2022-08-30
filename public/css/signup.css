@@ -31,7 +31,7 @@
     width: 100%;
     flex-direction: column;
     display:flex;
-    margin-bottom: 40px;
+    padding-bottom: 40px;
 
 }
 .titulo{
@@ -74,7 +74,7 @@
 }
 
 .formulario__container{
-    background-color: rgba(69, 41, 63, 0.5);
+    background-color: rgba(69, 41, 63, 0.7);
     box-shadow: 10px 10px 20px 10px var(--morado-oscuro);
     width: 90%;
     max-width: 650px;
@@ -111,9 +111,11 @@
 .formulario__input{
     height: 35px;
     width: 100%;
-    background-color: rgb(240,240,240);
     padding: 0px 5px;
+    margin-bottom: 10px;
     font-size: 20px;
+    border: 1px grey solid;
+    border-radius: 4px;
 }
 .formulario--checkbox{
     display:flex;
@@ -124,6 +126,9 @@
 .label--checkbox{
     padding-top: 5px;
     min-width: 180px;
+}
+.input--file{
+    background-color: #fff;
 }
 .input--checkbox{
     margin-left: 10px;

@@ -189,12 +189,10 @@
 }
 
 .icon--valid {
-    background-color: #d7fbe4;
     color: var(--green-valid);
 }
 
 .icon--invalid {
-    background-color: #fcdbe1;
     color: var(--red-invalid);
 }
 

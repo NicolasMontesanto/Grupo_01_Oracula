@@ -8,24 +8,18 @@
 
 <body>
     <!--header-->
-    <%- include('../partials/header.ejs')%>
+    <%- include('../partials/headerMinimalista.ejs')%>
         <!--main-->
         <div class="fondo">
             <main class="main">
                 <section class="titulo">
                     <% if (locals && locals.isAdmin) { %>
                         <h1 class="titulo__text">Crear cuenta</h1>
-                        <% } else { %>
-                            <h1 class="titulo__text">Creá tu cuenta</h1>
-                            <% } %>
+                    <% } else { %>
+                        <h1 class="titulo__text">Crear cuenta</h1>
+                    <% } %>
                 </section>
                 <section class="formulario__box">
-                    <div class="boton-google__container">
-                        <button class="boton-google" type="submit" id="google" name="google">
-                            <i class="fa-brands fa-google"></i>
-                            Google
-                        </button>
-                    </div>
                     <section class="formulario__container">
                         <!-- YA CON METHOD = "POST"-->
                         <form class="formulario" action="/user/signup" method="post" enctype="multipart/form-data">
@@ -38,11 +32,9 @@
                                 <div></div>
                                 <% if (locals.errors && errors.nombre) { %>
                                     <div class="text-danger">
-                                        <p>
-                                            <%=errors.nombre.msg%>
-                                        </p>
+                                        <p><%=errors.nombre.msg%></p>
                                     </div>
-                                    <% } %>
+                                <% } %>
                             </div>
                             <div class="formulario__item">
                                 <label class="formulario__label" for="apellido">Apellido:</label>
@@ -53,9 +45,7 @@
                                 <div></div>
                                 <% if (locals.errors && errors.apellido) { %>
                                     <div class="text-danger">
-                                        <p>
-                                            <%=errors.apellido.msg%>
-                                        </p>
+                                        <p><%=errors.apellido.msg%></p>
                                     </div>
                                     <% } %>
                             </div>
@@ -67,11 +57,9 @@
                                 <div></div>
                                 <% if (locals.errors && errors.email) { %>
                                     <div class="text-danger">
-                                        <p>
-                                            <%=errors.email.msg%>
-                                        </p>
+                                        <p><%=errors.email.msg%></p>
                                     </div>
-                                    <% } %>
+                                <% } %>
                             </div>
                             <div class="formulario__item">
                                 <label class="formulario__label" for="direccion">Dirección:</label>
@@ -152,7 +140,7 @@
                 </section>
             </main>
             <!--footer-->
-            <%- include('../partials/footer.ejs')%>
+            <%-// include('../partials/footer.ejs')%>
         </div>
         <script src="/js/signupValidator.js"></script>
 </body>
