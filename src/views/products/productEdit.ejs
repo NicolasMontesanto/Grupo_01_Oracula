@@ -4,7 +4,9 @@
 <head>
     <%- include('../partials/head.ejs')%>
         <link rel="stylesheet" href="/css/productEdit.css">
+        <link rel="stylesheet" href="/css/productCreate.css">
         <script src="/js/productEdit.js" defer></script>
+        <script src="/js/productEditValidations.js" defer></script>
         <title>Editar Producto</title>
 </head>
 
@@ -21,31 +23,28 @@
                     <form class="formulario" action="/product/<%=product.id%>/edit?_method=PUT" method="post" enctype="multipart/form-data">
                         <div class="formulario__item">
                             <label class="formulario__label" for="id">Producto <%=product.id%> </label>
+                            
                         </div>
                         <div class="formulario__item">
                             <label class="formulario__label" for="nombre">Nombre del producto:</label>
-                            <input class="formulario__input" type="text" id="nombre" name="nombre"
-                                value="<%=product.nombre%>">
-                            <% if (locals.errors && errors.nombre) { %>
-                                <div class="text-danger">
-                                    <p>
-                                        <%=errors.nombre.msg%>
-                                    </p>
-                                </div>
-                                <% } %>
+                            <input class="formulario__input  <%= locals.errors && errors.nombre ? 'input--invalid' : null %>"
+                                type="text" id="nombre" name="nombre"
+                                value="<%= locals.oldData ? oldData.nombre : null %>" placeholder="Raíz de mandrágora">
+                            <i class="fa-solid fa-circle-check input--icon icon--valid hidden" id="iconValidNombre"></i>
+                            <i class="fa-solid fa-circle-exclamation input--icon icon--invalid hidden" id="iconInvalidNombre"></i>
+                            <p class="formulario__error" id="errorNombre">
+                                <%= (locals.errors && errors.nombre)? errors.nombre.msg : "" %> 
+                            </p>
                         </div>
                         <div class="formulario__item">
                             <label class="formulario__label" for="descripcion">Descripción:</label>
-                            <textarea class="formulario__input input--text-area" type="text" id="descripcion"
-                                name="descripcion"><%=product.descripcion%></textarea>
-                            <% if (locals.errors && errors.descripcion) { %>
-                                <div class="text-danger">
-                                    <p>
-                                        <%=errors.descripcion.msg%>
-                                    </p>
-                                </div>
-
-                                <% } %>
+                            <textarea class="formulario__input input--text-area <%= locals.errors && errors.descripcion ? 'invalid' : null %>" type="text" id="descripcion" name="descripcion" placeholder="Esta planta crece en bosques sombríos, a la vereda de ríos y arroyos donde la luz del sol no penetra. "><%= locals.oldData ? oldData.descripcion : null %></textarea>
+                                <i class="fa-solid fa-circle-check input--icon icon--valid hidden" id="iconValidDescripcion"></i>
+                                <i class="fa-solid fa-circle-exclamation input--icon icon--invalid hidden" id="iconInvalidDescripcion"></i>
+                                <p class="formulario__error" id="errorDescripcion">
+                                    <%= (locals.errors && errors.descripcion)? errors.descripcion.msg : null%>
+                                </p>
+                            </textarea>
                         </div>
                         <div class="formulario__item">
                             <label class="formulario__label" for="categoria">Categoría a la que pertenece:</label>
