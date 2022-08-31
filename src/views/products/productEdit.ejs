@@ -28,7 +28,7 @@
                             <label class="formulario__label" for="nombre">Nombre del producto:</label>
                             <input class="formulario__input  <%= locals.errors && errors.nombre ? 'input--invalid' : null %>"
                                 type="text" id="nombre" name="nombre"
-                                value="<%= locals.oldData ? oldData.nombre : null %>" placeholder="Raíz de mandrágora">
+                                value="<%=product.nombre%>" placeholder="Raíz de mandrágora">
                             <i class="fa-solid fa-circle-check input--icon icon--valid hidden" id="iconValidNombre"></i>
                             <i class="fa-solid fa-circle-exclamation input--icon icon--invalid hidden" id="iconInvalidNombre"></i>
                             <p class="formulario__error" id="errorNombre">
@@ -37,13 +37,12 @@
                         </div>
                         <div class="formulario__item">
                             <label class="formulario__label" for="descripcion">Descripción:</label>
-                            <textarea class="formulario__input input--text-area <%= locals.errors && errors.descripcion ? 'invalid' : null %>" type="text" id="descripcion" name="descripcion" placeholder="Esta planta crece en bosques sombríos, a la vereda de ríos y arroyos donde la luz del sol no penetra. "><%= locals.oldData ? oldData.descripcion : null %></textarea>
+                            <textarea class="formulario__input input--text-area <%= locals.errors && errors.descripcion ? 'invalid' : null %>" type="text" id="descripcion" name="descripcion" value="<%=product.descripcion%>" placeholder="Esta planta crece en bosques sombríos, a la vereda de ríos y arroyos donde la luz del sol no penetra. "></textarea>
                                 <i class="fa-solid fa-circle-check input--icon icon--valid hidden" id="iconValidDescripcion"></i>
                                 <i class="fa-solid fa-circle-exclamation input--icon icon--invalid hidden" id="iconInvalidDescripcion"></i>
                                 <p class="formulario__error" id="errorDescripcion">
                                     <%= (locals.errors && errors.descripcion)? errors.descripcion.msg : null%>
                                 </p>
-                            </textarea>
                         </div>
                         <div class="formulario__item">
                             <label class="formulario__label" for="categoria">Categoría a la que pertenece:</label>
