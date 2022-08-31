@@ -1,53 +1,29 @@
-//El formulario
 let formulario = document.querySelector(".formulario");
-
-//Elementos para el input Nombre
 let inputNombre = document.querySelector("#nombre");
 let iconValidNombre = document.querySelector("#iconValidNombre");
 let iconInvalidNombre = document.querySelector("#iconInvalidNombre");
 let errorNombre = document.querySelector("#errorNombre");
-
-//Elementos para el inpout Descripción
 let inputDescripcion = document.querySelector("#descripcion");
 let iconValidDescripcion = document.querySelector("#iconValidDescripcion");
 let iconInvalidDescripcion = document.querySelector("#iconInvalidDescripcion");
 let errorDescripcion = document.querySelector("#errorDescripcion");
-
-//Elementos para el input Categoría
 let inputCategoria = document.querySelector("#categoria");
 let errorCategoria = document.querySelector("#errorCategoria");
-
-//Elementos para el input Subcategoría
 let errorSubcategoria = document.querySelector("#errorSubcategoria");
-
-//Elementos de los atributos de la subcategoría elegida
 let inputAtributos = [];
-
-//Elementos para el input Precio
 let inputPrecio = document.querySelector("#precio");
 let iconValidPrecio = document.querySelector("#iconValidPrecio");
 let iconInvalidPrecio = document.querySelector("#iconInvalidPrecio");
 let errorPrecio = document.querySelector("#errorPrecio");
-
-//Elemento imagen
 let inputImagenes = document.querySelector(".input--file");
 let errorImagenes = document.querySelector("#errorImagenes");
 let validExtensions = [".jpg", ".jpeg", ".png", ".gif"];
-
-//Flag que cuenta la cantidad de errores que tiene el formulario.
 let numberOfErrors = 0;
 
-//Función que inserta un elemento luego del seleccionado
 function insertAfter(elementoNuevo, elementoSeleccionado) {
     elementoSeleccionado.parentNode.insertBefore(elementoNuevo, elementoSeleccionado.nextSibling);
 }
 
-//Función que valida que un input tenga la cantidad de caracteres especificada.
-//Al input le agrega las clases "input--valid" o "input--invalid" según corresponda.
-//A los íconos los muestra y oculta según corresponda.
-//Y al se error le da o quita el mensaje de error.
-//Recibe el input que se quiere validar, la cantidad de caracteres, los íconos de válido y no válido, el elemento donde se va a mostrar el error, y el mensaje de error a mostrar.
-//Devuelve 1 si hay errores o 0 si no. Esto se usa para contar la cantidad de errores que quedan en el formulario.
 function validateNumberOfChar(input, numberOfChar, iconValid, iconInvalid, error, errorMessage) {
     //Si no cumple con la validación:
     if (input.value.length < numberOfChar) {
@@ -56,7 +32,6 @@ function validateNumberOfChar(input, numberOfChar, iconValid, iconInvalid, error
             input.classList.remove("input--valid");
             (iconValid != "") ? iconValid.classList.add("hidden") : null;
         }
-
         //Se agrega lo que indica que no es válido
         if (input.classList.contains("input--invalid") == false) {
             input.classList.add("input--invalid");
@@ -84,11 +59,6 @@ function validateNumberOfChar(input, numberOfChar, iconValid, iconInvalid, error
     }
 }
 
-//Función que valida que un input select no tenga seleccionado su primer elemento (el placeholder).
-//Al input le agrega las clases "input--valid" o "input--invalid" según corresponda.
-//Y al error se le da o quita el mensaje de error.
-//Recibe el input que se quiere validar, el elemento donde se va a mostrar el error, y el mensaje de error a mostrar.
-//Devuelve 1 si hay errores o 0 si no. Esto se usa para contar la cantidad de errores que quedan en el formulario.
 function validateOptionSelected(input, error, errorMessage) {
     if (input.selectedIndex == 0) {
         //Se quita todo lo que indique que sea válido
@@ -119,11 +89,6 @@ function validateOptionSelected(input, error, errorMessage) {
 
 }
 
-//Función que valida que un input de file tenga alguna de las extensiones aceptadas.
-//Al input le agrega las clases "input--valid" o "input--invalid" según corresponda.
-//Y al error se le da o quita el mensaje de error.
-//Recibe el input que se quiere validar, las extensiones aceptadas, el elemento donde se va a mostrar el error, y el mensaje de error a mostrar.
-//Devuelve 1 si hay errores o 0 si no. Esto se usa para contar la cantidad de errores que quedan en el formulario.
 function validateExtensions(input, extensions, error, errorMessage) {
     //Se recorren las extensiones buscando si el archivo cargado tiene alguna.
     let includes = false;

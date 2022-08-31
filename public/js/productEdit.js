@@ -1,28 +1,37 @@
-//se consigue el select de subcategorías
 let inputSubcategoria = document.querySelector("#subcategoria");
-//se consiguen todos los inputs con la clase 'input--atributos'
-let inputAtributos = document.querySelectorAll(".input--atributos");
 
-window.addEventListener("load", function(e){
-    let opcionSeleccionada = inputSubcategoria.selectedOptions[0].dataset.nombre
-    if (opcionSeleccionada){
-        document.querySelector(`#${opcionSeleccionada}`).style.display = "flex";
-    }
-})
+inputSubcategoria.addEventListener("change", function (e) {
 
-//función que muestra los atributos para cada subcategoría
-inputSubcategoria.addEventListener("change", function(e){
-    //se esconden todos los atributos
-    for (input of inputAtributos){
+    let inputAtributos = document.querySelectorAll(".formulario__atributo");
+
+    let allAttributes = document.querySelectorAll(".input--atributo");
+
+    for (input of inputAtributos) {
         input.style.display = "none";
     }
 
-    //se consigue el nombre de la subcategoría elegida y se muestran sus atributos
+    for (attribute of allAttributes) {
+        attribute.classList.remove("atributo--seleccionado");
+    }
+
     let opcionSeleccionada = e.target.selectedOptions[0].dataset.nombre;
-    //Caso especial para 'Juegos de mesa' por sus espacios
-    if ( opcionSeleccionada == "Juego de mesa"){
+
+    if (opcionSeleccionada == "Juego de mesa") {
+
         document.querySelector("#JuegoDeMesa").style.display = "flex";
-    }else{
+        let atributosSeleccionados = document.querySelectorAll("#JuegoDeMesa div input")
+        for (let i = 0; i < atributosSeleccionados.length; i++) {
+            atributosSeleccionados[i].classList.add("atributo--seleccionado");
+        }
+
+    } else if (opcionSeleccionada == "Ropa") {
+        document.querySelector("#Ropa").style.display = "flex";
+        document.querySelector("#Ropa div select").classList.add("atributo--seleccionado");
+    } else {
         document.querySelector(`#${opcionSeleccionada}`).style.display = "flex";
+        let atributosSeleccionados = document.querySelectorAll(`#${opcionSeleccionada} div input`);
+        for (let i = 0; i < atributosSeleccionados.length; i++) {
+            atributosSeleccionados[i].classList.add("atributo--seleccionado");
+        }
     }
 })
