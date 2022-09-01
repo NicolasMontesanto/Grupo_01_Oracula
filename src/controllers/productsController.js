@@ -64,6 +64,9 @@ const productsController = {
     //Renderiza la vista de búsqueda de productos
     search: (req, res) => {
         let query = req.query.search;
+        if (query==null){
+            query = req.query.searchMobile;
+        }
         db.Product.findAll({
             where: {
                 nombre: { [sequelize.Op.like]: "%" + query + "%" }

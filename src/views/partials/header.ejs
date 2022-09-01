@@ -6,12 +6,12 @@
                 <a href="/"><img class="header__logo" src="/img/Logo/blancV2ojo.png" alt="Logo de Oracula"></a>
             </div>
             <!--Hamburguesita-->
-            <div class="Burguer">
-                <button><i id="Burguer_icon" class="iconify" data-icon="eva:menu-fill"></i></button>
+            <div class="burger">
+                <button><i id="burger_icon" class="iconify" data-icon="eva:menu-fill"></i></button>
             </div>
             <!--Busqueda-->
             <form class="Busqueda" action="/product/search" method="GET">
-                <input class="Busqueda_input" type="search">
+                <input class="Busqueda_input" type="search" name="searchMobile" id="searchMobile">
                 <div>
                     <button class="Busqueda_button" class="submit">
                         <i class="iconify" data-icon="pepicons:loop"></i>
@@ -22,38 +22,6 @@
             <nav class="basket">
                 <a href="/product/cart"><button><i class="iconify" data-icon="mdi:basket"></i></button></a>
             </nav>
-            <!-- Hamburger menu -->
-            <nav class="menu__container--mobile" id="menu_container--mobile">
-                <ul class="menu--mobile" id="menu--mobile">
-                    <% if (locals && locals.loggedIn) { %>
-                        <button class="menu__button--mobile">Hola, <%= locals.userLogged.nombre %></button>
-                        <div class="menu__dropdown-content--mobile" id="dropdownCategorías">
-                            <a href="/user/profile" class="dropdown__link--mobile">Perfil</a>
-                            <a href="/user/logout" class="dropdown__link--mobile">Cerrar sesión</a>
-                        </div>
-                    <% } else { %>
-                        <button class="menu__button--mobile"><a href="/user/login">Ingresar</a></button>    
-                    <% } %> 
-                    <button class="menu__button--mobile">Categorías</button>
-                    <div class="menu__dropdown-content--mobile" id="dropdownCategorías">
-                        <a href="/category/2" class="dropdown__link--mobile">Literatura</a>
-                        <a href="/category/1" class="dropdown__link--mobile">Juegos</a>
-                        <a href="/category/4" class="dropdown__link--mobile">Multimedia</a>
-                        <a href="/category/3" class="dropdown__link--mobile">Baratijas</a>
-                    </div>
-                    <% if (locals.isAdmin) { %>
-                        <button class="menu__button--mobile">Admin</button>
-                        <div class="menu__dropdown-content--mobile" id="dropdownCategorías">
-                            <a href="/product/create" class="dropdown__link--mobile">Registrar Producto</a>
-                            <a href="/product/list" class="dropdown__link--mobile">Ver Productos</a>
-                            <a href="/user/signup/admin" class="dropdown__link--mobile">Registrar Usuarix</a>
-                        </div>
-                    <% } %>
-                    <button class="menu__button--mobile"><a href="#">MagicPass</a></button>
-                    
-                </ul>
-            </nav>
-
             <!--Secciones categorias-->
             <nav class="secciones">
                 <ul class="secciones__lista">
@@ -116,19 +84,49 @@
                         <% } else { %>
                             <li class="botonesSuperiores__elemento">
                                 <div class="botonesSuperiores__dropdown">
-                                    <button class="botonesSuperiores__boton">Hola, <%=locals.userLogged.nombre%> <i class="fa-solid fa-angle-down icon--dropdown"></i></button>
+                                    <button class="botonesSuperiores__boton">Hola, <%=locals.userLogged.nombre%> <i
+                                                class="fa-solid fa-angle-down icon--dropdown"></i></button>
                                     <div class="dropdown__contenido">
                                         <a class="dropdown__links" href="/user/profile">Perfil</a>
                                         <a class="dropdown__links" href="/user/logout">Cerrar Sesión</a>
                                     </div>
                                 </div>
                             </li>
-                        <% } %>
+                            <% } %>
                 </ul>
             </nav>
         </div>
+        <!-- Hamburger menu -->
+        <nav class="menu--mobile" id="menu--mobile">
+            <button class="menu__button--mobile menu--oracula"><a href="/">Orácula</a></button>
+            <% if (locals && locals.loggedIn) { %>
+                <button class="menu__button--mobile" id="botonUsuarixMobile">Hola, <%= locals.userLogged.nombre %> <i class="fa-solid fa-caret-down icon-dropdown--mobile" id="iconDropdownUsuarix"></i></button>
+                <ul class="menu__dropdown-content--mobile" id="dropdownUsuarix">
+                    <li class="dropdown__link--mobile"><a href="/user/profile">Perfil</a></li>
+                    <li class="dropdown__link--mobile"><a href="/user/logout">Cerrar sesión</a></li>
+                </ul>
+            <% } else { %>
+                <button class="menu__button--mobile"><a href="/user/login">Ingresar</a></button>
+            <% } %>
+            <button class="menu__button--mobile" id="botonCategoriasMobile">Categorías <i class="fa-solid fa-caret-down icon-dropdown--mobile" id="iconDropdownCategorias"></i></button>
+            <ul class="menu__dropdown-content--mobile" id="dropdownCategorias">
+                <li class="dropdown__link--mobile"><a href="/category/2">Literatura</a></li>
+                <li class="dropdown__link--mobile"><a href="/category/1">Juegos</a></li>
+                <li class="dropdown__link--mobile"><a href="/category/3">Multimedia</a></li>
+                <li class="dropdown__link--mobile"><a href="/category/4">Baratijas</a></li>
+            </ul>
+            <% if (locals.isAdmin) { %>
+                <button class="menu__button--mobile" id="botonAdminMobile">Admin <i class="fa-solid fa-caret-down icon-dropdown--mobile" id="iconDropdownAdmin"></i></button>
+                <ul class="menu__dropdown-content--mobile" id="dropdownAdmin">
+                    <li class="dropdown__link--mobile"><a href="/product/create">Registrar producto</a> </li>
+                    <li class="dropdown__link--mobile"><a href="/product/list">Ver productos</a></li>
+                    <li class="dropdown__link--mobile"><a href="/user/signup/admin">Registrar usuarix</a></li>
+                </ul>
+            <% } %>
+            <button class="menu__button--mobile"><a href="#">MagicPass</a></button>
+        </nav>
         <!--Menú desplegable-->
-        <nav class="menu__container" id="menu__container">
+        <nav class="menu__container contenedor--sombra" id="menu__container">
             <ul class="menu menu--generos" onmouseleave="ocultarMenu('menu--generos')">
                 <li class="menu__item">
                     <a class="menu__link link--imagen" href="/">
@@ -198,13 +196,14 @@
         <section class="search__container">
             <form class="search__form" action="/product/search" method="GET">
                 <input class="search__input" type="search" placeholder="Buscá productos acá." name="search" id="search">
-                    <button class="search__button" class="submit">
-                        <i class="iconify" data-icon="pepicons:loop"></i>
-                    </button>
+                <button class="search__button" class="submit">
+                    <i class="iconify" data-icon="pepicons:loop"></i>
+                </button>
             </form>
         </section>
     </div>
     <!--Script-->
+    <script src="/js/burgerMenu.js"></script>
     <script>
         //Hace que el display de todos los menus empiece en None
         function setDisplayNoneMenus() {
@@ -246,7 +245,6 @@
                 menus[i].style.display = "none";
                 document.getElementById("menu__container").style.boxShadow = "";
             }
-            Menu
         }
     </script>
 </header>
