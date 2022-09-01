@@ -216,7 +216,7 @@ formulario.addEventListener("submit", function (event) {
     numberOfErrors += validateNumberOfChar(inputPrecio, 1, iconValidPrecio, iconInvalidPrecio, errorPrecio, "El precio no puede estar vacío.");
     numberOfErrors += validateExtensions(inputImagenes, validExtensions, errorImagenes, "Extensiones aceptadas: '.jpg', '.jpeg', '.png' o '.gif'.")
 
-    //Validaciones para cada atributo
+    //Validaciones para cada atributo 
     for (let i = 0; i < inputAtributos.length; i++) {
         numberOfErrors += validateNumberOfChar(inputAtributos[i], 1, "", "", document.querySelector(`#atributo${i}`), "Completá este campo.")
     }

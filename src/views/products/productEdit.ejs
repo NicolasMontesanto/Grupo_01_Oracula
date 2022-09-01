@@ -5,7 +5,7 @@
     <%- include('../partials/head.ejs')%>
         <link rel="stylesheet" href="/css/productCreate.css">
         <script src="/js/productEdit.js" defer></script>
-        <script src="/js/productEditValidations.js" defer></script>
+        <script src="/js/productCreateValidations.js" defer></script>
         <title>Editar Producto</title>
 </head>
 
@@ -37,7 +37,7 @@
                         </div>
                         <div class="formulario__item">
                             <label class="formulario__label" for="descripcion">Descripción:</label>
-                            <textarea class="formulario__input input--text-area <%= locals.errors && errors.descripcion ? 'invalid' : null %>" type="text" id="descripcion" name="descripcion" value="<%=product.descripcion%>" placeholder="Esta planta crece en bosques sombríos, a la vereda de ríos y arroyos donde la luz del sol no penetra. "></textarea>
+                            <textarea class="formulario__input input--text-area <%= locals.errors && errors.descripcion ? 'invalid' : null %>" type="text" id="descripcion" name="descripcion" placeholder="Esta planta crece en bosques sombríos, a la vereda de ríos y arroyos donde la luz del sol no penetra. "> <%=product.descripcion%> </textarea>
                                 <i class="fa-solid fa-circle-check input--icon icon--valid hidden" id="iconValidDescripcion"></i>
                                 <i class="fa-solid fa-circle-exclamation input--icon icon--invalid hidden" id="iconInvalidDescripcion"></i>
                                 <p class="formulario__error" id="errorDescripcion">
@@ -71,51 +71,51 @@
                                 </div>
                             <% } %>
                         </div>
-                        <div class="input--atributos" id="JuegoDeMesa">
+                        <div class="formulario__atributo" id="JuegoDeMesa">
                             <div class="formulario__item">
                                 <label class="formulario__label" for="cantidadJugadorxs">Cantidad de Jugadorxs:</label>
-                                <input class="formulario__input" type="number" value="<%= locals.oldData ? oldData.autoriaLibro : (product.subcategoryID == 1 ? product.attribute[0].AttributeProduct.valor : null) %>" name="cantidadJugadorxs" id="cantidadJugadorxs">
+                                <input class="formulario__input input--atributo" type="number" value="<%= locals.oldData ? oldData.cantidadJugadorxs: (product.subcategoryID == 1 ? product.attribute[0].AttributeProduct.valor : null) %>" name="cantidadJugadorxs" id="cantidadJugadorxs">
                             </div>
                             <div class="formulario__item">
                                 <label class="formulario__label" for="edadRecomendada">Edad Recomendada:</label>
-                                <input class="formulario__input" type="number" value="<%= locals.oldData ? oldData.autoriaLibro : (product.subcategoryID == 1 ? product.attribute[1].AttributeProduct.valor : null) %>" name="edadRecomendada" id="edadRecomendada">
+                                <input class="formulario__input input--atributo" type="number" value="<%= locals.oldData ? oldData.edadRecomendada : (product.subcategoryID == 1 ? product.attribute[1].AttributeProduct.valor : null) %>" name="edadRecomendada" id="edadRecomendada">
                             </div>
                         </div>
-                        <div class="input--atributos" id="Videojuego">
+                        <div class="formulario__atributo" id="Videojuego">
                             <div class="formulario__item">
                                 <label class="formulario__label" for="desarrolladorx">Desarrollado por:</label>
-                                <input class="formulario__input" type="text" value="<%= locals.oldData ? oldData.autoriaLibro : (product.subcategoryID == 2 ? product.attribute[0].AttributeProduct.valor : null) %>" name="desarrolladorx" id="desarrolladorx">
+                                <input class="formulario__input input--atributo" type="text" value="<%= locals.oldData ? oldData.desarrolladorx : (product.subcategoryID == 2 ? product.attribute[0].AttributeProduct.valor : null) %>" name="desarrolladorx" id="desarrolladorx">
                             </div>
                             <div class="formulario__item">
                                 <label class="formulario__label" for="lanzamiento">Fecha de Lanzamiento:</label>
-                                <input class="formulario__input" type="date" value="<%= locals.oldData ? oldData.autoriaLibro : (product.subcategoryID == 2 ? product.attribute[1].AttributeProduct.valor : null) %>" name="lanzamiento" id="lanzamiento">
+                                <input class="formulario__input input--atributo" type="date" value="<%= locals.oldData ? oldData.lanzamiento : (product.subcategoryID == 2 ? product.attribute[1].AttributeProduct.valor : null) %>" name="lanzamiento" id="lanzamiento">
                             </div>      
                         </div>
-                        <div class="input--atributos" id="Libro">
+                        <div class="formulario__atributo" id="Libro">
                             <div class="formulario__item">
                                 <label class="formulario__label" for="extension">Cantidad de páginas:</label>
-                                <input class="formulario__input" type="number" value="<%= locals.oldData ? oldData.autoriaLibro : (product.subcategoryID == 3 ? product.attribute[0].AttributeProduct.valor : null) %>" name="extension" id="extension">
+                                <input class="formulario__input input--atributo" type="text" value="<%= locals.oldData ? oldData.extension : (product.subcategoryID == 3 ? product.attribute[1].AttributeProduct.valor : null) %>"name="extension" id="extension">
                             </div>
                             <div class="formulario__item">
                                 <label class="formulario__label" for="autoriaLibro">Autoría:</label>
-                                <input class="formulario__input" type="text" value="<%= locals.oldData ? oldData.autoriaLibro : (product.subcategoryID == 3 ? product.attribute[1].AttributeProduct.valor : null) %>" name="autoriaLibro" id="autoriaLibro">
+                                <input class="formulario__input input--atributo" type="text" value="<%= locals.oldData ? oldData.autoriaLibro : (product.subcategoryID == 3 ? product.attribute[0].AttributeProduct.valor : null) %>" name="autoriaLibro" id="autoriaLibro">
                             </div>
                         </div>
-                        <div class="input--atributos" id="Audiolibro">
+                        <div class="formulario__atributo" id="Audiolibro">
                             <div class="formulario__item">
                                 <label class="formulario__label" for="duracionAudiolibro">Duración:</label>
-                                <input class="formulario__input" type="number" value="<%= locals.oldData ? oldData.autoriaLibro : (product.subcategoryID == 4 ? product.attribute[0].AttributeProduct.valor : null) %>" name="duracionAudiolibro" id="duracionAudiolibro">
+                                <input class="formulario__input input--atributo" type="number" value="<%= locals.oldData ? oldData.duracionAudiolibro : (product.subcategoryID == 4 ? product.attribute[0].AttributeProduct.valor : null) %>" name="duracionAudiolibro" id="duracionAudiolibro">
                             </div>
                             <div class="formulario__item">
                                 <label class="formulario__label" for="autoriaAudiolibro">Autoría:</label>
-                                <input class="formulario__input" type="text" value="<%= locals.oldData ? oldData.autoriaLibro : (product.subcategoryID == 4 ? product.attribute[1].AttributeProduct.valor : null) %>" name="autoriaAudiolibro" id="autoriaAudiolibro">
+                                <input class="formulario__input input--atributo" type="text" value="<%= locals.oldData ? oldData.autoriaAudiolibro : (product.subcategoryID == 4 ? product.attribute[1].AttributeProduct.valor : null) %>" name="autoriaAudiolibro" id="autoriaAudiolibro">
                             </div>
                             <div class="formulario__item">
                                 <label class="formulario__label" for="narradorx">Narrado por:</label>
-                                <input class="formulario__input" type="text" value="<%= locals.oldData ? oldData.autoriaLibro : (product.subcategoryID == 4 ? product.attribute[2].AttributeProduct.valor : null) %>" name="narradorx" id="narradorx">
+                                <input class="formulario__input input--atributo" type="text" value="<%= locals.oldData ? oldData.narradorx : (product.subcategoryID == 4 ? product.attribute[2].AttributeProduct.valor : null) %>" name="narradorx" id="narradorx">
                             </div>
                         </div>
-                        <div class="input--atributos" id="Ropa">
+                        <div class="formulario__atributo" id="Ropa">
                             <div class="formulario__item">
                                 <label class="formulario__label" for="talle">Talle:</label>
                                 <select class="formulario__desplegable" name="talle" id="talle">
@@ -127,20 +127,20 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="input--atributos" id="Coleccionable">
+                        <div class="formulario__atributo" id="Coleccionable">
                         </div>
-                        <div class="input--atributos" id="Accesorio">
+                        <div class="formulario__atributo" id="Accesorio">
                         </div>
-                        <div class="input--atributos" id="Pelicula">
+                        <div class="formulario__atributo" id="Pelicula">
                             <div class="formulario__item">
                                 <label class="formulario__label" for="duracionPelicula">Duración:</label>
-                                <input class="formulario__input" type="number" value="<%= locals.oldData ? oldData.autoriaLibro : (product.subcategoryID == 8 ? product.attribute[0].AttributeProduct.valor : null)%>" name="duracionPelicula" id="duracionPelicula">
+                                <input class="formulario__input input--atributo" type="number" value="<%= locals.oldData ? oldData.duracionPelicula : (product.subcategoryID == 8 ? product.attribute[0].AttributeProduct.valor : null)%>" name="duracionPelicula" id="duracionPelicula">
                             </div>
                         </div>
-                        <div class="input--atributos" id="Soundtrack">
+                        <div class="formulario__atributo" id="Soundtrack">
                             <div class="formulario__item">
                                 <label class="formulario__label" for="duracionSoundtrack">Duración:</label>
-                                <input class="formulario__input" type="number" value="<%= locals.oldData ? oldData.autoriaLibro : (product.subcategoryID == 9 ? product.attribute[0].AttributeProduct.valor : null)%>" name="duracionSoundtrack" id="duracionSoundtrack">
+                                <input class="formulario__input input--atributo" type="number" value="<%= locals.oldData ? oldData.duracionSoundtrack : (product.subcategoryID == 9 ? product.attribute[0].AttributeProduct.valor : null)%>" name="duracionSoundtrack" id="duracionSoundtrack">
                             </div>
                         </div>
                         <div class="formulario__item">
