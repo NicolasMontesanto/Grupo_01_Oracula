@@ -8,71 +8,54 @@
 
 <body>
     <!--header-->
-    <%- include('../partials/header.ejs')%>
+    <%- include('../partials/headerMinimalista.ejs')%>
         <!--main-->
         <div class="fondo">
             <main class="main">
                 <section class="titulo">
-                    <% if (locals && locals.isAdmin) { %>
-                        <h1 class="titulo__text">Crear cuenta</h1>
-                    <% } else { %>
-                    <h1 class="titulo__text">Creá tu cuenta</h1>
-                    <% } %> 
+                    <h1 class="titulo__text">Crear cuenta</h1>
                 </section>
                 <section class="formulario__box">
-                    <div class="boton-google__container">
-                        <button class="boton-google" type="submit" id="google" name="google">
-                            <i class="fa-brands fa-google"></i>
-                            Google
-                        </button>
-                    </div>
                     <section class="formulario__container">
-                        <!-- YA CON METHOD = "POST"-->
                         <form class="formulario" action="/user/signup" method="post" enctype="multipart/form-data">
                             <div class="formulario__item">
                                 <label class="formulario__label" for="nombre">Nombre:</label>
-                                <input
+                                <input data-nombre="nombre"
                                     class="formulario__input <%= locals.errors && errors.nombre ? 'invalid' : null %>"
                                     type="text" id="nombre" name="nombre"
-                                    value="<%= locals.oldData ? oldData.nombre : null %>">
-                                <% if (locals.errors && errors.nombre) { %>
-                                    <div class="text-danger">
-                                        <p>
-                                            <%=errors.nombre.msg%>
-                                        </p>
-                                    </div>
-                                    <% } %>
+                                    value="<%= locals.oldData ? oldData.nombre : null %>" placeholder="Albus Percival Wulfric Brian">
+                                <p class="formulario__error" id="errorNombre">
+                                    <%= (locals.errors && errors.nombre)? errors.nombre.msg : "" %> 
+                                </p>
+                                <i class="fa-solid fa-circle-check input--icon icon--valid hidden" id="iconValidNombre"></i>
+                                <i class="fa-solid fa-circle-exclamation input--icon icon--invalid hidden" id="iconInvalidNombre"></i>
                             </div>
                             <div class="formulario__item">
                                 <label class="formulario__label" for="apellido">Apellido:</label>
-                                <input
+                                <input data-nombre="apellido"
                                     class="formulario__input <%= locals.errors && errors.apellido ? 'invalid' : null %>"
                                     type="text" id="apellido" name="apellido"
-                                    value="<%= locals.oldData ? oldData.apellido : null %>">
-                                <% if (locals.errors && errors.apellido) { %>
-                                    <div class="text-danger">
-                                        <p>
-                                            <%=errors.apellido.msg%>
-                                        </p>
-                                    </div>
-                                    <% } %>
+                                    value="<%= locals.oldData ? oldData.apellido : null %>" placeholder="Dumbledore">
+                                <p class="formulario__error" id="errorApellido">
+                                    <%= (locals.errors && errors.apellido)? errors.apellido.msg : "" %> 
+                                </p>
+                                <i class="fa-solid fa-circle-check input--icon icon--valid hidden" id="iconValidApellido"></i>
+                                <i class="fa-solid fa-circle-exclamation input--icon icon--invalid hidden" id="iconInvalidApellido"></i>
+                            </div>
+                            <div class="formulario__item"> 
+                                <label class="formulario__label" for="email">Email:</label>
+                                <input data-nombre="email" class="formulario__input <%= locals.errors && errors.email ? 'invalid' : null %>"
+                                    type="email" id="email" name="email"
+                                    value="<%= locals.oldData ? oldData.email : null %>" placeholder="albus-el-mejor-mago@hogwarts.uk">
+                                <p class="formulario__error" id="errorEmail">
+                                    <%= (locals.errors && errors.email)? errors.email.msg : "" %> 
+                                </p>
+                                <i class="fa-solid fa-circle-check input--icon icon--valid hidden" id="iconValidEmail"></i>
+                                <i class="fa-solid fa-circle-exclamation input--icon icon--invalid hidden" id="iconInvalidEmail"></i>
                             </div>
                             <div class="formulario__item">
-                                <label class="formulario__label" for="email">Email:</label>
-                                <input class="formulario__input <%= locals.errors && errors.email ? 'invalid' : null %>"
-                                    type="email" id="email" name="email"
-                                    value="<%= locals.oldData ? oldData.email : null %>">
-                                <% if (locals.errors && errors.email) { %>
-                                    <div class="text-danger">
-                                        <p>
-                                            <%=errors.email.msg%>
-                                        </p>
-                                    </div>
-                                    <% } %>
-                            </div>
-                             <div class="formulario__item">
                                 <label class="formulario__label" for="direccion">Dirección:</label>
-                                <input
+                                <input 
                                     class="formulario__input <%= locals.errors && errors.direccion ? 'invalid' : null %>"
                                     type="text" id="direccion" name="direccion"
                                     value="<%= locals.oldData ? oldData.direccion : null %>">
@@ -86,65 +69,61 @@
                             </div>
                             <div class="formulario__item">
                                 <label class="formulario__label" for="profile-picture">Imagen de perfil:</label>
-                                <input class="formulario__input input--file" type="file" id="profilePicture"
+                                <input data-nombre="imagen" class="formulario__input input--file" type="file" id="profilePicture"
                                     name="profilePicture" accept="image/png, image/jpeg">
-                                <% if (locals.errors && errors.profilePicture) { %>
-                                    <div class="text-danger">
-                                        <p>
-                                            <%=errors.profilePicture.msg%>
-                                        </p>
-                                    </div>
-                                    <% } %>
+                                <p class="formulario__error" id="errorprofilePicture">
+                                    <%= (locals.errors && errors.profilePicture)? errors.profilePicture.msg : "" %> 
+                                </p>
                             </div>
                             <div class="formulario__item">
                                 <label class="formulario__label" for="password">Contraseña:</label>
-                                <input
+                                <input data-nombre="password"
                                     class="formulario__input <%= locals.errors && errors.password ? 'invalid' : null %>"
-                                    type="password" id="password" name="password" minlength="6">
-                                <% if (locals.errors && errors.password) { %>
-                                    <div class="text-danger">
-                                        <p>
-                                            <%=errors.password.msg%>
-                                        </p>
-                                    </div>
-                                    <% } %>
+                                    type="password" id="password" name="password">
+                                <p class="formulario__error" id="errorprofilePicture">
+                                    <%= (locals.errors && errors.password)? errors.password.msg : "" %> 
+                                </p>
+                                <i class="fa-solid fa-circle-check input--icon icon--valid hidden" id="iconValidPassword"></i>
+                                <i class="fa-solid fa-circle-exclamation input--icon icon--invalid hidden" id="iconInvalidPassword"></i>
                             </div>
                             <div class="formulario__item">
-                                <label class="formulario__label" for="passwordRepetir">Repita su Contraseña:</label>
-                                <input
+                                <label class="formulario__label" for="passwordRepetir">Repetí tu contraseña:</label>
+                                <input data-nombre="passwordRepetir"
                                     class="formulario__input <%= locals.errors && errors.passwordRepetir ? 'invalid' : null %>"
-                                    type="password" id="password-repetir" name="passwordRepetir" minlength="6">
-                                <% if (locals.errors && errors.passwordRepetir) { %>
-                                    <div class="text-danger">
-                                        <p>
-                                            <%=errors.passwordRepetir.msg%>
-                                        </p>
-                                    </div>
-                                    <% } %>
+                                    type="password" id="passwordRepetir" name="passwordRepetir"
+                                    data-nombre="passwordRepetir">
+                                <p class="formulario__error" id="errorprofilePicture">
+                                    <%= (locals.errors && errors.passwordRepetir)? errors.passwordRepetir.msg : "" %> 
+                                </p>
+                                <i class="fa-solid fa-circle-check input--icon icon--valid hidden" id="iconValidPasswordRepetir"></i>
+                                <i class="fa-solid fa-circle-exclamation input--icon icon--invalid hidden" id="iconInvalidPasswordRepetir"></i>
                             </div>
                             <% if (locals && locals.isAdmin) { %>
                                 <div class="formulario__item formulario--checkbox">
-                                    <label class="formulario__label label--checkbox" for="isAdmin">¿Es Administradorx?</label>
+                                    <label class="formulario__label label--checkbox" for="isAdmin">¿Es
+                                        Administradorx?</label>
                                     <input class="input--checkbox" type="checkbox" name="isAdmin" id="isAdmin">
                                 </div>
-                            <% } %>
-                            <div class="formulario__submit">
-                                <p class="label--secondary">
-                                    <% if (locals && !locals.isAdmin) { %>
-                                    ¿Ya tenés cuenta? <a class="formulario__link" href="/user/login">Ingresá acá.</a>
                                 <% } %>
-                                </p>
-                                <button type="submit">
-                                    <i class="fa-solid fa-circle-arrow-right formulario__icon-submit"></i>
-                                </button>
-                            </div>
+                                    <div class="formulario__submit">
+                                        <p class="label--secondary">
+                                            <% if (locals && !locals.isAdmin) { %>
+                                                ¿Ya tenés cuenta? <a class="formulario__link" href="/user/login">Ingresá
+                                                    acá.</a>
+                                                <% } %>
+                                        </p>
+                                        <button type="submit">
+                                            <i class="fa-solid fa-circle-arrow-right formulario__icon-submit"></i>
+                                        </button>
+                                    </div>
                         </form>
                     </section>
                 </section>
             </main>
             <!--footer-->
-            <%- include('../partials/footer.ejs')%>
+            <%-// include('../partials/footer.ejs')%>
         </div>
+        <script src="/js/signupValidator.js"></script>
 </body>
 
 </html>

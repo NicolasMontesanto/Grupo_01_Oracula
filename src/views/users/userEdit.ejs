@@ -3,8 +3,9 @@
 <html lang="en">
 
 <head>
-    <%- include('../partials/head.ejs')%>
+    <%- include('../partials/head.ejs')%> 
         <link rel="stylesheet" href="/css/userEdit.css">
+        <script src="/js/userEditValidations.js" defer ></script>
         <title>Editar Usuario</title>
 </head>
 
@@ -18,98 +19,91 @@
                     <h1 class="titulo__text">Editar Usuario</h1>
                 </section>
                 <div class="formulario__container">
-                    <form class="formulario" action="/user/<%=user.id%>/edit?_method=PUT" method="post" enctype="multipart/form-data">
+                    <form class="formulario" action="/user/<%=user.id %>/edit?_method=PUT" method="post" enctype="multipart/form-data">
                         <div class="formulario__item">
-                            <label class="formulario__label" for="id">
+                            <label class="formulario__label label--username" for="id">
                                 <%=user.nombre%>
                                     <%=user.apellido%>
                             </label>
                         </div>
                         <div class="formulario__item">
                             <label class="formulario__label" for="nombre">Nombre:</label>
-                            <input class="formulario__input <%= locals.errors && errors.nombre ? 'invalid' : null %>"
+                            <input class="formulario__input <%= locals.errors && errors.nombre ? 'input--invalid': null %>"
                                 type="text" id="nombre" name="nombre" value="<%=user.nombre%>">
-                            <% if (locals.errors && errors.nombre) { %>
-                                <div class="text-danger">
-                                    <p>
-                                        <%=errors.nombre.msg%>
-                                    </p>
-                                </div>
-                                <% } %>
+                                <i class="fa-solid fa-circle-check input--icon icon--valid hidden" id="iconValidNombre"></i>
+                                <i class="fa-solid fa-circle-exclamation input--icon icon--invalid hidden" id="iconInvalidNombre"></i>
+                                <p class="formulario__error" id="errorNombre">
+                                    <%= (locals.errors && errors.nombre)? errors.nombre.msg : "" %> 
+                                </p>
                         </div>
                         <div class="formulario__item">
                             <label class="formulario__label" for="apellido">Apellido:</label>
                             <input
-                                class="formulario__input <%= locals.errors && errors.apellido ? 'invalid' : null %>"
-                                type="text" id="apellido" name="apellido" value="<%=user.apellido%>"></input>
-                            <% if (locals.errors && errors.apellido) { %>
-                                <div class="text-danger">
-                                    <p>
-                                        <%=errors.apellido.msg%>
-                                    </p>
-                                </div>
-                                <% } %>
+                                class="formulario__input <%= locals.errors && errors.apellido ? 'input--invalid' : null %>"
+                                type="text" id="apellido" name="apellido" value="<%=user.apellido%>">
+                                <i class="fa-solid fa-circle-check input--icon icon--valid hidden" id="iconValidApellido"></i>
+                                <i class="fa-solid fa-circle-exclamation input--icon icon--invalid hidden" id="iconInvalidApellido"></i>
+                                <p class="formulario__error" id="errorApellido">
+                                    <%= (locals.errors && errors.apellido)? errors.apellido.msg : "" %> 
+                                </p>
                         </div>
                         <div class="formulario__item">
                             <label class="formulario__label" for="email">Email:</label>
-                            <input class="formulario__input <%= locals.errors && errors.email ? 'invalid' : null %>"
+                            <input class="formulario__input <%= locals.errors && errors.email ? 'input--invalid' : null %>"
                                 type="email" id="email" name="email" value="<%=user.email%>">
-                            <% if (locals.errors && errors.email) { %>
-                                <div class="text-danger">
-                                    <p>
-                                        <%=errors.email.msg%>
-                                    </p>
-                                </div>
-                                <% } %>
-                        </div>
+                                <i class="fa-solid fa-circle-check input--icon icon--valid hidden" id="iconValidEmail"></i>
+                                <i class="fa-solid fa-circle-exclamation input--icon icon--invalid hidden" id="iconInvalidEmail"></i>
+                                <p class="formulario__error" id="errorEmail">
+                                    <%= (locals.errors && errors.email)? errors.email.msg : "" %> 
+                                </p>
+                         </div>
                         <div class="formulario__item">
                             <label class="formulario__label" for="direccion">Dirección:</label>
                             <input
-                                class="formulario__input <%= locals.errors && errors.direccion ? 'invalid' : null %>"
+                                class="formulario__input <%= locals.errors && errors.direccion ? 'input--invalid' : null %>"
                                 type="text" id="direccion" name="direccion" value="<%=user.direccion%>">
                         </div>
                         <div class="formulario__item">
                             <label class="formulario__label" for="telefono">Teléfono:</label>
                             <input
-                                class="formulario__input <%= locals.errors && errors.telefono ? 'invalid' : null %>"
-                                type="number" id="telefono" name="telefono" value="<%=user.telefono%>">
+                                class="formulario__input <%= locals.errors && errors.telefono ? 'input--invalid' : null %>"
+                                type="tel" id="telefono" name="telefono" value="<%=user.telefono%>" placeholder="+54 XXX XXXXXXXX">
+                                <i class="fa-solid fa-circle-check input--icon icon--valid hidden" id="iconValidTel"></i>
+                                <i class="fa-solid fa-circle-exclamation input--icon icon--invalid hidden" id="iconInvalidTel"></i>
+                                <p class="formulario__error" id="errorTel">
+                                    <%= (locals.errors && errors.telefono)? errors.telefono.msg : "" %> 
+                                </p>
                         </div>
                         <div class="formulario__item">
                             <label class="formulario__label" for="profile-picture">Imagen de perfil:</label>
                             <input class="formulario__input input--file" type="file" id="profilePicture"
-                                name="profilePicture" accept="image/png, image/jpeg">
-                            <!-- <% if (locals.errors && errors.profilePicture) { %>
-                                <div class="text-danger">
-                                    <p>
-                                      <%=errors.profilePicture.msg%>
-                                    </p>
-                                </div>
-                                <% } %> -->
+                                name="profilePicture" accept="image/png, image/jpeg" required>
+                                <i class="fa-solid fa-circle-check input--icon icon--valid hidden" id="iconValidImagen"></i>
+                                <i class="fa-solid fa-circle-exclamation input--icon icon--invalid hidden" id="iconInvalidImagen"></i>
+                                <p class="formulario__error" id="errorProfilePicture">
+                                    <%= (locals.errors && errors.profilePicture)? errors.profilePicture.msg : "" %> 
+                                </p>
                         </div>
                         <div class="formulario__item">
                             <label class="formulario__label" for="password">Cambiar contraseña:</label>
-                            <input class="formulario__input <%= locals.errors && errors.password ? 'invalid' : null %>"
-                                type="password" id="password" name="password" minlength="6">
-                            <% if (locals.errors && errors.password) { %>
-                                <div class="text-danger">
-                                    <p>
-                                        <%=errors.password.msg%>
-                                    </p>
-                                </div>
-                                <% } %>
+                            <input class="formulario__input <%= locals.errors && errors.password ? 'input--invalid' : null %>"
+                                type="password" id="password" name="password" required >
+                                <i class="fa-solid fa-circle-check input--icon icon--valid hidden" id="iconValidPass"></i>
+                                <i class="fa-solid fa-circle-exclamation input--icon icon--invalid hidden" id="iconInvalidPass"></i>
+                                <p class="formulario__error" id="errorPassword">
+                                    <%= (locals.errors && errors.password)? errors.password.msg : "" %> 
+                                </p>
                         </div>
                         <div class="formulario__item">
                             <label class="formulario__label" for="password">Confirme su contraseña:</label>
                             <input
-                                class="formulario__input <%= locals.errors && errors.passwordRepetir ? 'invalid' : null %>"
-                                type="password" id="password-repetir" name="passwordRepetir" minlength="6">
-                            <% if (locals.errors && errors.passwordRepetir) { %>
-                                <div class="text-danger">
-                                    <p>
-                                        <%=errors.passwordRepetir.msg%>
-                                    </p>
-                                </div>
-                                <% } %>
+                                class="formulario__input <%= locals.errors && errors.passwordRepetir ? 'input--invalid' : null %>"
+                                type="password" id="password-repetir" name="passwordRepetir" required>
+                                <i class="fa-solid fa-circle-check input--icon icon--valid hidden" id="iconValidPassR"></i>
+                                <i class="fa-solid fa-circle-exclamation input--icon icon--invalid hidden" id="iconInvalidPassR"></i>
+                                <p class="formulario__error" id="errorPasswordR">
+                                    <%= (locals.errors && errors.passwordRepetir)? errors.passwordRepetir.msg : "" %> 
+                                </p>
                         </div>
                         <div class="formulario__item last-item">
                             <button class="formulario__icon-submit" type="submit">

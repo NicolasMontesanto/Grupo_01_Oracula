@@ -39,22 +39,20 @@ a {
     text-decoration: none;
 }
 
-.contenedor--sombra{
+.contenedor--sombra {
     box-shadow: 0px 1px 10px -2px rgba(0, 0, 0, 0.5);
 }
 
 .fondo {
-    background-image:linear-gradient(
-        rgba(0, 0, 0, 0.2),
-        rgba(0, 0, 0, 0.2)
-      ),url(/img/Fondos/Background2.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2),
+            rgba(0, 0, 0, 0.2)), url(/img/Fondos/Background2.jpg);
     background-attachment: fixed;
     background-size: cover;
     height: 100%;
     min-height: 100vh;
     width: 100%;
     z-index: -1000;
-    padding-top: 120px;
+    padding-top: 80px;
 }
 
 .secciones,
@@ -99,7 +97,49 @@ header {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1000px;
+}
+
+.header__logo-container{
+    display: flex;
+    align-items: center;
+    padding:5px 15px;
+}
+.header__logo--minimalista {
+    display: none;
+    width: 80px;
+    height: 80px;
+    margin: 5px 0;
+}
+
+.header__titulo--minimalista {
+    font-size: 34px;
+    margin: 10px 0;
+    color: var(--oracula);
+    text-shadow: 0px 0px 5px var(--oracula);
+    animation: tituloGlow 5s linear 2s infinite;
+}
+@keyframes tituloGlow {
+    0% {
+        text-shadow: 0px 0px 5px var(--oracula);
+    }
+
+    25% {
+        text-shadow: 0px 0px 5px var(--oracula);
+    }
+
+    50% {
+        text-shadow: 0px 0px 5px var(--oracula), 0px 0px 20px rgb(189, 220, 244, 0.6);
+
+    }
+
+    75% {
+        text-shadow: 0px 0px 5px var(--oracula);
+    }
+
+    100% {
+        text-shadow: 0px 0px 5px var(--oracula);
+    }
 }
 
 .header__relleno {
@@ -200,7 +240,8 @@ footer {
     color: #a9b2a2;
     text-decoration: none;
 }
-.links__link:hover{
+
+.links__link:hover {
     color: #FBB954;
 }
 
@@ -241,6 +282,17 @@ footer {
     .botonesSuperiores__lista,
     .botonesSuperiores__elemento {
         display: flex;
+    }
+    .fondo{
+        padding-top: 120px;
+    }
+    .header__logo--minimalista {
+        display: block;
+    }
+    .header__titulo--minimalista {
+        font-size: 40px;
+        color: var(--oracula);
+        margin-left: 20px;
     }
 
     .basket,
@@ -372,13 +424,16 @@ footer {
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         z-index: 1001;
     }
-    .icon--dropdown{
+
+    .icon--dropdown {
         font-size: 20px;
     }
-    .icon--dropdown{
+
+    .icon--dropdown {
         font-size: 20px;
     }
-    .dropdown__links{
+
+    .dropdown__links {
         color: var(--gris-claro);
         font-size: 20px;
         background-color: var(--morado-oscuro);
@@ -387,13 +442,15 @@ footer {
         text-decoration: none;
         display: block;
     }
-    .dropdown__links:hover{
+
+    .dropdown__links:hover {
         color: var(--amarillo-naranja);
         background-color: var(--morado);
     }
+
     .botonesSuperiores__dropdown:hover .dropdown__contenido {
         display: block;
-      }
+    }
 
     .menu__container {
         display: flex;
@@ -455,27 +512,31 @@ footer {
         font-weight: 100;
         padding-bottom: 10px;
     }
+
     /*---SEARCH---*/
-    .search__container{
+    .search__container {
         background-color: var(--morado-oscuro);
         width: 100%;
         display: flex;
         justify-content: center;
     }
-    .search__form{
+
+    .search__form {
         margin-left: 50px;
         width: 100%;
         display: flex;
         justify-content: flex-start;
     }
-    .search__input{
+
+    .search__input {
         width: 30%;
         background-color: var(--morado-oscuro);
         border: 0px transparent;
         font-size: 22px;
         color: var(--amarillo-naranja);
     }
-    .search__button{
+
+    .search__button {
         font-size: 35px;
         line-height: 0px;
         color: var(--gris-claro)
@@ -492,7 +553,8 @@ footer {
         color: #a9b2a2;
         text-decoration: none;
     }
-    .links__link:hover{
+
+    .links__link:hover {
         color: #FBB954;
     }
 
