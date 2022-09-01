@@ -76,6 +76,10 @@ a {
     font-weight: bolder;
 }
 
+.menu__container--mobile{
+    width: ;
+}
+
 header {
     overflow-x: hidden;
 }

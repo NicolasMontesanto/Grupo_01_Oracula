@@ -22,6 +22,38 @@
             <nav class="basket">
                 <a href="/product/cart"><button><i class="iconify" data-icon="mdi:basket"></i></button></a>
             </nav>
+            <!-- Hamburger menu -->
+            <nav class="menu__container--mobile" id="menu_container--mobile">
+                <ul class="menu--mobile" id="menu--mobile">
+                    <% if (locals && locals.loggedIn) { %>
+                        <button class="menu__button--mobile">Hola, <%= locals.userLogged.nombre %></button>
+                        <div class="menu__dropdown-content--mobile" id="dropdownCategorías">
+                            <a href="/user/profile" class="dropdown__link--mobile">Perfil</a>
+                            <a href="/user/logout" class="dropdown__link--mobile">Cerrar sesión</a>
+                        </div>
+                    <% } else { %>
+                        <button class="menu__button--mobile"><a href="/user/login">Ingresar</a></button>    
+                    <% } %> 
+                    <button class="menu__button--mobile">Categorías</button>
+                    <div class="menu__dropdown-content--mobile" id="dropdownCategorías">
+                        <a href="/category/2" class="dropdown__link--mobile">Literatura</a>
+                        <a href="/category/1" class="dropdown__link--mobile">Juegos</a>
+                        <a href="/category/4" class="dropdown__link--mobile">Multimedia</a>
+                        <a href="/category/3" class="dropdown__link--mobile">Baratijas</a>
+                    </div>
+                    <% if (locals.isAdmin) { %>
+                        <button class="menu__button--mobile">Admin</button>
+                        <div class="menu__dropdown-content--mobile" id="dropdownCategorías">
+                            <a href="/product/create" class="dropdown__link--mobile">Registrar Producto</a>
+                            <a href="/product/list" class="dropdown__link--mobile">Ver Productos</a>
+                            <a href="/user/signup/admin" class="dropdown__link--mobile">Registrar Usuarix</a>
+                        </div>
+                    <% } %>
+                    <button class="menu__button--mobile"><a href="#">MagicPass</a></button>
+                    
+                </ul>
+            </nav>
+
             <!--Secciones categorias-->
             <nav class="secciones">
                 <ul class="secciones__lista">
@@ -31,12 +63,6 @@
                             Magic Pass
                         </button>
                     </li>
-                    <!-- <li>
-                        <button class="secciones__elemento secciones--generos" onclick="mostrarMenu('menu--generos', 'menu--categorias', 'menu--admin')">
-                            <i class="iconify secciones__icon" data-icon="fa6-solid:hamsa"></i>
-                            Géneros
-                        </button>
-                    </li> -->
                     <li>
                         <button class="secciones__elemento secciones--categorias"
                             onclick="mostrarMenu('menu--categorias', 'menu--generos', 'menu--admin')">
@@ -90,15 +116,14 @@
                         <% } else { %>
                             <li class="botonesSuperiores__elemento">
                                 <div class="botonesSuperiores__dropdown">
-                                    <button class="botonesSuperiores__boton">Hola, <%=locals.userLogged.nombre%> <i
-                                                class="fa-solid fa-angle-down icon--dropdown"></i></button>
+                                    <button class="botonesSuperiores__boton">Hola, <%=locals.userLogged.nombre%> <i class="fa-solid fa-angle-down icon--dropdown"></i></button>
                                     <div class="dropdown__contenido">
                                         <a class="dropdown__links" href="/user/profile">Perfil</a>
                                         <a class="dropdown__links" href="/user/logout">Cerrar Sesión</a>
                                     </div>
                                 </div>
                             </li>
-                            <% } %>
+                        <% } %>
                 </ul>
             </nav>
         </div>
