@@ -64,16 +64,136 @@ a {
 }
 
 /*---HEADER---*/
-.Burguer {
+.burger {
     justify-self: left;
     flex-grow: 0;
     padding: 2px;
 }
 
-#Burguer_icon {
+#burger_icon {
     color: #FBB954;
     font-size: 50px;
     font-weight: bolder;
+}
+
+.menu--mobile {
+    width: 50%;
+    min-width: 300px;
+    height: 100%;
+    position: fixed;
+    top: 55px;
+    left: -420px;
+    overflow: hidden;
+    background-color: var(--morado-oscuro);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    font-size: 24px;
+    transition: left 250ms;
+}
+
+.active {
+    left: 0px
+}
+
+.menu__button--mobile {
+    color: var(--oracula);
+    height: 60px;
+    margin: 0px 0;
+    width: 100%;
+    padding-left: 10px;
+    text-align: left;
+    cursor: pointer;
+}
+.menu__button--mobile:hover{
+    background-color: var(--morado);
+}
+
+.menu--oracula {
+    font-size: 34px;
+    margin: 20px 5px;
+    color: var(--oracula);
+    text-shadow: 0px 0px 5px var(--oracula);
+    animation: menuGlow 5s linear 2s infinite;
+}
+.menu--oracula:hover{
+    background-color: var(--morado-oscuro);
+}
+
+@keyframes menuGlow {
+    0% {
+        text-shadow: 0px 0px 5px var(--oracula);
+    }
+
+    25% {
+        text-shadow: 0px 0px 5px white;
+    }
+
+    50% {
+        text-shadow: 0px 0px 5px white, 0px 0px 20px rgb(189, 220, 244, 0.6);
+
+    }
+
+    75% {
+        text-shadow: 0px 0px 5px white;
+    }
+
+    100% {
+        text-shadow: 0px 0px 5px var(--oracula);
+    }
+}
+
+.menu__dropdown-content--mobile {
+    padding-left: 10px;
+    color: var(--oracula);
+    width: 100%;
+    background-color: var(--morado);
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.5) inset;
+    overflow: hidden;
+    height: 0;
+}
+
+.dropdown--down {
+    height: fit-content;
+}
+
+.dropdown--animated {
+    animation: dropdown 250ms ease-in-out;
+    transform-origin: top center;
+}
+
+@keyframes dropdown {
+    0% {
+        transform: scaleY(0);
+    }
+
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+.dropdown__link--mobile {
+    height: 50px;
+    margin-left: -10px;
+    padding: 10px 0px 10px 0px;
+}
+
+.dropdown__link--mobile a{
+    padding-left: 20px;
+}
+
+.dropdown__link--mobile:hover{
+    background-color: var(--terracota);
+}
+
+.icon-dropdown--mobile {
+    float: right;
+    padding-right: 15px;
+}
+
+.icon--upside-down {
+    transform: rotate(180deg);
+    margin-right: 15px;
 }
 
 header {
@@ -94,17 +214,19 @@ header {
 
 .header__container {
     display: flex;
+    height: 55px;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     max-width: 1000px;
 }
 
-.header__logo-container{
+.header__logo-container {
     display: flex;
     align-items: center;
-    padding:5px 15px;
+    padding: 5px 15px;
 }
+
 .header__logo--minimalista {
     display: none;
     width: 80px;
@@ -119,22 +241,23 @@ header {
     text-shadow: 0px 0px 5px var(--oracula);
     animation: tituloGlow 5s linear 2s infinite;
 }
+
 @keyframes tituloGlow {
     0% {
         text-shadow: 0px 0px 5px var(--oracula);
     }
 
     25% {
-        text-shadow: 0px 0px 5px var(--oracula);
+        text-shadow: 0px 0px 5px white;
     }
 
     50% {
-        text-shadow: 0px 0px 5px var(--oracula), 0px 0px 20px rgb(189, 220, 244, 0.6);
+        text-shadow: 0px 0px 5px white, 0px 0px 20px rgb(189, 220, 244, 0.6);
 
     }
 
     75% {
-        text-shadow: 0px 0px 5px var(--oracula);
+        text-shadow: 0px 0px 5px white;
     }
 
     100% {
@@ -164,12 +287,13 @@ button {
 }
 
 .Busqueda_input {
-    box-shadow: inset 2px 3px 3px #40423f;
-    height: 28px;
+    box-shadow: inset 1px 1px 3px var(--morado);
+    height: 35px;
     width: 100%;
-    background-color: #576069;
-    border: #576069;
-    border-radius: 13px;
+    background-color: lightgrey;
+    border-radius: 10px;
+    font-size: 22px;
+    padding: 5px;
 }
 
 .Busqueda_button {
@@ -178,7 +302,7 @@ button {
     font-size: 30px;
     position: absolute;
     right: 2%;
-    top: 3px;
+    top: 8px;
 }
 
 .basket {
@@ -283,12 +407,23 @@ footer {
     .botonesSuperiores__elemento {
         display: flex;
     }
-    .fondo{
+
+    .menu--mobile {
+        display: none;
+    }
+
+    .header__container {
+        height: fit-content;
+    }
+
+    .fondo {
         padding-top: 120px;
     }
+
     .header__logo--minimalista {
         display: block;
     }
+
     .header__titulo--minimalista {
         font-size: 40px;
         color: var(--oracula);
@@ -296,7 +431,7 @@ footer {
     }
 
     .basket,
-    .Burguer,
+    .burger,
     .Busqueda {
         display: none;
     }
