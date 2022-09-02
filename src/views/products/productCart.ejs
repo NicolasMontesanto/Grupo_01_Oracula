@@ -15,99 +15,64 @@
   <div class="fondo">
       <main class="contenedor">
         <!--SECCION DE COMPRAS-->
+        <% if (arrayProductos.length == 0) { %>
+            <h1 class="tituloCarrito"> <i class="fa-solid fa-cart-shopping" id="i-carrito"></i>
+                ¡Tu carrito está vacío!
+            </h1>
+        <% } else { %>
         <h1 class="tituloCarrito"> <i class="fa-solid fa-cart-shopping" id="i-carrito"></i>
           Carrito de compras
         </h1>
-
-        <section class="carrito">
-          <div class="item">
-            <h2 class="item__titulo">Detalle de compra</h2>
-            <div class="tarjeta">
-              <div class="tarjetita">
-                <div class="tarjeta__img">
-                  <img src="/img/productos/juegos/Cartas.jpg" alt="Cartas" class="tarjeta__img--img">
-                </div>
-                <div class="item__detalle">
-                  <h3 class="item__detalle--nombre">Star Spinner Tarot</h3>
-                  <div class="item__datos">
-                    <div class="item__datos--cantidad">
-                      <button class="item__datos--boton" id="menos">
-                        <i class="fa-solid fa-minus"></i>
-                      </button>
-                      <span class="item__datos--contar">1</span>
-                      <button class="item__datos--boton" id="mas">
-                        <i class="fa-solid fa-plus"></i>
-                      </button>
+        <% } %> 
+        <% if (arrayProductos.length > 0) { %>
+            <section class="carrito">
+            <div class="item">
+                <h2 class="item__titulo">Detalle de compra</h2>
+                <%for (let i = 0; i < arrayProductos.length; i++) { %>
+                <div class="tarjeta">
+                    <div class="tarjetita">
+                        <div class="tarjeta__img">
+                            <img src="<%=arrayProductos[i].image.url%>" alt="Cartas" class="tarjeta__img--img">
+                        </div>
+                        <div class="item__detalle">
+                            <h3 class="item__detalle--nombre"><%=arrayProductos[i].nombre%></h3>
+                        <div class="item__datos">
+                            <div class="item__datos--cantidad">
+                                <button class="item__datos--boton" id="menos">
+                                    <i class="fa-solid fa-minus"></i>
+                                </button>
+                                <span class="item__datos--contar"><%=arrayProductos[i].cantidad%></span>
+                                <button class="item__datos--boton" id="mas">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </div>
+                            <div class="item__datos--precio">
+                                <span id="precio">$<%=arrayProductos[i].precio - arrayProductos[i].precio * (arrayProductos[i].descuento / 100)%></span>
+                            </div>
+                        </div>
+                        </div>
+                        <form action="/product/cart/delete/<%=arrayProductos[i].id%>" method="POST">   
+                            <button class="item__detalle--cerrar" type="submit"> 
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                        </form>
                     </div>
-                    <div class="item__datos--precio">
-                      <span id="precio"> $6.874,00</span>
-                    </div>
-                  </div>
                 </div>
-                <form action="/cart/delete/<%=productCart.id%>" method="POST">   
-                <button class="item__detalle--cerrar" type="submit"> 
-                  <i class="fa-solid fa-xmark"></i>
-                </button>
-                </form>
-              </div>
+                <%}%>
             </div>
-            <div class="tarjeta">
-              <div class="tarjetita">
-                <div class="tarjeta__img">
-                  <img src="/img/productos/juegos/remera.jpg" alt="remera" class="tarjeta__img--img">
-                </div>
-                <div class="item__detalle">
-                  <h3 class="item__detalle--nombre">Remera gato Gandalf </h3>
-                  <div class="item__datos">
-                    <div class="item__datos--cantidad">
-                      <button class="item__datos--boton" id="menos">
-                        <i class="fa-solid fa-minus"></i>
-                      </button>
-                      <span id="item__datos--contar">1</span>
-                      <button class="item__datos--boton" id="mas">
-                        <i class="fa-solid fa-plus"></i>
-                      </button>
+            <div class="compra">
+                <div class="compra__costos">
+                    <div class="compra__costos--total">
+                        <span>Total</span> <span> <span id="total"><%=carrito.montoTotal%></span></span>
                     </div>
-                    <div class="item__datos--precio">
-                      <span id="precio"> $2.300,00</span>
-                    </div>
-                  </div>
                 </div>
-                <button class="item__detalle--cerrar">
-                  <i class="fa-solid fa-xmark"></i>
-                </button>
-              </div>
+                <p class="compra__comprar">
+                    <button class="compra__comprar--boton" id="comprar">Continuar compra</button>
+                </p>
             </div>
-          </div>
-
-          <div class="compra">
-            <div class="compra__descuento">
-              <label for="compra__descuento" class="compra__descuento--titulo">Gift card/Código de descuento</label>
-              <div class="compra__descuento--barra">
-                <input type="text" name="descuento" id="descuento" class="input-default">
-                <button class="compra__descuento--boton">Aplicar</button>
-              </div>
-            </div>
-            <div class="compra__costos">
-              <div class="compra__costos--subtotal">
-                <span>Subtotal</span> <span><span id="subtotal">$9.174,00</span></span>
-              </div>
-              <div class="compra__costos--iva">
-                <span>Iva</span> <span> <span id="iva">$0,00</span></span>
-              </div>
-              <div class="compra__costos--envio">
-                <span>Envío</span> <span> <span id="envio">$350,00</span></span>
-              </div>
-              <div class="compra__costos--total">
-                <span>Total</span> <span> <span id="total">$9.524,00</span></span>
-              </div>
-            </div>
-            <p class="compra__comprar">
-              <button class="compra__comprar--boton" id="comprar">Continuar compra</button>
-            </p>
-          </div>
         </section>
-      </main>
+    <% } %>
+    </main>
       <!--FOOTER-->
       <%- include('../partials/footer.ejs')%>
 

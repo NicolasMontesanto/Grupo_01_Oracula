@@ -4,7 +4,7 @@ const adminAuthMiddleware = {
         const userLogged = req.session.userLogged;
         if (!userLogged){
             return res.redirect('/');
-        } else if (!userLogged.isAdmin){
+        } else if (!userLogged.esAdmin==1){
             return res.redirect('/');
         }
         next();

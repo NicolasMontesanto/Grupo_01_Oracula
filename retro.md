@@ -12,6 +12,7 @@ Tuvimos muchas dudas sobre el uso de git, fue la mayor dificultad que se nos pre
 ### Notas
 Este Sprint fluyó de forma sencilla, pudimos lograr todo a tiempo y sin mayores problemas de organización.
 
+
 ## Revisión del Sprint 2
 
 ### Comenzar a hacer: 
@@ -33,6 +34,7 @@ Este Sprint fluyó de forma sencilla, pudimos lograr todo a tiempo y sin mayores
 * Grandes cambios sin actualizar el remoto.
 * Procrastinar y concentrar todo el trabajo hacia el final del sprint.
 
+
 ## Revision del sprint 3
 
 ### Comenzar a hacer
@@ -52,6 +54,7 @@ Este Sprint fluyó de forma sencilla, pudimos lograr todo a tiempo y sin mayores
 
 ### Dejar de hacer
 * No dar reportes por varios días
+
 
 ## Revision del sprint 4
 
@@ -76,3 +79,51 @@ Este Sprint fluyó de forma sencilla, pudimos lograr todo a tiempo y sin mayores
 ### Dejar de hacer
 * Tomar decisiones importantes de forma unilateral.
 * No dar reportes por varios días.
+
+
+# Revision del sprint 5
+
+## Comenzar a hacer
+Establecer reglas de cómo escribir y modificar código.
+
+## Hacer más
+Estimar mejor la dificultad de las tareas para que tengan una complejidad similar entre ellas.
+Comentar el código.
+Tener el PlayGround al día.
+Tener en cuenta el feedback de nuestrxs compañerxs.
+
+## Continuar haciendo
+Hacer pull requests más periódicos.
+Weekly meetings.
+Subdividir las grandes tareas en otras más pequeñas.
+Actualizar el Trello.
+
+## Hacer menos
+
+## Dejar de hacer
+Tomar decisiones importantes de forma unilateral.
+No dar reportes por varios días.
+
+# Revision del sprint 6
+
+## Comenzar a hacer
+Juntarnos 
+
+## Hacer más
+Estimar mejor la dificultad de las tareas para que tengan una complejidad similar entre ellas.
+Tener el PlayGround al día.
+Tener en cuenta el feedback de nuestrxs compañerxs.
+Testing.
+
+## Continuar haciendo
+Hacer pull requests periódicos.
+Comentar el código.
+Weekly meetings.
+Subdividir las grandes tareas en otras más pequeñas.
+Actualizar el Trello.
+
+## Hacer menos
+Mandar funcionalidades sin testear lo suficiente.
+
+## Dejar de hacer
+Ponernos a revisar las cosas 4 horas antes del momento de la entrega.

@@ -4,8 +4,9 @@ let products = require('../data/products.json');
 //express validator
 const { validationResult } = require('express-validator');
 const db = require('../database/models');
+const sequelize = require("sequelize");
 const { promiseImpl } = require('ejs');
-const { log } = require('console');
+const { log, Console } = require('console');
 
 let sortear = function (productosASortear) {
     let sorteados = productosASortear.sort(() => Math.random() - 0.5)
@@ -13,23 +14,80 @@ let sortear = function (productosASortear) {
 }
 
 const productsController = {
-    //productDetail.html
+
+    //Renderiza la vista del detalle de un producto
     detail: (req, res) => {
         let id = req.params.id;
-        let elProducto = products.find(element => element.id == id)
-        let productosDeCategoria = products.filter(item => item.categoria == elProducto.categoria && item != elProducto);
-        let productosDesordenados = sortear(productosDeCategoria);
-
-        res.render('./products/productDetail', { elProducto, productosDesordenados });
+        db.Product.findByPk(id, {
+            include: ["image", "attribute"],
+            //raw: true,
+            nest: true
+        })
+            .then(producto => {
+                let productosDeCategoria;
+                db.Product.findAll({
+                    where: {
+                        categoryID: producto.categoryID,
+                        id: {
+                            [sequelize.Op.not]: producto.id
+                        }
+                    },
+                    include: ["image"],
+                    raw: true,
+                    nest: true
+                })
+                    .then(productos => {
+                        let productosDesordenados = sortear(productos);
+                        res.render('./products/productDetail', { elProducto: producto, productosDesordenados });
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
+            })
+            .catch(err => {
+                console.log(err)
+            })
     },
 
-    //Renderizar vista de todos los productos
+    //Renderiza la vista de todos los productos
     list: (req, res) => {
-        res.render('./products/productList', { products });
+        let esBusqueda = false;
+        db.Product.findAll({
+            include: "image",
+            raw: true,
+            nest: true
+        })
+            .then(productos => {
+                res.render('./products/productList', { products: productos, esBusqueda });
+            })
     },
 
+    //Renderiza la vista de búsqueda de productos
+    search: (req, res) => {
+        let query = req.query.search;
+        let esBusqueda = true;
+        if (query==null){
+            query = req.query.searchMobile;
+        }
+        db.Product.findAll({
+            where: {
+                nombre: { [sequelize.Op.like]: "%" + query + "%" }
+            },
+            include: "image",
+            raw: true,
+            nest: true
+        })
+            .then(productos => {
+                if (productos.length > 0) {
+                   res.render('./products/productList', { products: productos, esBusqueda });
+                } else {
+                    res.render('./products/productList', { products: productos, esBusqueda });
+                    //res.send("No se encontraron productos con ese nombre")
+                }
+            })
+    },
 
-    //Renderizar Vista Create
+    //Renderiza la Vista Create
     create: (req, res) => {
         //Busco las categorías, subcategorias y géneros
         let promesaCategorias = db.Category.findAll();
@@ -39,11 +97,18 @@ const productsController = {
         Promise.all([promesaCategorias, promesaSubcategorias, promesaGeneros])
             .then(function ([resultadoCategorias, resultadoSubcategorias, resultadoGeneros]) {
                 //Mando las categorias, subcategorias y géneros a la vista
-                res.render('./products/productCreate', { categorias: resultadoCategorias, subcategorias: resultadoSubcategorias, generos: resultadoGeneros });
+                res.render('./products/productCreate', {
+                    categorias: resultadoCategorias,
+                    subcategorias: resultadoSubcategorias,
+                    generos: resultadoGeneros
+                });
+            })
+            .catch(error => {
+                console.log(error);
             })
     },
 
-    //Guardar producto nuevo
+    //Guarda un producto nuevo
     store: (req, res) => {
 
         const validationsResult = validationResult(req);
@@ -177,16 +242,34 @@ const productsController = {
         }
     },
 
-    //Renderizamos la vista de Edit
+    //Renderizas la vista de Edit
     edit: (req, res) => {
         let id = req.params.id;
-        let product = products.find(element => element.id == id);
-        if (product == undefined) {
-            res.send("Producto no encontrado");
-        } else {
-            res.render('./products/productEdit', { product });
-        }
+
+        //Busco las categorías, subcategorias, géneros, el producto seleccionado y sus atributos.
+        let promesaCategorias = db.Category.findAll();
+        let promesaSubcategorias = db.Subcategory.findAll();
+        let promesaGeneros = db.Genre.findAll();
+        let promesaProducto = db.Product.findByPk(id, {
+            include: ["attribute", "genre", "image"],
+            nest: true
+        })
+
+        Promise.all([promesaCategorias, promesaSubcategorias, promesaGeneros, promesaProducto])
+            .then(function ([resultadoCategorias, resultadoSubcategorias, resultadoGeneros, resultadoProducto]) {
+                //Mando las categorias, subcategorias, géneros y producto a la vista
+                if (resultadoProducto) {
+                    res.render('./products/productEdit', { categorias: resultadoCategorias, subcategorias: resultadoSubcategorias, generos: resultadoGeneros, product: resultadoProducto });
+                } else {
+                    res.send("Producto no encontrado");
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            })
     },
+
+    //Actualiza los datos de un producto
     update: (req, res) => {
         let id = req.params.id;
         let file = req.file;
@@ -195,116 +278,333 @@ const productsController = {
         //si hay errores se renderiza de nuevo el formulario de creación
         if (validationsResult.errors.length > 0) {
             if (req.file && req.file.filename) {
-                fs.unlinkSync(path.join(__dirname, "../../public", req.file.filename));
+                fs.unlinkSync(path.join(__dirname, "../../public/img/productos", req.file.filename));
             }
-            let product = products.find(element => element.id == id);
-            res.render("./products/productEdit", {
-                product: product,
-                errors: validationsResult.mapped(),
+            //Busco las categorías, subcategorias, géneros, el producto seleccionado y sus atributos.
+            let promesaCategorias = db.Category.findAll();
+            let promesaSubcategorias = db.Subcategory.findAll();
+            let promesaGeneros = db.Genre.findAll();
+            let promesaProducto = db.Product.findByPk(id, {
+                include: ["attribute", "genre", "image"],
+                nest: true
             })
-        }
-        else {
 
-            //Valores de esDestacado, esNovedad, esOferta
-            let esDestacado, esNovedad, esOferta, esMagicPass;
+            Promise.all([promesaCategorias, promesaSubcategorias, promesaGeneros, promesaProducto])
+                .then(function ([resultadoCategorias, resultadoSubcategorias, resultadoGeneros, resultadoProducto]) {
+                    //Mando las categorias, subcategorias, géneros y producto a la vista
+                    res.render('./products/productEdit', {
+                        categorias: resultadoCategorias,
+                        subcategorias: resultadoSubcategorias,
+                        generos: resultadoGeneros,
+                        product: resultadoProducto,
+                        errors: validationsResult.mapped(),
+                    });
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        } else {
 
+            //Toma los datos del req y del req.body
+            //Valores de esDestacado, esNovedad, esMagicPass
+            let esDestacado, esNovedad, esMagicPass;
             esDestacado = req.body.esDestacado ? true : false;
             esNovedad = req.body.esNovedad ? true : false;
-            esOferta = req.body.esOferta ? true : false;
             esMagicPass = req.body.esMagicPass ? true : false;
 
-            //Array de Objetos Género
+            //Array de Géneros donde se guardan los géneros cargados para el producto, si no se cargan géneros se asigna el género "Inclasificable"
             let generos = [];
-            if (req.body.esGeneroMedieval) {
-                generos.push("medieval");
+            if (req.body.esMedieval) {
+                let id = parseInt(req.body.esMedieval);
+                generos.push(id);
             }
-            if (req.body.esGeneroUrbana) {
-                generos.push("urbana");
+            if (req.body.esUrbana) {
+                let id = parseInt(req.body.esUrbana);
+                generos.push(id);
             }
-            if (req.body.esGeneroClasica) {
-                generos.push("clasica");
+            if (req.body.esClasica) {
+                let id = parseInt(req.body.esClasica);
+                generos.push(id);
             }
-            if (req.body.esGeneroOscura) {
-                generos.push("oscura");
+            if (req.body.esOscura) {
+                let id = parseInt(req.body.esOscura);
+                generos.push(id);
             }
-            if (req.body.esGeneroJuvenil) {
-                generos.push("juvenil");
+            if (req.body.esJuvenil) {
+                let id = parseInt(req.body.esJuvenil);
+                generos.push(id);
+            }
+            if (generos.length == 0) {
+                generos.push(6);
             }
 
             let { nombre, descripcion, precio, categoria, subcategoria, descuento } = req.body;
-            products.forEach(item => {
-                if (item.id == id) {
-                    item.nombre = nombre;
-                    item.descripcion = descripcion;
-                    item.precio = precio;
-                    item.categoria = categoria;
-                    item.subcategoria = subcategoria;
-                    item.generos = generos;
-                    item.esNovedad = esNovedad;
-                    item.esDestacado = esDestacado;
-                    item.esOferta = esOferta;
-                    item.descuento = descuento;
-                    item.esMagicPass = esMagicPass;
-                    if (file) {
-                        if (item.imagenes) {
-                            fs.unlinkSync(path.join(__dirname, "../../public", item.imagenes));
-                        }
-                        item.imagenes = `/img/productos/${file.filename}`;
-                    }
-                }
-            });
-            let productsJSON = JSON.stringify(products, null, 4);
-            fs.writeFileSync(path.join(__dirname, "../data/products.json"), productsJSON, "utf-8");
-            res.redirect("/");
+
+            db.Product.findByPk(id)
+                .then(producto => {
+                    producto.nombre = nombre;
+                    producto.descripcion = descripcion;
+                    producto.precio = precio;
+                    producto.descuento = descuento;
+                    producto.esNovedad = esNovedad;
+                    producto.esDestacado = esDestacado;
+                    producto.esMagicPass = esMagicPass;
+                    producto.categoryID = categoria;
+                    producto.subcategoryID = subcategoria;
+                    producto.save()
+                        .then(resultado => {
+
+                            //Actualiza la imagen si se trajo una imagen de la vista
+                            if (file) {
+                                db.Image.update({
+                                    url: `/img/productos/${file.filename}`,
+                                }, {
+                                    where: {
+                                        productID: id
+                                    }
+                                })
+                                    .catch(error => console.log(error))
+                            }
+
+                            //Crea las asociaciones entre el producto y sus géneros
+                            producto.setGenre(generos);
+
+                            //Busca los atributos pertenecientes a la subcategoría del producto
+                            db.Attribute.findAll({
+                                where: {
+                                    subcategoryID: producto.subcategoryID
+                                }
+                            })
+                                .then(atributos => {
+                                    //Según el id de la categoría del producto, carga los valores a los atributos correspondientes
+                                    switch (producto.subcategoryID) {
+                                        case '1':
+                                            producto.setAttribute(atributos[0], { through: { valor: req.body.cantidadJugadorxs } })
+                                                .then(response => {
+                                                    producto.addAttribute(atributos[0], { through: { valor: req.body.cantidadJugadorxs } })
+                                                    producto.addAttribute(atributos[1], { through: { valor: req.body.edadRecomendada } });
+                                                });
+                                            break;
+                                        case '2':
+                                            producto.setAttribute(atributos[0], { through: { valor: req.body.desarrolladorx } })
+                                                .then(response => {
+                                                    producto.addAttribute(atributos[0], { through: { valor: req.body.desarrolladorx } });
+                                                    producto.addAttribute(atributos[1], { through: { valor: req.body.lanzamiento } });
+                                                })
+                                            break;
+                                        case '3':
+                                            producto.setAttribute(atributos[0], { through: { valor: req.body.extension } })
+                                                .then(response => {
+                                                    producto.addAttribute(atributos[0], { through: { valor: req.body.extension } });
+                                                    producto.addAttribute(atributos[1], { through: { valor: req.body.autoriaLibro } });
+                                                })
+                                            break;
+                                        case '4':
+                                            producto.setAttribute(atributos[0], { through: { valor: req.body.duracionAudiolibro } })
+                                                .then(response => {
+                                                    producto.addAttribute(atributos[0], { through: { valor: req.body.duracionAudiolibro } });
+                                                    producto.addAttribute(atributos[1], { through: { valor: req.body.autoriaAudiolibro } });
+                                                    producto.addAttribute(atributos[2], { through: { valor: req.body.narradorx } });
+                                                })
+                                            break;
+                                        case '5':
+                                            producto.setAttribute(atributos[0], { through: { valor: req.body.talle } });
+                                            break;
+                                        case '6': break
+                                        case '7': break
+                                        case '8':
+                                            producto.setAttribute(atributos[0], { through: { valor: req.body.duracionPelicula } });
+                                            break;
+                                        case '9':
+                                            producto.setAttribute(atributos[0], { through: { valor: req.body.duracionSoundtrack } });
+                                            break;
+                                    }
+                                })
+                        })
+                    res.redirect("/product/list");
+                })
         }
     },
+
+    //Borra los datos de un producto
     delete: (req, res) => {
+        //Guardo el id del producto a borrar que viene de la request
         let id = req.params.id;
-        let productToDelete = products.find(item => item.id == id);
 
-        let productImg = path.join(__dirname, "../../public/img/productos" + productToDelete.imagenes);
+        //Busco el producto a borrar para conseguir el URL de su imagen
+        db.Product.findByPk(id, {
+            include: ["image"],
+            raw: true,
+            nest: true
+        })
+            .then(producto => {
+                //guardo la URL de la imagen
+                let imageURL = producto.image.url;
+                //Borro la imagen asociada al producto
+                db.Image.destroy({ where: { productID: id } })
+                    .then(res1 => {
+                        //Borro el archivo de la imagen
+                        fs.unlinkSync(path.join(__dirname, "../../public", imageURL));
 
-        products = products.filter(product => product.id != id);
-
-        if (fs.existsSync(productImg)) {
-            fs.unlinkSync(productImg);
-        }
-
-        let productsJSON = JSON.stringify(products, null, 4);
-        fs.writeFileSync(path.join(__dirname, "../data/products.json"), productsJSON, "utf-8");
-        res.redirect("/");
+                        //Borro los géneros asociados al producto
+                        db.ProductGenre.destroy({ where: { productID: id } })
+                            .then(res2 => {
+                                //Borro los atributos del producto
+                                db.AttributeProduct.destroy({ where: { productID: id } })
+                                    .then(res3 => {
+                                        //Borro el producto de cada carrito donde se encuentra
+                                        db.CartProduct.destroy({ where: { productID: id } })
+                                            .then(res4 => {
+                                                //Borro el producto
+                                                db.Product.destroy({ where: { id: id } })
+                                                    .then(respuesta => {
+                                                        res.redirect("/product/list");
+                                                    })
+                                                    .catch(error => console.log(error))
+                                            })
+                                            .catch(error => console.log(error))
+                                    })
+                                    .catch(error => console.log(error))
+                            })
+                            .catch(error => console.log(error))
+                    })
+                    .catch(error => console.log(error))
+            })
+            .catch(error => console.log(error))
     },
-    //productCart.html
+
+    //Renderiza la vista del carrito
     cart: (req, res) => {
-        res.render('./products/productCart', { products });
-    },
-    //Boton que agrega el producto a la tabla de la DB
-    cartButton: (req, res) => {
-        db.CartProduct.create({
-
-            productID: req.params.id,
-            usersID: users.id
-
-        })
-
-        res.render('./products/productCart', { products });
-    },
-    //Lista todos los productos del carrito
-    cartList: (req, res) => {
-        db.CartProduct.findAll()
-        .then(function(CartProduct){
-            res.render('/cart', {CartProduct:CartProduct})
-        })
-    },
-    //Borra productos del carrito
-    cartDelete: (req,res) => {
-        db.CartProduct.destroy({
+        let promesaCarrito = db.Cart.findByPk(req.session.cartID)
+        let promesaCarritoProducto = db.CartProduct.findAll({
             where: {
-                id: req.params.id
-            }
-        }),
+                cartID: req.session.cartID
+            },
+            raw: true,
+            nest: true
+        })
+        Promise.all([promesaCarrito, promesaCarritoProducto])
+            .then(([carrito, productosCarrito]) => {
+                let arrayID = [];
 
-        res.redirect('/cart')
-    }
+                for (let i = 0; i < productosCarrito.length; i++) {
+                    arrayID.push(productosCarrito[i].productID);
+                }
+
+                if (arrayID.length > 0) {
+                    db.Product.findAll({
+                        where: {
+                            id: {
+                                [sequelize.Op.or]: arrayID
+                            }
+                        },
+
+                        include: "image",
+
+                        raw: true,
+                        nest: true
+                    })
+                        .then(productos => {
+
+                            productos.forEach(product => {
+                                for (let i = 0; i < productosCarrito.length; i++) {
+                                    if (productosCarrito[i].productID == product.id) {
+
+                                        product.cantidad = productosCarrito[i].cantidad
+
+                                    }
+                                }
+                            });
+                            console.log(carrito)
+                            console.log("******************************************")
+                            res.render('./products/productCart', { arrayProductos: productos, carrito: carrito });
+                        })
+                } else {
+                    res.render('./products/productCart', { arrayProductos: [], carrito })
+                }
+
+
+            })
+
+
+    },
+
+    //Boton que agrega un producto al carrito
+    cartButton: (req, res) => {
+        let id = parseInt(req.params.id)
+        let promesaProducto = db.Product.findByPk(id)
+        let promesaCarrito = db.Cart.findByPk(req.session.cartID)
+        let promesaCarritoProducto = db.CartProduct.findOne({
+            where: {
+                productID: id,
+                cartID: req.session.cartID
+            }
+        })
+
+        Promise.all([promesaCarrito, promesaCarritoProducto, promesaProducto])
+            .then(([carrito, productoCarrito, producto]) => {
+
+                carrito.montoTotal = parseInt(carrito.montoTotal) + (producto.precio - (producto.precio * (producto.descuento / 100)));
+                carrito.save()
+                if (productoCarrito) {
+                    db.CartProduct.update({
+                        cantidad: productoCarrito.cantidad + 1,
+
+                    },
+                        {
+                            where: {
+                                id: productoCarrito.id
+                            }
+                        }
+                    )
+                        .then(resultado => {
+                            res.redirect('/product/cart');
+                        })
+
+                } else {
+                    db.CartProduct.create({
+
+                        productID: id,
+                        cartID: req.session.cartID,
+                        cantidad: 1
+
+                    })
+                        .then(resultado => {
+                            res.redirect('/product/cart');
+                        })
+                }
+            })
+
+    },
+
+    //Borra productos del carrito
+    cartDelete: (req, res) => {
+        let id = parseInt(req.params.id)
+        let promesaProducto = db.Product.findByPk(id)
+        let promesaCarrito = db.Cart.findByPk(req.session.cartID)
+        let promesaCarritoProducto = db.CartProduct.findOne({
+            where: {
+                productID: id,
+                cartID: req.session.cartID
+            }
+        })
+        Promise.all([promesaCarrito, promesaCarritoProducto, promesaProducto])
+            .then(([carrito, productoCarrito, producto]) => {
+                carrito.montoTotal = parseInt(carrito.montoTotal) - (producto.precio - (producto.precio * (producto.descuento / 100)));
+                carrito.save();
+                db.CartProduct.destroy({
+                    where: {
+                        productID: id,
+                        cartID: req.session.cartID
+
+                    }
+                }),
+
+                    res.redirect('/product/cart')
+
+            })
+
+    },
+
 };
 module.exports = productsController;

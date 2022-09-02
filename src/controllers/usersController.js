@@ -30,10 +30,9 @@ const usersController = {
         } else {
             db.User.findOne({
                 where: {
-                    email: req.body.email
-                },
-                raw: true,
-                nest: true
+                    email: req.body.email,
+                    estaActivo: 1
+                }
             })
                 .then((userToLogin) => {
                     // let userToLogin = Object.assign({}, userFound)
@@ -45,13 +44,22 @@ const usersController = {
                             delete userToLogin.password;
                             //guardo el usuario loggeado en session
                             req.session.userLogged = userToLogin;
+                            //Busco el carrito del usuario y lo guardo en session
+                            db.Cart.findOne({
+                                where: {
+                                    userID: userToLogin.id
+                                }
+                            })
+                                .then(carrito => {
+                                    req.session.cartID = carrito.id
+                                    //compruebo si tildó recordarme
+                                    if (req.body.recordarPassword) {
+                                        res.cookie('userEmail', req.body.email, { maxAge: 1000 * 60 * 15 })
+                                    }
+                                    res.redirect('/user/profile')
+                                })
+                                .catch(error => { console.log(error) })
 
-                            //compruebo si tildó recordarme
-                            if (req.body.recordarPassword) {
-                                res.cookie('userEmail', req.body.email, { maxAge: 1000 * 60 * 15 })
-                            }
-
-                            res.redirect('/user/profile')
                         } else {
                             // si no se verificó la contraseña
                             return res.render("./users/login", {
@@ -75,7 +83,9 @@ const usersController = {
                         });
                     }
 
-                });
+                })
+                .catch(error => { console.log(error) })
+                ;
         }
 
     },
@@ -88,6 +98,8 @@ const usersController = {
     },
     //Guardar usuario nuevo
     store: (req, res) => {
+        //Guarda el atributo file del request, donde se encuentra la imagen cargada
+        let file = req.file;
         const validationsResult = validationResult(req);
 
         //si hay errores se renderiza de nuevo el formulario de register
@@ -108,18 +120,39 @@ const usersController = {
                 where: { email: req.body.email }
             }).then((userInDB) => {
                 if (userInDB) {
-                    //si se cargó una imagen, se borra
-                    if (req.file.filename) {
-                        fs.unlinkSync(path.join(__dirname, "../../public/img/Profile-pictures/", req.file.filename));
+                    if (userInDB.estaActivo == 1) {
+                        //si se cargó una imagen, se borra
+                        if (req.file.filename) {
+                            fs.unlinkSync(path.join(__dirname, "../../public/img/Profile-pictures/", req.file.filename));
+                        }
+                        return res.render("./users/signup", {
+                            errors: {
+                                email: {
+                                    msg: "Este email ya esta registrado",
+                                }
+                            },
+                            oldData: req.body,
+                        });
+                    } else if (userInDB.estaActivo == 0) {
+                        let file = req.file;
+                        // let imagenDB = db.User.imagen
+                        db.User.update({
+                            nombre: req.body.nombre,
+                            apellido: req.body.apellido,
+                            email: req.body.email,
+                            direccion: req.body.direccion,
+                            telefono: req.body.telefono,
+                            estaActivo: 1,
+                            password: bcrypt.hashSync(req.body.password, 10),
+                            imagen: `/img/Profile-pictures/${file.filename}`
+                        }, {
+                             where: { id: userInDB.id }
+                            })
+                            .then( respuesta =>{
+                              res.redirect("/user/profile")
+                            })
+                            .catch(error => { console.log(error) })
                     }
-                    return res.render("./users/signup", {
-                        errors: {
-                            email: {
-                                msg: "Este email ya esta registrado",
-                            }
-                        },
-                        oldData: req.body,
-                    });
                 } else {
                     //Guarda el atributo file del request, donde se encuentra la imagen cargada
                     let file = req.file;
@@ -143,17 +176,17 @@ const usersController = {
                                 montoTotal: 0,
                                 userID: usuarioCreado.id
                             })
-                          })
-
+                            res.redirect("/user/login");
+                        })
+                        .catch(error => { console.log(error) })
 
                     //let userCreated = User.create(userToCreate);
-
-                    res.redirect("/user/login");
                 }
-            });
+            
+            })
+            .catch(error => { console.log(error) })
         }
-
-    },
+      },
 
 
     //Renderizar la vista de Edit
@@ -162,7 +195,8 @@ const usersController = {
         db.User.findByPk(id)
             .then((user) => {
                 !user ? res.send("El usuario no existe") : res.render("./users/userEdit", { user });
-            });
+            })
+            .catch(error => { console.log(error) });
 
     },
 
@@ -182,26 +216,23 @@ const usersController = {
             }
             res.render("./users/userEdit", { user: req.session.userLogged, errors: validationsResult.mapped() });
         } else {
-            db.User.update({
+                
+                db.User.update({
                 nombre: req.body.nombre,
                 apellido: req.body.apellido,
                 email: req.body.email,
                 direccion: req.body.direccion,
                 telefono: req.body.telefono,
                 password: bcrypt.hashSync(req.body.password, 10),
-                if (file) {
-                        if (imagen) {
-                            fs.unlinkSync(path.join(__dirname, "../../public/img/Profile-pictures/", imagen));
-                        }
-                       imagen = `/img/Profile-pictures/${file.filename}`;
-                    }
-                },
-                {
-                    where: { id: id }
-                }
-                );       
-
-            res.redirect("/user/profile");
+                 //si trae imagen de perfil actualiza, sino deja la actual
+                imagen: `/img/Profile-pictures/${file.filename}`
+                },{
+                where: { id: id }
+                })
+                .then( respuesta =>{
+                    res.redirect("/user/profile")
+                })
+                .catch(error => { console.log(error) })
         }
     },
 
@@ -210,14 +241,15 @@ const usersController = {
         db.User.findByPk(id)
             .then(
                 db.User.update({
-                estaActivo: false, 
+                    estaActivo: false,
                 }, {
-                    where : {id : id}
+                    where: { id: id }
                 }),
                 res.clearCookie('userEmail', 'recordarPassword'),
                 req.session.destroy(),
                 res.redirect("/")
-           )       
+            )
+            .catch(error => { console.log(error) })
     },
 
     // hacer logout

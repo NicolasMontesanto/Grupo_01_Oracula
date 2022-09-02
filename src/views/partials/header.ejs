@@ -1,212 +1,250 @@
 <header>
-  <div class="header contenedor--sombra">
-    <!--Logo-->
-    <div class="header__container">
-      <div class="logo">
-        <a href="/"><img class="header__logo" src="/img/Logo/blancV2ojo.png" alt="Logo de Oracula"></a>
-      </div>
-      <!--Hamburguesita-->
-      <div class="Burguer">
-        <button><i id="Burguer_icon" class="iconify" data-icon="eva:menu-fill"></i></button>
-      </div>
-      <!--Busqueda-->
-      <form class="Busqueda" action="#" method="GET">
-        <input class="Busqueda_input" type="search">
-        <div>
-          <button class="Busqueda_button" class="submit">
-            <i class="iconify" data-icon="pepicons:loop"></i>
-          </button>
-        </div>
-      </form>
-      <!-- Canastita Mobile-->
-      <nav class="basket">
-        <a href="/product/cart"><button><i class="iconify" data-icon="mdi:basket"></i></button></a>
-      </nav>
-      <!--Secciones categorias-->
-      <nav class="secciones">
-        <ul class="secciones__lista">
-          <li>
-            <button class="secciones__elemento secciones--magicPass">
-              <i class="iconify secciones__icon" data-icon="fa6-solid:explosion"></i>
-              Magic Pass
-            </button>
-          </li>
-          <!-- <li>
-                        <button class="secciones__elemento secciones--generos" onclick="mostrarMenu('menu--generos', 'menu--categorias', 'menu--admin')">
-                            <i class="iconify secciones__icon" data-icon="fa6-solid:hamsa"></i>
-                            Géneros
+    <div class="header contenedor--sombra">
+        <!--Logo-->
+        <div class="header__container">
+            <div class="logo">
+                <a href="/"><img class="header__logo" src="/img/Logo/blancV2ojo.png" alt="Logo de Oracula"></a>
+            </div>
+            <!--Hamburguesita-->
+            <div class="burger">
+                <button><i id="burger_icon" class="iconify" data-icon="eva:menu-fill"></i></button>
+            </div>
+            <!--Busqueda-->
+            <form class="Busqueda" action="/product/search" method="GET">
+                <input class="Busqueda_input" type="search" name="searchMobile" id="searchMobile">
+                <div>
+                    <button class="Busqueda_button" class="submit">
+                        <i class="iconify" data-icon="pepicons:loop"></i>
+                    </button>
+                </div>
+            </form>
+            <!-- Canastita Mobile-->
+            <nav class="basket">
+                <a href="/product/cart"><button><i class="iconify" data-icon="mdi:basket"></i></button></a>
+            </nav>
+            <!--Secciones categorias-->
+            <nav class="secciones">
+                <ul class="secciones__lista">
+                    <li>
+                        <button class="secciones__elemento secciones--magicPass">
+                            <i class="iconify secciones__icon" data-icon="fa6-solid:explosion"></i>
+                            Magic Pass
+                        </button>
+                    </li>
+                    <li>
+                        <button class="secciones__elemento secciones--categorias"
+                            onclick="mostrarMenu('menu--categorias', 'menu--generos', 'menu--admin')">
+                            <i class="iconify secciones__icon" data-icon="mdi:bottle-tonic-outline"></i>
+                            Categorías
+                        </button>
+                    </li>
+                    <% if (locals.isAdmin) { %>
+                        <li>
+                            <button class="secciones__elemento secciones--admin"
+                                onclick="mostrarMenu('menu--admin','menu--generos','menu--categorias')">
+                                <i class="fa-solid fa-toolbox secciones__icon"></i>
+                                Admin
+                            </button>
+                        </li>
+                        <% } %>
+                </ul>
+            </nav>
+            <!--Botones-->
+            <nav class="botonesSuperiores">
+                <ul class="botonesSuperiores__lista">
+                    <!-- <li class="botonesSuperiores__elemento">
+                        <button class="botonesSuperiores__boton">
+                            <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
                     </li> -->
-          <li>
-            <button class="secciones__elemento secciones--categorias" onclick="mostrarMenu('menu--categorias', 'menu--generos', 'menu--admin')">
-              <i class="iconify secciones__icon" data-icon="mdi:bottle-tonic-outline"></i>
-              Categorías
-            </button>
-          </li>
-          <% if (locals.isAdmin) { %>
-          <li>
-            <button class="secciones__elemento secciones--admin" onclick="mostrarMenu('menu--admin','menu--generos','menu--categorias')">
-              <i class="fa-solid fa-toolbox secciones__icon"></i>
-              Admin
-            </button>
-          </li>
-          <% } %>
-        </ul>
-      </nav>
-      <!--Botones-->
-      <nav class="botonesSuperiores">
-        <ul class="botonesSuperiores__lista">
-          <li class="botonesSuperiores__elemento">
-            <button class="botonesSuperiores__boton">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-          </li>
-          <li class="botonesSuperiores__elemento">
-            <button class="botonesSuperiores__boton">
-              <a href="#">
-                <i class="fa-solid fa-bookmark"></i>
-              </a>
-            </button>
-          </li>
-          <li class="botonesSuperiores__elemento">
-            <button class="botonesSuperiores__boton">
-              <a href="/product/cart"><i class="fa-solid fa-basket-shopping"></i></a>
-            </button>
-          </li>
-          <% if (!locals.loggedIn) { %>
-          <li class="botonesSuperiores__elemento">
-            <button class="botonesSuperiores_Login">
-              <a href="/user/login">
-                <div class="botonesSuperiores_Login--texto">¡Ingresá!</div>
-              </a>
-              <i id="logoEntrar2" class="iconify  secciones__icon" data-icon="arcticons:monument-valley"></i>
-              <i id="logoEntrar1" class="iconify  secciones__icon" data-icon="bi:door-open-fill" data-flip="horizontal"></i>
-            </button>
-          </li>
-          <% } else { %>
-          <li class="botonesSuperiores__elemento">
-            <div class="botonesSuperiores__dropdown">
-              <button class="botonesSuperiores__boton">Hola, <%=locals.userLogged.nombre%> <i class="fa-solid fa-angle-down icon--dropdown"></i></button>
-              <div class="dropdown__contenido">
-                <a class="dropdown__links" href="/user/profile">Perfil</a>
-                <a class="dropdown__links" href="/user/logout">Cerrar Sesión</a>
-              </div>
-            </div>
-          </li>
-          <% } %>
-        </ul>
-      </nav>
+                    <li class="botonesSuperiores__elemento">
+                        <button class="botonesSuperiores__boton">
+                            <a href="#">
+                                <i class="fa-solid fa-bookmark"></i>
+                            </a>
+                        </button>
+                    </li>
+                    <li class="botonesSuperiores__elemento">
+                        <button class="botonesSuperiores__boton">
+                            <a href="/product/cart"><i class="fa-solid fa-basket-shopping"></i></a>
+                        </button>
+                    </li>
+                    <% if (!locals.loggedIn) { %>
+                        <li class="botonesSuperiores__elemento">
+                            <button class="botonesSuperiores_Login">
+                                <a href="/user/login">
+                                    <div class="botonesSuperiores_Login--texto">¡Ingresá!</div>
+                                </a>
+                                <i id="logoEntrar2" class="iconify  secciones__icon"
+                                    data-icon="arcticons:monument-valley"></i>
+                                <i id="logoEntrar1" class="iconify  secciones__icon" data-icon="bi:door-open-fill"
+                                    data-flip="horizontal"></i>
+                            </button>
+                        </li>
+                        <% } else { %>
+                            <li class="botonesSuperiores__elemento">
+                                <div class="botonesSuperiores__dropdown">
+                                    <button class="botonesSuperiores__boton">Hola, <%=locals.userLogged.nombre%> <i
+                                                class="fa-solid fa-angle-down icon--dropdown"></i></button>
+                                    <div class="dropdown__contenido">
+                                        <a class="dropdown__links" href="/user/profile">Perfil</a>
+                                        <a class="dropdown__links" href="/user/logout">Cerrar Sesión</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <% } %>
+                </ul>
+            </nav>
+        </div>
+        <!-- Hamburger menu -->
+        <nav class="menu--mobile" id="menu--mobile">
+            <button class="menu__button--mobile menu--oracula"><a href="/">Orácula</a></button>
+            <% if (locals && locals.loggedIn) { %>
+                <button class="menu__button--mobile" id="botonUsuarixMobile">Hola, <%= locals.userLogged.nombre %> <i class="fa-solid fa-caret-down icon-dropdown--mobile" id="iconDropdownUsuarix"></i></button>
+                <ul class="menu__dropdown-content--mobile" id="dropdownUsuarix">
+                    <li class="dropdown__link--mobile"><a href="/user/profile">Perfil</a></li>
+                    <li class="dropdown__link--mobile"><a href="/user/logout">Cerrar sesión</a></li>
+                </ul>
+            <% } else { %>
+                <button class="menu__button--mobile"><a href="/user/login">Ingresar</a></button>
+            <% } %>
+            <button class="menu__button--mobile" id="botonCategoriasMobile">Categorías <i class="fa-solid fa-caret-down icon-dropdown--mobile" id="iconDropdownCategorias"></i></button>
+            <ul class="menu__dropdown-content--mobile" id="dropdownCategorias">
+                <li class="dropdown__link--mobile"><a href="/category/2">Literatura</a></li>
+                <li class="dropdown__link--mobile"><a href="/category/1">Juegos</a></li>
+                <li class="dropdown__link--mobile"><a href="/category/3">Multimedia</a></li>
+                <li class="dropdown__link--mobile"><a href="/category/4">Baratijas</a></li>
+            </ul>
+            <% if (locals.isAdmin) { %>
+                <button class="menu__button--mobile" id="botonAdminMobile">Admin <i class="fa-solid fa-caret-down icon-dropdown--mobile" id="iconDropdownAdmin"></i></button>
+                <ul class="menu__dropdown-content--mobile" id="dropdownAdmin">
+                    <li class="dropdown__link--mobile"><a href="/product/create">Registrar producto</a> </li>
+                    <li class="dropdown__link--mobile"><a href="/product/list">Ver productos</a></li>
+                    <li class="dropdown__link--mobile"><a href="/user/signup/admin">Registrar usuarix</a></li>
+                </ul>
+            <% } %>
+            <button class="menu__button--mobile"><a href="#">MagicPass</a></button>
+        </nav>
+        <!--Menú desplegable-->
+        <nav class="menu__container contenedor--sombra" id="menu__container">
+            <ul class="menu menu--generos" onmouseleave="ocultarMenu('menu--generos')">
+                <li class="menu__item">
+                    <a class="menu__link link--imagen" href="/">
+                        <img class="menu__imagen" src="/img/productos/literatura/AliciaIlustrado.jpg"
+                            alt="Imagen de Literatura">
+                        <h4 class="menu__description">Literatura</h4>
+                    </a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link link--imagen" href="/">
+                        <img class="menu__imagen" src="/img/productos/juegos/stardewValley.png" alt="">
+                        <h4 class="menu__description">Juegos</h4>
+                    </a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link link--imagen" href="/">
+                        <img class="menu__imagen" src="/img/productos/baratijas/mundoDisco.jpg" alt="">
+                        <h4 class="menu__description">Baratijas</h4>
+                    </a>
+                </li>
+            </ul>
+            <ul class="menu menu--categorias" onmouseleave="ocultarMenu('menu--categorias')">
+                <li class="menu__item">
+                    <a class="menu__link link--imagen" href="/category/2">
+                        <img class="menu__imagen" src="/img/productos/Literatura/AliciaIlustrado.jpg"
+                            alt="Imagen de Literatura">
+                        <h4 class="menu__description">Literatura</h4>
+                    </a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link link--imagen" href="/category/1">
+                        <img class="menu__imagen" src="/img/productos/juegos/stardewValley.png" alt="">
+                        <h4 class="menu__description">Juegos</h4>
+                    </a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link link--imagen" href="/category/4">
+                        <img class="menu__imagen" src="/img/productos/baratijas/mundoDisco.jpg" alt="">
+                        <h4 class="menu__description">Baratijas</h4>
+                    </a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link link--imagen" href="/category/3">
+                        <img class="menu__imagen" src="/img/productos/multimedia/lordOfRingsSound.jpg" alt="">
+                        <h4 class="menu__description">Audiovisuales</h4>
+                    </a>
+                </li>
+            </ul>
+            <ul class="menu menu--admin" onmouseleave="ocultarMenu('menu--admin')">
+                <li class="menu__item">
+                    <a class="menu__link" href="/product/create">
+                        <h4 class="menu__description">Registrar Producto</h4>
+                    </a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="/product/list">
+                        <h4 class="menu__description">Ver Productos</h4>
+                    </a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="/user/signup/admin">
+                        <h4 class="menu__description">Registrar Usuarix</h4>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <section class="search__container">
+            <form class="search__form" action="/product/search" method="GET">
+                <input class="search__input" type="search" placeholder="Buscá productos acá." name="search" id="search">
+                <button class="search__button" class="submit">
+                    <i class="iconify" data-icon="pepicons:loop"></i>
+                </button>
+            </form>
+        </section>
     </div>
-    <!--Menú desplegable-->
-    <nav class="menu__container" id="menu__container">
-      <ul class="menu menu--generos" onmouseleave="ocultarMenu('menu--generos')">
-        <li class="menu__item">
-          <a class="menu__link link--imagen" href="/">
-            <img class="menu__imagen" src="/img/productos/literatura/AliciaIlustrado.jpg" alt="Imagen de Literatura">
-            <h4 class="menu__description">Literatura</h4>
-          </a>
-        </li>
-        <li class="menu__item">
-          <a class="menu__link link--imagen" href="/">
-            <img class="menu__imagen" src="/img/productos/juegos/stardewValley.png" alt="">
-            <h4 class="menu__description">Juegos</h4>
-          </a>
-        </li>
-        <li class="menu__item">
-          <a class="menu__link link--imagen" href="/">
-            <img class="menu__imagen" src="/img/productos/baratijas/mundoDisco.jpg" alt="">
-            <h4 class="menu__description">Baratijas</h4>
-          </a>
-        </li>
-      </ul>
-      <ul class="menu menu--categorias" onmouseleave="ocultarMenu('menu--categorias')">
-        <li class="menu__item">
-          <a class="menu__link link--imagen" href="/category/Literatura">
-            <img class="menu__imagen" src="/img/productos/Literatura/AliciaIlustrado.jpg" alt="Imagen de Literatura">
-            <h4 class="menu__description">Literatura</h4>
-          </a>
-        </li>
-        <li class="menu__item">
-          <a class="menu__link link--imagen" href="/category/Juegos">
-            <img class="menu__imagen" src="/img/productos/juegos/stardewValley.png" alt="">
-            <h4 class="menu__description">Juegos</h4>
-          </a>
-        </li>
-        <li class="menu__item">
-          <a class="menu__link link--imagen" href="/category/Baratijas">
-            <img class="menu__imagen" src="/img/productos/baratijas/mundoDisco.jpg" alt="">
-            <h4 class="menu__description">Baratijas</h4>
-          </a>
-        </li>
-        <li class="menu__item">
-          <a class="menu__link link--imagen" href="/category/Multimedia">
-            <img class="menu__imagen" src="/img/productos/multimedia/lordOfRingsSound.jpg" alt="">
-            <h4 class="menu__description">Audiovisuales</h4>
-          </a>
-        </li>
-      </ul>
-      <ul class="menu menu--admin" onmouseleave="ocultarMenu('menu--admin')">
-        <li class="menu__item">
-          <a class="menu__link" href="/product/create">
-            <h4 class="menu__description">Registrar Producto</h4>
-          </a>
-        </li>
-        <li class="menu__item">
-          <a class="menu__link" href="/product/list">
-            <h4 class="menu__description">Ver Productos</h4>
-          </a>
-        </li>
-        <li class="menu__item">
-          <a class="menu__link" href="/user/signup/admin">
-            <h4 class="menu__description">Registrar Usuarix</h4>
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-  <!--Script-->
-  <script>
-    //Hace que el display de todos los menus empiece en None
-    function setDisplayNoneMenus() {
-      let menus = document.getElementsByClassName("menu");
-      for (let i = 0; i < menus.length; i++) {
-        menus[i].style.display = "none";
-      }
-    }
-    setDisplayNoneMenus();
-
-    //Cambia el display del menu que se le pase
-    function setDisplayNoneSingleMenu(menu) {
-      for (let i = 0; i < menu.length; i++) {
-        menu[i].style.display = "none";
-      }
-    }
-
-    //Muestra un menú: recibe el menú a mostrar, y los dos menús a ocultar.
-    function mostrarMenu(menuSeleccionado, menuOcultar1, menuOcultar2) {
-      setDisplayNoneSingleMenu(document.getElementsByClassName(menuOcultar1));
-      setDisplayNoneSingleMenu(document.getElementsByClassName(menuOcultar2));
-      let menu = document.getElementsByClassName(menuSeleccionado);
-      for (let i = 0; i < menu.length; i++) {
-        if (menu[i].style.display == "none") {
-          menu[i].style.display = "flex";
-          document.getElementById("menu__container").style.boxShadow = "0 1050px 10px 1000px rgba(0,0,0,0.6)";
-        } else {
-          menu[i].style.display = "none"
-          document.getElementById("menu__container").style.boxShadow = "";
-
+    <!--Script-->
+    <script src="/js/burgerMenu.js"></script>
+    <script>
+        //Hace que el display de todos los menus empiece en None
+        function setDisplayNoneMenus() {
+            let menus = document.getElementsByClassName("menu");
+            for (let i = 0; i < menus.length; i++) {
+                menus[i].style.display = "none";
+            }
         }
-      }
-    }
+        setDisplayNoneMenus();
 
-    //Oculta un menú
-    function ocultarMenu(menuName) {
-      let menus = document.getElementsByClassName(menuName);
-      for (let i = 0; i < menus.length; i++) {
-        menus[i].style.display = "none";
-        document.getElementById("menu__container").style.boxShadow = "";
-      }
-      Menu
-    }
-  </script>
+        //Cambia el display del menu que se le pase
+        function setDisplayNoneSingleMenu(menu) {
+            for (let i = 0; i < menu.length; i++) {
+                menu[i].style.display = "none";
+            }
+        }
+
+        //Muestra un menú: recibe el menú a mostrar, y los dos menús a ocultar.
+        function mostrarMenu(menuSeleccionado, menuOcultar1, menuOcultar2) {
+            setDisplayNoneSingleMenu(document.getElementsByClassName(menuOcultar1));
+            setDisplayNoneSingleMenu(document.getElementsByClassName(menuOcultar2));
+            let menu = document.getElementsByClassName(menuSeleccionado);
+            for (let i = 0; i < menu.length; i++) {
+                if (menu[i].style.display == "none") {
+                    menu[i].style.display = "flex";
+                    document.getElementById("menu__container").style.boxShadow = "0 1050px 10px 1000px rgba(0,0,0,0.6)";
+                } else {
+                    menu[i].style.display = "none"
+                    document.getElementById("menu__container").style.boxShadow = "";
+
+                }
+            }
+        }
+
+        //Oculta un menú
+        function ocultarMenu(menuName) {
+            let menus = document.getElementsByClassName(menuName);
+            for (let i = 0; i < menus.length; i++) {
+                menus[i].style.display = "none";
+                document.getElementById("menu__container").style.boxShadow = "";
+            }
+        }
+    </script>
 </header>

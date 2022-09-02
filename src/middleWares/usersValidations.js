@@ -21,7 +21,7 @@ const validationsSignup = [
         }
         return true;
     }),
-    body('password').isLength({ min: 6 }).withMessage('Tu contraseña debe contener al menos 6 caracteres'),
+    body('password').isLength({ min: 8 }).withMessage('Tu contraseña debe contener al menos 8 caracteres'),
     body('passwordRepetir')
         .notEmpty().withMessage('Por favor repetí la contraseña.').bail()
         .custom((value, { req }) => {
@@ -38,7 +38,7 @@ const validationsLogin = [
     body('email')
         .notEmpty().withMessage('Por favor completá tu correo').bail()
         .isEmail().withMessage('¡El formato del correo no es válido! Intentalo de nuevo'),
-    body('password').isLength({ min: 6 }).withMessage('No olvides tu contraseña'),
+    body('password').isLength({ min: 6 }).withMessage('La contraseña debe tener al menos 6 caracteres.'),
 ];
 
 const validationsUserEdit = [
@@ -47,23 +47,24 @@ const validationsUserEdit = [
     body('email')
         .notEmpty().withMessage('Por favor completá tu correo').bail()
         .isEmail().withMessage('¡El formato del correo no es válido! Intentalo de nuevo'),
-    body('profilePicture').custom((value, { req }) => {
-        let file = req.file;
-        let extensionesPermitidas = ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.jfif'];
-        if (file) {
-            console.log();
+        body('profilePicture').custom((value, { req }) => {
+            let file = req.file;
+            let extensionesPermitidas = ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.jfif'];
             let fileExtension = path.extname(file.originalname);
-            if (!extensionesPermitidas.includes(fileExtension.toLowerCase())) {
-                throw new Error(`Las extensiones de archivo permitidas son ${extensionesPermitidas.join(", ")}`)
+            if (!file) {
+                throw new Error('Seleccioná una imagen de perfil');
+            } else {
+                if (!extensionesPermitidas.includes(fileExtension.toLowerCase())) {
+                    throw new Error(`Las extensiones de archivo permitidas son ${extensionesPermitidas.join(", ")}`)
+                }
             }
-        }
-        return true;
-    }),
-    body('password').custom((value, { req }) => {
+            return true;
+        }),
+    body('password').notEmpty().custom((value, { req }) => {
         if (req.body.password) {
             let passNueva = req.body.password;
-            if (passNueva.length < 6) {
-                throw new Error('La contraseña tiene que tener al menos 6 caracteres.');
+            if (passNueva.length < 8) {
+                throw new Error('Su contraseña debe contener al menos 8 caracteres, una minuscula, una mayúscula, un número y un caracter especial.');
             }
             let passRepetir = req.body.passwordRepetir;
 
@@ -73,7 +74,8 @@ const validationsUserEdit = [
             return true;
         }
         return true
-    })
+    }),
+    body('passwordRepetir').notEmpty()
 ];
 
 module.exports = { validationsSignup, validationsLogin, validationsUserEdit };
