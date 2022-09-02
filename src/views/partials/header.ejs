@@ -6,12 +6,12 @@
                 <a href="/"><img class="header__logo" src="/img/Logo/blancV2ojo.png" alt="Logo de Oracula"></a>
             </div>
             <!--Hamburguesita-->
-            <div class="Burguer">
-                <button><i id="Burguer_icon" class="iconify" data-icon="eva:menu-fill"></i></button>
+            <div class="burger">
+                <button><i id="burger_icon" class="iconify" data-icon="eva:menu-fill"></i></button>
             </div>
             <!--Busqueda-->
             <form class="Busqueda" action="/product/search" method="GET">
-                <input class="Busqueda_input" type="search">
+                <input class="Busqueda_input" type="search" name="searchMobile" id="searchMobile">
                 <div>
                     <button class="Busqueda_button" class="submit">
                         <i class="iconify" data-icon="pepicons:loop"></i>
@@ -31,12 +31,6 @@
                             Magic Pass
                         </button>
                     </li>
-                    <!-- <li>
-                        <button class="secciones__elemento secciones--generos" onclick="mostrarMenu('menu--generos', 'menu--categorias', 'menu--admin')">
-                            <i class="iconify secciones__icon" data-icon="fa6-solid:hamsa"></i>
-                            Géneros
-                        </button>
-                    </li> -->
                     <li>
                         <button class="secciones__elemento secciones--categorias"
                             onclick="mostrarMenu('menu--categorias', 'menu--generos', 'menu--admin')">
@@ -102,8 +96,37 @@
                 </ul>
             </nav>
         </div>
+        <!-- Hamburger menu -->
+        <nav class="menu--mobile" id="menu--mobile">
+            <button class="menu__button--mobile menu--oracula"><a href="/">Orácula</a></button>
+            <% if (locals && locals.loggedIn) { %>
+                <button class="menu__button--mobile" id="botonUsuarixMobile">Hola, <%= locals.userLogged.nombre %> <i class="fa-solid fa-caret-down icon-dropdown--mobile" id="iconDropdownUsuarix"></i></button>
+                <ul class="menu__dropdown-content--mobile" id="dropdownUsuarix">
+                    <li class="dropdown__link--mobile"><a href="/user/profile">Perfil</a></li>
+                    <li class="dropdown__link--mobile"><a href="/user/logout">Cerrar sesión</a></li>
+                </ul>
+            <% } else { %>
+                <button class="menu__button--mobile"><a href="/user/login">Ingresar</a></button>
+            <% } %>
+            <button class="menu__button--mobile" id="botonCategoriasMobile">Categorías <i class="fa-solid fa-caret-down icon-dropdown--mobile" id="iconDropdownCategorias"></i></button>
+            <ul class="menu__dropdown-content--mobile" id="dropdownCategorias">
+                <li class="dropdown__link--mobile"><a href="/category/2">Literatura</a></li>
+                <li class="dropdown__link--mobile"><a href="/category/1">Juegos</a></li>
+                <li class="dropdown__link--mobile"><a href="/category/3">Multimedia</a></li>
+                <li class="dropdown__link--mobile"><a href="/category/4">Baratijas</a></li>
+            </ul>
+            <% if (locals.isAdmin) { %>
+                <button class="menu__button--mobile" id="botonAdminMobile">Admin <i class="fa-solid fa-caret-down icon-dropdown--mobile" id="iconDropdownAdmin"></i></button>
+                <ul class="menu__dropdown-content--mobile" id="dropdownAdmin">
+                    <li class="dropdown__link--mobile"><a href="/product/create">Registrar producto</a> </li>
+                    <li class="dropdown__link--mobile"><a href="/product/list">Ver productos</a></li>
+                    <li class="dropdown__link--mobile"><a href="/user/signup/admin">Registrar usuarix</a></li>
+                </ul>
+            <% } %>
+            <button class="menu__button--mobile"><a href="#">MagicPass</a></button>
+        </nav>
         <!--Menú desplegable-->
-        <nav class="menu__container" id="menu__container">
+        <nav class="menu__container contenedor--sombra" id="menu__container">
             <ul class="menu menu--generos" onmouseleave="ocultarMenu('menu--generos')">
                 <li class="menu__item">
                     <a class="menu__link link--imagen" href="/">
@@ -173,13 +196,14 @@
         <section class="search__container">
             <form class="search__form" action="/product/search" method="GET">
                 <input class="search__input" type="search" placeholder="Buscá productos acá." name="search" id="search">
-                    <button class="search__button" class="submit">
-                        <i class="iconify" data-icon="pepicons:loop"></i>
-                    </button>
+                <button class="search__button" class="submit">
+                    <i class="iconify" data-icon="pepicons:loop"></i>
+                </button>
             </form>
         </section>
     </div>
     <!--Script-->
+    <script src="/js/burgerMenu.js"></script>
     <script>
         //Hace que el display de todos los menus empiece en None
         function setDisplayNoneMenus() {
@@ -221,7 +245,6 @@
                 menus[i].style.display = "none";
                 document.getElementById("menu__container").style.boxShadow = "";
             }
-            Menu
         }
     </script>
 </header>

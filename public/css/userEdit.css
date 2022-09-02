@@ -15,35 +15,44 @@
     --gris-claro: #a9b2a2;
     --filtro: #45293f80;
     --oracula: #bddcf4;
-}
-.text-danger{
-    color: red;
+    --green-valid: #0fb74a;
+    --red-invalid: #e72d4f;
+    --error-message: #ff7b7b;
 }
 
-.invalid{
+
+
+.hidden {
+    visibility: hidden;
+}
+
+.invalid {
     border: 1px solid red;
     border-radius: 5px;
-    box-shadow: 0px 0px 10px var(--oracula);
+    /* box-shadow: 0px 0px 10px var(--oracula); */
 }
-.main{
+
+.main {
     width: 100%;
     flex-direction: column;
-    display:flex;
+    display: flex;
     margin-bottom: 40px;
 
 }
-.titulo{
+
+.titulo {
     display: flex;
     margin: 20px 0px 20px;
     justify-content: center;
     color: var(--amarillo-naranja);
 }
-.titulo__text{
-    margin:0px;
+
+.titulo__text {
+    margin: 0px;
 }
 
-.formulario__container{
-    background-color: rgba(69, 41, 63, 0.5);
+.formulario__container {
+    background-color: rgba(69, 41, 63, 0.7);
     box-shadow: 10px 10px 20px 10px var(--morado-oscuro);
     width: 90%;
     max-width: 650px;
@@ -53,50 +62,56 @@
     padding: 20px;
     border-radius: 20px;
 }
+
 .formulario {
     justify-content: center;
     align-items: center;
 }
-.formulario__item{
+
+.formulario__item {
     display: flex;
     width: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+    margin-top: 10px;
+    position: relative;
 }
 
-.formulario__label{
-    font-size: 20px;
-    font-weight: bold;
+.formulario__label {
+    font-size: 22px;
     color: var(--gris-claro);
     text-align: left;
     align-self: start;
-    margin-bottom: 5px;
-}
-.formulario__input{
-    height: 35px;
-    width: 100%;
-    background-color: rgb(240,240,240);
+    margin-bottom: 10px;
 }
 
-.formulario__submit{
+.formulario__input {
+    height: 35px;
+    width: 100%;
+    padding: 0px 5px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    border: 1px grey solid;
+    border-radius: 4px;
+}
+
+.formulario__error {
+    height: 35px;
+    font-size: 18px;
+    color: var(--error-message);
+    text-shadow: 0px 0px 5px black, 0px 0px 7px black;
+}
+
+.formulario__submit {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
 }
 
-.input--small {
-    max-width: 40%;
-    min-width: 160px;
-}
-
 .formulario__icon-submit {
-    color:var(--marron-claro);
+    color: var(--marron-claro);
     font-size: 40px;
     font-weight: bold;
     margin: 10px 20px;
@@ -108,12 +123,13 @@
     color: var(--oracula);
     text-shadow: 0px 0px 50px var(--oracula);
 }
-.formulario--delete{
-    height:0;
 
-   }
+.formulario--delete {
+    height: 0;
+}
+
 .formulario__icon-delete {
-    color:var(--terracota);
+    color: var(--terracota);
     font-size: 40px;
     font-weight: bold;
     margin: 10px 20px;
@@ -122,38 +138,74 @@
     position: relative;
     top: -76px;
     margin-left: 60px;
-    }
+}
+
 .formulario__icon-delete:hover {
     color: var(--naranja);
     text-shadow: 0px 0px 50px var(--naranja);
 }
-.last-item{
+
+.last-item {
     flex-direction: row;
     justify-content: flex-end;
     margin-top: 10px;
     margin-bottom: 10px;
-   
+
+}
+.input--file{
+    background-color: #fff;
+}
+
+.input--valid {
+    background-color: #d7fbe4;
+}
+
+.input--invalid {
+    background-color: #fcdbe1;
+}
+.label--username{
+    font-size: 30px;
+    color: var(--oracula);
+}
+.input--icon {
+    font-size: 24px;
+    position: absolute;
+    justify-content: center;
+    top: 1.7em;
+    right: 1.2em;
+}
+
+.icon--valid {
+    color: var(--green-valid);
+}
+
+.icon--invalid {
+    color: var(--red-invalid);
 }
 
 
 @media (min-width: 820px) {
-    .formulario__icon-submit, 
-    .formulario__icon-delete {
+
+    .formulario__item{
+        padding: 0 20px;
+    }
+    .formulario__icon-submit,
+    .formulario__icon-delete{
         font-size: 60px;
     }
-    .formulario__icon-submit{
+
+    .formulario__icon-submit {
         margin-right: 80px;
     }
-    .formulario__icon-delete{
+
+    .formulario__icon-delete {
         margin-left: 100px;
-        top:-99px;
+        top: -99px;
     }
-    .formulario__icon-submit{
-        font-size: 50px;
-    }
-    .formulario__icon-delete{
+
+    .formulario__icon-delete {
         margin-left: 100px;
-        top:-99px;
-        
+        top: -99px;
+
     }
 }

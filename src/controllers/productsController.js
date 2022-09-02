@@ -51,19 +51,24 @@ const productsController = {
 
     //Renderiza la vista de todos los productos
     list: (req, res) => {
+        let esBusqueda = false;
         db.Product.findAll({
             include: "image",
             raw: true,
             nest: true
         })
             .then(productos => {
-                res.render('./products/productList', { products: productos });
+                res.render('./products/productList', { products: productos, esBusqueda });
             })
     },
 
     //Renderiza la vista de búsqueda de productos
     search: (req, res) => {
         let query = req.query.search;
+        let esBusqueda = true;
+        if (query==null){
+            query = req.query.searchMobile;
+        }
         db.Product.findAll({
             where: {
                 nombre: { [sequelize.Op.like]: "%" + query + "%" }
@@ -74,9 +79,10 @@ const productsController = {
         })
             .then(productos => {
                 if (productos.length > 0) {
-                    res.render('./products/productList', { products: productos });
+                   res.render('./products/productList', { products: productos, esBusqueda });
                 } else {
-                    res.send("No se encontraron productos con ese nombre")
+                    res.render('./products/productList', { products: productos, esBusqueda });
+                    //res.send("No se encontraron productos con ese nombre")
                 }
             })
     },
@@ -373,21 +379,33 @@ const productsController = {
                                     //Según el id de la categoría del producto, carga los valores a los atributos correspondientes
                                     switch (producto.subcategoryID) {
                                         case '1':
-                                            producto.setAttribute(atributos[0], { through: { valor: req.body.cantidadJugadorxs } });
-                                            producto.setAttribute(atributos[1], { through: { valor: req.body.edadRecomendada } });
+                                            producto.setAttribute(atributos[0], { through: { valor: req.body.cantidadJugadorxs } })
+                                                .then(response => {
+                                                    producto.addAttribute(atributos[0], { through: { valor: req.body.cantidadJugadorxs } })
+                                                    producto.addAttribute(atributos[1], { through: { valor: req.body.edadRecomendada } });
+                                                });
                                             break;
                                         case '2':
-                                            producto.setAttribute(atributos[0], { through: { valor: req.body.desarrolladorx } });
-                                            producto.setAttribute(atributos[1], { through: { valor: req.body.lanzamiento } });
+                                            producto.setAttribute(atributos[0], { through: { valor: req.body.desarrolladorx } })
+                                                .then(response => {
+                                                    producto.addAttribute(atributos[0], { through: { valor: req.body.desarrolladorx } });
+                                                    producto.addAttribute(atributos[1], { through: { valor: req.body.lanzamiento } });
+                                                })
                                             break;
                                         case '3':
-                                            producto.setAttribute(atributos[0], { through: { valor: req.body.extension } });
-                                            producto.setAttribute(atributos[1], { through: { valor: req.body.autoriaLibro } });
+                                            producto.setAttribute(atributos[0], { through: { valor: req.body.extension } })
+                                                .then(response => {
+                                                    producto.addAttribute(atributos[0], { through: { valor: req.body.extension } });
+                                                    producto.addAttribute(atributos[1], { through: { valor: req.body.autoriaLibro } });
+                                                })
                                             break;
                                         case '4':
-                                            producto.setAttribute(atributos[0], { through: { valor: req.body.duracionAudiolibro } });
-                                            producto.setAttribute(atributos[1], { through: { valor: req.body.autoriaAudiolibro } });
-                                            producto.setAttribute(atributos[2], { through: { valor: req.body.narradorx } });
+                                            producto.setAttribute(atributos[0], { through: { valor: req.body.duracionAudiolibro } })
+                                                .then(response => {
+                                                    producto.addAttribute(atributos[0], { through: { valor: req.body.duracionAudiolibro } });
+                                                    producto.addAttribute(atributos[1], { through: { valor: req.body.autoriaAudiolibro } });
+                                                    producto.addAttribute(atributos[2], { through: { valor: req.body.narradorx } });
+                                                })
                                             break;
                                         case '5':
                                             producto.setAttribute(atributos[0], { through: { valor: req.body.talle } });
@@ -499,7 +517,7 @@ const productsController = {
                             });
                             console.log(carrito)
                             console.log("******************************************")
-                            res.render('./products/productCart', { arrayProductos: productos, carrito:carrito });
+                            res.render('./products/productCart', { arrayProductos: productos, carrito: carrito });
                         })
                 } else {
                     res.render('./products/productCart', { arrayProductos: [], carrito })
@@ -514,7 +532,7 @@ const productsController = {
     //Boton que agrega un producto al carrito
     cartButton: (req, res) => {
         let id = parseInt(req.params.id)
-        let promesaProducto = db.Product.findByPk(id) 
+        let promesaProducto = db.Product.findByPk(id)
         let promesaCarrito = db.Cart.findByPk(req.session.cartID)
         let promesaCarritoProducto = db.CartProduct.findOne({
             where: {
@@ -526,12 +544,12 @@ const productsController = {
         Promise.all([promesaCarrito, promesaCarritoProducto, promesaProducto])
             .then(([carrito, productoCarrito, producto]) => {
 
-                carrito.montoTotal = parseInt(carrito.montoTotal) + (producto.precio - (producto.precio*(producto.descuento/100)));
+                carrito.montoTotal = parseInt(carrito.montoTotal) + (producto.precio - (producto.precio * (producto.descuento / 100)));
                 carrito.save()
                 if (productoCarrito) {
                     db.CartProduct.update({
                         cantidad: productoCarrito.cantidad + 1,
-                       
+
                     },
                         {
                             where: {
@@ -562,7 +580,7 @@ const productsController = {
     //Borra productos del carrito
     cartDelete: (req, res) => {
         let id = parseInt(req.params.id)
-        let promesaProducto = db.Product.findByPk(id) 
+        let promesaProducto = db.Product.findByPk(id)
         let promesaCarrito = db.Cart.findByPk(req.session.cartID)
         let promesaCarritoProducto = db.CartProduct.findOne({
             where: {
@@ -572,20 +590,20 @@ const productsController = {
         })
         Promise.all([promesaCarrito, promesaCarritoProducto, promesaProducto])
             .then(([carrito, productoCarrito, producto]) => {
-                carrito.montoTotal = parseInt(carrito.montoTotal) - (producto.precio - (producto.precio*(producto.descuento/100)));
+                carrito.montoTotal = parseInt(carrito.montoTotal) - (producto.precio - (producto.precio * (producto.descuento / 100)));
                 carrito.save();
                 db.CartProduct.destroy({
                     where: {
                         productID: id,
                         cartID: req.session.cartID
-                        
+
                     }
                 }),
-        
+
                     res.redirect('/product/cart')
-                
+
             })
-        
+
     },
 
 };

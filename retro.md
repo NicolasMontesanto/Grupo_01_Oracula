@@ -103,3 +103,27 @@ Actualizar el Trello.
 ## Dejar de hacer
 Tomar decisiones importantes de forma unilateral.
 No dar reportes por varios días.
+
+# Revision del sprint 6
+
+## Comenzar a hacer
+Juntarnos 
+
+## Hacer más
+Estimar mejor la dificultad de las tareas para que tengan una complejidad similar entre ellas.
+Tener el PlayGround al día.
+Tener en cuenta el feedback de nuestrxs compañerxs.
+Testing.
+
+## Continuar haciendo
+Hacer pull requests periódicos.
+Comentar el código.
+Weekly meetings.
+Subdividir las grandes tareas en otras más pequeñas.
+Actualizar el Trello.
+
+## Hacer menos
+Mandar funcionalidades sin testear lo suficiente.
+
+## Dejar de hacer
+Ponernos a revisar las cosas 4 horas antes del momento de la entrega.

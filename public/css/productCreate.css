@@ -15,16 +15,14 @@
     --gris-claro: #a9b2a2;
     --filtro: #45293f80;
     --oracula: #bddcf4;
+    --green-valid: #0fb74a;
+    --red-invalid: #e72d4f;
+    --error-message: #ff7b7b;
 }
 
-.text-danger {
-    color: red;
-}
 
-.invalid {
-    border: 1px solid red;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px var(--oracula);
+.hidden {
+    visibility: hidden;
 }
 
 .main {
@@ -46,14 +44,14 @@
 }
 
 .formulario__container {
-    background-color: rgba(69, 41, 63, 0.5);
+    background-color: rgba(69, 41, 63, 0.7);
     box-shadow: 10px 10px 20px 10px var(--morado-oscuro);
     width: 90%;
     max-width: 650px;
     margin: auto;
-    margin-bottom: 40px;
+    margin-bottom: 80px;
     margin-top: 40px;
-    padding: 20px;
+    padding-top: 10px;
     border-radius: 20px;
 }
 
@@ -69,15 +67,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    margin-top: 30px;
-    margin-bottom: 20px;
+    margin-top: 10px;
     padding-left: 20px;
     padding-right: 20px;
+    position: relative;
 }
 
 .formulario__label {
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 22px;
     color: var(--gris-claro);
     text-align: left;
     align-self: start;
@@ -87,9 +84,36 @@
 .formulario__input {
     height: 35px;
     width: 100%;
-    background-color: rgb(240, 240, 240);
     padding: 0px 5px;
+    margin-bottom: 10px;
     font-size: 20px;
+    border: 1px grey solid;
+    border-radius: 4px;
+}
+
+.formulario__atributo {
+    display: none;
+}
+
+.formulario__desplegable {
+    height: 35px;
+    width: 100%;
+    padding: 0px 5px;
+    min-width: 200px;
+    max-width: 284px;
+    border: 1px grey solid;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    align-self: flex-start;
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+.formulario__error {
+    height: 35px;
+    font-size: 18px;
+    color: var(--error-message);
+    text-shadow: 0px 0px 5px black, 0px 0px 7px black;
 }
 
 .formulario--imagen {
@@ -123,39 +147,51 @@
     min-width: 180px;
     margin: 0;
 }
-.input--atributos{
-    display:none;
-}
-.input--checkbox {
-    width: 20px;
-}
-
-.input--text-area {
-    height: 100px;
-    width: 100%;
-    background-color: rgb(240, 240, 240);
-}
-
 .input--file {
     height: fit-content;
     padding: 0px;
     width: 100%;
-    background-color: rgb(240, 240, 240);
+    background-color: #fff;
 }
 
-.formulario__desplegable {
-    height: 35px;
-    width: 40%;
-    min-width: 200px;
-    background-color: rgb(240, 240, 240);
-    align-self: flex-start;
-    font-size: 18px;
-    margin-top: 5px;
+.input--valid {
+    background-color: #d7fbe4;
+}
+
+.input--invalid {
+    background-color: #fcdbe1;
+}
+
+.input--checkbox {
+    width: 20px;
+}
+
+.input--icon {
+    font-size: 24px;
+    position: absolute;
+    top: 1.7em;
+    right: 1.2em;
+}
+
+.icon--valid {
+    background-color: #d7fbe4;
+    color: var(--green-valid);
+}
+
+.icon--invalid {
+    background-color: #fcdbe1;
+    color: var(--red-invalid);
+}
+
+.input--text-area {
+    height: 150px;
+    width: 100%;
+    resize: none;
 }
 
 .input--small {
-    max-width: 40%;
-    min-width: 160px;
+    width: 100%;
+    min-width: 220px;
 }
 
 .formulario__icon-submit {
@@ -201,11 +237,22 @@
 }
 
 .input--pdm {
-    padding: 0;
+    width: 240px;
+    padding-left: 0;
+    padding-right: 20px;
     margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
 }
 
 @media (min-width: 820px) {
+
+    .formulario__container {
+        padding: 20px;
+    }
 
     .formulario__icon-submit,
     .formulario__icon-delete {
@@ -248,17 +295,8 @@
 
     .precio-descuento {
         flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
+        justify-content:space-between ;
+        align-items: flex-start;
     }
 
-    .input--pdm {
-        width: auto;
-    }
-
-    .input--small {
-        max-width: 40%;
-        min-width: 160px;
-        margin-top: 4px;
-    }
 }
