@@ -51,19 +51,21 @@ const productsController = {
 
     //Renderiza la vista de todos los productos
     list: (req, res) => {
+        let esBusqueda = false;
         db.Product.findAll({
             include: "image",
             raw: true,
             nest: true
         })
             .then(productos => {
-                res.render('./products/productList', { products: productos });
+                res.render('./products/productList', { products: productos, esBusqueda });
             })
     },
 
     //Renderiza la vista de búsqueda de productos
     search: (req, res) => {
         let query = req.query.search;
+        let esBusqueda = true;
         if (query==null){
             query = req.query.searchMobile;
         }
@@ -77,9 +79,10 @@ const productsController = {
         })
             .then(productos => {
                 if (productos.length > 0) {
-                    res.render('./products/productList', { products: productos });
+                   res.render('./products/productList', { products: productos, esBusqueda });
                 } else {
-                    res.send("No se encontraron productos con ese nombre")
+                    res.render('./products/productList', { products: productos, esBusqueda });
+                    //res.send("No se encontraron productos con ese nombre")
                 }
             })
     },

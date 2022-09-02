@@ -8,7 +8,11 @@
 
 <body>
     <!--header-->
-    <%- include('../partials/headerMinimalista.ejs')%>
+    <% if (locals && locals.isAdmin) { %>
+        <%- include('../partials/header.ejs')%>
+    <% } else {%> 
+        <%- include('../partials/headerMinimalista.ejs')%>
+    <% } %> 
         <!--main-->
         <div class="fondo">
             <main class="main">
@@ -105,17 +109,16 @@
                                     <input class="input--checkbox" type="checkbox" name="isAdmin" id="isAdmin">
                                 </div>
                                 <% } %>
-                                    <div class="formulario__submit">
-                                        <p class="label--secondary">
-                                            <% if (locals && !locals.isAdmin) { %>
-                                                ¿Ya tenés cuenta? <a class="formulario__link" href="/user/login">Ingresá
-                                                    acá.</a>
-                                                <% } %>
-                                        </p>
-                                        <button type="submit">
-                                            <i class="fa-solid fa-circle-arrow-right formulario__icon-submit"></i>
-                                        </button>
-                                    </div>
+                            <div class="formulario__submit">
+                                <p class="label--secondary">
+                                    <% if (locals && !locals.isAdmin) { %>
+                                        ¿Ya tenés cuenta? <a class="formulario__link" href="/user/login">Ingresá acá.</a>
+                                    <% } %>
+                                </p>
+                                <button type="submit">
+                                    <i class="fa-solid fa-circle-arrow-right formulario__icon-submit"></i>
+                                </button>
+                            </div>
                         </form>
                     </section>
                 </section>

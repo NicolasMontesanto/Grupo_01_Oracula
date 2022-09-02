@@ -17,18 +17,23 @@
     <%- include('../partials/header.ejs')%>
 
     <div class="fondo">
-        <main>
-
-            <h2 class= "destacados__titulo">Todos los productos</h2>
-
+        <main class="main">
+            <% if (esBusqueda) { %>
+                <% if (products.length > 0) { %>
+                    <h2 class= "destacados__titulo">Productos encontrados</h2>
+                <% } else { %>
+                    <h2 class= "destacados__titulo">No se encontraron productos</h2>
+                <% } %>
+            <% } else { %>
+                <h2 class= "destacados__titulo">Todos los productos</h2>
+            <%  } %>
             <div class="contenedor">
                 <div class="contenedor-cards">
                     <%for (let i=0; i<products.length; i++){%>
                         <div class="contenedor-card-item">
                             <div class="contenedor-card-item-wrapper">
                                 <a href="/product/detail/<%=products[i].id%>">
-                                    <img src="<%=products[i].image.url%>"
-                                        alt="Producto-<%=products[i].id%>">
+                                    <img src="<%=products[i].image.url%>" alt="Producto-<%=products[i].id%>">
                                 </a>
                                 <div class="contenedor-info">
                                     <div class="info">
@@ -46,9 +51,6 @@
                         <%}%>
                 </div>
             </div>
-
-
-
         </main>
 
     <!-- FOOTER -->
