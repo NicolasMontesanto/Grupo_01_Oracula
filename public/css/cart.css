@@ -6,15 +6,22 @@
 }
 
 :root {
-  --morado: #45293f;
-  --marron: #B0A987;
-  --gris-claro: #a9b2a2;
-  --gris-iconos-body: #788a87;
-  --gris-oscuro: #576069;
-  --amarillo-anaranjado: #FBB954;
-  --naranja: #CD683D;
-  --terracota: #993D41;
-  --filtro: #171B27 - opacidad 54%;
+    --morado-oscuro: #2E222F;
+    --morado: #45293f;
+    --vino: #7A3045;
+    --terracota: #993D41;
+    --naranja: #CD683D;
+    --amarillo-naranja: #FBB954;
+    --amarillo: #F2EC8B;
+    --marron-claro: #B0A987;
+    --khaki: #997F73;
+    --gris-rojizo: #665964;
+    --gris--morado: #443846;
+    --gris-oscuro: #576069;
+    --gris-turquesa: #788a87;
+    --gris-claro: #a9b2a2;
+    --filtro: #45293f80;
+    --oracula: #bddcf4;
 
   --p: 60px;
   --fw-5: 500;
