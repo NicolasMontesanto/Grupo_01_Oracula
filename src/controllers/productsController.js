@@ -1,12 +1,11 @@
 const path = require('path');
 const fs = require("fs");
-let products = require('../data/products.json');
 //express validator
 const { validationResult } = require('express-validator');
 const db = require('../database/models');
 const sequelize = require("sequelize");
-const { promiseImpl } = require('ejs');
-const { log, Console } = require('console');
+
+
 
 let sortear = function (productosASortear) {
     let sorteados = productosASortear.sort(() => Math.random() - 0.5)
