@@ -6,7 +6,6 @@ const fs = require("fs");
 const db = require('../database/models');
 const sequelize = require('sequelize');
 
-let products = require('../data/products.json');
 
 let sortear = function (productosASortear) {
     let sorteados = productosASortear.sort(() => Math.random() - 0.5)

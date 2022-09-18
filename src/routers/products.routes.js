@@ -1,7 +1,6 @@
 const express = require('express');
 const routes = express.Router();
 const productController = require('../controllers/productsController');
-const path = require('path');
 const upload = require('../middleWares/multerMid');
 const validations = require('../middleWares/productValidations');
 //middleware para usuarixs logeadxs - que impide que usuarixs NO logueadxs entren a perfil y carrito 
