@@ -3,22 +3,19 @@ const sequelize = require("sequelize");
 
 const apiController = {
     users: (req, res) => {
-        db.User.findAll()
+        db.User.findAll({
+            attributes: [
+            "id",
+            [sequelize.fn('concat', sequelize.col('nombre'), ' ', sequelize.col('apellido')),"name"],
+             "email",
+            [sequelize.fn('concat', 'http://localhost:3200/api/users/', sequelize.col('id')), "detail"]
+            ]
+         }     )
             .then(users => {
-                let usersData = [];
-                users.forEach(user => {
-                    let usuarie = {
-                        id: user.id,
-                        name: `${user.nombre} ${user.apellido}`,
-                        email: user.email,
-                        detail: `http://localhost:3200/api/users/${user.id}`,
-                    }
-                    usersData.push(usuarie)
-                });
-
+                
                 let usersResponse = {
                     count: users.length,
-                    users: usersData
+                    users: users
                 }
 
                 return res.status(200).json(usersResponse)
@@ -43,6 +40,13 @@ const apiController = {
 
     products: (req, res) => {
         let promesaProductos = db.Product.findAll({
+            attributes: [
+                "id", 
+                [sequelize.col("Product.nombre"),"name"],
+                [sequelize.col("descripcion"),"description"],
+                "subcategoryId",
+                [sequelize.fn('concat', 'http://localhost:3200/api/products/', sequelize.col('Product.id')), "detail"]
+                ],
             include: {
                 model: db.Genre,
                 as: "genre",
@@ -58,23 +62,10 @@ const apiController = {
         Promise.all([promesaProductos, categorias])
             .then(([products, categorias]) => {
 
-                let productsData = [];
-                products.forEach(prod => {
-                    let producto = {
-                        id: prod.id,
-                        name: prod.nombre,
-                        description: prod.descripcion,
-                        subcategoryID: prod.subcategoryID,
-                        detail: `http://localhost:3200/api/products/${prod.id}`,
-                        generos: prod.genre
-                    }
-                    productsData.push(producto)
-                });
-
                 let productsResponse = {
                     count: products.length,
                     countByCatergory: categorias,
-                    products: productsData
+                    products
                 }
                 res.status(200).json(productsResponse)
             })
