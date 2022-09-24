@@ -30,37 +30,24 @@ const apiController = {
 
     usersDetail: (req,res) => {
         db.User.findByPk(req.params.id, {
-            include: ["image"]
         })
             .then(users => {
 
-                let usersData = [];
-                users.forEach(user => {
-                    let usuarie = {
-                        id: user.id,
-                        name: `${user.nombre} ${user.apellido}`,
-                        email: user.email,
-                        detail: `http://localhost:3200/api/users/${user.id}`,
-                    }
-                    usersData.push(usuarie)
-                });
-           
-                users= {
+                users = {
                     id: users.id,
                     nombre: users.nombre,
-                    categoryID: product.categoryID,
-                    subcategoryID: product.subcategoryID,
-                    precio: product.precio,
-                    descuento: product.descuento,
-                    esNovedad: product.esNovedad,
-                    esDestacado: product.esDestacado,
-                    esMagicPass: product.esMagicPass,
-                    imagenes: product.image,
-                    attributes: atributos,
-                    generos: generos
+                    apellido: users.apellido,
+                    email: users.email,
+                    direccion: users.direccion,
+                    telefono: users.telefono,
+                    imagen: users.imagen,
+                    esAdmin: users.esAdmin,
+                    esMagicPass: users.magicPass,
+                    estaActivo: users.estaActivo
+                    
                 }
                 
-                res.status(200).json(product)
+                res.status(200).json(users)
             })
 
             .catch(error => {
