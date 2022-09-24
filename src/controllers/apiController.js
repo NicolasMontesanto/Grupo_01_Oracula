@@ -28,6 +28,47 @@ const apiController = {
 
     },
 
+    usersDetail: (req,res) => {
+        db.User.findByPk(req.params.id, {
+            include: ["image"]
+        })
+            .then(users => {
+
+                let usersData = [];
+                users.forEach(user => {
+                    let usuarie = {
+                        id: user.id,
+                        name: `${user.nombre} ${user.apellido}`,
+                        email: user.email,
+                        detail: `http://localhost:3200/api/users/${user.id}`,
+                    }
+                    usersData.push(usuarie)
+                });
+           
+                users= {
+                    id: users.id,
+                    nombre: users.nombre,
+                    categoryID: product.categoryID,
+                    subcategoryID: product.subcategoryID,
+                    precio: product.precio,
+                    descuento: product.descuento,
+                    esNovedad: product.esNovedad,
+                    esDestacado: product.esDestacado,
+                    esMagicPass: product.esMagicPass,
+                    imagenes: product.image,
+                    attributes: atributos,
+                    generos: generos
+                }
+                
+                res.status(200).json(product)
+            })
+
+            .catch(error => {
+                return res.status(500).json(`Ha ocurrido un error inesperado : ${error}`);
+            })
+
+    },
+
     productDetail: (req, res) => {
         db.Product.findByPk(req.params.id, {
             include: ["image", "attribute", "genre"
@@ -77,6 +118,7 @@ const apiController = {
                 return res.status(500).json(`Ha ocurrido un error inesperado : ${error}`);
             })
     }
+
 
 }
 

@@ -5,6 +5,9 @@ const apiController = require('../controllers/apiController');
 
 routes.get("/users", apiController.users)
 
+routes.get("/users/:id", apiController.usersDetail)
+
 routes.get("/products/:id", apiController.productDetail)
+
 
 module.exports = routes;
