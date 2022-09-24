@@ -1,4 +1,5 @@
 const db = require('../database/models');
+const sequelize = require("sequelize");
 
 const apiController = {
     users: (req, res) => {
@@ -28,77 +29,77 @@ const apiController = {
 
     },
 
-    usersDetail: (req,res) => {
+    usersDetail: (req, res) => {
         db.User.findByPk(req.params.id, {
+            attributes: { exclude: ['password', "createdAt"] }
         })
             .then(users => {
-
-                users = {
-                    id: users.id,
-                    nombre: users.nombre,
-                    apellido: users.apellido,
-                    email: users.email,
-                    direccion: users.direccion,
-                    telefono: users.telefono,
-                    imagen: users.imagen,
-                    esAdmin: users.esAdmin,
-                    esMagicPass: users.magicPass,
-                    estaActivo: users.estaActivo
-                    
-                }
-                
                 res.status(200).json(users)
             })
-
             .catch(error => {
                 return res.status(500).json(`Ha ocurrido un error inesperado : ${error}`);
             })
+    },
 
+    products: (req, res) => {
+        let promesaProductos = db.Product.findAll({
+            include: {
+                model: db.Genre,
+                as: "genre",
+                attributes: ["nombre"],
+                through: { attributes: [] }
+            }
+        })
+        let categorias = db.Product.findAll({
+            attributes: ['categoryID', [sequelize.fn('count', sequelize.col('categoryID')), 'cantidad']],
+            group: ['categoryID'],
+        })
+
+        Promise.all([promesaProductos, categorias])
+            .then(([products, categorias]) => {
+
+                let productsData = [];
+                products.forEach(prod => {
+                    let producto = {
+                        id: prod.id,
+                        name: prod.nombre,
+                        description: prod.descripcion,
+                        subcategoryID: prod.subcategoryID,
+                        detail: `http://localhost:3200/api/products/${prod.id}`,
+                        generos: prod.genre
+                    }
+                    productsData.push(producto)
+                });
+
+                let productsResponse = {
+                    count: products.length,
+                    countByCatergory: categorias,
+                    products: productsData
+                }
+                res.status(200).json(productsResponse)
+            })
+            .catch(error => {
+                return res.status(500).json(`Ha ocurrido un error inesperado : ${error}`);
+            })
     },
 
     productDetail: (req, res) => {
+
         db.Product.findByPk(req.params.id, {
-            include: ["image", "attribute", "genre"
-            ]
+            attributes:{exclude: ["createdAt",
+                "updatedAt",
+                "categoryID",
+                "subcategoryID"]},
+            include: ["image", {
+                model: db.Attribute,
+                as: "attribute",
+                attributes: { exclude: ["id", "subcategoryID"] },
+                through: { attributes: ["valor"] },
+            }]
+         
         })
             .then(product => {
-
-                let atributos = [];
-                product.attribute.forEach(element => {
-                    let atributo = {
-                        id: element.id,
-                        nombre: element.nombre,
-                        unidad: element.unidad,
-                        valor: element.AttributeProduct.valor
-                    }
-                    atributos.push(atributo)
-                });
-
-                let generos = [];
-                product.genre.forEach(genre => {
-                    let genero = {
-                        id: genre.id,
-                        nombre: genre.nombre
-                    }
-                    generos.push(genero)
-                });
-           
-                product = {
-                    id: product.id,
-                    nombre: product.nombre,
-                    categoryID: product.categoryID,
-                    subcategoryID: product.subcategoryID,
-                    precio: product.precio,
-                    descuento: product.descuento,
-                    esNovedad: product.esNovedad,
-                    esDestacado: product.esDestacado,
-                    esMagicPass: product.esMagicPass,
-                    imagenes: product.image,
-                    attributes: atributos,
-                    generos: generos
-                }
-                
-                res.status(200).json(product)
+                return res.status(200).json(product);
             })
 
             .catch(error => {

@@ -5,6 +5,8 @@ const apiController = require('../controllers/apiController');
 
 routes.get("/users", apiController.users)
 
+routes.get("/products", apiController.products)
+
 routes.get("/users/:id", apiController.usersDetail)
 
 routes.get("/products/:id", apiController.productDetail)
