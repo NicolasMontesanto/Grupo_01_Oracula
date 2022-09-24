@@ -8,9 +8,6 @@ const { validationResult } = require("express-validator");
 //hash
 const bcrypt = require('bcryptjs');
 
-//funciones para usuarios
-const User = require('../models/User')
-
 const usersController = {
     //login.html
     login: (req, res) => {

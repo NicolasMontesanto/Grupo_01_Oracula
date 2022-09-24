@@ -55,23 +55,6 @@
     color: var(--amarillo-naranja);
 }
 
-.boton-google {
-    margin-top: 10px;
-    height: 40px;
-    font-weight: 1000;
-    background-color: white;
-    width: 110px;
-    color: #CF4036;
-    border: 2px solid #CF4036;
-}
-
-.boton-google:hover {
-    position: relative;
-    height: 50px;
-    width: 120px;
-    font-size: x-large;
-}
-
 .formulario__container {
     background-color: rgba(69, 41, 63, 0.7);
     box-shadow: 10px 10px 20px 10px var(--morado-oscuro);
