@@ -1,4 +1,5 @@
 const db = require('../database/models');
+const sequelize = require("sequelize");
 
 const apiController = {
     users: (req, res) => {
@@ -28,7 +29,7 @@ const apiController = {
 
     },
 
-    usersDetail: (req,res) => {
+    usersDetail: (req, res) => {
         db.User.findByPk(req.params.id, {
             include: ["image"]
         })
@@ -44,8 +45,8 @@ const apiController = {
                     }
                     usersData.push(usuarie)
                 });
-           
-                users= {
+
+                users = {
                     id: users.id,
                     nombre: users.nombre,
                     categoryID: product.categoryID,
@@ -59,7 +60,7 @@ const apiController = {
                     attributes: atributos,
                     generos: generos
                 }
-                
+
                 res.status(200).json(product)
             })
 
@@ -67,6 +68,47 @@ const apiController = {
                 return res.status(500).json(`Ha ocurrido un error inesperado : ${error}`);
             })
 
+    },
+
+    products: (req, res) => {
+    let promesaProductos =   db.Product.findAll({include: {
+        model: db.Genre,
+        as: "genre",
+        attributes:["nombre"],
+        through: {attributes: []}
+    }})
+    let categorias = db.Product.findAll({
+        attributes: ['categoryID', [sequelize.fn('count', sequelize.col('categoryID')), 'cantidad']],
+        group: ['categoryID'],
+    })
+    
+    Promise.all([promesaProductos, categorias])
+    .then(([products, categorias]) => {
+     
+
+                let productsData = [];
+               products.forEach(prod => {
+                    let producto = {
+                        id: prod.id,
+                        name: prod.nombre,
+                        description: prod.descripcion,
+                        subcategoryID: prod.subcategoryID,
+                        detail: `http://localhost:3200/api/products/${prod.id}`,
+                        generos : prod.genre
+                    }
+                   productsData.push(producto)
+                });
+
+                let productsResponse = {
+                    count: products.length,
+                    countByCatergory: categorias,
+                    products: productsData                    
+                }
+                res.status(200).json(productsResponse)
+            })
+            .catch(error => {
+                return res.status(500).json(`Ha ocurrido un error inesperado : ${error}`);
+            })
     },
 
     productDetail: (req, res) => {
@@ -95,7 +137,7 @@ const apiController = {
                     }
                     generos.push(genero)
                 });
-           
+
                 product = {
                     id: product.id,
                     nombre: product.nombre,
@@ -110,7 +152,7 @@ const apiController = {
                     attributes: atributos,
                     generos: generos
                 }
-                
+
                 res.status(200).json(product)
             })
 
