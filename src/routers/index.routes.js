@@ -16,6 +16,7 @@ routes.use("/user", user);
 //rutas productos
 routes.use("/product", products);
 
+//rutas de apis
 routes.use("/api", api)
 
 
