@@ -3,19 +3,33 @@ const sequelize = require("sequelize");
 
 const apiController = {
     users: (req, res) => {
-        db.User.findAll({
+        let pageComoNumero = Number.parseInt(req.query.page)
+        let page = 0;
+        if(!Number.isNaN(pageComoNumero) && pageComoNumero>0){
+            page = pageComoNumero;
+        }
+
+        db.User.findAndCountAll({
             attributes: [
             "id",
             [sequelize.fn('concat', sequelize.col('nombre'), ' ', sequelize.col('apellido')),"name"],
              "email",
             [sequelize.fn('concat', 'http://localhost:3200/api/users/', sequelize.col('id')), "detail"]
-            ]
+            ],
+            limit: 10,
+            offset: page * 10
          }     )
             .then(users => {
+
+                let previousPage = page>0?`http://localhost:3200/api/users?page=${page-1}`:"" 
+                let nextPage = page<(users.count/10)?`http://localhost:3200/api/users?page=${page+1}`:"" 
                 
                 let usersResponse = {
-                    count: users.length,
-                    users: users
+                    count: users.count,
+                    users: users.rows,
+                    next: nextPage,
+                    previous: previousPage
+                    
                 }
 
                 return res.status(200).json(usersResponse)
@@ -39,7 +53,14 @@ const apiController = {
     },
 
     products: (req, res) => {
-        let promesaProductos = db.Product.findAll({
+
+        let pageComoNumero = Number.parseInt(req.query.page)
+        let page = 0;
+        if(!Number.isNaN(pageComoNumero) && pageComoNumero>0){
+            page = pageComoNumero;
+        }
+
+        let promesaProductos = db.Product.findAndCountAll({
             attributes: [
                 "id", 
                 [sequelize.col("Product.nombre"),"name"],
@@ -52,7 +73,9 @@ const apiController = {
                 as: "genre",
                 attributes: ["nombre"],
                 through: { attributes: [] }
-            }
+            },
+            limit: 10,
+            offset: page * 10
         })
         let categorias = db.Product.findAll({
             attributes: ['categoryID', [sequelize.fn('count', sequelize.col('categoryID')), 'cantidad']],
@@ -62,10 +85,15 @@ const apiController = {
         Promise.all([promesaProductos, categorias])
             .then(([products, categorias]) => {
 
+                let previousPage = page>0?`http://localhost:3200/api/products?page=${page-1}`:"" 
+                let nextPage = page<(products.count/10)?`http://localhost:3200/api/products?page=${page+1}`:"" 
+
                 let productsResponse = {
-                    count: products.length,
-                    countByCatergory: categorias,
-                    products
+                    count: products.count,
+                    countByCategory: categorias,
+                    products: products.rows,
+                    next: nextPage,
+                    previous: previousPage
                 }
                 res.status(200).json(productsResponse)
             })
