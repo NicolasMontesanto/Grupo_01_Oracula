@@ -21,8 +21,8 @@ const apiController = {
          }     )
             .then(users => {
 
-                let previousPage = page>0?`http://localhost:3200/api/users?page=${page-1}`:"" 
-                let nextPage = page<(users.count/10)?`http://localhost:3200/api/users?page=${page+1}`:"" 
+                let previousPage = page>0?`http://localhost:3200/api/users/?page=${page-1}`:"" 
+                let nextPage = page<(users.count/10)?`http://localhost:3200/api/users/?page=${page+1}`:"" 
                 
                 let usersResponse = {
                     count: users.count,
@@ -85,8 +85,8 @@ const apiController = {
         Promise.all([promesaProductos, categorias])
             .then(([products, categorias]) => {
 
-                let previousPage = page>0?`http://localhost:3200/api/products?page=${page-1}`:"" 
-                let nextPage = page<(products.count/10)?`http://localhost:3200/api/products?page=${page+1}`:"" 
+                let previousPage = page>0?`http://localhost:3200/api/products/?page=${page-1}`:"" 
+                let nextPage = page<(products.count/10)?`http://localhost:3200/api/products/?page=${page+1}`:"" 
 
                 let productsResponse = {
                     count: products.count,
