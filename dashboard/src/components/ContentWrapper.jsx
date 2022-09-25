@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import Home from '../views/Home.jsx';
+import Users from '../views/Users.jsx';
 
 function ContentWrapper() {
 	return (
@@ -10,7 +11,9 @@ function ContentWrapper() {
 				<Route path="/" exact>
                     <Home/>
 				</Route>
-				<Route path="/usuarixs"></Route>
+				<Route path="/usuarixs">
+                    <Users/>
+                </Route>
 				<Route path="/productos"></Route>
 			</Switch>
 		</div>

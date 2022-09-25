@@ -1,16 +1,17 @@
 import React from "react";
 import Logo from "../assets/Logo.png"
 import {Link} from "react-router-dom"
+import '../css/Sidebar.css'
 
 function Sidebar() {
     return (
-        <ul className="sidebar" id="sidebar">
+        <div className="sidebar" id="sidebar">
             <div>
-                <Link to="/" exact> <img src={Logo} className="sidebar__logo" alt="Logo-Orácula"></img> </Link>
+                <Link to="/"> <img src={Logo} className="sidebar__logo" alt="Logo-Orácula"></img> </Link>
             </div>
             <div>
                 <h1 className="sidebar__title">
-                    <Link to="/" exact>Orácula</Link>
+                    <Link to="/">Orácula</Link>
                 </h1>
             </div>
             <li className="sidebar__link" id="linkProductos">
@@ -19,7 +20,7 @@ function Sidebar() {
             <li className="sidebar__link" id="linkUsuarixs">
                 <Link to="/usuarixs">Usuarixs</Link>
             </li>
-        </ul>
+        </div>
     )
 }
 

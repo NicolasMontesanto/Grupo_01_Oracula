@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './css/App.css';
 import Sidebar from './components/Sidebar.jsx'
 import ContentWrapper from './components/ContentWrapper.jsx'
 
