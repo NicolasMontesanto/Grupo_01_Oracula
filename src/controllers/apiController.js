@@ -16,13 +16,14 @@ const apiController = {
              "email",
             [sequelize.fn('concat', 'http://localhost:3200/api/users/', sequelize.col('id')), "detail"]
             ],
+            distinct:true,
             limit: 10,
             offset: page * 10
          }     )
             .then(users => {
 
                 let previousPage = page>0?`http://localhost:3200/api/users/?page=${page-1}`:"" 
-                let nextPage = page<(users.count/10)?`http://localhost:3200/api/users/?page=${page+1}`:"" 
+                let nextPage = (page+1)<=(users.count/10)?`http://localhost:3200/api/users/?page=${page+1}`:"" 
                 
                 let usersResponse = {
                     count: users.count,
@@ -74,6 +75,7 @@ const apiController = {
                 attributes: ["nombre"],
                 through: { attributes: [] }
             },
+            distinct:true,
             limit: 10,
             offset: page * 10
         })
@@ -86,7 +88,7 @@ const apiController = {
             .then(([products, categorias]) => {
 
                 let previousPage = page>0?`http://localhost:3200/api/products/?page=${page-1}`:"" 
-                let nextPage = page<(products.count/10)?`http://localhost:3200/api/products/?page=${page+1}`:"" 
+                let nextPage = (page+1)<=(products.count/10)?`http://localhost:3200/api/products/?page=${page+1}`:"" 
 
                 let productsResponse = {
                     count: products.count,
