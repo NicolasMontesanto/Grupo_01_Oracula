@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import '../css/Users.css';
+import Button from './Button';
 
 class LastUser extends Component {
 	constructor() {
@@ -13,8 +15,6 @@ class LastUser extends Component {
 		//Llama a la API que trae todos lxs users
 		this.apiCall('http://localhost:3200/api/users', this.getLatestUser);
 	}
-
-	componentDidUpdate() {}
 
 	apiCall = (url, consecuencia) => {
 		fetch(url)
@@ -66,9 +66,8 @@ class LastUser extends Component {
 					{this.state.latestUser.nombre} {this.state.latestUser.apellido}
 				</h3>
 				<h3 className="latestUser__label">Email:</h3>
-				<h3 className="latestUser__value">
-					{this.state.latestUser.email}
-				</h3>
+				<h3 className="latestUser__value">{this.state.latestUser.email}</h3>
+				<Button url={`/users/${this.state.latestUser.id}`} name="Detalle" />
 			</div>
 		);
 	}

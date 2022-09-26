@@ -68,7 +68,24 @@ a {
     gap: 1rem;
     overflow: visible;
 }
-
-@media (min-width: 820px) {
-
+.home__card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 1rem;
+    overflow: visible;
 }
+
+.button {
+    color: var(--oracula);
+    background-color: var(--morado-oscuro);
+    border: 1px solid var(--gris--morado);
+    font-size: 22px;
+    padding: 8px;
+    border-radius: 5px;
+    /* margin: auto; */
+    margin-top: 1rem;
+}
+
+
+@media (min-width: 820px) {}

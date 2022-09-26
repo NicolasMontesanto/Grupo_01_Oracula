@@ -25,7 +25,6 @@ class UsersTable extends Component {
 		} else {
 			array = this.state.array;
 		}
-		console.log(array);
 		return (
 			<table className="usersTable">
 				<tbody>
@@ -40,7 +39,7 @@ class UsersTable extends Component {
 							<td key={user.id + 1}>{user.id}</td>
 							<td key={user.id + 2}>{user.name}</td>
 							<td key={user.id + 3}>{user.email}</td>
-							<td key={user.id + 4}><Link to={user.detail}>{user.detail}</Link></td>
+							<td key={user.id + 4}><Link to={`/users/${user.id}`}><i className="fa-solid fa-circle-info"></i></Link></td>
 						</tr>
 					))}
 				</tbody>

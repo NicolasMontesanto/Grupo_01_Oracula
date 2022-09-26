@@ -7,24 +7,12 @@ class Users extends Component {
 		this.state = {
 			users: {},
 			arrayUsers: [],
-			latestUser: '',
 		};
 	}
 
 	componentDidMount() {
 		//Llama a la API que trae todos lxs users
 		this.apiCall('http://localhost:3200/api/users', this.saveUsers);
-	}
-
-	componentDidUpdate() {
-		//Si no hay últimx user, lx trae de la API
-		if (this.state.latestUser === '') {
-			let latestUserId = this.getLatestUserId(this.state.arrayUsers);
-			this.apiCall(
-				`http://localhost:3200/api/users/${latestUserId}`,
-				this.saveLatestUser
-			);
-		}
 	}
 
 	apiCall = (url, consecuencia) => {
@@ -42,21 +30,7 @@ class Users extends Component {
 			arrayUsers: datos.users,
 		});
 	};
-	saveLatestUser = (user) => {
-		this.setState({
-			latestUser: user,
-		});
-	};
 
-	getLatestUserId(array) {
-		let ids = [];
-		let latestUserId;
-		array.forEach((user) => {
-			ids.push(user.id);
-		});
-		latestUserId = Math.max(...ids);
-		return latestUserId;
-	}
 
 	render() {
 		//Mostrar todos lxs users en una tabla

@@ -18,7 +18,7 @@ function Sidebar() {
                 <Link to="/productos">Productos</Link>
             </li>
             <li className="sidebar__link" id="linkUsuarixs">
-                <Link to="/usuarixs">Usuarixs</Link>
+                <Link to="/users">Usuarixs</Link>
             </li>
         </div>
     )
