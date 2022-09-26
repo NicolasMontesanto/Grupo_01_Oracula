@@ -5,6 +5,8 @@ const methodOverride = require("method-override");
 const userCredentialsMiddleware = require("./middleWares/userCredentialsMiddleware");
 const recordarMiddleware = require("./middleWares/recordarMiddleware"); //lo requiero para recordar usuarix en todas las pag.
 const cookies = require("cookie-parser");
+const cors = require('cors')
+
 
 //express
 let app = express(); 
@@ -16,6 +18,8 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
 }));
+
+app.use(cors());
 // credenciales de usuarix
 app.use(userCredentialsMiddleware);
 //recordar usuarix
