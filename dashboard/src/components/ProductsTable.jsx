@@ -9,7 +9,7 @@ class ProductsTable extends Component {
 		};
 	}
 	componentDidUpdate() {
-		if (this.state.array !== this.props.contenido) {
+        if (this.state.array !== this.props.contenido) {
 			this.setArray();
 		}
 	}
@@ -43,7 +43,8 @@ class ProductsTable extends Component {
 		let subcategoria = subcategorias[producto.subcategoryId];
 		return subcategoria;
 	}
-	render() {
+	
+    render() {
 		let array = [];
 		if (this.state.array !== '') {
 			array = this.state.array;
@@ -61,11 +62,11 @@ class ProductsTable extends Component {
 					</tr>
 					{array.map((product, index) => (
 						<tr key={index}>
-							<td key={product.id + 1}>{product.id}</td>
-							<td key={product.id + 2}>{product.name}</td>
-							<td key={product.id + 3}>{product.description}</td>
-							<td key={product.id + 4}>{this.setGeneros(product)}</td>
-							<td key={product.id + 5}>
+							<td key={"id" + index}>{product.id}</td>
+							<td key={"name" + index}>{product.name}</td>
+							<td key={"descripcion" + index}>{product.description}</td>
+							<td key={"generos" + index}>{this.setGeneros(product)}</td>
+							<td key={"subcategory" + index}>
 								{this.setSubcategory(product)}
 							</td>
 							<td className='productsTable--centerText' key={product.id + 6}>

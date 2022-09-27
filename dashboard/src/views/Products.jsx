@@ -17,10 +17,6 @@ class Products extends Component {
 		this.apiCall('http://localhost:3200/api/products', this.saveProducts);
 	}
 
-    // componentDidUpdate(){
-    //     if ()
-    // }
-
 	apiCall = (url, consecuencia) => {
 		fetch(url)
 			.then((response) => response.json())
@@ -45,10 +41,7 @@ class Products extends Component {
 			return (
 				<div
 					onClick={(e) =>
-						this.apiCall(
-							`http://localhost:3200/api/products/?${previous}`,
-							this.saveProducts
-						)
+						this.apiCall(this.state.products.previous, this.saveProducts)
 					}
 				>
 					<Button url={`/productos/page/${previous}`} name="Anterior" />
@@ -65,10 +58,7 @@ class Products extends Component {
 			return (
 				<div
 					onClick={(e) =>
-						this.apiCall(
-							`http://localhost:3200/api/products/?${next}`,
-							this.saveProducts
-						)
+						this.apiCall(this.state.products.next, this.saveProducts)
 					}
 				>
 					<Button url={`/productos/page/${next}`} name="Siguiente" />
@@ -79,18 +69,20 @@ class Products extends Component {
 	}
 
 	render() {
-        if ((window.location.href === "http://localhost:3000/productos") && (this.state.products.previous)){
-            this.apiCall('http://localhost:3200/api/products', this.saveProducts);
-        }
+		if (
+			window.location.href === 'http://localhost:3000/productos' &&
+			this.state.products.previous
+		) {
+			this.apiCall('http://localhost:3200/api/products', this.saveProducts);
+		}
 		return (
 			<>
 				<h1 className="title">Productos</h1>
-                <div className="buttonWrapper">
+				<div className="buttonWrapper">
 					{this.getPrevious()}
 					{this.getNext()}
 				</div>
 				<div className="productsWrapper">
-					{/* Mostrar datos del último user en la db */}
 					<ProductsTable contenido={this.state.arrayProducts} />
 				</div>
 				<div className="buttonWrapper">

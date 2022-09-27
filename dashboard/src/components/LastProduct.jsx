@@ -8,13 +8,13 @@ class LastProduct extends Component {
 		super();
 		this.state = {
 			latestProduct: '',
+			page: 0,
 		};
 	}
 
 	componentDidMount() {
 		//Llama a la API que trae todos lxs users
 		this.apiCall('http://localhost:3200/api/products', this.getLatestProduct);
-        console.log("Last Product");
 	}
 
 	apiCall = (url, consecuencia) => {
@@ -27,12 +27,24 @@ class LastProduct extends Component {
 	};
 
 	getLatestProduct = (data) => {
-		let latestProductId = this.getLatestProductId(data.products);
-		this.apiCall(
-			`http://localhost:3200/api/products/${latestProductId}`,
-			this.saveLatestProduct
-		);
+		if (data.next !== '') {
+			this.nextPage(
+				`http://localhost:3200/api/products/?page=${this.state.page}`
+			);
+		} else {
+			let latestProductId = this.getLatestProductId(data.products);
+			this.apiCall(
+				`http://localhost:3200/api/products/${latestProductId}`,
+				this.saveLatestProduct
+			);
+		}
 	};
+	nextPage(url) {
+		this.setState({
+			page: this.state.page + 1,
+		});
+		this.apiCall(url, this.getLatestProduct);
+	}
 
 	saveLatestProduct = (product) => {
 		this.setState({
@@ -52,10 +64,10 @@ class LastProduct extends Component {
 
 	render() {
 		//Mostrar todos lxs users en una tabla
-        let product;
+		let product;
 		let img = '';
 		let attributes = [];
-		if (this.state.latestProduct !== '') {
+		if (this.state.latestProduct !== '' && this.state.latestProduct) {
 			product = this.state.latestProduct;
 			img = `http://localhost:3200${product.image[0].url}`;
 			attributes = product.attribute;
@@ -64,7 +76,6 @@ class LastProduct extends Component {
 		}
 		return (
 			<div className="latestProduct">
-				{/* Mostrar datos del último user en la db */}
 				<h1 className="latestProduct__title">Último producto</h1>
 				<img
 					className="latestProduct__image"
@@ -72,9 +83,7 @@ class LastProduct extends Component {
 					alt="imagen de producto"
 				></img>
 				<h3 className="latestProduct__label">Nombre:</h3>
-				<h3 className="latestProduct__value">
-					{product.nombre}
-				</h3>
+				<h3 className="latestProduct__value">{product.nombre}</h3>
 				<h3 className="latestProduct__label">Descripción:</h3>
 				<h3 className="latestProduct__value">{product.descripcion}</h3>
 				<h3 className="latestProduct__label">Precio:</h3>

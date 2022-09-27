@@ -7,7 +7,7 @@ function Sidebar() {
     return (
         <div className="sidebar" id="sidebar">
             <div>
-                <Link to="/"> <img src={Logo} className="sidebar__logo" alt="Logo-Orácula"></img> </Link>
+                <a href="http://localhost:3200/"><img src={Logo} className="sidebar__logo" alt="Logo-Orácula"></img></a>
             </div>
             <div>
                 <h1 className="sidebar__title">

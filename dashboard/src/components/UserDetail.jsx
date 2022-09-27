@@ -7,9 +7,9 @@ class UserDetail extends Component {
 			user: '',
 		};
 	}
-	componentDidMount() {
-		this.forceUpdate();
-	}
+    componentDidMount(){
+        this.forceUpdate();
+    }
 	componentDidUpdate() {
         console.log("update");
 		if (this.state.user === '') {
