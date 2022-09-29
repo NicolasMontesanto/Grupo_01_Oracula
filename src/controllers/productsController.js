@@ -458,39 +458,7 @@ const productsController = {
                 })
                 .catch(error => console.log(error))
             
-            //     //guardo la URL de la imagen
-            //     let imageURL = producto.image.url;
-            //     //Borro la imagen asociada al producto
-            //     db.Image.destroy({ where: { productID: id } })
-            //         .then(res1 => {
-            //             //Borro el archivo de la imagen
-            //             fs.unlinkSync(path.join(__dirname, "../../public", imageURL));
-
-            //             //Borro los géneros asociados al producto
-            //             db.ProductGenre.destroy({ where: { productID: id } })
-            //                 .then(res2 => {
-            //                     //Borro los atributos del producto
-            //                     db.AttributeProduct.destroy({ where: { productID: id } })
-            //                         .then(res3 => {
-            //                             //Borro el producto de cada carrito donde se encuentra
-            //                             db.CartProduct.destroy({ where: { productID: id } })
-            //                                 .then(res4 => {
-            //                                     //Borro el producto
-            //                                     db.Product.destroy({ where: { id: id } })
-            //                                         .then(respuesta => {
-            //                                             res.redirect("/product/list");
-            //                                         })
-            //                                         .catch(error => console.log(error))
-            //                                 })
-            //                                 .catch(error => console.log(error))
-            //                         })
-            //                         .catch(error => console.log(error))
-            //                 })
-            //                 .catch(error => console.log(error))
-            //         })
-            //         .catch(error => console.log(error))
-            // })
-            // .catch(error => console.log(error))
+         
             })
     },
 
@@ -536,8 +504,7 @@ const productsController = {
                                     }
                                 }
                             });
-                            console.log(carrito)
-                            console.log("******************************************")
+                          
                             res.render('./products/productCart', { arrayProductos: productos, carrito: carrito });
                         })
                 } else {
