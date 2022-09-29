@@ -589,7 +589,8 @@ const productsController = {
         })
         Promise.all([promesaCarrito, promesaCarritoProducto, promesaProducto])
             .then(([carrito, productoCarrito, producto]) => {
-                carrito.montoTotal = parseInt(carrito.montoTotal) - (producto.precio - (producto.precio * (producto.descuento / 100)));
+                let precioFinal= producto.precio - (producto.precio * (producto.descuento / 100))
+                carrito.montoTotal = parseInt(carrito.montoTotal) - (precioFinal * productoCarrito.cantidad);
                 carrito.save();
                 db.CartProduct.destroy({
                     where: {

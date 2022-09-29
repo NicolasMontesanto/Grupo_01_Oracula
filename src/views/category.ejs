@@ -39,16 +39,12 @@ El boton de me interesa funciona pero se ve mal aun -->
                                                                     <img src="<%=productos[i].image.url%>"
                                                                         alt="Producto-<%=productos[i].id%>">
                                                                 </a>
-                                                                <div class="contenedor-info">
+                                                                <div class="contenedor-info--category">
                                                                     <div class="info">
                                                                         <p class="titulo">
                                                                             <%=productos[i].nombre%>
                                                                         </p>
-                                                                        <span class="categoria">
-                                                                            <%=productos[i].subcategory.nombre%>
-                                                                        </span>
                                                                     </div>
-                                                                    <!-- <div class="fondo"></div> -->
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -57,14 +53,10 @@ El boton de me interesa funciona pero se ve mal aun -->
                                             </div>
                                         </section>
                                         <%}else{%>
-                                            <h2 class="destacados__titulo paginaVacia--titulo">Lo
-                                                sentimos...Aún no
-                                                hay
-                                                nada en la
-                                                categoría que seleccionaste</h2>
-                                            <div class="paginaVacia--relleno"></div>
-                                            <%}%>
-                                                <%- include('./partials/footer.ejs')%>
+                                            <h2 class="destacados__titulo paginaVacia--titulo">Lo sentimos...Aún no hay nada en la categoría que seleccionaste</h2>
+                                                <div class="paginaVacia--relleno"></div>
+                                        <%}%>
+                                        <%- include('./partials/footer.ejs')%>
         </div>
 </body>
 
