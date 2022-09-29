@@ -49,7 +49,7 @@
                             <div class="formulario__item"> 
                                 <label class="formulario__label" for="email">Email:</label>
                                 <input data-nombre="email" class="formulario__input <%= locals.errors && errors.email ? 'invalid' : null %>"
-                                    type="email" id="email" name="email"
+                                    type="email" id="email" name="email" autocomplete="new-password"
                                     value="<%= locals.oldData ? oldData.email : null %>" placeholder="albus-el-mejor-mago@hogwarts.uk">
                                 <p class="formulario__error" id="errorEmail">
                                     <%= (locals.errors && errors.email)? errors.email.msg : "" %> 
@@ -83,7 +83,7 @@
                                 <label class="formulario__label" for="password">Contraseña:</label>
                                 <input data-nombre="password"
                                     class="formulario__input <%= locals.errors && errors.password ? 'invalid' : null %>"
-                                    type="password" id="password" name="password">
+                                    type="password" id="password" name="password" autocomplete="new-password">
                                 <p class="formulario__error" id="errorprofilePicture">
                                     <%= (locals.errors && errors.password)? errors.password.msg : "" %> 
                                 </p>

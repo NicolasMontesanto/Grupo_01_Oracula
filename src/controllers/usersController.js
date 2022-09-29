@@ -143,10 +143,10 @@ const usersController = {
                             password: bcrypt.hashSync(req.body.password, 10),
                             imagen: `/img/Profile-pictures/${file.filename}`
                         }, {
-                             where: { id: userInDB.id }
-                            })
-                            .then( respuesta =>{
-                              res.redirect("/user/profile")
+                            where: { id: userInDB.id }
+                        })
+                            .then(respuesta => {
+                                res.redirect("/user/profile")
                             })
                             .catch(error => { console.log(error) })
                     }
@@ -179,11 +179,11 @@ const usersController = {
 
                     //let userCreated = User.create(userToCreate);
                 }
-            
+
             })
-            .catch(error => { console.log(error) })
+                .catch(error => { console.log(error) })
         }
-      },
+    },
 
 
     //Renderizar la vista de Edit
@@ -213,23 +213,45 @@ const usersController = {
             }
             res.render("./users/userEdit", { user: req.session.userLogged, errors: validationsResult.mapped() });
         } else {
-                
-                db.User.update({
-                nombre: req.body.nombre,
-                apellido: req.body.apellido,
-                email: req.body.email,
-                direccion: req.body.direccion,
-                telefono: req.body.telefono,
-                password: bcrypt.hashSync(req.body.password, 10),
-                 //si trae imagen de perfil actualiza, sino deja la actual
-                imagen: `/img/Profile-pictures/${file.filename}`
-                },{
-                where: { id: id }
+            db.User.findByPk(id)
+                .then(user => {
+                    user.nombre = req.body.nombre;
+                    user.apellido = req.body.apellido;
+                    user.email = req.body.email;
+                    user.direccion = req.body.direccion;
+                    user.telefono = req.body.telefono;
+                    if (req.body.password) {
+                        user.password = bcrypt.hashSync(req.body.password, 10);
+                    }
+                    if (file) {
+                        user.imagen = `/img/Profile-pictures/${file.filename}`;
+                    }
+                    user.save()
+                        .then(respuesta => {
+                             //borro la pass para que no quede en session
+                             delete user.password;
+                             //guardo el usuario loggeado en session
+                             req.session.userLogged = user;
+                             //Busco el carrito del usuario y lo guardo en session
+                             db.Cart.findOne({
+                                 where: {
+                                     userID: user.id
+                                 }
+                             })
+                                 .then(carrito => {
+                                     req.session.cartID = carrito.id
+                                     //compruebo si tildó recordarme
+                                     if (req.body.recordarPassword) {
+                                         res.cookie('userEmail', req.body.email, { maxAge: 1000 * 60 * 15 })
+                                     }
+                                     res.redirect('/user/profile')
+                                 })
+                                 .catch(error => { console.log(error) })
+ 
+                            res.redirect("/user/profile")
+                        })
+                        .catch(error => { console.log(error) })
                 })
-                .then( respuesta =>{
-                    res.redirect("/user/profile")
-                })
-                .catch(error => { console.log(error) })
         }
     },
 

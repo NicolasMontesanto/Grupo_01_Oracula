@@ -19,7 +19,7 @@
                     <h1 class="titulo__text">Editar Usuario</h1>
                 </section>
                 <div class="formulario__container">
-                    <form class="formulario" action="/user/<%=user.id %>/edit?_method=PUT" method="post" enctype="multipart/form-data">
+                    <form autocomplete="off" class="formulario" action="/user/<%=user.id %>/edit?_method=PUT" method="post" enctype="multipart/form-data">
                         <div class="formulario__item">
                             <label class="formulario__label label--username" for="id">
                                 <%=user.nombre%>
@@ -50,7 +50,7 @@
                         <div class="formulario__item">
                             <label class="formulario__label" for="email">Email:</label>
                             <input class="formulario__input <%= locals.errors && errors.email ? 'input--invalid' : null %>"
-                                type="email" id="email" name="email" value="<%=user.email%>">
+                                type="email" id="email" name="email" value="<%=user.email%>" autocomplete="off">
                                 <i class="fa-solid fa-circle-check input--icon icon--valid hidden" id="iconValidEmail"></i>
                                 <i class="fa-solid fa-circle-exclamation input--icon icon--invalid hidden" id="iconInvalidEmail"></i>
                                 <p class="formulario__error" id="errorEmail">
@@ -77,7 +77,7 @@
                         <div class="formulario__item">
                             <label class="formulario__label" for="profile-picture">Imagen de perfil:</label>
                             <input class="formulario__input input--file" type="file" id="profilePicture"
-                                name="profilePicture" accept="image/png, image/jpeg" required>
+                                name="profilePicture" accept="image/png, image/jpeg">
                                 <i class="fa-solid fa-circle-check input--icon icon--valid hidden" id="iconValidImagen"></i>
                                 <i class="fa-solid fa-circle-exclamation input--icon icon--invalid hidden" id="iconInvalidImagen"></i>
                                 <p class="formulario__error" id="errorProfilePicture">
@@ -87,7 +87,7 @@
                         <div class="formulario__item">
                             <label class="formulario__label" for="password">Cambiar contraseña:</label>
                             <input class="formulario__input <%= locals.errors && errors.password ? 'input--invalid' : null %>"
-                                type="password" id="password" name="password" required >
+                                type="password" id="password" name="password" autocomplete="new-password">
                                 <i class="fa-solid fa-circle-check input--icon icon--valid hidden" id="iconValidPass"></i>
                                 <i class="fa-solid fa-circle-exclamation input--icon icon--invalid hidden" id="iconInvalidPass"></i>
                                 <p class="formulario__error" id="errorPassword">
@@ -98,7 +98,7 @@
                             <label class="formulario__label" for="password">Confirme su contraseña:</label>
                             <input
                                 class="formulario__input <%= locals.errors && errors.passwordRepetir ? 'input--invalid' : null %>"
-                                type="password" id="password-repetir" name="passwordRepetir" required>
+                                type="password" id="password-repetir" name="passwordRepetir" autocomplete="new-password">
                                 <i class="fa-solid fa-circle-check input--icon icon--valid hidden" id="iconValidPassR"></i>
                                 <i class="fa-solid fa-circle-exclamation input--icon icon--invalid hidden" id="iconInvalidPassR"></i>
                                 <p class="formulario__error" id="errorPasswordR">
