@@ -32,14 +32,19 @@ class ProductDetail extends Component {
 			product: product,
 		});
 	};
-	getAttributes(atributo) {
+    handleClick = (event, key) => {
+        console.log(event.target);
+        console.log('key index: ', key);
+      };
+
+	getAttributes(atributo, index) {
 		let content;
 		if (atributo) {
             content = (
-				<>
-					<h3 className="latestProduct__label">{atributo.nombre}:</h3>
-					<h3 className="latestProduct__value">{atributo.AttributeProduct.valor}</h3>
-				</>
+				<div key={atributo.nombre + index + 1}>
+					<h3 key={atributo.nombre + index} className="latestProduct__label">{atributo.nombre}:</h3>
+					<h3 key={atributo.AttributeProduct.valor + index } className="latestProduct__value">{atributo.AttributeProduct.valor}</h3>
+				</div>
 			);
 		}
 		return content;
@@ -56,7 +61,6 @@ class ProductDetail extends Component {
 		} else {
 			product = ['Product not found'];
 		}
-		console.log(img);
 		return (
 			<div className="latestProduct">
 				{/* Mostrar datos del último user en la db */}
@@ -72,7 +76,7 @@ class ProductDetail extends Component {
 				<h3 className="latestProduct__value">{product.descripcion}</h3>
 				<h3 className="latestProduct__label">Precio:</h3>
 				<h3 className="latestProduct__value">{product.precio}</h3>
-				{attributes.map((item) => this.getAttributes(item))}
+				{attributes.map((item, index) => this.getAttributes(item, index))}
 			</div>
 		);
 	}
