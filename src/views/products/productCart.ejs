@@ -25,49 +25,48 @@
         </h1>
         <% } %> 
         <% if (arrayProductos.length > 0) { %>
-            <section class="carrito">
+        <section class="carrito">
             <div class="item">
                 <h2 class="item__titulo">Detalle de compra</h2>
                 <%for (let i = 0; i < arrayProductos.length; i++) { %>
                 <div class="tarjeta">
-                    <div class="tarjetita">
-                        <div class="tarjeta__img">
-                            <img src="<%=arrayProductos[i].image.url%>" alt="Cartas" class="tarjeta__img--img">
-                        </div>
+                        <a href="/product/detail/ <%=arrayProductos[i].id %>">
+                            <img src="<%=arrayProductos[i].image.url%>" alt="imagen del producto" class="tarjeta__img">
+                        </a>
                         <div class="item__detalle">
-                            <h3 class="item__detalle--nombre"><%=arrayProductos[i].nombre%></h3>
-                        <div class="item__datos">
-                            <div class="item__datos--cantidad">
-                                <button class="item__datos--boton" id="menos">
-                                    <i class="fa-solid fa-minus"></i>
-                                </button>
-                                <span class="item__datos--contar"><%=arrayProductos[i].cantidad%></span>
-                                <button class="item__datos--boton" id="mas">
-                                    <i class="fa-solid fa-plus"></i>
-                                </button>
+                            <a href="/product/detail/ <%=arrayProductos[i].id %>"><h3 class="item__detalle--nombre"><%=arrayProductos[i].nombre%></h3></a>
+                            <p class="item__detalle--descripcion"><%=arrayProductos[i].descripcion%></p>
+                            <div class="item__datos">
+                                <div class="item__datos--cantidad">
+                                    <button class="item__datos--boton" id="menos">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </button>
+                                    <span class="item__datos--contar"><%=arrayProductos[i].cantidad%></span>
+                                    <button class="item__datos--boton" id="mas">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </button>
+                                </div>
+                                <div class="item__datos--precio">
+                                    <span id="precio">$<%=arrayProductos[i].precio - arrayProductos[i].precio * (arrayProductos[i].descuento / 100)%></span>
+                                </div>
                             </div>
-                            <div class="item__datos--precio">
-                                <span id="precio">$<%=arrayProductos[i].precio - arrayProductos[i].precio * (arrayProductos[i].descuento / 100)%></span>
-                            </div>
-                        </div>
                         </div>
                         <form action="/product/cart/delete/<%=arrayProductos[i].id%>" method="POST">   
                             <button class="item__detalle--cerrar" type="submit"> 
                                 <i class="fa-solid fa-xmark"></i>
                             </button>
                         </form>
-                    </div>
                 </div>
                 <%}%>
             </div>
             <div class="compra">
                 <div class="compra__costos">
                     <div class="compra__costos--total">
-                        <span>Total</span> <span> <span id="total"><%=carrito.montoTotal%></span></span>
+                        <span>Total:</span> <span> <span id="total"><%="$" + carrito.montoTotal%></span></span>
                     </div>
                 </div>
                 <p class="compra__comprar">
-                    <button class="compra__comprar--boton" id="comprar">Continuar compra</button>
+                    <button class="cart-btn" id="comprar"><a href="/">Continuar compra</a></button>
                 </p>
             </div>
         </section>

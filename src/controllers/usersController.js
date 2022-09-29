@@ -28,7 +28,7 @@ const usersController = {
             db.User.findOne({
                 where: {
                     email: req.body.email,
-                    estaActivo: 1
+                    estaActivo: true
                 }
             })
                 .then((userToLogin) => {

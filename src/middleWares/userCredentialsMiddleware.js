@@ -8,7 +8,6 @@ function userCredentialsMiddleware(req, res, next) {
     if (userLogged && userLogged.esAdmin == true) {
         res.locals.isAdmin = true;
     }
-
 next();
 }
 module.exports = userCredentialsMiddleware;

@@ -95,22 +95,38 @@
                         Productos sugeridos
                     </h2>
                     <!-- Barra de productos sugeridos -->
-                    <div class="caja">
-                        <%for (let i=0; i<4 && i<productosDesordenados.length; i++){%>
-                            <article class="suggested__article">
-                                <a href="/product/detail/<%=productosDesordenados[i].id%>"><img
-                                        src="<%=productosDesordenados[i].image.url%>" alt="Imagen de <%=productosDesordenados[i].nombre%>" class="suggested__product">
-                                </a>
-                                <div class="suggested__description">
-                                    <i class="fas fa-broom suggested__icon"></i>
-                                    <p class="precio"><strong>$<%=productosDesordenados[i].precio%></strong></p>
-                                    <p class="nombre">
-                                        <%= productosDesordenados[i].nombre%>
-                                    </p>
-                                </div>
-                            </article>
-                            <%}%>
-                    </div>
+                        <div class="contenedor2">
+                            <div class="contenedor-cards2">
+                                <%for (let i=0; i<4 && i<productosDesordenados.length;i++){%>
+                                    <div class="contenedor-card-item2">
+                                        <div class="contenedor-card-item-wrapper2">
+                                            <div class="img__wrapper">
+                                                <a href="/product/detail/<%=productosDesordenados[i].id%>">
+                                                    <img src="<%=productosDesordenados[i].image.url%>" alt="Producto-<%=productosDesordenados[i].id%>">
+                                                </a>
+                                                <div class="contenedor-info">
+                                                    <p class="titulo">
+                                                        <%=productosDesordenados[i].nombre%>
+                                                    </p>
+                                                    <div class="oferta-precio">
+                                                            <p class="precio-original">
+                                                                <%="$" + Math.trunc(productosDesordenados[i].precio)%>
+                                                            </p>
+                                                            <p class="precio-final">
+                                                                <%="$" + Math.trunc(productosDesordenados[i].precio - (productosDesordenados[i].precio * (productosDesordenados[i].descuento / 100)))%>
+                                                            </p>
+                                                            <p class="oferta">
+                                                                <%=productosDesordenados[i].descuento + "% OFF" %> 
+                                                            </p>
+                                                    </div>
+                                            </div>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                    <%}%>
+                            </div>
+                        </div>
                 </section>
             </main>
             <!-- FOOTER -->

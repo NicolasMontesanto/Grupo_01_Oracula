@@ -43,13 +43,12 @@ a {
     box-shadow: 0px 1px 10px -2px rgba(0, 0, 0, 0.5);
 }
 
-main{
+main {
     min-height: calc(100vh - 145px);
 }
 
 .fondo {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2),
-            rgba(0, 0, 0, 0.2)), url(/img/Fondos/Background2.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(/img/Fondos/Background2.jpg);
     background-attachment: fixed;
     background-size: cover;
     height: 100%;
@@ -109,7 +108,8 @@ main{
     text-align: left;
     cursor: pointer;
 }
-.menu__button--mobile:hover{
+
+.menu__button--mobile:hover {
     background-color: var(--morado);
 }
 
@@ -120,7 +120,8 @@ main{
     text-shadow: 0px 0px 5px var(--oracula);
     animation: menuGlow 5s linear 2s infinite;
 }
-.menu--oracula:hover{
+
+.menu--oracula:hover {
     background-color: var(--morado-oscuro);
 }
 
@@ -182,11 +183,11 @@ main{
     padding: 10px 0px 10px 0px;
 }
 
-.dropdown__link--mobile a{
+.dropdown__link--mobile a {
     padding-left: 20px;
 }
 
-.dropdown__link--mobile:hover{
+.dropdown__link--mobile:hover {
     background-color: var(--terracota);
 }
 
@@ -309,14 +310,10 @@ button {
     top: 8px;
 }
 
-.basket {
-    padding-right: 5px;
-}
-
-.basket button {
+#basket-icon-mobile {
+    padding: 5px;
     color: #FBB954;
-    font-size: 35px;
-    flex-grow: 0;
+    font-size: 30px;
 }
 
 .menu__container {
@@ -401,9 +398,10 @@ footer {
 /*---MEDIA QUERIES---*/
 @media (min-width: 820px) {
 
-    main{
+    main {
         min-height: calc(100vh - 317.5px);
     }
+
     .adicional_redes,
     .adicional,
     .secciones,
@@ -523,40 +521,16 @@ footer {
         position: relative;
     }
 
-    .botonesSuperiores_Login:hover #logoEntrar1 {
-        font-size: 40px;
-        color: #FBB954;
-        position: relative;
-        bottom: 5px;
-    }
-
-    #logoEntrar2 {
-        position: relative;
-        color: #B0A987;
-        opacity: 0.8;
-        font-size: 40px;
-        left: 11px;
-    }
-
-    #logoEntrar1 {
-        color: #B0A987;
-        opacity: 0.8;
-        font-size: 1.5em;
-    }
-
     .botonesSuperiores_Login--texto {
-        color: white;
-        font-size: 18px;
-        padding-bottom: 2px;
-        margin: 0px;
-        position: absolute;
-        bottom: -8px;
-        z-index: 2;
+        font-size: 22px;
+        color: var(--marron-claro);
+        max-width: 140px;
+        word-wrap: break-word;
     }
 
-    .botonesSuperiores_Login--texto:hover {
-        background-color: transparent;
-        font-size: 30px;
+    .botonesSuperiores__boton:hover .botonesSuperiores_Login--texto {
+        color: var(--oracula);
+        text-shadow: 0px 0px 10px var(--oracula);
     }
 
     .dropdown__contenido {
@@ -664,25 +638,47 @@ footer {
     }
 
     .search__form {
-        margin-left: 50px;
-        width: 100%;
         display: flex;
-        justify-content: flex-start;
+        justify-content: space-between;
+        align-items: center;
+        width: 30%;
+        min-width: 350px;
+        padding: 3px;
+        border: 2px solid var(--gris-oscuro);
+        border-radius: 5px;
+        flex-wrap: nowrap;
     }
 
     .search__input {
-        width: 30%;
+        width: 100%;
+        height: 100%;
         background-color: var(--morado-oscuro);
         border: 0px transparent;
-        font-size: 22px;
-        color: var(--amarillo-naranja);
+        font-size: 20px;
+        font-weight: normal;
+        color: var(--gris-claro);
+        cursor: text;
+    }
+
+    .search__input:focus {
+        outline: none;
     }
 
     .search__button {
         font-size: 35px;
         line-height: 0px;
-        color: var(--gris-claro)
+        font-size: 22px;
+        padding: 5px;
+        color: var(--gris-claro);
+        border-left: 2px solid var(--gris-oscuro);
+        cursor: pointer;
     }
+
+    .search__button:hover {
+        color: var(--oracula);
+        text-shadow: 0px 0px 10px var(--oracula);
+    }
+
 
     /*---FOOTER---*/
     .footer__container {

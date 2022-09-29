@@ -38,9 +38,10 @@
                         <li><i class="fa-solid fa-hat-wizard"></i>Es Admin:<% if(user.esAdmin == true){ %>
                             <%= "SI" %> 
                             <%} else {%>
-                            <%= "NO" %></li>
+                            <%= "NO" %>
                             <% } %>
-                        <li><a href=" /user/<%= user.id%>/edit" class="perfil-usuario-button">Editar perfil</a></li>
+                        </li>
+                        <a href=" /user/<%= user.id%>/edit" class="perfil-usuario-button">Editar perfil</a>
                     </ul>
                 </div>
             </div>

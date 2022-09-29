@@ -20,7 +20,7 @@
             </form>
             <!-- Canastita Mobile-->
             <nav class="basket">
-                <a href="/product/cart"><button><i class="iconify" data-icon="mdi:basket"></i></button></a>
+                <a href="/product/cart"><i class="fa-solid fa-basket-shopping" id="basket-icon-mobile"></i></a>
             </nav>
             <!--Secciones categorias-->
             <nav class="secciones">
@@ -71,15 +71,12 @@
                     </li>
                     <% if (!locals.loggedIn) { %>
                         <li class="botonesSuperiores__elemento">
-                            <button class="botonesSuperiores_Login">
-                                <a href="/user/login">
-                                    <div class="botonesSuperiores_Login--texto">¡Ingresá!</div>
-                                </a>
-                                <i id="logoEntrar2" class="iconify  secciones__icon"
-                                    data-icon="arcticons:monument-valley"></i>
-                                <i id="logoEntrar1" class="iconify  secciones__icon" data-icon="bi:door-open-fill"
-                                    data-flip="horizontal"></i>
-                            </button>
+                            <a href="/user/login">
+                                <button class=" botonesSuperiores__boton">
+                                    <i class="fa-solid fa-right-to-bracket "></i>
+                                    <div class="botonesSuperiores_Login--texto">Ingresar</div>
+                                </button>
+                            </a>
                         </li>
                         <% } else { %>
                             <li class="botonesSuperiores__elemento">
@@ -197,8 +194,9 @@
             <form class="search__form" action="/product/search" method="GET">
                 <input class="search__input" type="search" placeholder="Buscá productos acá." name="search" id="search">
                 <button class="search__button" class="submit">
-                    <i class="iconify" data-icon="pepicons:loop"></i>
+                    <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
+        
             </form>
         </section>
     </div>

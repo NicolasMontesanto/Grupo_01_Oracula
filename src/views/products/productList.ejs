@@ -27,24 +27,25 @@
             <% } else { %>
                 <h2 class= "destacados__titulo">Todos los productos</h2>
             <%  } %>
-            <div class="contenedor">
-                <div class="contenedor-cards">
+            <div class="contenedor2">
+                <div class="contenedor-cards2">
                     <%for (let i=0; i<products.length; i++){%>
-                        <div class="contenedor-card-item">
-                            <div class="contenedor-card-item-wrapper">
-                                <a href="/product/detail/<%=products[i].id%>">
-                                    <img src="<%=products[i].image.url%>" alt="Producto-<%=products[i].id%>">
-                                </a>
-                                <div class="contenedor-info">
-                                    <div class="info">
+                        <div class="contenedor-card-item2">
+                            <div class="contenedor-card-item-wrapper2">
+                                <div class="img__wrapper">
+                                    <a href="/product/detail/<%=products[i].id%>">
+                                        <img src="<%=products[i].image.url%>" alt="Producto-<%=products[i].id%>">
+                                    </a>
+                                    <div class="contenedor-info">
                                         <p class="titulo">
                                             <%=products[i].nombre%>
                                         </p>
-                                        <span class="categoria">
-                                            <%=products[i].subcategoria%>
-                                        </span>
+                                        <div class="oferta-precio">
+                                                <p class="precio-final">
+                                                    <%="$" + Math.trunc(products[i].precio - (products[i].precio * (products[i].descuento / 100)))%>
+                                                </p>
+                                        </div>
                                     </div>
-                                    <!-- <div class="fondo"></div> -->
                                 </div>
                             </div>
                         </div>

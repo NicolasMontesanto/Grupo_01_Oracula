@@ -53,8 +53,8 @@
     flex-wrap: wrap;
     justify-content: left;
     margin:0;
-    min-width: 70vw;
-    max-width: 1014px;
+    width: 100%;
+    max-width: 1000px;
 }
 
 .contenedor-cards .contenedor-card-item {
@@ -62,7 +62,7 @@
     
     -moz-box-sizing: border-box;
     -o-box-sizing: border-box;
-    width: 17%;
+    width: 220px;
     height: 250px;
     margin: 1.5%;
     
@@ -116,18 +116,16 @@
 }
 
 
-.contenedor-card-item .contenedor-info {
+.contenedor-info--category {
     position: absolute;
     width: 100%;
     height: 70px;
-    bottom: -70px;
-   
+    bottom: -160px;
     transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    background-color: rgba(46, 34, 47, 0.8);
 }
-
-.contenedor-card-item .contenedor-info .fondo {
+.contenedor-card-item .contenedor-info--category .fondo {
     background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.73) 53%, rgba(0, 0, 0, 0.88) 100%);
-  
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.73) 53%, rgba(0, 0, 0, 0.88) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#e0000000', GradientType=0);
     width: 100%;
@@ -137,26 +135,26 @@
     left: 0;
 }
 
-.contenedor-card-item .contenedor-info .info {
-    color: #fff;
+.contenedor-card-item .contenedor-info--category .info {
+    color: var(--oracula);
     position: relative;
     z-index: 500;
     padding: 5px 10px;
 }
 
-.contenedor-card-item .contenedor-info .info .titulo {
+.contenedor-card-item .contenedor-info--category .info .titulo {
     margin: 0;
     font-size: 20px;
     text-shadow: 2px 1px 2px black;
 }
 
-.contenedor-card-item .contenedor-info .info .categoria {
+.contenedor-card-item .contenedor-info--category .info .categoria {
     display: block;
     font-size: 20px;
 }
 
-.contenedor-card-item:hover .contenedor-info {
-    bottom: 50px;
+.contenedor-card-item:hover .contenedor-info--category {
+    bottom: 0px;
 }
 
 .contenedor-card-item:hover img {
@@ -177,10 +175,10 @@
     }
 
     .contenedor-cards .contenedor-card-item {
-        width: 22%;      
+        width: 40%;      
     }
 
-    .contenedor-card-item .contenedor-info {
+    .contenedor-card-item .contenedor-info--category {
         bottom: 0;
         
     }
