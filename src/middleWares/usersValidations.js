@@ -47,8 +47,9 @@ const validationsUserEdit = [
     body('email')
         .notEmpty().withMessage('Por favor completá tu correo').bail()
         .isEmail().withMessage('¡El formato del correo no es válido! Intentalo de nuevo'),
-        body('profilePicture').custom((value, { req }) => {
-            let file = req.file;
+    body('profilePicture').custom((value, { req }) => {
+        let file = req.file;
+        if (file) {
             let extensionesPermitidas = ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.jfif'];
             let fileExtension = path.extname(file.originalname);
             if (!file) {
@@ -59,8 +60,11 @@ const validationsUserEdit = [
                 }
             }
             return true;
-        }),
-    body('password').notEmpty().custom((value, { req }) => {
+        } else {
+            return true
+        }
+    }),
+    body('password').custom((value, { req }) => {
         if (req.body.password) {
             let passNueva = req.body.password;
             if (passNueva.length < 8) {
@@ -74,8 +78,7 @@ const validationsUserEdit = [
             return true;
         }
         return true
-    }),
-    body('passwordRepetir').notEmpty()
+    })
 ];
 
 module.exports = { validationsSignup, validationsLogin, validationsUserEdit };

@@ -28,6 +28,7 @@ formulario.addEventListener("submit", function (e) {
                 input.nextElementSibling.nextElementSibling.classList.add('hidden');
                 input.nextElementSibling.nextElementSibling.nextElementSibling.classList.remove('hidden');
             }
+            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
             return;
         } else if ((input.dataset.nombre == "nombre" || input.dataset.nombre == "apellido") && (input.value.length < 2)) {
             input.classList.add("input--invalid");
@@ -35,6 +36,7 @@ formulario.addEventListener("submit", function (e) {
             input.nextElementSibling.innerHTML = "Este campo debe contener al menos 2 caracteres.";
             input.nextElementSibling.nextElementSibling.classList.add('hidden');
             input.nextElementSibling.nextElementSibling.nextElementSibling.classList.remove('hidden');
+            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
             return;
         } else if ((input.dataset.nombre == "password" && (input.value.length < 8))) {
             input.classList.add("input--invalid");
@@ -42,6 +44,7 @@ formulario.addEventListener("submit", function (e) {
             input.nextElementSibling.innerHTML = "Este campo debe contener al menos 8 caracteres.";
             input.nextElementSibling.nextElementSibling.classList.add('hidden');
             input.nextElementSibling.nextElementSibling.nextElementSibling.classList.remove('hidden');
+            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
             return;
         } else if ((input.dataset.nombre == "passwordRepetir" && (input.value != inputPassword.value))) {
             input.classList.add("input--invalid");
@@ -49,6 +52,7 @@ formulario.addEventListener("submit", function (e) {
             input.nextElementSibling.innerHTML = "Las contraseñas no coinciden.";
             input.nextElementSibling.nextElementSibling.classList.add('hidden');
             input.nextElementSibling.nextElementSibling.nextElementSibling.classList.remove('hidden');
+            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
             return;
         } else if (input.dataset.nombre == "imagen") {
             let extension = input.value.split(".").pop().toLowerCase();
@@ -56,6 +60,7 @@ formulario.addEventListener("submit", function (e) {
                 input.classList.add("input--invalid");
                 errores++;
                 input.nextElementSibling.innerHTML = "Formato de imagen no válido, las extensiones aceptadas son: '.jpg', '.jpeg', '.png' o '.gif'.";
+                window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
                 return;
             }
         } else if (!(input.dataset.nombre == "imagen")) {
@@ -64,6 +69,7 @@ formulario.addEventListener("submit", function (e) {
             input.nextElementSibling.innerHTML = "";
             input.nextElementSibling.nextElementSibling.classList.remove('hidden');
             input.nextElementSibling.nextElementSibling.nextElementSibling.classList.add('hidden');
+            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
             return;
         } else {
             input.classList.remove("input--invalid");
@@ -94,6 +100,7 @@ camposObligatorios.forEach(function (input) {
                 input.nextElementSibling.nextElementSibling.classList.add('hidden');
                 input.nextElementSibling.nextElementSibling.nextElementSibling.classList.remove('hidden');
             }
+            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
             return;
         } else if ((input.dataset.nombre == "nombre" || input.dataset.nombre == "apellido") && (input.value.length < 2)) {
             input.classList.add("input--invalid");
