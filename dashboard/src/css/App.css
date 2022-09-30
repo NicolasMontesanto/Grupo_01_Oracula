@@ -1,0 +1,92 @@
+:root {
+    --morado-oscuro: #2E222F;
+    --morado: #45293f;
+    --vino: #7A3045;
+    --terracota: #993D41;
+    --naranja: #CD683D;
+    --amarillo-naranja: #FBB954;
+    --amarillo: #F2EC8B;
+    --marron-claro: #B0A987;
+    --khaki: #997F73;
+    --gris-rojizo: #665964;
+    --gris--morado: #443846;
+    --gris-oscuro: #576069;
+    --gris-turquesa: #788a87;
+    --gris-claro: #a9b2a2;
+    --filtro: #45293f80;
+    --oracula: #bddcf4;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: "Playfair Display", sans-serif;
+    overflow-x: hidden;
+}
+
+ul,
+li {
+    list-style: none;
+    margin-block-start: 0%;
+    margin-block-end: 0%;
+    padding-inline-start: 0%;
+    padding-inline-end: 0%;
+    margin: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.app {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.contentWrapper {
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/Fondo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0 20px;
+}
+
+.title {
+    color: var(--oracula);
+    font-size: 40px;
+    margin: 2rem 0;
+}
+
+.home__panel-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 1rem;
+    overflow: visible;
+    margin: 20px 0;
+}
+.home__card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 1rem;
+    overflow: visible;
+}
+
+.button {
+    color: var(--oracula);
+    background-color: var(--morado-oscuro);
+    border: 1px solid var(--gris--morado);
+    font-size: 22px;
+    padding: 8px;
+    border-radius: 5px;
+    /* margin: auto; */
+    margin-top: 1rem;
+}
+
+
+@media (min-width: 820px) {}

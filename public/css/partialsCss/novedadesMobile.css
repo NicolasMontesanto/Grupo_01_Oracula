@@ -1,3 +1,22 @@
+:root {
+    --morado-oscuro: #2E222F;
+    --morado: #45293f;
+    --vino: #7A3045;
+    --terracota: #993D41;
+    --naranja: #CD683D;
+    --amarillo-naranja: #FBB954;
+    --amarillo: #F2EC8B;
+    --marron-claro: #B0A987;
+    --khaki: #997F73;
+    --gris-rojizo: #665964;
+    --gris--morado: #443846;
+    --gris-oscuro: #576069;
+    --gris-turquesa: #788a87;
+    --gris-claro: #a9b2a2;
+    --filtro: #45293f80;
+    --oracula: #bddcf4;
+}
+
 
 /* Estilos del Slider de Mobile */
 .novedades {
@@ -23,8 +42,19 @@
     margin-top: 10px;
 }
 
- /* Estilos de las cards de el slider */
- .contenedor {
+.novedades__container::-webkit-scrollbar {
+    width: 5px;
+}
+
+.novedades__container::-webkit-scrollbar-track {
+    background-color: var(--filtro);
+}
+.novedades__container::-webkit-scrollbar-thumb {
+    background-color: hwb(293 9% 87%) ;
+}
+
+/* Estilos de las cards de el slider */
+.contenedor {
     position: relative;
     width: max-content;
     margin: 0 auto;
@@ -48,7 +78,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
-    margin:0;
+    margin: 0;
 }
 
 .contenedor-cards .contenedor-card-item {
@@ -59,7 +89,8 @@
     border-radius: 5px;
     cursor: help;
 }
-.contenedor-card-item{
+
+.contenedor-card-item {
     height: 250px;
     width: 600px;
     margin: 5px;
@@ -88,7 +119,7 @@
         max-width: 250px;
         position: relative;
         top: 0;
-       
+
         transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
         border-radius: 5px;
 
@@ -99,36 +130,43 @@
     }
 }
 
-.contenedor-card-item .contenedor-info {
-    position: absolute;
+.contenedor-card-item .contenedor-info-novedades {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 100%;
-    height: 70px;
-    top: 0px;
+    height: fit-content;
+    min-height: 90px;
+    background-color: rgba(46, 34, 47, 0.8);
+    padding: 8px;
+    position: absolute;
+    bottom:0;
+    
 }
 
 
-.contenedor-card-item .contenedor-info .info {
-    color: #fff;
+.contenedor-card-item .contenedor-info-novedades .info {
+    color: var(--oracula);
     position: absolute;
     z-index: 10;
     padding: 5px 10px;
-   
+    height: fit-content;
+
 }
 
-.contenedor-card-item .contenedor-info .info .titulo {
+.contenedor-card-item .contenedor-info-novedades .info .titulo {
     margin: 0;
     font-size: 20px;
     text-shadow: 2px 1px 2px black;
 }
 
-.contenedor-card-item .contenedor-info .info .categoria {
+.contenedor-card-item .contenedor-info-novedades .info .categoria {
     display: block;
     font-size: 15px;
 }
 
 .contenedor-card-item:hover img {
-    top: -30px;  
+    top: -30px;
 
     transform: rotate(-5deg) scale(1.2);
 }
-

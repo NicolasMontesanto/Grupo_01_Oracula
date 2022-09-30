@@ -140,8 +140,9 @@ main {
     height: 100%;
     padding: 15px;
     margin-bottom: 20px;
-    background-color: rgba(69, 41, 63, 0.5);
+    background-color: rgba(46, 34, 47, 0.7);
     border-radius: 3%;
+    box-shadow: 5px 5px 10px 5px var(--morado-oscuro);
 }
 
 .product__text {
@@ -176,40 +177,45 @@ main {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    flex-wrap:wrap;
 }
 
 .product__price--number {
     font-size: 20px;
     font-weight: 300;
     color: var(--oracula);
+    text-shadow: 0 0 5px #000;
     margin-right: 20px;
-    align-self: flex-start;
+    margin-top:10px;
 }
 
 .product__price--discount {
     font-size: 20px;
     font-weight: 300;
     color: var(--gris-claro);
+    text-shadow: 0 0 5px #000;
     margin-right: 20px;
     text-decoration: line-through;
-    align-self: flex-start;
+    margin-top: 10px;
 }
 
 .cart-btn {
     display: inline-block;
-    background-color: #413952;
+    background-color: var(--morado-oscuro);
     border-radius: 6px;
-    border: solid 1px white;
-    font-size: 16px;
-    color: #FFFFFF;
+    font-size: 22px;
+    color: var(--amarillo-naranja);
     text-decoration: none;
-    padding: 12px 30px;
-    transition: all .5s;
+    padding: 10px 20px;
+    transition: all 250ms;
     margin-left: auto;
+    margin-top: 10px;
+    box-shadow: 1px 1px 8px 1px black;
 }
 
 .cart-btn:hover {
-    background-color: rgb(69, 41, 63);
+    color: var(--oracula);
+    background-color: var(--morado);
 }
 
 
@@ -222,6 +228,129 @@ main {
     max-width: 1200px;
     margin: 50px auto;
     border-bottom: solid 2px var(--morado-oscuro);
+}
+
+.contenedor2 {
+    position: relative;
+    width: max-content;
+    margin: 0 auto;
+    transition: all 0.3s ease-out;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
+    height: 150px;
+    max-width: 1600px;
+    margin: auto;
+    padding: 0px;
+    height: max-content;
+    margin-top: 20px;
+    overflow-x: hidden;
+
+}
+
+.contenedor-cards2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+}
+
+.contenedor-card-item2 {
+    height: fit-content;
+    margin: 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease-out;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.contenedor-card-item2:hover {
+    transform: translateY(-10px);
+}
+
+.contenedor-card-item-wrapper2 {
+    position: relative !important;
+    background: #3e272300;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 100%;
+    display: block;
+    width: 270px;
+}
+
+.ofertas__titulo {
+    margin-top: 40px;
+    text-align: center;
+    color: var(--amarillo-naranja);
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+
+@supports(object-fit: cover) {
+
+    .img__wrapper{
+        width: 300px;
+        height: 370px;
+        overflow: hidden;
+    }
+    .contenedor-card-item2 img {
+        height: 370px;
+        width: 300px;
+        position: relative;
+        top: 0;
+        transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        object-fit: cover;
+        object-position: top center;
+    }
+}
+
+.contenedor-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: fit-content;
+    min-height: 120px;
+    background-color: rgba(46, 34, 47, 0.8);
+    padding: 8px;
+    position: absolute;
+    bottom:0;
+}
+
+.contenedor-card-item2 .contenedor-info .titulo {
+    color: var(--oracula);
+    margin: 0;
+    font-size: 24px;
+    text-shadow: 0px 0px 5px black, 0px 0px 20px black;
+}
+
+.contenedor-card-item2:hover img {
+    transform: scale(1.1);
+}
+.oferta-precio{
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+.precio-original{
+    font-size: 22px;
+    color: var(--gris-turquesa);
+    text-decoration: line-through;
+    margin-right: 10px;
+}
+.precio-final{
+    font-size: 26px;
+    margin-right: 10px;
+    color: var(--amarillo-naranja);
+}
+
+.oferta {
+    font-size: 18px;
+    color: var(--oracula);
 }
 
 .caja {
@@ -351,7 +480,6 @@ main {
 
     .product-description {
         padding: 15px;
-        background-color: rgba(69, 41, 63, 0.5);
         background-size: auto;
         border-radius: 3%;
     }
@@ -367,7 +495,6 @@ main {
 @media (min-width: 1200px) {
     .product-description {
         padding: 15px;
-        background-color: rgba(69, 41, 63, 0.5);
         background-size: auto;
         border-radius: 3%;
     }

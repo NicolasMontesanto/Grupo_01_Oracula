@@ -1,4 +1,4 @@
-DROP database IF EXISTS oraculaDB;
+                                    DROP database IF EXISTS oraculaDB;
 CREATE DATABASE IF NOT EXISTS oraculaDB ;
 USE oraculaDB;
 
@@ -685,7 +685,7 @@ VALUES (46, 'Medias Harry Potter',
 'Medias tematicas de Gryffindor',
 700, 
 5,
-1, 1, 1, 4, 2);
+1, 1, 1, 4, 7);
 
 INSERT INTO images (id, url, productID)
 VALUES (46, '/img/productos/1656459052016-prodImg.jpg', 46);

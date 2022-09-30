@@ -1,0 +1,114 @@
+.productsWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+    height: fit-content;
+    border-radius: 10px;
+    margin: 2rem 0;
+    padding: 1rem 1.5rem 1.5rem;
+    background-color: rgba(69, 41, 63, 1);
+    box-shadow: 0px 0px 8px 2px var(--morado-oscuro);
+    z-index: 2;
+    overflow-x: auto;
+}
+
+.buttonWrapper{
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 20px;
+}
+.productsTitle {
+    color: var(--oracula);
+    font-size: 40px;
+}
+
+.latestProduct {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 600px;
+    min-width: 10px;
+    height: fit-content;
+    min-height: 700px;
+    border-radius: 10px;
+    margin: 2rem 0;
+    padding: 1rem 1.5rem;
+    background-color: rgba(69, 41, 63, 1);
+    box-shadow: 0px 0px 8px 2px var(--morado-oscuro);
+    overflow-x: scroll;
+    z-index: 2;
+}
+
+.latestProduct__image {
+    width: 100%;
+    max-height: 500px;
+    min-width: 200px;
+    object-fit:contain;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.latestProduct__title {
+    color: var(--gris-claro);
+}
+
+.latestProduct__label,
+.latestProduct__value {
+    margin: 0.2rem 0
+}
+
+.latestProduct__label {
+    color: var(--gris-claro)
+}
+
+.latestProduct__value {
+    color: var(--oracula);
+    font-weight: normal;
+}
+
+
+.productsTable {
+    width: 100%;
+}
+
+.productsTable,
+th,
+tr,
+td {
+    border-collapse: collapse;
+    border-bottom: 1px var(--gris-turquesa) solid;
+    font-size: 20px;
+    text-align: start;
+}
+
+.productsTable th {
+    padding:10px;
+    color: var(--gris-claro);
+}
+.productsTable__large-header{
+    min-width: 400px;
+}
+.productsTable td {
+    padding:10px;
+    color: var(--oracula);
+}
+.productsTable tr{
+    height: 100px;
+}
+.productsTable .productsTable__headerRow{
+    height: 55px;
+}
+.productsTable--centerText{
+    text-align:center;
+}
+
+@media (min-width:820px){
+    .latestProduct {
+    overflow-x: hidden;
+    }
+}

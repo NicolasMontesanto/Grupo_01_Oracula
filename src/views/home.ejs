@@ -80,23 +80,26 @@
                                     <%for (let i=0; i<ofertas.length; i++){%>
                                         <div class="contenedor-card-item2">
                                             <div class="contenedor-card-item-wrapper2">
-                                                <a href="/product/detail/<%=ofertas[i].id%>">
-                                                    <img src="<%=ofertas[i].image.url%>"
-                                                        alt="Producto-<%=ofertas[i].id%>">
-                                                </a>
-                                                <div class="contenedor-info">
-                                                    <div class="info">
+                                                <div class="img__wrapper">
+                                                    <a href="/product/detail/<%=ofertas[i].id%>">
+                                                        <img src="<%=ofertas[i].image.url%>" alt="Producto-<%=ofertas[i].id%>">
+                                                    </a>
+                                                    <div class="contenedor-info">
                                                         <p class="titulo">
                                                             <%=ofertas[i].nombre%>
                                                         </p>
-                                                        <p class="categoria">
-                                                            <%=ofertas[i].subcategory.nombre%>
-                                                        </p>
-                                                        <p class="oferta">
-                                                            <%=ofertas[i].descuento%>%
-                                                        </p>
+                                                        <div class="oferta-precio">
+                                                                <p class="precio-original">
+                                                                    <%="$" + Math.trunc(ofertas[i].precio)%>
+                                                                </p>
+                                                                <p class="precio-final">
+                                                                    <%="$" + Math.trunc(ofertas[i].precio - (ofertas[i].precio * (ofertas[i].descuento / 100)))%>
+                                                                </p>
+                                                                <p class="oferta">
+                                                                    <%=ofertas[i].descuento + "% OFF" %> 
+                                                                </p>
+                                                        </div>
                                                     </div>
-                                                    <!-- <div class="fondo"></div> -->
                                                 </div>
                                             </div>
                                         </div>

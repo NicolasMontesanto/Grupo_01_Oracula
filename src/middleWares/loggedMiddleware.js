@@ -1,3 +1,4 @@
+//middleware que no permite entrar a ciertas vistas si no se está loggeadx
 const loggedMiddleware = {
     
     noLogged: function (req, res, next) {
@@ -9,4 +10,4 @@ const loggedMiddleware = {
     next();
 }};
    
-module.exports = loggedMiddleware; 
+module.exports = loggedMiddleware;

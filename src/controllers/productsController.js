@@ -1,12 +1,11 @@
 const path = require('path');
 const fs = require("fs");
-let products = require('../data/products.json');
 //express validator
 const { validationResult } = require('express-validator');
 const db = require('../database/models');
 const sequelize = require("sequelize");
-const { promiseImpl } = require('ejs');
-const { log, Console } = require('console');
+
+
 
 let sortear = function (productosASortear) {
     let sorteados = productosASortear.sort(() => Math.random() - 0.5)
@@ -437,40 +436,30 @@ const productsController = {
             raw: true,
             nest: true
         })
-            .then(producto => {
-                //guardo la URL de la imagen
-                let imageURL = producto.image.url;
-                //Borro la imagen asociada al producto
-                db.Image.destroy({ where: { productID: id } })
-                    .then(res1 => {
-                        //Borro el archivo de la imagen
-                        fs.unlinkSync(path.join(__dirname, "../../public", imageURL));
 
-                        //Borro los géneros asociados al producto
-                        db.ProductGenre.destroy({ where: { productID: id } })
-                            .then(res2 => {
-                                //Borro los atributos del producto
-                                db.AttributeProduct.destroy({ where: { productID: id } })
-                                    .then(res3 => {
-                                        //Borro el producto de cada carrito donde se encuentra
-                                        db.CartProduct.destroy({ where: { productID: id } })
-                                            .then(res4 => {
-                                                //Borro el producto
-                                                db.Product.destroy({ where: { id: id } })
-                                                    .then(respuesta => {
-                                                        res.redirect("/product/list");
-                                                    })
-                                                    .catch(error => console.log(error))
-                                            })
-                                            .catch(error => console.log(error))
-                                    })
-                                    .catch(error => console.log(error))
-                            })
-                            .catch(error => console.log(error))
+        
+            .then(producto => {
+                let imageURL = producto.image.url;
+
+                let borrarImagen =  db.Image.destroy({ where: { productID: id } }); 
+                let borrarProdGenero =   db.ProductGenre.destroy({ where: { productID: id } })
+                let borrarAttributeProduct = db.AttributeProduct.destroy({ where: { productID: id } }); 
+                let borrarProductoCarrito =   db.CartProduct.destroy({ where: { productID: id } }); 
+
+                Promise.all([borrarImagen, borrarProdGenero, borrarAttributeProduct, borrarProductoCarrito])
+                .then(([res1, res2, res3, res4]) => {
+
+                    fs.unlinkSync(path.join(__dirname, "../../public", imageURL));
+                    db.Product.destroy({ where: { id: id } })
+                    .then(respuesta => {
+                        res.redirect("/product/list");
                     })
                     .catch(error => console.log(error))
+                })
+                .catch(error => console.log(error))
+            
+         
             })
-            .catch(error => console.log(error))
     },
 
     //Renderiza la vista del carrito
@@ -515,8 +504,7 @@ const productsController = {
                                     }
                                 }
                             });
-                            console.log(carrito)
-                            console.log("******************************************")
+                          
                             res.render('./products/productCart', { arrayProductos: productos, carrito: carrito });
                         })
                 } else {
@@ -590,7 +578,8 @@ const productsController = {
         })
         Promise.all([promesaCarrito, promesaCarritoProducto, promesaProducto])
             .then(([carrito, productoCarrito, producto]) => {
-                carrito.montoTotal = parseInt(carrito.montoTotal) - (producto.precio - (producto.precio * (producto.descuento / 100)));
+                let precioFinal= producto.precio - (producto.precio * (producto.descuento / 100))
+                carrito.montoTotal = parseInt(carrito.montoTotal) - (precioFinal * productoCarrito.cantidad);
                 carrito.save();
                 db.CartProduct.destroy({
                     where: {
